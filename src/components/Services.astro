@@ -1,0 +1,93 @@
+---
+const services = [
+  {
+    name: 'Board & Train',
+    badge: 'Most Popular',
+    dream: 'A dog you\'re proud of — without doing it yourself',
+    description: 'Your dog lives with us for 2–8 weeks. Daily training, structured routines, field trips, weekly updates, and a detailed go-home plan.',
+    price: 'From $2,995',
+    details: ['2 to 8 week programs', 'Daily training + structured routine', 'Field trips Wed + Fri', 'Weekly owner updates', 'Go-home plan + ongoing support'],
+    highlight: true,
+  },
+  {
+    name: 'Private Lessons',
+    badge: null,
+    dream: 'A dog that actually listens — on or off leash, every time',
+    description: 'One-on-one sessions with Anesh at our facility or your home. Customized to your dog\'s specific issues.',
+    price: 'From $495',
+    details: ['1-on-1 with Anesh', 'In-facility or in-home', '6-pack and 8-pack available', 'Hike sessions in packages', 'Tailored to your dog'],
+    highlight: false,
+  },
+  {
+    name: 'Group Classes',
+    badge: null,
+    dream: 'A trained dog and a community of owners who get it',
+    description: 'Puppy, Beginner, and Advanced classes at Leaside. Small groups, real skills, Saturday + Wednesday sessions.',
+    price: 'From $450',
+    details: ['Puppy, Beginner + Advanced', 'Saturdays 9am–4pm', 'Wednesdays 7–9pm', 'Foundation Program saves $260', 'Taught by Anesh + team'],
+    highlight: false,
+  },
+  {
+    name: 'Daycare',
+    badge: null,
+    dream: 'Peace of mind while you work — your dog comes home tired and happy',
+    description: 'Full-day daycare at our Stouffville facility. Supervised play, structured downtime, socialization.',
+    price: 'Packages available',
+    details: ['Stouffville facility', 'Playtime 9–11am + 2–4pm', 'Flexible packages', '8,500 sq ft facility', 'Cross-sell from training clients'],
+    highlight: false,
+  },
+];
+---
+
+<section id="services" class="py-16 sm:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 sm:mb-16">
+      <p class="text-k9-green font-semibold text-sm tracking-wide uppercase mb-3">Our Programs</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
+        Real solutions for every dog and every owner
+      </h2>
+      <p class="mt-4 text-neutral-500 max-w-2xl mx-auto">
+        Every dog is assessed individually. No cookie-cutter methods. We find the right program for your dog's specific needs.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5">
+      {services.map((service) => (
+        <div class={`relative rounded-2xl p-6 sm:p-8 border transition-all hover:shadow-md ${service.highlight ? 'border-k9-green/30 bg-k9-green-light/40 ring-1 ring-k9-green/10' : 'border-neutral-200/60 bg-white hover:border-neutral-300'}`}>
+          {service.badge && (
+            <div class="absolute -top-3 left-6">
+              <span class="inline-flex items-center px-3 py-1 bg-k9-green text-white text-xs font-bold rounded-lg uppercase tracking-wide">
+                {service.badge}
+              </span>
+            </div>
+          )}
+
+          <h3 class="text-2xl font-bold text-neutral-900 mb-1">{service.name}</h3>
+          <p class="text-k9-green font-medium text-sm mb-3">{service.dream}</p>
+          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">{service.description}</p>
+
+          <ul class="space-y-2 mb-6">
+            {service.details.map((detail) => (
+              <li class="flex items-start gap-2 text-sm text-neutral-600">
+                <svg class="w-4 h-4 text-k9-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>{detail}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="flex items-center justify-between pt-5 border-t border-neutral-100">
+            <span class="text-2xl font-extrabold text-neutral-900">{service.price}</span>
+            <a
+              href="#contact"
+              class={`inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg transition-all ${service.highlight ? 'bg-k9-green text-white hover:bg-k9-green-mid shadow-sm' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-900 hover:text-white'}`}
+            >
+              Get Started
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
