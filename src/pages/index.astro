@@ -11,15 +11,15 @@ import '../styles/global.css';
 <Layout title="K9 Academy Training — Toronto's Dog Training Specialists">
   <Navbar />
 
-  <!-- HERO — Split Layout -->
-  <section class="relative pt-24 sm:pt-32 pb-0 overflow-hidden bg-brand-dark">
+  <!-- HERO — Split Layout, Light -->
+  <section class="relative pt-24 sm:pt-32 pb-0 overflow-hidden bg-white">
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
         <!-- LEFT — Copy -->
         <div class="max-w-xl">
           <!-- Google Review Pill -->
-          <div class="inline-flex items-center gap-2.5 bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10 mb-6">
+          <div class="inline-flex items-center gap-2.5 bg-neutral-50 rounded-full px-4 py-2 border border-neutral-200/80 mb-6">
             <svg class="w-5 h-5" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
               <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
@@ -33,29 +33,29 @@ import '../styles/global.css';
                 </svg>
               ))}
             </div>
-            <span class="text-sm font-semibold text-white">4.9/5</span>
-            <span class="w-px h-4 bg-white/20"></span>
-            <span class="text-sm text-neutral-400">250+ Reviews</span>
+            <span class="text-sm font-semibold text-neutral-900">4.9/5</span>
+            <span class="w-px h-4 bg-neutral-200"></span>
+            <span class="text-sm text-neutral-500">250+ Reviews</span>
           </div>
 
-          <h1 class="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-white leading-[1.1]">
+          <h1 class="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-neutral-900 leading-[1.1]">
             A calm, confident dog —
-            <span class="bg-gradient-to-r from-k9-orange to-amber-400 bg-clip-text text-transparent"> in as little as 4 weeks</span>
+            <span class="text-k9-orange"> in as little as 4 weeks</span>
           </h1>
 
-          <p class="mt-5 text-lg text-neutral-400 leading-relaxed">
-            Tired of dreading every walk? Done with trainers who can't handle your dog? We use proven e-collar methods and 15 years of experience to get real off-leash results — not temporary fixes.
+          <p class="mt-5 text-lg text-neutral-500 leading-relaxed">
+            Reactivity, aggression, anxiety, zero recall — we've seen it all and fixed it all. 15 years, 10,000+ dogs, and proven systems that deliver real-world results other trainers can't.
           </p>
 
           <!-- CTAs -->
           <div class="mt-8 flex flex-col sm:flex-row items-start gap-3">
-            <a href="#contact" class="inline-flex items-center px-7 py-3.5 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30 hover:shadow-xl hover:-translate-y-0.5">
+            <a href="#contact" class="inline-flex items-center px-7 py-3.5 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/25 hover:shadow-xl hover:-translate-y-0.5">
               Get a Free Consultation
               <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
             </a>
-            <a href="tel:4377785273" class="inline-flex items-center gap-2 px-7 py-3.5 text-neutral-400 font-medium hover:text-white transition-colors border border-white/10 rounded-xl hover:border-white/20">
+            <a href="tel:4377785273" class="inline-flex items-center gap-2 px-7 py-3.5 text-neutral-600 font-medium hover:text-neutral-900 transition-colors border border-neutral-200 rounded-xl hover:border-neutral-300">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
               </svg>
@@ -66,7 +66,7 @@ import '../styles/global.css';
           <!-- Trust Indicators -->
           <div class="mt-6 flex flex-wrap gap-x-5 gap-y-2">
             {['Usually same-day response', 'Free consultation', '10,000+ dogs trained'].map((item) => (
-              <div class="flex items-center gap-1.5 text-sm text-neutral-500">
+              <div class="flex items-center gap-1.5 text-sm text-neutral-400">
                 <svg class="w-4 h-4 text-k9-orange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
@@ -78,7 +78,7 @@ import '../styles/global.css';
 
         <!-- RIGHT — Video -->
         <div class="relative">
-          <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50 aspect-video">
+          <div class="rounded-2xl overflow-hidden border border-neutral-200 shadow-xl aspect-video">
             <iframe
               src="https://www.youtube.com/embed/76P1n4JgNRQ?rel=0"
               title="K9 Academy Training"
@@ -89,7 +89,7 @@ import '../styles/global.css';
             ></iframe>
           </div>
           <!-- Floating Badge -->
-          <div class="absolute -bottom-4 -left-4 sm:-bottom-5 sm:-left-5 bg-neutral-900 border border-white/10 rounded-xl px-4 py-3 shadow-xl">
+          <div class="absolute -bottom-4 -left-4 sm:-bottom-5 sm:-left-5 bg-neutral-900 rounded-xl px-4 py-3 shadow-xl">
             <p class="text-2xl font-black text-k9-orange">15+</p>
             <p class="text-xs text-neutral-400">Years Experience</p>
           </div>
@@ -98,7 +98,7 @@ import '../styles/global.css';
     </div>
 
     <!-- Stats Strip -->
-    <div class="mt-14 sm:mt-20 border-t border-white/5 bg-white/[0.02]">
+    <div class="mt-14 sm:mt-20 bg-neutral-900">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
           {[
