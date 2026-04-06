@@ -206,6 +206,102 @@ import '../styles/global.css';
     </div>
   </section>
 
+  <!-- CURRICULUM DOWNLOAD LEAD MAGNET -->
+  <section class="py-16 sm:py-24 bg-brand-dark">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Free Download</p>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">
+            See exactly what your dog will learn — download the class curriculum
+          </h2>
+          <p class="text-neutral-400 leading-relaxed mb-6">
+            Get a breakdown of every skill covered in our Puppy, Beginner, and Advanced programs. See the full week-by-week curriculum so you know exactly what to expect.
+          </p>
+          <ul class="space-y-2 mb-6">
+            {['Full curriculum for all 3 class levels', 'Week-by-week skill breakdown', 'What to practice between classes'].map((item) => (
+              <li class="flex items-center gap-2 text-sm text-neutral-300">
+                <svg class="w-4 h-4 text-k9-orange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+          <h3 class="text-lg font-bold text-white mb-1">Get the free curriculum</h3>
+          <p class="text-sm text-neutral-400 mb-4">Enter your email and we'll send it right over.</p>
+          <form id="curriculum-form" class="space-y-3">
+            <input type="text" name="curr_name" required placeholder="Your name"
+              class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm" />
+            <input type="email" name="curr_email" required placeholder="Your email"
+              class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm" />
+            <button type="submit" id="curr-submit-btn"
+              class="w-full py-3 bg-k9-orange text-white text-sm font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/20 disabled:opacity-50">
+              Download the Curriculum
+            </button>
+            <p class="text-xs text-neutral-500 text-center">No spam. Just the curriculum and helpful training tips.</p>
+          </form>
+          <div id="curr-success" class="hidden text-center py-6">
+            <svg class="w-10 h-10 mx-auto mb-3 text-k9-orange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+            <p class="text-white font-semibold">Check your email!</p>
+            <p class="text-neutral-400 text-sm mt-1">The curriculum is on its way.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const currForm = document.getElementById('curriculum-form') as HTMLFormElement;
+    const currBtn = document.getElementById('curr-submit-btn') as HTMLButtonElement;
+    const currSuccess = document.getElementById('curr-success') as HTMLDivElement;
+
+    currForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      currBtn.disabled = true;
+      currBtn.textContent = 'Sending...';
+
+      const formData = new FormData(currForm);
+      const name = formData.get('curr_name') as string;
+      const email = formData.get('curr_email') as string;
+
+      try {
+        // Push to Klaviyo
+        const _learnq = (window as any)._learnq || [];
+        _learnq.push(['identify', {
+          '$email': email,
+          '$first_name': name.split(' ')[0] || '',
+          '$last_name': name.split(' ').slice(1).join(' ') || '',
+          'Source': 'Curriculum Download',
+        }]);
+        _learnq.push(['track', 'Curriculum Download', {
+          'Name': name,
+          'Email': email,
+          'Curriculum': 'Group Classes',
+        }]);
+
+        currForm.classList.add('hidden');
+        currSuccess.classList.remove('hidden');
+
+        // Fire tracking events
+        if (typeof fbq !== 'undefined') {
+          (window as any).fbq('track', 'Lead', { content_name: 'Curriculum Download' });
+        }
+        if (typeof gtag !== 'undefined') {
+          (window as any).gtag('event', 'generate_lead', { event_category: 'curriculum', event_label: 'group_classes' });
+        }
+      } catch {
+        currBtn.disabled = false;
+        currBtn.textContent = 'Download the Curriculum';
+      }
+    });
+  </script>
+
   <!-- WHY GROUP -->
   <section class="py-16 sm:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -249,9 +345,9 @@ import '../styles/global.css';
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[
-          { headline: 'Started right and never had to fix bad habits', text: 'We brought our puppy to K9 Academy at 12 weeks. Best decision we ever made. She learned everything she needed before bad habits had a chance to form. The team made it easy and clear.', name: 'Priya S.', detail: 'Lab mix · Foundation Program' },
-          { headline: 'My dog actually listens at the park now', text: 'After Beginner and Advanced classes, our dog went from pulling on every walk to off-leash reliable at the park. The group setting made all the difference — real distractions, real results.', name: 'Jordan T.', detail: 'Golden Retriever · Beginner + Advanced' },
-          { headline: 'Worth every dollar', text: 'We almost went with private lessons but tried group first. So glad we did. Our dog learned faster being around other dogs, and the Foundation Program saved us $260.', name: 'Michelle K.', detail: 'Doodle · Foundation Program' },
+          { headline: 'Our puppy graduated top of the class', text: 'We enrolled our 14-week-old lab in the Puppy class and then straight into Beginner. The structure was exactly what she needed. By the end of the Foundation Program she was walking on a loose leash and sitting on command every time.', name: 'Priya S.', detail: 'Lab mix, 14 weeks · Foundation Program' },
+          { headline: 'Got kicked out of another class. Thrived here.', text: 'Our shepherd mix was asked to leave another training program because he was "too much." K9 Academy took him in, worked with him in the group setting, and he went from being the problem dog to the one other owners were asking about.', name: 'Dan & Sarah R.', detail: 'Shepherd mix, 2 years · Beginner + Advanced' },
+          { headline: 'The group setting made all the difference', text: 'We tried training at home for months. Nothing stuck. The group classes gave our dog real distractions to work through — other dogs, noises, people. That was the missing piece. She actually listens outside now, not just in our living room.', name: 'Michelle K.', detail: 'Doodle, 1 year · Beginner Class' },
         ].map((t) => (
           <div class="bg-white rounded-2xl p-6 border border-neutral-200/60 flex flex-col">
             <div class="flex items-center gap-2 mb-4">
