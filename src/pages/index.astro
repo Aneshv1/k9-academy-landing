@@ -96,14 +96,8 @@ import '../styles/global.css';
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <!-- Trust Strip — Awards + Stats -->
-  <section class="bg-neutral-900 border-y border-white/5">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
       <!-- Stats -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-8 sm:mb-10">
+      <div class="mt-14 sm:mt-20 grid grid-cols-2 sm:grid-cols-4 gap-8 max-w-3xl mx-auto pb-14 sm:pb-20">
         {[
           { stat: '10,000+', label: 'Dogs Trained' },
           { stat: '15+', label: 'Years Experience' },
@@ -111,34 +105,36 @@ import '../styles/global.css';
           { stat: '100+', label: 'Media Features' },
         ].map(({ stat, label }) => (
           <div class="text-center">
-            <div class="text-2xl sm:text-3xl font-extrabold text-white">{stat}</div>
-            <div class="text-xs text-neutral-500 mt-1 font-medium uppercase tracking-wider">{label}</div>
+            <div class="text-3xl sm:text-4xl font-extrabold text-white">{stat}</div>
+            <div class="text-sm text-neutral-500 mt-1 font-medium">{label}</div>
           </div>
         ))}
       </div>
+    </div>
+  </section>
 
-      <!-- Awards -->
-      <div class="pt-8 sm:pt-10 border-t border-white/5">
-        <p class="text-center text-[11px] font-semibold text-neutral-600 uppercase tracking-[0.2em] mb-6">
-          As Featured In
-        </p>
-        <div class="flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-12 gap-y-5">
-          {[
-            { src: '/badges/readers-choice.png', alt: "Toronto Star Readers' Choice 2023" },
-            { src: '/badges/quality-2025.jpg', alt: '2025 Quality Business Awards' },
-            { src: '/badges/consumer-choice.png', alt: 'Consumer Choice Award' },
-            { src: '/badges/threebest-rated.png', alt: 'ThreeBest Rated 2025' },
-            { src: '/badges/trustanalytica.png', alt: 'Top 10 Toronto — TrustAnalytica' },
-            { src: '/badges/canadian-choice-trophy.png', alt: 'Canadian Choice Award' },
-          ].map((award) => (
-            <img
-              src={award.src}
-              alt={award.alt}
-              class="h-10 sm:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
-              loading="lazy"
-            />
-          ))}
-        </div>
+  <!-- Awards Strip -->
+  <section class="py-8 sm:py-10 bg-neutral-50 border-y border-neutral-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-[11px] font-semibold text-neutral-400 uppercase tracking-[0.2em] mb-6">
+        Award-Winning Training — As Featured In
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-12 gap-y-5">
+        {[
+          { src: '/badges/readers-choice.png', alt: "Toronto Star Readers' Choice 2023" },
+          { src: '/badges/quality-2025.jpg', alt: '2025 Quality Business Awards' },
+          { src: '/badges/consumer-choice.png', alt: 'Consumer Choice Award' },
+          { src: '/badges/threebest-rated.png', alt: 'ThreeBest Rated 2025' },
+          { src: '/badges/trustanalytica.png', alt: 'Top 10 Toronto — TrustAnalytica' },
+          { src: '/badges/canadian-choice-trophy.png', alt: 'Canadian Choice Award' },
+        ].map((award) => (
+          <img
+            src={award.src}
+            alt={award.alt}
+            class="h-12 sm:h-14 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+            loading="lazy"
+          />
+        ))}
       </div>
     </div>
   </section>
