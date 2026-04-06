@@ -5,17 +5,16 @@ module.exports = {
     extend: {
       colors: {
         k9: {
-          green: '#16A34A',
-          'green-dark': '#052E16',
-          'green-light': '#F0FDF4',
-          'green-mid': '#15803D',
+          orange: '#E8611A',
+          'orange-dark': '#C44D10',
+          'orange-light': '#FFF4ED',
+          green: '#28A745',
         },
-        surface: {
-          DEFAULT: '#FAFAF9',
-          card: '#FFFFFF',
-        },
-        neutral: {
-          950: '#0A0A0A',
+        brand: {
+          charcoal: '#1A1A1A',
+          'charcoal-light': '#2A2A2A',
+          dark: '#111111',
+          muted: '#F5F5F4',
         },
       },
       fontFamily: {

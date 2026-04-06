@@ -9,12 +9,12 @@ const props = [
     description: 'Leaside for lessons and classes. Stouffville for boarding, Board & Train, and daycare. One seamless experience.',
   },
   {
-    title: '10+ years training working breeds',
+    title: '15+ years training working breeds',
     description: 'Malinois, GSD, huskies — the dogs most trainers gave up on are our specialty. We understand working dog psychology.',
   },
   {
-    title: 'Anesh responds to every inquiry personally',
-    description: 'No call centers. No assistants. You talk directly to the head trainer from day one. Same-day callback guaranteed.',
+    title: 'We respond to every inquiry quickly',
+    description: 'No call centers. No runaround. You talk directly to our training team from day one.',
   },
   {
     title: 'Results that hold — not temporary fixes',
@@ -30,7 +30,7 @@ const props = [
 <section class="py-16 sm:py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12 sm:mb-16">
-      <p class="text-k9-green font-semibold text-sm tracking-wide uppercase mb-3">Why K9 Academy</p>
+      <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Why K9 Academy</p>
       <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
         What makes us different from every<br class="hidden sm:block" /> other trainer in Toronto
       </h2>
@@ -39,8 +39,8 @@ const props = [
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
       {props.map((prop, i) => (
         <div class="rounded-2xl p-6 bg-neutral-50 border border-neutral-200/60 hover:border-neutral-300 transition-all">
-          <div class="w-8 h-8 rounded-lg bg-k9-green/10 flex items-center justify-center mb-4">
-            <span class="text-k9-green font-bold text-sm">{String(i + 1).padStart(2, '0')}</span>
+          <div class="w-8 h-8 rounded-lg bg-k9-orange/10 flex items-center justify-center mb-4">
+            <span class="text-k9-orange font-bold text-sm">{String(i + 1).padStart(2, '0')}</span>
           </div>
           <h3 class="text-base font-bold text-neutral-900 mb-2">{prop.title}</h3>
           <p class="text-neutral-500 text-sm leading-relaxed">{prop.description}</p>

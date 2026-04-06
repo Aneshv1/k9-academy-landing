@@ -12,10 +12,10 @@
   }
 
   body {
-    @apply font-sans text-neutral-900 bg-surface;
+    @apply font-sans text-neutral-900 bg-white;
   }
 
   ::selection {
-    @apply bg-k9-green/20 text-k9-green-dark;
+    @apply bg-k9-orange/20 text-brand-charcoal;
   }
 }

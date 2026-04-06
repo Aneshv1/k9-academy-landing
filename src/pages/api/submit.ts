@@ -6,13 +6,10 @@ export const prerender = false;
 const supabaseUrl = import.meta.env.SUPABASE_URL || 'https://gpcsjdvpdyvkfkwpynhf.supabase.co';
 const supabaseServiceKey = import.meta.env.SUPABASE_SERVICE_ROLE_KEY || '';
 
-// Formspree endpoint — replace with your actual Formspree form ID
-const FORMSPREE_URL = import.meta.env.FORMSPREE_URL || 'https://formspree.io/f/YOUR_FORM_ID';
-
 export const POST: APIRoute = async ({ request }) => {
   try {
     const body = await request.json();
-    const { name, email, phone, dog_name, service, message } = body;
+    const { name, email, phone, dog_info, service, message } = body;
 
     if (!name || !email || !phone) {
       return new Response(JSON.stringify({ error: 'Missing required fields' }), {
@@ -21,9 +18,9 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    const results = { supabase: false, email: false };
+    const results = { supabase: false };
 
-    // 1. Insert into Supabase leads table
+    // Insert into Supabase leads table (Scooter CRM)
     if (supabaseServiceKey) {
       try {
         const supabase = createClient(supabaseUrl, supabaseServiceKey);
@@ -32,7 +29,7 @@ export const POST: APIRoute = async ({ request }) => {
           owner_name: name,
           email,
           phone,
-          dog_name: dog_name || null,
+          dog_name: dog_info || null,
           service: service || 'private_6',
           challenge: message || null,
           stage: 'new',
@@ -47,28 +44,7 @@ export const POST: APIRoute = async ({ request }) => {
       }
     }
 
-    // 2. Send to Formspree for email notification
-    if (FORMSPREE_URL && !FORMSPREE_URL.includes('YOUR_FORM_ID')) {
-      try {
-        const formspreeRes = await fetch(FORMSPREE_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify({
-            name,
-            email,
-            phone,
-            dog_name,
-            service,
-            message,
-            _subject: `New K9 Academy Inquiry from ${name}`,
-          }),
-        });
-
-        if (formspreeRes.ok) results.email = true;
-      } catch (e) {
-        console.error('Formspree failed:', e);
-      }
-    }
+    // Klaviyo is handled client-side via their JS SDK
 
     return new Response(JSON.stringify({ success: true, ...results }), {
       status: 200,
