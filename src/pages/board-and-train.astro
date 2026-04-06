@@ -293,6 +293,62 @@ import '../styles/global.css';
     </div>
   </section>
 
+  <!-- VIDEO CAROUSEL -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">See It in Action</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
+          Watch real Board & Train transformations
+        </h2>
+      </div>
+
+      <div class="space-y-3" id="bt-video-carousel">
+        <div class="rounded-2xl overflow-hidden border border-neutral-200/60 shadow-md aspect-video">
+          <iframe
+            src="https://www.youtube.com/embed/76P1n4JgNRQ?rel=0"
+            title="K9 Academy Board & Train"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            class="w-full h-full"
+            loading="lazy"
+            id="bt-carousel-player"
+          ></iframe>
+        </div>
+
+        <div class="flex gap-2">
+          <button data-video="76P1n4JgNRQ" class="bt-video-thumb flex-1 rounded-lg overflow-hidden border-2 border-k9-orange opacity-100 transition-all">
+            <img src="https://img.youtube.com/vi/76P1n4JgNRQ/mqdefault.jpg" alt="Board & Train Program" class="w-full aspect-video object-cover" loading="lazy" />
+          </button>
+          <button data-video="gfnMuWAA-LM" class="bt-video-thumb flex-1 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition-all">
+            <img src="https://img.youtube.com/vi/gfnMuWAA-LM/mqdefault.jpg" alt="Dog Training" class="w-full aspect-video object-cover" loading="lazy" />
+          </button>
+          <button data-video="3B-EavE1l_U" class="bt-video-thumb flex-1 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition-all">
+            <img src="https://img.youtube.com/vi/3B-EavE1l_U/mqdefault.jpg" alt="Training Results" class="w-full aspect-video object-cover" loading="lazy" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('.bt-video-thumb').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const videoId = (btn as HTMLElement).dataset.video;
+        const player = document.getElementById('bt-carousel-player') as HTMLIFrameElement;
+        player.src = `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1`;
+
+        document.querySelectorAll('.bt-video-thumb').forEach((b) => {
+          b.classList.remove('border-k9-orange');
+          b.classList.add('border-transparent', 'opacity-60');
+        });
+        btn.classList.add('border-k9-orange');
+        btn.classList.remove('border-transparent', 'opacity-60');
+        btn.classList.add('opacity-100');
+      });
+    });
+  </script>
+
   <!-- HOW IT WORKS -->
   <section class="py-16 sm:py-24 bg-brand-dark">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
