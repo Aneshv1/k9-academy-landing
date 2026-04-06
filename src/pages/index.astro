@@ -37,7 +37,7 @@ import '../styles/global.css';
         </h1>
 
         <p class="mt-6 text-lg sm:text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-          K9 Academy has trained over 10,000 dogs in the last 15 years. Board & Train, Private Lessons, Group Classes — we have the right program for every dog and every owner.
+          Tired of dreading every walk? Done with trainers who can't handle your dog? K9 Academy uses proven e-collar methods, two dedicated facilities, and 15 years of working dog experience to get you real off-leash results — not temporary fixes.
         </p>
 
         <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -100,16 +100,74 @@ import '../styles/global.css';
 
   <Awards />
 
+  <!-- PAS SECTION — Problem, Agitate, Solve -->
+  <section class="py-16 sm:py-24 bg-neutral-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- PROBLEM -->
+      <div class="text-center mb-12">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-4">Sound Familiar?</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+          You Love Your Dog. But You Don't Trust Them.
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4 mb-12">
+        {[
+          '"Every walk is a battle — lunging, pulling, barking at everything"',
+          '"We\'ve been through 2 trainers and nothing has stuck"',
+          '"My dog has shown aggression and I\'m scared of what comes next"',
+          '"I can\'t let my dog off-leash because recall is non-existent"',
+          '"My puppy is out of control and getting worse every week"',
+          '"I\'m embarrassed by my dog\'s behaviour in public"',
+        ].map((pain) => (
+          <div class="flex items-start gap-3 bg-white/5 rounded-xl p-5 border border-white/5">
+            <svg class="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+            </svg>
+            <p class="text-neutral-300 text-sm leading-relaxed">{pain}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- AGITATE -->
+      <div class="bg-white/5 rounded-2xl p-8 sm:p-10 border border-white/5 mb-12">
+        <h3 class="text-xl sm:text-2xl font-bold text-white mb-4">Here's what most trainers won't tell you:</h3>
+        <p class="text-neutral-300 leading-relaxed mb-4">
+          Treat-based, positive-only methods work for easy dogs. If your dog is reactive, aggressive, anxious, or high-drive — those methods are failing you. That's why nothing has stuck. You're not the problem. Your approach is.
+        </p>
+        <p class="text-neutral-300 leading-relaxed">
+          Most trainers in Toronto won't touch e-collars. Most trainers in Toronto can't handle a malinois, a GSD, or a dog with a bite history. That's the gap K9 Academy was built to fill.
+        </p>
+      </div>
+
+      <!-- SOLVE -->
+      <div class="text-center">
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">
+          K9 Academy is <span class="text-k9-orange">the other side of that.</span>
+        </h3>
+        <p class="text-lg text-neutral-400 max-w-2xl mx-auto mb-8 leading-relaxed">
+          15 years. 10,000+ dogs. E-collar specialists. Two dedicated facilities. The dogs other trainers gave up on are our specialty — and the results speak for themselves.
+        </p>
+        <a href="#programs" class="inline-flex items-center px-8 py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30 hover:shadow-xl hover:-translate-y-0.5">
+          Find the Right Program
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- FIND YOUR PROGRAM -->
   <section id="programs" class="py-16 sm:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 sm:mb-16">
-        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Our Programs</p>
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Programs That Get Real Results</p>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
-          Find the right program for your dog
+          Four Ways to Get a Dog You're Actually Proud Of
         </h2>
         <p class="mt-4 text-neutral-500 max-w-2xl mx-auto">
-          Every dog is different. We assess individually and recommend the program that fits your dog's breed, temperament, and specific needs.
+          Every dog is assessed individually. We recommend the program that matches your dog's breed, temperament, and the specific issues you're dealing with.
         </p>
       </div>
 
@@ -250,27 +308,77 @@ import '../styles/global.css';
       <div class="text-center mb-12 sm:mb-16">
         <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Why K9 Academy</p>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
-          What makes us different
+          Why 10,000+ Dog Owners Across the GTA Chose Us
         </h2>
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {[
-          { num: '01', title: '15+ years, 10,000+ dogs', desc: 'This is not a side hustle. K9 Academy has been training at the highest level for over 15 years across the GTA.' },
-          { num: '02', title: 'The dogs others gave up on', desc: 'We specialize in the cases other trainers refuse. Bite histories, severe reactivity, working breeds — that is our expertise.' },
-          { num: '03', title: 'Balanced training that works', desc: 'We use e-collar protocols and balanced methods because the results speak for themselves. Not trendy — effective.' },
-          { num: '04', title: 'Two dedicated facilities', desc: 'Leaside for lessons and classes. Stouffville for Board & Train and daycare. Professional environments built for training.' },
-          { num: '05', title: 'Results that hold', desc: 'We keep working until your dog performs reliably in real-world situations. If results slip, we are here.' },
-          { num: '06', title: 'Award-winning and published', desc: 'Featured in 100+ publications. Readers\' Choice winner. Consumer Choice Award. ThreeBest Rated. Top 10 in Toronto.' },
+          { icon: '🏆', title: 'The Experience That Gets Results — 15 Years, 10,000+ Dogs', desc: 'This is not a side hustle. K9 Academy has been training at the highest level for over 15 years across the GTA. The depth of experience shows in the results.' },
+          { icon: '🐕', title: 'Your Dog Isn\'t a Lost Cause — We Specialize in the Cases Others Refuse', desc: 'Bite histories, severe reactivity, working breeds other trainers won\'t touch — that is our expertise. The dogs others gave up on are our specialty.' },
+          { icon: '⚡', title: 'Real Off-Leash Results — Using Methods Most Toronto Trainers Won\'t Touch', desc: 'We use e-collar protocols and balanced methods because the results speak for themselves. Not trendy — effective. Your dog learns to listen everywhere, not just in a training room.' },
+          { icon: '📍', title: 'Train in Toronto, Board in Stouffville — Two Purpose-Built Facilities', desc: 'Leaside for private lessons and group classes. Stouffville for Board & Train and daycare. Professional environments designed from the ground up for dog training.' },
+          { icon: '🔒', title: 'Results That Last — Not Temporary Fixes That Fade in a Week', desc: 'We keep working until your dog performs reliably in real-world situations. If results slip after the program, we are here. That\'s the K9 Academy commitment.' },
+          { icon: '📰', title: 'Trusted by 250+ Owners and 100+ Publications Across the GTA', desc: 'Featured in 100+ publications. Readers\' Choice winner. Consumer Choice Award. ThreeBest Rated. Top 10 in Toronto. The credibility is earned, not bought.' },
         ].map((prop) => (
           <div class="rounded-2xl p-6 bg-neutral-50 border border-neutral-200/60 hover:border-neutral-300 transition-all">
-            <div class="w-8 h-8 rounded-lg bg-k9-orange/10 flex items-center justify-center mb-4">
-              <span class="text-k9-orange font-bold text-sm">{prop.num}</span>
+            <div class="w-10 h-10 rounded-xl bg-k9-orange/10 flex items-center justify-center mb-4 text-xl">
+              {prop.icon}
             </div>
             <h3 class="text-base font-bold text-neutral-900 mb-2">{prop.title}</h3>
             <p class="text-neutral-500 text-sm leading-relaxed">{prop.desc}</p>
           </div>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FROM INQUIRY TO A DOG YOU'RE PROUD OF -->
+  <section class="py-16 sm:py-24 bg-neutral-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">From Inquiry to a Dog You're Proud Of</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+          Three Steps to Real, Lasting Results
+        </h2>
+        <p class="mt-4 text-neutral-400 max-w-2xl mx-auto">
+          No guesswork. No wasted time. Here's exactly what happens after you reach out.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          {
+            step: '01',
+            title: 'Tell Us What You\'re Dealing With',
+            desc: 'Fill out the form or call us. Describe your dog\'s breed, age, and the specific issues — reactivity, aggression, recall, pulling, whatever it is. We typically respond within hours.',
+          },
+          {
+            step: '02',
+            title: 'Get a Custom Training Recommendation',
+            desc: 'We\'ll assess your situation and recommend the right program — Board & Train, Private Lessons, Group Classes, or Puppy. No upselling. Just the program that fits your dog.',
+          },
+          {
+            step: '03',
+            title: 'Your Dog Starts Transforming',
+            desc: 'Training begins at our purpose-built facilities. You\'ll get progress updates, video check-ins, and a detailed handover so the results transfer to your life — permanently.',
+          },
+        ].map((item) => (
+          <div class="relative">
+            <div class="text-5xl font-black text-k9-orange/20 mb-3">{item.step}</div>
+            <h3 class="text-lg font-bold text-white mb-2">{item.title}</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 text-center">
+        <a href="#contact" class="inline-flex items-center px-8 py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30 hover:shadow-xl hover:-translate-y-0.5">
+          Start Your Dog's Transformation
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
       </div>
     </div>
   </section>
