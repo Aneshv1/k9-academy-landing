@@ -36,7 +36,7 @@ import '../styles/global.css';
         </h1>
 
         <p class="mt-6 text-lg sm:text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-          Beginner and Advanced obedience classes at our Leaside location. Small groups, real skills, expert instructors.
+          Three levels of group obedience — from basic leash manners to elite off-leash work. Small groups, real skills, expert instructors at our Leaside location.
         </p>
 
         <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -74,7 +74,7 @@ import '../styles/global.css';
   <section class="bg-k9-orange-light border-b border-k9-orange/10">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p class="text-sm text-neutral-700"><strong>Got a puppy under 6 months?</strong> Our Puppy Program is designed specifically for young dogs.</p>
+        <p class="text-sm text-neutral-700"><strong>Got a puppy under 5.5 months?</strong> Our Puppy Program is designed specifically for young dogs.</p>
         <a href="/puppy-classes" class="inline-flex items-center px-4 py-2 text-sm font-semibold text-k9-orange border border-k9-orange/30 rounded-lg hover:bg-k9-orange hover:text-white transition-all whitespace-nowrap">
           View Puppy Classes
           <svg class="ml-1.5 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -95,14 +95,14 @@ import '../styles/global.css';
         </h2>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-5">
-        <!-- Beginner -->
+      <div class="grid md:grid-cols-3 gap-5">
+        <!-- Level One -->
         <div class="rounded-2xl p-6 sm:p-8 border border-neutral-200/60 bg-white hover:border-neutral-300 hover:shadow-md transition-all">
-          <h3 class="text-2xl font-bold text-neutral-900 mb-1">Beginner Class</h3>
-          <p class="text-k9-orange font-medium text-sm mb-3">Build reliable obedience from the ground up</p>
-          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">For dogs of any age who need foundational obedience. Leash manners, recall, sit, down, stay — the essentials that make life with your dog easier.</p>
+          <h3 class="text-2xl font-bold text-neutral-900 mb-1">Level One</h3>
+          <p class="text-k9-orange font-medium text-sm mb-3">Basic Obedience · 6 weeks</p>
+          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">Foundational obedience for dogs of any age. Loose leash walking in heel position and mild reactivity management. No prerequisites.</p>
           <ul class="space-y-2 mb-6">
-            {['Leash manners + loose leash walking', 'Reliable sit, down, stay', 'Recall fundamentals', 'Distraction training', 'New classes open regularly — spots are limited'].map((d) => (
+            {['Loose leash walking (heel position)', 'Mild reactivity management', 'Foundational commands', 'No prerequisites required', 'New classes open regularly'].map((d) => (
               <li class="flex items-start gap-2 text-sm text-neutral-600">
                 <svg class="w-4 h-4 text-k9-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
@@ -112,18 +112,18 @@ import '../styles/global.css';
             ))}
           </ul>
           <div class="flex items-center justify-between pt-5 border-t border-neutral-100">
-            <span class="text-2xl font-extrabold text-neutral-900">$595</span>
+            <span class="text-2xl font-extrabold text-neutral-900">$595<span class="text-sm font-normal text-neutral-400"> +tax</span></span>
             <a href="#contact" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-neutral-100 text-neutral-700 hover:bg-k9-orange hover:text-white transition-all">Get on the List</a>
           </div>
         </div>
 
-        <!-- Advanced -->
+        <!-- Level Two -->
         <div class="rounded-2xl p-6 sm:p-8 border border-neutral-200/60 bg-white hover:border-neutral-300 hover:shadow-md transition-all">
-          <h3 class="text-2xl font-bold text-neutral-900 mb-1">Advanced Class</h3>
-          <p class="text-k9-orange font-medium text-sm mb-3">Off-leash reliability in real-world situations</p>
-          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">For dogs who have completed Beginner or have solid foundations. Advanced recall, off-leash work, duration commands, and real-world proofing.</p>
+          <h3 class="text-2xl font-bold text-neutral-900 mb-1">Level Two</h3>
+          <p class="text-k9-orange font-medium text-sm mb-3">Advanced Obedience · 6 weeks + test</p>
+          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">E-collar training, off-leash recall, and obedience in distracting environments. Includes 5 facility sessions, 1 off-leash graduation hike, and a test.</p>
           <ul class="space-y-2 mb-6">
-            {['Off-leash obedience', 'Advanced recall under distraction', 'Duration commands', 'Real-world proofing', 'New classes open regularly — spots are limited'].map((d) => (
+            {['E-collar training (purchased separately)', 'Off-leash recall', 'Obedience under distraction', 'Off-leash graduation hike', 'Must pass Level One or assessment'].map((d) => (
               <li class="flex items-start gap-2 text-sm text-neutral-600">
                 <svg class="w-4 h-4 text-k9-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
@@ -133,7 +133,28 @@ import '../styles/global.css';
             ))}
           </ul>
           <div class="flex items-center justify-between pt-5 border-t border-neutral-100">
-            <span class="text-2xl font-extrabold text-neutral-900">$595</span>
+            <span class="text-2xl font-extrabold text-neutral-900">$595<span class="text-sm font-normal text-neutral-400"> +tax</span></span>
+            <a href="#contact" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-neutral-100 text-neutral-700 hover:bg-k9-orange hover:text-white transition-all">Get on the List</a>
+          </div>
+        </div>
+
+        <!-- Level Three -->
+        <div class="rounded-2xl p-6 sm:p-8 border border-neutral-200/60 bg-white hover:border-neutral-300 hover:shadow-md transition-all">
+          <h3 class="text-2xl font-bold text-neutral-900 mb-1">Level Three</h3>
+          <p class="text-k9-orange font-medium text-sm mb-3">Elite Obedience · 8 weeks</p>
+          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">The highest level. Power heel, send-outs, scent search, jumps, and A-frame work. Culminates in the "IMPOSSIBLE" test. For serious handlers only.</p>
+          <ul class="space-y-2 mb-6">
+            {['Power heel + advanced positioning', 'Send-outs + scent search', 'Jumps + A-frame work', 'The "IMPOSSIBLE" test', 'Must score 80+ on Level Two test'].map((d) => (
+              <li class="flex items-start gap-2 text-sm text-neutral-600">
+                <svg class="w-4 h-4 text-k9-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>{d}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="flex items-center justify-between pt-5 border-t border-neutral-100">
+            <span class="text-2xl font-extrabold text-neutral-900">$595<span class="text-sm font-normal text-neutral-400"> +tax</span></span>
             <a href="#contact" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-neutral-100 text-neutral-700 hover:bg-k9-orange hover:text-white transition-all">Get on the List</a>
           </div>
         </div>
@@ -147,13 +168,13 @@ import '../styles/global.css';
           </div>
           <div class="md:flex md:items-center md:justify-between mt-2">
             <div>
-              <h3 class="text-2xl font-bold text-neutral-900 mb-1">Beginner + Advanced Bundle</h3>
-              <p class="text-k9-orange font-medium text-sm mb-2">From zero to off-leash reliable — the full journey</p>
-              <p class="text-neutral-500 text-sm leading-relaxed max-w-lg">Complete the full obedience program. Beginner builds the foundation, Advanced takes it to real-world, off-leash reliability.</p>
+              <h3 class="text-2xl font-bold text-neutral-900 mb-1">Level One + Level Two Bundle</h3>
+              <p class="text-k9-orange font-medium text-sm mb-2">From basic obedience to off-leash reliable — the full journey</p>
+              <p class="text-neutral-500 text-sm leading-relaxed max-w-lg">Complete both levels as one program. Level One builds the foundation, Level Two takes it to e-collar, off-leash reliability with a graduation hike.</p>
             </div>
             <div class="flex items-center gap-3 mt-4 md:mt-0">
               <div class="text-right">
-                <span class="text-2xl font-extrabold text-neutral-900">$995</span>
+                <span class="text-2xl font-extrabold text-neutral-900">$995<span class="text-sm font-normal text-neutral-400"> +tax</span></span>
                 <span class="block text-sm text-k9-orange font-semibold">Save $195</span>
               </div>
               <a href="#contact" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-k9-orange text-white hover:bg-k9-orange-dark shadow-sm transition-all">Get on the List</a>
@@ -205,10 +226,10 @@ import '../styles/global.css';
             See exactly what your dog will learn — download the class curriculum
           </h2>
           <p class="text-neutral-400 leading-relaxed mb-6">
-            Get a breakdown of every skill covered in our Beginner and Advanced programs. See the full week-by-week curriculum so you know exactly what to expect.
+            Get a breakdown of every skill covered across all three levels. See the full week-by-week curriculum so you know exactly what to expect.
           </p>
           <ul class="space-y-2 mb-6">
-            {['Full curriculum for Beginner + Advanced', 'Week-by-week skill breakdown', 'What to practice between classes'].map((item) => (
+            {['Full curriculum for all 3 levels', 'Week-by-week skill breakdown', 'What to practice between classes'].map((item) => (
               <li class="flex items-center gap-2 text-sm text-neutral-300">
                 <svg class="w-4 h-4 text-k9-orange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
