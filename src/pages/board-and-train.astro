@@ -36,7 +36,7 @@ import '../styles/global.css';
         </h1>
 
         <p class="mt-6 text-lg sm:text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-          Your dog lives with us for 4–8 weeks. Daily training, structured routines, socialization, and real-world proofing. You get back a dog you can trust — anywhere.
+          Your dog lives with us for 2–8 weeks. Daily training, structured routines, socialization, and real-world proofing. You get back a dog you can trust — anywhere.
         </p>
 
         <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -55,7 +55,7 @@ import '../styles/global.css';
         </div>
 
         <div class="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2">
-          {['4–8 week immersive programs', 'Off-leash reliability', 'Financing available via Affirm', 'Limited spots each month'].map((item) => (
+          {['2–8 week immersive programs', 'Off-leash reliability', 'Financing available via Affirm', 'Limited spots each month'].map((item) => (
             <div class="flex items-center gap-1.5 text-sm text-neutral-500">
               <svg class="w-4 h-4 text-k9-orange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
@@ -134,10 +134,10 @@ import '../styles/global.css';
       </div>
 
       <div class="grid md:grid-cols-3 gap-5">
-        <!-- 4 Week Express -->
+        <!-- 2 Week Express -->
         <div class="rounded-2xl p-6 sm:p-8 border border-neutral-200/60 bg-white hover:border-neutral-300 hover:shadow-md transition-all">
-          <h3 class="text-2xl font-bold text-neutral-900 mb-1">4 Week Express</h3>
-          <p class="text-k9-orange font-medium text-sm mb-3">Obedience + off-leash reliability</p>
+          <h3 class="text-2xl font-bold text-neutral-900 mb-1">2 Week Express</h3>
+          <p class="text-k9-orange font-medium text-sm mb-3">Fast-track obedience + off-leash reliability</p>
           <p class="text-neutral-500 text-sm mb-5 leading-relaxed">For dogs with leash reactivity, poor off-leash obedience, anxiety, leash pulling, territorial behaviour, or nervousness in new environments.</p>
           <ul class="space-y-2 mb-6">
             {['Leash reactivity', 'Off-leash obedience', 'Anxiety + nervousness', 'Leash pulling', 'Territorial behaviour', 'Socialization'].map((d) => (
@@ -150,15 +150,15 @@ import '../styles/global.css';
             ))}
           </ul>
           <div class="flex items-center justify-between pt-5 border-t border-neutral-100">
-            <span class="text-2xl font-extrabold text-neutral-900">$3,995</span>
+            <span class="text-2xl font-extrabold text-neutral-900">$2,995</span>
             <a href="#contact" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-neutral-100 text-neutral-700 hover:bg-k9-orange hover:text-white transition-all">Apply</a>
           </div>
         </div>
 
-        <!-- Behaviour Modification -->
+        <!-- 4 Week / Behaviour Modification -->
         <div class="relative rounded-2xl p-6 sm:p-8 border border-k9-orange/30 bg-k9-orange-light/40 ring-1 ring-k9-orange/10 hover:shadow-md transition-all">
           <div class="absolute -top-3 left-6">
-            <span class="inline-flex items-center px-3 py-1 bg-k9-orange text-white text-xs font-bold rounded-lg uppercase tracking-wide">Most Common</span>
+            <span class="inline-flex items-center px-3 py-1 bg-k9-orange text-white text-xs font-bold rounded-lg uppercase tracking-wide">Best Value</span>
           </div>
           <h3 class="text-2xl font-bold text-neutral-900 mb-1 mt-2">Behaviour Modification</h3>
           <p class="text-k9-orange font-medium text-sm mb-3">4–6 weeks · Advanced obedience + rehab</p>
@@ -202,8 +202,9 @@ import '../styles/global.css';
       </div>
 
       <!-- Financing -->
-      <div class="mt-8 text-center">
-        <p class="text-neutral-500 text-sm">Financing available through <strong class="text-neutral-700">Affirm</strong> — buy now, pay over time.</p>
+      <div class="mt-8 flex items-center justify-center gap-3">
+        <img src="/affirm-logo.png" alt="Affirm" class="h-6 w-auto" loading="lazy" />
+        <p class="text-neutral-500 text-sm">Financing available — buy now, pay over time.</p>
       </div>
     </div>
   </section>
@@ -260,7 +261,7 @@ import '../styles/global.css';
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[
-          { headline: 'From lunging at everything to off-leash at the park', text: 'Our GSD was reactive to every dog on the street. Two trainers told us he was too much. K9 Academy had him walking calmly within the first two weeks. Six months later, the results are still holding.', name: 'Sarah M.', detail: 'German Shepherd, 3 years · 4 Week Express' },
+          { headline: 'From lunging at everything to off-leash at the park', text: 'Our GSD was reactive to every dog on the street. Two trainers told us he was too much. K9 Academy had him walking calmly within the first two weeks. Six months later, the results are still holding.', name: 'Sarah M.', detail: 'German Shepherd, 3 years · 2 Week Express' },
           { headline: 'My dog bit someone. K9 Academy did not give up.', text: 'After a bite incident, I was told to consider euthanasia. The K9 Academy team took the time to understand what was going on. 8 weeks later, my dog is safe, calm, and part of the family again.', name: 'Rachel D.', detail: 'Husky mix, 5 years · Aggression Rehab' },
           { headline: 'The trainers who actually understood our malinois', text: 'Every trainer we talked to said our malinois was too much to handle. K9 Academy not only took him on — he thrived. The e-collar work was a game changer. Unpredictable to reliable.', name: 'James K.', detail: 'Belgian Malinois, 4 years · Behaviour Modification' },
         ].map((t) => (
