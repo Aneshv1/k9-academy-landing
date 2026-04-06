@@ -1,0 +1,373 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Awards from '../components/Awards.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+
+<Layout title="Board & Train — K9 Academy Training Toronto">
+  <Navbar />
+
+  <!-- HERO -->
+  <section class="relative pt-28 sm:pt-36 pb-14 sm:pb-20 overflow-hidden bg-brand-dark">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-center mb-8">
+        <div class="inline-flex items-center gap-2.5 bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10">
+          <div class="flex items-center gap-0.5">
+            {[1,2,3,4,5].map(() => (
+              <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+          </div>
+          <span class="text-sm font-semibold text-white">4.9/5</span>
+          <span class="w-px h-4 bg-white/20"></span>
+          <span class="text-sm text-neutral-400">250+ Google Reviews</span>
+        </div>
+      </div>
+
+      <div class="text-center max-w-4xl mx-auto">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08]">
+          A transformed dog —
+          <br />
+          <span class="bg-gradient-to-r from-k9-orange to-amber-400 bg-clip-text text-transparent">without doing it yourself</span>
+        </h1>
+
+        <p class="mt-6 text-lg sm:text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+          Your dog lives with us for 4–8 weeks. Daily training, structured routines, socialization, and real-world proofing. You get back a dog you can trust — anywhere.
+        </p>
+
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#contact" class="inline-flex items-center px-8 py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30 hover:shadow-xl hover:-translate-y-0.5">
+            Apply for Board & Train
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+          <a href="tel:4377785273" class="inline-flex items-center gap-2 text-neutral-400 font-medium hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+            </svg>
+            Or call 437-778-5273
+          </a>
+        </div>
+
+        <div class="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2">
+          {['4–8 week immersive programs', 'Off-leash reliability', 'Financing available via Affirm', 'Limited spots each month'].map((item) => (
+            <div class="flex items-center gap-1.5 text-sm text-neutral-500">
+              <svg class="w-4 h-4 text-k9-orange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Video -->
+      <div class="mt-14 sm:mt-18 max-w-5xl mx-auto">
+        <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40 aspect-video">
+          <iframe
+            src="https://www.youtube.com/embed/76P1n4JgNRQ?rel=0"
+            title="K9 Academy Board & Train Program"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            class="absolute inset-0 w-full h-full"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Awards />
+
+  <!-- PAS -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Sound familiar?</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 leading-tight">
+          You love your dog. But something has to change.
+        </h2>
+      </div>
+
+      <div class="mt-10 grid sm:grid-cols-2 gap-3">
+        {[
+          "Your dog is reactive on leash — lunging, barking, pulling toward every dog or person",
+          "You have been through other trainers and nothing has stuck long-term",
+          "Your dog has shown aggression and you are worried about what comes next",
+          "You cannot trust your dog off-leash — recall is non-existent",
+          "Your dog is anxious, nervous, or fearful in new environments",
+          "You are dealing with resource guarding, territorial behaviour, or multi-dog conflict",
+        ].map((pain) => (
+          <div class="flex items-start gap-3 bg-neutral-50 rounded-xl p-4 border border-neutral-200/60">
+            <svg class="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+            </svg>
+            <p class="text-neutral-600 text-sm leading-relaxed">{pain}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 text-center">
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-neutral-900 mb-4">
+          Board & Train removes you from the equation — and that is often the missing piece.
+        </h3>
+        <p class="text-lg text-neutral-500 max-w-2xl mx-auto leading-relaxed">
+          Your dog lives with our team, trains daily, and learns in a structured environment free from the patterns that have been reinforcing bad behaviour at home.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section id="programs" class="py-16 sm:py-24 bg-neutral-50 border-y border-neutral-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 sm:mb-16">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Our Programs</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
+          Three programs for three levels of need
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5">
+        <!-- 4 Week Express -->
+        <div class="rounded-2xl p-6 sm:p-8 border border-neutral-200/60 bg-white hover:border-neutral-300 hover:shadow-md transition-all">
+          <h3 class="text-2xl font-bold text-neutral-900 mb-1">4 Week Express</h3>
+          <p class="text-k9-orange font-medium text-sm mb-3">Obedience + off-leash reliability</p>
+          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">For dogs with leash reactivity, poor off-leash obedience, anxiety, leash pulling, territorial behaviour, or nervousness in new environments.</p>
+          <ul class="space-y-2 mb-6">
+            {['Leash reactivity', 'Off-leash obedience', 'Anxiety + nervousness', 'Leash pulling', 'Territorial behaviour', 'Socialization'].map((d) => (
+              <li class="flex items-start gap-2 text-sm text-neutral-600">
+                <svg class="w-4 h-4 text-k9-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>{d}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="flex items-center justify-between pt-5 border-t border-neutral-100">
+            <span class="text-2xl font-extrabold text-neutral-900">$3,995</span>
+            <a href="#contact" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-neutral-100 text-neutral-700 hover:bg-k9-orange hover:text-white transition-all">Apply</a>
+          </div>
+        </div>
+
+        <!-- Behaviour Modification -->
+        <div class="relative rounded-2xl p-6 sm:p-8 border border-k9-orange/30 bg-k9-orange-light/40 ring-1 ring-k9-orange/10 hover:shadow-md transition-all">
+          <div class="absolute -top-3 left-6">
+            <span class="inline-flex items-center px-3 py-1 bg-k9-orange text-white text-xs font-bold rounded-lg uppercase tracking-wide">Most Common</span>
+          </div>
+          <h3 class="text-2xl font-bold text-neutral-900 mb-1 mt-2">Behaviour Modification</h3>
+          <p class="text-k9-orange font-medium text-sm mb-3">4–6 weeks · Advanced obedience + rehab</p>
+          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">For fearful, nervous, or reactive dogs. Dogs showing aggression toward humans or other dogs. Constantly anxious dogs, resource guarders, and multi-dog households.</p>
+          <ul class="space-y-2 mb-6">
+            {['Fear + nervousness', 'Reactivity + aggression', 'Human + dog aggression', 'Resource guarding', 'Multi-dog household conflict', 'Full socialization program'].map((d) => (
+              <li class="flex items-start gap-2 text-sm text-neutral-600">
+                <svg class="w-4 h-4 text-k9-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>{d}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="flex items-center justify-between pt-5 border-t border-neutral-100">
+            <span class="text-2xl font-extrabold text-neutral-900">$3,995+</span>
+            <a href="#contact" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-k9-orange text-white hover:bg-k9-orange-dark shadow-sm transition-all">Apply</a>
+          </div>
+        </div>
+
+        <!-- Aggression Rehabilitation -->
+        <div class="rounded-2xl p-6 sm:p-8 border border-neutral-200/60 bg-white hover:border-neutral-300 hover:shadow-md transition-all">
+          <h3 class="text-2xl font-bold text-neutral-900 mb-1">Aggression Rehab</h3>
+          <p class="text-k9-orange font-medium text-sm mb-3">6–8 weeks · Severe cases</p>
+          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">For dogs with multiple bite incidents, severe human and dog aggression, emergency cases, multi-dog fighting, and resource guarding with household aggression.</p>
+          <ul class="space-y-2 mb-6">
+            {['Multiple bite incidents', 'Severe human + dog aggression', 'Emergency cases', 'Multi-dog fighting', 'Resource guarding + household aggression', 'Extended rehabilitation program'].map((d) => (
+              <li class="flex items-start gap-2 text-sm text-neutral-600">
+                <svg class="w-4 h-4 text-k9-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>{d}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="flex items-center justify-between pt-5 border-t border-neutral-100">
+            <span class="text-2xl font-extrabold text-neutral-900">$4,995+</span>
+            <a href="#contact" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-neutral-100 text-neutral-700 hover:bg-k9-orange hover:text-white transition-all">Apply</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Financing -->
+      <div class="mt-8 text-center">
+        <p class="text-neutral-500 text-sm">Financing available through <strong class="text-neutral-700">Affirm</strong> — buy now, pay over time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT THEY LEARN -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 sm:mb-16">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">What Your Dog Learns</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
+          Your dog graduates with real-world skills — not tricks
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {[
+          { title: 'Loose leash walking', desc: 'Calm, controlled walking in any environment. No more pulling, lunging, or crossing the street to avoid other dogs.' },
+          { title: 'Off-leash recall', desc: 'Reliable recall anywhere — parks, trails, the neighbourhood. Come when called, every time.' },
+          { title: 'Obedience in any environment', desc: 'Sit, down, stay, place — not just at home, but in real-world situations with real distractions.' },
+          { title: 'Socialization', desc: 'Structured interaction with dogs and people. Calm confidence replaces anxiety, fear, and reactivity.' },
+        ].map((item) => (
+          <div class="rounded-2xl p-6 bg-neutral-50 border border-neutral-200/60">
+            <h3 class="text-base font-bold text-neutral-900 mb-2">{item.title}</h3>
+            <p class="text-neutral-500 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-8 bg-neutral-50 rounded-2xl p-6 border border-neutral-200/60">
+        <h3 class="text-lg font-bold text-neutral-900 mb-3">By graduation, your dog will have eliminated:</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {['Excessive barking', 'Nervousness + anxiety', 'Leash pulling + reactivity', 'Resource guarding'].map((item) => (
+            <div class="flex items-center gap-2 text-sm text-neutral-600">
+              <svg class="w-4 h-4 text-k9-orange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-16 sm:py-24 bg-neutral-50 border-y border-neutral-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Transformations</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
+          The dogs other trainers gave up on
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          { headline: 'From lunging at everything to off-leash at the park', text: 'Our GSD was reactive to every dog on the street. Two trainers told us he was too much. K9 Academy had him walking calmly within the first two weeks. Six months later, the results are still holding.', name: 'Sarah M.', detail: 'German Shepherd, 3 years · 4 Week Express' },
+          { headline: 'My dog bit someone. K9 Academy did not give up.', text: 'After a bite incident, I was told to consider euthanasia. The K9 Academy team took the time to understand what was going on. 8 weeks later, my dog is safe, calm, and part of the family again.', name: 'Rachel D.', detail: 'Husky mix, 5 years · Aggression Rehab' },
+          { headline: 'The trainers who actually understood our malinois', text: 'Every trainer we talked to said our malinois was too much to handle. K9 Academy not only took him on — he thrived. The e-collar work was a game changer. Unpredictable to reliable.', name: 'James K.', detail: 'Belgian Malinois, 4 years · Behaviour Modification' },
+        ].map((t) => (
+          <div class="bg-white rounded-2xl p-6 border border-neutral-200/60 flex flex-col">
+            <div class="flex items-center gap-2 mb-4">
+              <svg class="w-5 h-5" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+              </svg>
+              <div class="flex items-center gap-0.5">
+                {[1,2,3,4,5].map(() => (
+                  <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+            </div>
+            <h3 class="text-base font-bold text-neutral-900 mb-2">{t.headline}</h3>
+            <p class="text-neutral-500 text-sm leading-relaxed flex-grow mb-4">{t.text}</p>
+            <div class="pt-4 border-t border-neutral-100">
+              <p class="font-semibold text-neutral-900 text-sm">{t.name}</p>
+              <p class="text-xs text-neutral-400">{t.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="py-16 sm:py-24 bg-brand-dark">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">The Process</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+          From application to a transformed dog
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { num: '01', title: 'Apply', desc: 'Fill out the form or call us. Tell us about your dog and what you are dealing with.' },
+          { num: '02', title: 'Phone evaluation', desc: 'We discuss your dog, recommend the right program, and answer all your questions.' },
+          { num: '03', title: 'Drop off', desc: 'Your dog moves in. Daily training, structured routine, socialization, and real-world exposure begin.' },
+          { num: '04', title: 'Graduation', desc: 'Pick up a transformed dog. Off-leash reliability, loose leash walking, and calm confidence.' },
+        ].map((step) => (
+          <div class="text-center sm:text-left">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-k9-orange text-white text-sm font-bold mb-4">
+              {step.num}
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">{step.title}</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="#contact" class="inline-flex items-center px-7 py-3.5 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30">
+          Apply for Board & Train
+        </a>
+        <div class="mt-3 flex justify-center gap-4">
+          {['Limited spots', 'Quick response'].map((item) => (
+            <span class="flex items-center gap-1.5 text-sm text-neutral-500">
+              <svg class="w-4 h-4 text-k9-orange" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE PROPS -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 sm:mb-16">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Why K9 Academy</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
+          Why owners across the GTA trust us with their dogs
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          { num: '01', title: 'The dogs others gave up on', desc: 'We specialize in the cases other trainers refuse. Bite histories, severe reactivity, working breeds — that is our expertise.' },
+          { num: '02', title: 'Dedicated training facility', desc: 'Spacious indoor play area with high ceilings and natural lighting. Your dog trains and socializes in a professional environment.' },
+          { num: '03', title: '15+ years, 10,000+ dogs', desc: 'This is not a side hustle. K9 Academy has been doing this at the highest level for over 15 years.' },
+          { num: '04', title: 'E-collar specialists', desc: 'We use balanced training methods including e-collar protocols — proven to deliver lasting off-leash results.' },
+          { num: '05', title: 'Real-world proofing', desc: 'Your dog does not just learn in a facility. Training is proofed in parks, trails, patios, and real distracting environments.' },
+          { num: '06', title: 'Financing available', desc: 'We partner with Affirm so you can get your dog the help they need now and pay over time.' },
+        ].map((prop) => (
+          <div class="rounded-2xl p-6 bg-neutral-50 border border-neutral-200/60 hover:border-neutral-300 transition-all">
+            <div class="w-8 h-8 rounded-lg bg-k9-orange/10 flex items-center justify-center mb-4">
+              <span class="text-k9-orange font-bold text-sm">{prop.num}</span>
+            </div>
+            <h3 class="text-base font-bold text-neutral-900 mb-2">{prop.title}</h3>
+            <p class="text-neutral-500 text-sm leading-relaxed">{prop.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ContactForm />
+  <Footer />
+</Layout>
