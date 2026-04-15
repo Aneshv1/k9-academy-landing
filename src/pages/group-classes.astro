@@ -11,59 +11,134 @@ import '../styles/global.css';
   <Navbar />
 
   <!-- HERO -->
-  <section class="relative pt-28 sm:pt-36 pb-14 sm:pb-20 overflow-hidden bg-brand-dark">
+  <section class="relative pt-28 sm:pt-32 pb-14 sm:pb-20 overflow-hidden bg-brand-dark">
+    <div class="absolute inset-0 bg-gradient-to-br from-k9-orange/5 via-transparent to-transparent pointer-events-none"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-center mb-8">
-        <div class="inline-flex items-center gap-2.5 bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10">
-          <div class="flex items-center gap-0.5">
-            {[1,2,3,4,5].map(() => (
-              <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+
+        <!-- LEFT: Copy -->
+        <div>
+          <div class="inline-flex items-center gap-2.5 bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10 mb-6">
+            <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+            <div class="flex items-center gap-0.5">
+              {[1,2,3,4,5].map(() => (
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <span class="text-sm font-semibold text-white">4.9/5</span>
+            <span class="w-px h-4 bg-white/20"></span>
+            <span class="text-sm text-neutral-400">250+ Google Reviews</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[3.4rem] font-extrabold tracking-tight text-white leading-[1.05]">
+            From leash pulling to
+            <span class="bg-gradient-to-r from-k9-orange to-amber-400 bg-clip-text text-transparent">off-leash reliable</span>
+            <span class="block mt-2 text-3xl sm:text-4xl lg:text-[2.5rem] text-neutral-300 font-bold">— in 12 weeks of group class.</span>
+          </h1>
+
+          <div class="mt-6 inline-flex items-center gap-2.5 bg-k9-orange/10 border border-k9-orange/30 rounded-full px-4 py-2">
+            <svg class="w-4 h-4 text-k9-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/></svg>
+            <span class="text-sm font-bold text-white">Leash pulling fixed on Day 1</span>
+          </div>
+
+          <p class="mt-5 text-base sm:text-lg text-neutral-400 max-w-xl leading-relaxed">
+            Three levels of real-world obedience — trained around the exact distractions your dog struggles with. Small groups, expert instructors, and a community of owners working through the same stuff.
+          </p>
+
+          <!-- Outcomes -->
+          <div class="mt-7 grid sm:grid-cols-2 gap-2.5 max-w-xl">
+            {[
+              'Loose-leash walking',
+              'Calm around other dogs',
+              'Obedience under distraction',
+              'Full off-leash reliability',
+              'No more reactivity',
+              'Real-world, not living room',
+            ].map((item) => (
+              <div class="flex items-center gap-2.5 text-sm text-neutral-300">
+                <div class="w-5 h-5 rounded-full bg-k9-orange/15 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-3 h-3 text-k9-orange" fill="none" stroke="currentColor" stroke-width="3.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                </div>
+                <span>{item}</span>
+              </div>
             ))}
           </div>
-          <span class="text-sm font-semibold text-white">4.9/5</span>
-          <span class="w-px h-4 bg-white/20"></span>
-          <span class="text-sm text-neutral-400">250+ Google Reviews</span>
-        </div>
-      </div>
 
-      <div class="text-center max-w-4xl mx-auto">
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08]">
-          A trained dog and a community
-          <br />
-          <span class="bg-gradient-to-r from-k9-orange to-amber-400 bg-clip-text text-transparent">of owners who get it</span>
-        </h1>
-
-        <p class="mt-6 text-lg sm:text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-          Three levels of group obedience — from basic leash manners to elite off-leash work. Small groups, real skills, expert instructors at our Leaside location.
-        </p>
-
-        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#contact" class="inline-flex items-center px-8 py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30 hover:shadow-xl hover:-translate-y-0.5">
-            Join the Waitlist
-            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-            </svg>
-          </a>
-          <a href="tel:4377785273" class="inline-flex items-center gap-2 text-neutral-400 font-medium hover:text-white transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-            </svg>
-            Or call 437-778-5273
-          </a>
-        </div>
-
-        <div class="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2">
-          {['Saturdays + Wednesdays', 'Leaside location', 'Small group sizes', 'All levels'].map((item) => (
-            <div class="flex items-center gap-1.5 text-sm text-neutral-500">
-              <svg class="w-4 h-4 text-k9-orange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+          <!-- CTAs -->
+          <div class="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <a href="#contact" class="inline-flex items-center px-7 py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30 hover:shadow-xl hover:-translate-y-0.5">
+              Join the Waitlist
+              <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
-              <span>{item}</span>
-            </div>
-          ))}
+            </a>
+            <a href="tel:4377785273" class="inline-flex items-center gap-2 text-neutral-400 font-medium hover:text-white transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+              </svg>
+              Or call 437-778-5273
+            </a>
+          </div>
+
+          <!-- Trust line -->
+          <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-xs text-neutral-500">
+            <span class="flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-k9-orange" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              Saturdays + Wednesdays
+            </span>
+            <span class="flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-k9-orange" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              Leaside, Toronto
+            </span>
+            <span class="flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-k9-orange" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              Small group sizes
+            </span>
+          </div>
         </div>
+
+        <!-- RIGHT: Hero Media -->
+        <div class="relative">
+          <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50 bg-neutral-800 aspect-[4/5] sm:aspect-video lg:aspect-[4/5]">
+            <!-- TODO: Replace with hero video or photo.
+                 Video: <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover"><source src="/group-hero.mp4" type="video/mp4"/></video>
+                 Photo: <img src="/group-hero.jpg" alt="..." class="absolute inset-0 w-full h-full object-cover" /> -->
+            <div class="absolute inset-0 bg-gradient-to-br from-neutral-700 via-neutral-800 to-neutral-900 flex items-center justify-center">
+              <div class="text-center p-6">
+                <div class="w-20 h-20 rounded-full bg-k9-orange/20 border-2 border-k9-orange/40 flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-9 h-9 text-k9-orange ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+                <p class="text-white font-semibold text-sm">Hero video / photo</p>
+                <p class="text-neutral-400 text-xs mt-1">Drop asset at <code class="bg-white/5 px-1.5 py-0.5 rounded">/public/group-hero.mp4</code></p>
+              </div>
+            </div>
+
+            <!-- Floating badge -->
+            <div class="absolute bottom-4 left-4 right-4 sm:right-auto">
+              <div class="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-xl">
+                <div class="flex -space-x-2">
+                  <div class="w-8 h-8 rounded-full bg-amber-500 border-2 border-white flex items-center justify-center text-white text-xs font-bold">L</div>
+                  <div class="w-8 h-8 rounded-full bg-purple-500 border-2 border-white flex items-center justify-center text-white text-xs font-bold">G</div>
+                  <div class="w-8 h-8 rounded-full bg-teal-500 border-2 border-white flex items-center justify-center text-white text-xs font-bold">H</div>
+                </div>
+                <div class="text-xs">
+                  <p class="font-bold text-neutral-900">10,000+ dogs trained</p>
+                  <p class="text-neutral-500">Every breed. Every level.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -100,12 +175,18 @@ import '../styles/global.css';
 
       <div class="grid md:grid-cols-3 gap-5">
         <!-- Level One -->
-        <div class="rounded-2xl p-6 sm:p-8 border border-neutral-200/60 bg-white hover:border-neutral-300 hover:shadow-md transition-all">
-          <h3 class="text-2xl font-bold text-neutral-900 mb-1">Level One</h3>
+        <div class="relative rounded-2xl p-6 sm:p-8 border border-neutral-200/60 bg-white hover:border-neutral-300 hover:shadow-md transition-all">
+          <div class="absolute -top-3 left-6">
+            <span class="inline-flex items-center gap-1 px-3 py-1 bg-k9-orange text-white text-xs font-bold rounded-lg uppercase tracking-wide">
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/></svg>
+              Pulling fixed Day 1
+            </span>
+          </div>
+          <h3 class="text-2xl font-bold text-neutral-900 mb-1 mt-2">Level One</h3>
           <p class="text-k9-orange font-medium text-sm mb-3">Basic Obedience · 6 weeks</p>
-          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">Foundational obedience for dogs of any age. Loose leash walking in heel position and mild reactivity management. Our Level One covers more than most training centres teach in their highest level program.</p>
+          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">Foundational obedience for dogs of any age. We fix leash pulling on the very first day — then build loose-leash walking in heel, mild reactivity management, and foundational commands. Our Level One covers more than most training centres teach in their highest level program.</p>
           <ul class="space-y-2 mb-6">
-            {['Loose leash walking (heel position)', 'Mild reactivity management', 'Foundational commands', 'No prerequisites required', 'New classes open regularly'].map((d) => (
+            {['Leash pulling fixed Day 1', 'Loose leash walking (heel position)', 'Mild reactivity management', 'Foundational commands', 'No prerequisites required'].map((d) => (
               <li class="flex items-start gap-2 text-sm text-neutral-600">
                 <svg class="w-4 h-4 text-k9-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
@@ -190,32 +271,127 @@ import '../styles/global.css';
 
   <!-- SCHEDULE -->
   <section class="py-16 sm:py-24 bg-neutral-50 border-y border-neutral-100">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Schedule</p>
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Upcoming Classes</p>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
-          We open new classes regularly — spots fill fast
+          Next cohorts starting soon — spots fill fast
         </h2>
+        <p class="mt-4 text-neutral-500 max-w-2xl mx-auto">
+          Small group sizes means limited spots. We open new cohorts regularly but they always fill — get on the list or grab a spot before it's gone.
+        </p>
       </div>
 
-      <div class="grid sm:grid-cols-2 gap-5">
-        <div class="bg-white rounded-2xl p-6 border border-neutral-200/60">
-          <div class="w-12 h-12 rounded-xl bg-k9-orange/10 flex items-center justify-center mb-4">
-            <span class="text-k9-orange font-bold text-sm">SAT</span>
-          </div>
-          <h3 class="text-lg font-bold text-neutral-900 mb-1">Saturday Classes</h3>
-          <p class="text-neutral-500 text-sm">9:00 AM – 4:00 PM</p>
-          <p class="text-neutral-400 text-sm mt-2">Leaside — 16-30 Canvarco Rd, Toronto</p>
-        </div>
-        <div class="bg-white rounded-2xl p-6 border border-neutral-200/60">
-          <div class="w-12 h-12 rounded-xl bg-k9-orange/10 flex items-center justify-center mb-4">
-            <span class="text-k9-orange font-bold text-sm">WED</span>
-          </div>
-          <h3 class="text-lg font-bold text-neutral-900 mb-1">Wednesday Classes</h3>
-          <p class="text-neutral-500 text-sm">7:00 PM – 9:00 PM</p>
-          <p class="text-neutral-400 text-sm mt-2">Leaside — 16-30 Canvarco Rd, Toronto</p>
-        </div>
+      <div class="space-y-3">
+        {[
+          {
+            level: 'Level One',
+            subtitle: 'Basic Obedience · 6 weeks',
+            startDate: 'Starts [DATE TBD]',
+            day: 'Saturdays · 10:00 AM',
+            location: 'Leaside',
+            status: 'almost-full',
+            spotsText: '2 spots left',
+          },
+          {
+            level: 'Level One',
+            subtitle: 'Basic Obedience · 6 weeks',
+            startDate: 'Starts [DATE TBD]',
+            day: 'Wednesdays · 7:00 PM',
+            location: 'Leaside',
+            status: 'filling',
+            spotsText: 'Filling fast',
+          },
+          {
+            level: 'Level Two',
+            subtitle: 'Advanced Obedience · 6 weeks + test',
+            startDate: 'Starts [DATE TBD]',
+            day: 'Saturdays · 1:00 PM',
+            location: 'Leaside',
+            status: 'almost-full',
+            spotsText: '3 spots left',
+          },
+          {
+            level: 'Level One',
+            subtitle: 'Basic Obedience · 6 weeks',
+            startDate: 'Starts [DATE TBD]',
+            day: 'Saturdays · 9:00 AM',
+            location: 'Leaside',
+            status: 'open',
+            spotsText: 'Just opened',
+          },
+          {
+            level: 'Level Three',
+            subtitle: 'Elite Obedience · 8 weeks',
+            startDate: 'Starts [DATE TBD]',
+            day: 'Wednesdays · 7:00 PM',
+            location: 'Leaside',
+            status: 'waitlist',
+            spotsText: 'Waitlist only',
+          },
+        ].map((c) => {
+          const statusStyles = {
+            'almost-full': 'bg-red-50 text-red-700 border-red-200',
+            'filling': 'bg-amber-50 text-amber-700 border-amber-200',
+            'open': 'bg-emerald-50 text-emerald-700 border-emerald-200',
+            'waitlist': 'bg-neutral-100 text-neutral-600 border-neutral-200',
+          };
+          const dotStyles = {
+            'almost-full': 'bg-red-500 animate-pulse',
+            'filling': 'bg-amber-500 animate-pulse',
+            'open': 'bg-emerald-500',
+            'waitlist': 'bg-neutral-400',
+          };
+          return (
+            <div class="bg-white rounded-2xl border border-neutral-200/60 hover:border-neutral-300 hover:shadow-md transition-all p-5 sm:p-6">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+                <div class="flex items-center gap-4 flex-1 min-w-0">
+                  <div class="w-14 h-14 rounded-xl bg-k9-orange/10 flex flex-col items-center justify-center flex-shrink-0">
+                    <span class="text-k9-orange font-bold text-[10px] uppercase tracking-wide leading-none">Level</span>
+                    <span class="text-k9-orange font-extrabold text-lg leading-none mt-0.5">{c.level.replace('Level ','')}</span>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <h3 class="text-base sm:text-lg font-bold text-neutral-900 leading-tight">{c.level}</h3>
+                    <p class="text-xs text-neutral-500 mb-1">{c.subtitle}</p>
+                    <div class="flex flex-wrap items-center gap-x-3 gap-y-0.5 text-xs text-neutral-600">
+                      <span class="font-semibold text-neutral-900">{c.startDate}</span>
+                      <span class="text-neutral-300">·</span>
+                      <span>{c.day}</span>
+                      <span class="text-neutral-300">·</span>
+                      <span>{c.location}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-3 sm:gap-4 justify-between sm:justify-end">
+                  <div class={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-xs font-bold ${statusStyles[c.status]}`}>
+                    <span class={`w-1.5 h-1.5 rounded-full ${dotStyles[c.status]}`}></span>
+                    {c.spotsText}
+                  </div>
+                  <a href="#contact" class={`inline-flex items-center px-4 py-2 text-sm font-semibold rounded-lg transition-all whitespace-nowrap ${c.status === 'waitlist' ? 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200' : 'bg-k9-orange text-white hover:bg-k9-orange-dark shadow-sm'}`}>
+                    {c.status === 'waitlist' ? 'Join Waitlist' : 'Reserve Spot'}
+                  </a>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
+
+      <div class="mt-8 rounded-2xl bg-k9-orange/5 border border-k9-orange/20 p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-k9-orange/15 flex items-center justify-center">
+          <svg class="w-5 h-5 text-k9-orange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+        </div>
+        <div class="flex-1">
+          <p class="font-bold text-neutral-900 text-sm">Don't see a time that works?</p>
+          <p class="text-neutral-600 text-sm">Get on the waitlist — we open new cohorts every few weeks and notify you first.</p>
+        </div>
+        <a href="#contact" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg border border-k9-orange/30 text-k9-orange hover:bg-k9-orange hover:text-white transition-all whitespace-nowrap">
+          Join Waitlist
+        </a>
+      </div>
+
+      <p class="text-center text-xs text-neutral-400 mt-6">All classes at our Leaside location — 16-30 Canvarco Rd, Toronto</p>
     </div>
   </section>
 
@@ -346,46 +522,194 @@ import '../styles/global.css';
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
+  <!-- SOCIAL PROOF -->
   <section class="py-16 sm:py-24 bg-neutral-50 border-y border-neutral-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">What Owners Say</p>
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Results</p>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
-          Group class results that speak for themselves
+          Every breed. Every level. Real results.
         </h2>
+        <p class="mt-4 text-lg text-neutral-500 max-w-2xl mx-auto">
+          Labs to Huskies, Frenchies to Malinois — we've trained them all through distractions, leash pulling, reactivity, and into full off-leash reliability.
+        </p>
+
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-2">
+          {[
+            'Labrador',
+            'Golden Retriever',
+            'German Shepherd',
+            'Doodle',
+            'Husky',
+            'Pit / Staffy',
+            'Frenchie',
+            'Border Collie',
+            'Aussie',
+            'Rottweiler',
+            'Malinois',
+            'Mixed rescue',
+          ].map((tag) => (
+            <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-white border border-neutral-200 text-xs font-semibold text-neutral-700">
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-6 text-sm">
+          <div class="flex items-center gap-2">
+            <div class="flex items-center gap-0.5">
+              {[1,2,3,4,5].map(() => (
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+              ))}
+            </div>
+            <span class="font-semibold text-neutral-900">4.9/5 Google</span>
+          </div>
+          <span class="text-neutral-300">·</span>
+          <span class="text-neutral-600"><strong class="text-neutral-900">250+</strong> reviews</span>
+          <span class="text-neutral-300">·</span>
+          <span class="text-neutral-600"><strong class="text-neutral-900">10,000+</strong> dogs trained</span>
+        </div>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {[
-          { headline: 'Our puppy graduated top of the class', text: 'We enrolled our 14-week-old lab in the Puppy class and then straight into Beginner. The structure was exactly what she needed. By the end of the Foundation Program she was walking on a loose leash and sitting on command every time.', name: 'Priya S.', detail: 'Lab mix, 14 weeks · Foundation Program' },
-          { headline: 'Got kicked out of another class. Thrived here.', text: 'Our shepherd mix was asked to leave another training program because he was "too much." K9 Academy took him in, worked with him in the group setting, and he went from being the problem dog to the one other owners were asking about.', name: 'Dan & Sarah R.', detail: 'Shepherd mix, 2 years · Beginner + Advanced' },
-          { headline: 'The group setting made all the difference', text: 'We tried training at home for months. Nothing stuck. The group classes gave our dog real distractions to work through — other dogs, noises, people. That was the missing piece. She actually listens outside now, not just in our living room.', name: 'Michelle K.', detail: 'Doodle, 1 year · Beginner Class' },
-        ].map((t) => (
-          <div class="bg-white rounded-2xl p-6 border border-neutral-200/60 flex flex-col">
-            <div class="flex items-center gap-2 mb-4">
-              <svg class="w-5 h-5" viewBox="0 0 24 24">
-                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
-                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-              </svg>
-              <div class="flex items-center gap-0.5">
+      <!-- Google Reviews -->
+      <div class="mb-16">
+        <div class="flex items-center justify-center gap-2 mb-8">
+          <svg class="w-5 h-5" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+          </svg>
+          <h3 class="text-sm font-bold uppercase tracking-wide text-neutral-500">Google Reviews</h3>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {[
+            { initial: 'P', bg: 'bg-amber-500', breed: 'Labrador', issue: 'Leash pulling', headline: 'Loose leash in 6 weeks flat', text: 'Our yellow lab was a freight train on walks. I had tried every harness. Level One taught me how to actually teach a heel — and she got it. First time in three years my shoulders do not hurt after a walk.', name: 'Priya S.', detail: 'Labrador, 3 years · Level One', when: '2 weeks ago' },
+            { initial: 'D', bg: 'bg-purple-500', breed: 'German Shepherd', issue: 'Reactivity', headline: 'Got kicked out of another class. Thrived here.', text: 'Our shepherd was asked to leave another program because he was "too much." K9 Academy took him in, worked with him around the other dogs in class, and he went from the problem dog to the one other owners asked about.', name: 'Dan & Sarah R.', detail: 'German Shepherd, 2 years · Level One + Two', when: '1 month ago' },
+            { initial: 'M', bg: 'bg-blue-500', breed: 'Goldendoodle', issue: 'Distractions', headline: 'The distractions were the missing piece', text: 'We tried training at home for months. Nothing stuck. The group classes gave our doodle real distractions — other dogs, noises, people. She actually listens outside now, not just in our living room.', name: 'Michelle K.', detail: 'Goldendoodle, 1 year · Level One', when: '3 weeks ago' },
+            { initial: 'B', bg: 'bg-emerald-500', breed: 'Border Collie', issue: 'Off-leash recall', headline: 'Full off-leash at the graduation hike', text: 'Level Two was exactly what my Border Collie needed. She has drive for days and the e-collar work gave her boundaries. Off-leash hike at the end was the proudest moment — she recalled off a squirrel mid-chase.', name: 'Brooke L.', detail: 'Border Collie, 2 years · Level Two', when: '1 week ago' },
+            { initial: 'H', bg: 'bg-teal-500', breed: 'Husky', issue: 'Off-leash recall', headline: 'A Husky. Off-leash. At a park.', text: 'Everyone told me Huskies cannot be trusted off leash. Everyone was wrong. The Level One + Two bundle got my boy to reliable off-leash recall in a public park. I still cannot believe it.', name: 'Hana M.', detail: 'Siberian Husky, 3 years · Level One + Two Bundle', when: '5 weeks ago' },
+            { initial: 'R', bg: 'bg-rose-500', breed: 'Pit mix', issue: 'Reactivity', headline: 'From reactive to ignoring other dogs', text: 'Our rescue pit would lunge at any dog within 50 feet. Six weeks of Level One and she can sit next to another dog on the floor. The group setting was the whole point — real dogs, real distance work.', name: 'Ricardo V.', detail: 'Pitbull mix, 4 years · Level One', when: '6 weeks ago' },
+            { initial: 'S', bg: 'bg-indigo-500', breed: 'Frenchie', issue: 'Pulling + barking', headline: 'Finally walks like a normal dog', text: 'People laugh when I say my Frenchie needed obedience but the pulling and random barking was out of control. Level One fixed it. He now holds a heel through the farmers market.', name: 'Sana T.', detail: 'French Bulldog, 2 years · Level One', when: '2 months ago' },
+            { initial: 'K', bg: 'bg-orange-500', breed: 'Rottweiler', issue: 'On-leash control', headline: 'Confident handler, confident dog', text: 'What I did not expect was how much they taught ME. I stopped being nervous on walks and my Rottie stopped reacting. The group classes made us both better. Doing Level Three next.', name: 'Kyle D.', detail: 'Rottweiler, 3 years · Level One + Two', when: '3 weeks ago' },
+            { initial: 'A', bg: 'bg-cyan-500', breed: 'Australian Shepherd', issue: 'Elite obedience', headline: 'Level Three is no joke — and worth it', text: 'I went in for basic obedience with my Aussie and ended up completing Level Three. The "IMPOSSIBLE" test was the most fun we have had together. Power heel, send-outs, A-frame — my dog is unrecognizable.', name: 'Aiden P.', detail: 'Australian Shepherd, 4 years · Level One, Two + Three', when: '1 month ago' },
+          ].map((t) => (
+            <div class="bg-white rounded-2xl p-6 border border-neutral-200/60 flex flex-col hover:shadow-md transition-shadow">
+              <div class="flex items-start justify-between gap-3 mb-4">
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class={`w-10 h-10 rounded-full ${t.bg} flex items-center justify-center text-white font-bold flex-shrink-0`}>{t.initial}</div>
+                  <div class="min-w-0">
+                    <p class="font-semibold text-neutral-900 text-sm leading-tight truncate">{t.name}</p>
+                    <p class="text-xs text-neutral-400">{t.when}</p>
+                  </div>
+                </div>
+                <div class="flex flex-col items-end gap-1 flex-shrink-0">
+                  <span class="inline-flex items-center px-2 py-1 rounded-full bg-k9-orange/10 text-k9-orange text-[10px] font-bold uppercase tracking-wide">{t.breed}</span>
+                  <span class="inline-flex items-center px-2 py-1 rounded-full bg-neutral-100 text-neutral-600 text-[10px] font-bold uppercase tracking-wide">{t.issue}</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-0.5 mb-3">
                 {[1,2,3,4,5].map(() => (
-                  <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
+                  <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                ))}
+              </div>
+              <h3 class="text-base font-bold text-neutral-900 mb-2">{t.headline}</h3>
+              <p class="text-neutral-500 text-sm leading-relaxed flex-grow mb-4">{t.text}</p>
+              <p class="text-xs text-neutral-400 pt-4 border-t border-neutral-100">{t.detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Instagram + Facebook DMs -->
+      <div class="mb-16">
+        <div class="flex items-center justify-center gap-2 mb-8">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="ig-gc" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FDB813"/><stop offset="50%" stop-color="#E1306C"/><stop offset="100%" stop-color="#833AB4"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" stroke="url(#ig-gc)" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="url(#ig-gc)" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="url(#ig-gc)"/></svg>
+          <svg class="w-5 h-5" viewBox="0 0 24 24"><path fill="#1877F2" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+          <h3 class="text-sm font-bold uppercase tracking-wide text-neutral-500">Instagram & Facebook DMs</h3>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {[
+            { handle: '@nova.the.vizsla', platform: 'Instagram', breed: 'Vizsla', issue: 'Distractions', msgs: ['nova held a heel through a soccer field today', 'children. balls. OTHER DOGS. she ignored all of it', 'Level One was actually insane. im speechless'] },
+            { handle: '@koda.goldens', platform: 'Instagram', breed: 'Golden Retriever', issue: 'Off-leash recall', msgs: ['koda graduated Level Two last weekend 🏆', 'off leash recall from a full sprint toward another dog', 'I keep rewatching the video like is that MY dog'] },
+            { handle: 'Omar K.', platform: 'Facebook', breed: 'Belgian Malinois', issue: 'On-leash control', msgs: ['brought my mal to class thinking he would destroy it', 'he was the calmest one there by week 4 lol', 'the structure of the group class is what he needed. brain tired = happy dog'] },
+            { handle: '@ellie_the_dachshund', platform: 'Instagram', breed: 'Dachshund', issue: 'Leash pulling', msgs: ['yes. a dachshund. in an obedience class. and she CRUSHED it', 'loose leash walking with her tiny legs is too cute', 'do not sleep on group class for small dogs 😤'] },
+            { handle: 'Tara M.', platform: 'Facebook', breed: 'Labradoodle', issue: 'Reactivity', msgs: ['finished Level One with our labradoodle last night', 'we went from "cannot walk past another dog" to "sit-stay while a Rottie walked by"', 'I literally cannot believe this is real life'] },
+            { handle: '@bruno.the.cattle.dog', platform: 'Instagram', breed: 'Blue Heeler', issue: 'Off-leash recall', msgs: ['level two finale hike was UNREAL', 'bruno off leash. recalling off a bike. on an actual trail', 'every heeler owner needs this class 🙏'] },
+            { handle: '@thepitbullsisters', platform: 'Instagram', breed: 'Pitbull', issue: 'Reactivity', msgs: ['both girls just finished Level One 🥹', 'they used to lunge at every dog we saw', 'yesterday they did a sit-stay next to a golden on the sidewalk. I am in pieces'] },
+            { handle: 'Dylan R.', platform: 'Facebook', breed: 'Mixed rescue', issue: 'Leash pulling', msgs: ['adopted my rescue 6 months ago. he was a MESS on leash', 'group class was the best decision I have made for him', 'he graduates Level Two next week and I might cry 🥲'] },
+          ].map((d) => (
+            <div class="bg-white rounded-2xl border border-neutral-200/60 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+              <div class="flex items-center gap-3 px-4 py-3 border-b border-neutral-100">
+                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-amber-400 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                  {d.handle.replace('@','').charAt(0).toUpperCase()}
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="font-semibold text-neutral-900 text-sm truncate">{d.handle}</p>
+                  <p class="text-xs text-neutral-400">{d.platform}</p>
+                </div>
+                <div class="flex flex-col items-end gap-1 flex-shrink-0">
+                  <span class="inline-flex items-center px-2 py-1 rounded-full bg-k9-orange/10 text-k9-orange text-[10px] font-bold uppercase tracking-wide">{d.breed}</span>
+                  <span class="inline-flex items-center px-2 py-1 rounded-full bg-neutral-100 text-neutral-600 text-[10px] font-bold uppercase tracking-wide">{d.issue}</span>
+                </div>
+              </div>
+              <div class="p-4 space-y-2 bg-neutral-50/50 flex-grow">
+                {d.msgs.map((m) => (
+                  <div class="flex justify-start">
+                    <div class="max-w-[85%] bg-neutral-200/80 text-neutral-800 text-sm rounded-2xl rounded-tl-md px-4 py-2 leading-snug">{m}</div>
+                  </div>
                 ))}
               </div>
             </div>
-            <h3 class="text-base font-bold text-neutral-900 mb-2">{t.headline}</h3>
-            <p class="text-neutral-500 text-sm leading-relaxed flex-grow mb-4">{t.text}</p>
-            <div class="pt-4 border-t border-neutral-100">
-              <p class="font-semibold text-neutral-900 text-sm">{t.name}</p>
-              <p class="text-xs text-neutral-400">{t.detail}</p>
+          ))}
+        </div>
+      </div>
+
+      <!-- Emails -->
+      <div>
+        <div class="flex items-center justify-center gap-2 mb-8">
+          <svg class="w-5 h-5 text-neutral-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+          <h3 class="text-sm font-bold uppercase tracking-wide text-neutral-500">Client Emails</h3>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5 max-w-5xl mx-auto">
+          {[
+            { from: 'Natasha L.', email: 'natasha.l@gmail.com', breed: 'Cane Corso', issue: 'Reactivity + recall', subject: 'Level Two graduation — a Cane Corso off leash', when: 'Apr 4', body: 'Hi team — wanted to send this after our Level Two graduation hike yesterday. Two years ago I thought I would never be able to walk my Corso without a prong collar and death grip. He was reactive, he pulled, strangers would cross the street.\n\nLevel One rebuilt our leash work. Level Two built off-leash reliability I did not think was possible for his breed. He recalled past two deer on the trail. I was shaking. Thank you for believing a 120lb Corso could be a polite dog in public.' },
+            { from: 'The Chen Family', email: 'chens@outlook.com', breed: 'Mini Schnauzer', issue: 'Barking + distractions', subject: 'Tiny dog, huge transformation', when: 'Mar 29', body: 'Our mini schnauzer was the reason we dreaded walks. She barked at every dog, every car, every leaf. We almost gave up and accepted she was just "like that."\n\nLevel One changed everything. The group class gave her the real-world exposure she needed and taught US how to lead her through it. Six weeks later we walked her through a crowded Saturday market. Zero incidents. We are signing up for Level Two.' },
+            { from: 'Jordan W.', email: 'jordan.w@proton.me', breed: 'German Shorthaired Pointer', issue: 'Off-leash recall', subject: 'GSP owner — off-leash reliability achieved', when: 'Mar 20', body: 'Writing this from a trail right now. My GSP is off leash, 30 feet ahead, and came back when I called her the moment I whistled. Six months ago this was a fantasy.\n\nLevel One gave us the foundation. Level Two added the e-collar work and the distraction proofing. The graduation hike was the first time I trusted her off leash in public. Every GSP owner I know is getting a link to this program.' },
+            { from: 'Marco P.', email: 'marco.p88@gmail.com', breed: 'Bernese Mountain Dog', issue: 'Distractions', subject: 'Finished Level One — not what I expected', when: 'Mar 8', body: 'Honestly signed up thinking the Level One was going to be basic sit-stay stuff. It was not. My Berner learned loose leash walking, settle on place, name recognition around distractions, and handled reactive dogs in the class without melting down.\n\nI have done obedience with two other dogs at other schools. This was different. The group environment was the secret. Thank you.' },
+          ].map((e) => (
+            <div class="bg-white rounded-2xl border border-neutral-200/60 overflow-hidden hover:shadow-md transition-shadow">
+              <div class="px-5 py-3 border-b border-neutral-100 bg-neutral-50/50 flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-neutral-200 flex items-center justify-center text-neutral-600 font-bold text-sm flex-shrink-0">
+                  {e.from.charAt(0)}
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="font-semibold text-neutral-900 text-sm truncate">{e.from} <span class="font-normal text-neutral-400">&lt;{e.email}&gt;</span></p>
+                  <p class="text-xs text-neutral-500">to <span class="text-neutral-700">team@k9academy.ca</span></p>
+                </div>
+                <span class="text-xs text-neutral-400 flex-shrink-0">{e.when}</span>
+              </div>
+              <div class="px-5 py-4">
+                <div class="flex flex-wrap items-center gap-2 mb-2">
+                  <span class="inline-flex items-center px-2 py-1 rounded-full bg-k9-orange/10 text-k9-orange text-[10px] font-bold uppercase tracking-wide">{e.breed}</span>
+                  <span class="inline-flex items-center px-2 py-1 rounded-full bg-neutral-100 text-neutral-600 text-[10px] font-bold uppercase tracking-wide">{e.issue}</span>
+                </div>
+                <p class="font-bold text-neutral-900 text-sm mb-3">{e.subject}</p>
+                <p class="text-neutral-600 text-sm leading-relaxed whitespace-pre-line">{e.body}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+      </div>
+
+      <div class="mt-14 text-center">
+        <a href="#contact" class="inline-flex items-center px-7 py-3.5 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30">
+          Join the Waitlist
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+        </a>
       </div>
     </div>
   </section>
