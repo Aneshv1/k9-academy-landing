@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://k9-academy-landing.vercel.app/sitemap-index.xml
