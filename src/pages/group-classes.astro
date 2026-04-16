@@ -750,4 +750,31 @@ import '../styles/global.css';
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-8"><GuideBanner /></div>
   <ContactForm />
   <Footer />
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Group Dog Obedience Classes Toronto",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "K9 Academy Dog Training Center",
+    "address": { "@type": "PostalAddress", "streetAddress": "16-30 Canvarco Rd", "addressLocality": "Toronto", "addressRegion": "ON", "postalCode": "M4G 1L3", "addressCountry": "CA" }
+  },
+  "areaServed": { "@type": "City", "name": "Toronto" },
+  "description": "Group dog obedience classes in Toronto. Level 1, 2, and 3 with small groups, real-world distractions, and off-leash training.",
+  "offers": [
+    { "@type": "Offer", "name": "Level 1 — Basic Obedience", "price": "595", "priceCurrency": "CAD" },
+    { "@type": "Offer", "name": "Level 2 — Advanced Obedience", "price": "595", "priceCurrency": "CAD" },
+    { "@type": "Offer", "name": "Level 1 + 2 Bundle", "price": "995", "priceCurrency": "CAD" }
+  ]
+})} />
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How much are group dog classes in Toronto?", "acceptedAnswer": { "@type": "Answer", "text": "Each level is $595. The Level 1 + 2 bundle is $995, saving you $195. Classes run for 6 weeks at our Leaside location." }},
+    { "@type": "Question", "name": "What level should my dog start at?", "acceptedAnswer": { "@type": "Answer", "text": "Everyone starts at Level 1 regardless of experience. Our Level 1 covers more than most training centres' highest level. We assess from there." }},
+    { "@type": "Question", "name": "How many dogs are in each group class?", "acceptedAnswer": { "@type": "Answer", "text": "We keep groups small to ensure individual attention. Classes fill quickly — we recommend getting on the waitlist early." }},
+    { "@type": "Question", "name": "Will my reactive dog be okay in group class?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The group setting is actually ideal for reactive dogs because it provides controlled exposure to real distractions. Our trainers manage spacing and work with each dog individually within the group." }}
+  ]
+})} />
 </Layout>

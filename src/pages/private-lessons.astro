@@ -634,4 +634,30 @@ import '../styles/global.css';
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-8"><GuideBanner /></div>
   <ContactForm />
   <Footer />
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Private Dog Training Toronto",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "K9 Academy Dog Training Center",
+    "address": { "@type": "PostalAddress", "streetAddress": "16-30 Canvarco Rd", "addressLocality": "Toronto", "addressRegion": "ON", "postalCode": "M4G 1L3", "addressCountry": "CA" }
+  },
+  "areaServed": { "@type": "City", "name": "Toronto" },
+  "description": "Private 1-on-1 dog training sessions in Toronto for aggression, reactivity, separation anxiety, resource guarding, and off-leash recall.",
+  "offers": [
+    { "@type": "Offer", "name": "6-Session Advanced Obedience", "price": "1350", "priceCurrency": "CAD" },
+    { "@type": "Offer", "name": "8-Session Behaviour Modification", "price": "1685", "priceCurrency": "CAD" }
+  ]
+})} />
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How long does private dog training take?", "acceptedAnswer": { "@type": "Answer", "text": "Our Advanced Obedience program is 6 sessions and Behaviour Modification is 8 sessions. Most clients see significant improvement within the first 2-3 sessions." }},
+    { "@type": "Question", "name": "What behavioural issues can private training fix?", "acceptedAnswer": { "@type": "Answer", "text": "We specialize in aggression, reactivity, separation anxiety, resource guarding, leash pulling, excessive barking, and off-leash recall. We work with cases other trainers have turned down." }},
+    { "@type": "Question", "name": "Do you use e-collars in private training?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, when appropriate. Our trainers introduce e-collars gradually and only when they believe the dog will benefit. Many clients who were initially skeptical report it was the breakthrough their dog needed." }},
+    { "@type": "Question", "name": "How much does private dog training cost in Toronto?", "acceptedAnswer": { "@type": "Answer", "text": "Our 6-session Advanced Obedience program is $1,350 and the 8-session Behaviour Modification program is $1,685. Financing is available through Affirm." }}
+  ]
+})} />
 </Layout>

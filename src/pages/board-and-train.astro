@@ -560,4 +560,31 @@ import '../styles/global.css';
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-8"><GuideBanner /></div>
   <ContactForm />
   <Footer />
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Board and Train Dog Training Toronto",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "K9 Academy Dog Training Center",
+    "address": { "@type": "PostalAddress", "streetAddress": "16-30 Canvarco Rd", "addressLocality": "Toronto", "addressRegion": "ON", "postalCode": "M4G 1L3", "addressCountry": "CA" }
+  },
+  "areaServed": { "@type": "City", "name": "Toronto" },
+  "description": "Board and train dog training in Toronto. 2 to 8 week immersive programs for reactivity, aggression, anxiety, and off-leash reliability.",
+  "offers": [
+    { "@type": "Offer", "name": "2 Week Express", "price": "2995", "priceCurrency": "CAD" },
+    { "@type": "Offer", "name": "Behaviour Modification (4-6 weeks)", "price": "3995", "priceCurrency": "CAD" },
+    { "@type": "Offer", "name": "Intensive Rehabilitation (6-8 weeks)", "price": "4995", "priceCurrency": "CAD" }
+  ]
+})} />
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How long is board and train for dogs?", "acceptedAnswer": { "@type": "Answer", "text": "We offer 2-week, 4-6 week, and 6-8 week programs depending on severity. The 2 Week Express is for basic behaviour issues, while Intensive Rehabilitation handles severe aggression and anxiety." }},
+    { "@type": "Question", "name": "How much does board and train cost in Toronto?", "acceptedAnswer": { "@type": "Answer", "text": "Programs start at $2,995 for the 2 Week Express, $3,995+ for Behaviour Modification, and $4,995+ for Intensive Rehabilitation. Financing is available through Affirm." }},
+    { "@type": "Question", "name": "Will I get updates during board and train?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You receive weekly updates with photos and progress reports throughout the program. We also provide two in-person training sessions so you learn how to maintain results at home." }},
+    { "@type": "Question", "name": "Do you take aggressive dogs for board and train?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We specialize in cases other trainers turn down — including dogs with bite history, severe human and dog aggression, and multi-dog conflict. Our Intensive Rehabilitation program is designed specifically for these cases." }}
+  ]
+})} />
 </Layout>
