@@ -132,50 +132,31 @@
         </div>
       </div>
 
-      <!-- Results -->
+      <!-- Results — email gate -->
       <div class="quiz-step hidden" data-step="result">
-        <div class="text-center mb-8">
-          <p class="text-neutral-500 text-xs font-medium mb-4">Your dog scored</p>
-          <div class="inline-flex items-baseline gap-1">
-            <span id="quiz-score" class="text-5xl sm:text-6xl font-extrabold bg-gradient-to-r from-k9-orange to-amber-400 bg-clip-text text-transparent">0</span>
-            <span class="text-2xl font-bold text-neutral-600">/ 18</span>
+        <div class="text-center mb-6">
+          <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-k9-orange/10 mb-4">
+            <svg class="w-7 h-7 text-k9-orange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
           </div>
-          <p id="quiz-grade" class="text-lg font-bold text-white mt-3"></p>
+          <h3 class="text-xl font-bold text-white mb-2">Your results are ready</h3>
+          <p class="text-neutral-400 text-sm max-w-sm mx-auto">We scored your dog across 6 behavioural areas. Enter your email and we'll send your full score, weakest areas, and what to do about each one.</p>
         </div>
 
-        <!-- Score bar -->
-        <div class="mb-8">
-          <div class="h-3 bg-white/10 rounded-full overflow-hidden">
-            <div id="quiz-score-bar" class="h-full rounded-full transition-all duration-1000 ease-out" style="width:0%"></div>
-          </div>
-          <div class="flex justify-between mt-2 text-[10px] text-neutral-600 font-medium">
-            <span>Needs work</span>
-            <span>Getting there</span>
-            <span>Great shape</span>
-          </div>
-        </div>
-
-        <!-- Weak areas -->
-        <div id="quiz-weak-areas" class="space-y-2 mb-8"></div>
-
-        <!-- Email capture -->
-        <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
-          <h3 class="text-sm font-bold text-white text-center mb-1">Get your full breakdown + what to do about it</h3>
-          <p class="text-neutral-500 text-xs text-center mb-4">Personalized tips based on your dog's weakest areas.</p>
-          <form id="quiz-form" class="flex flex-col sm:flex-row gap-2">
-            <input type="text" name="quiz_name" required placeholder="Name"
-              class="flex-1 px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm" />
-            <input type="email" name="quiz_email" required placeholder="Email"
-              class="flex-1 px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm" />
-            <button type="submit" id="quiz-submit"
-              class="px-6 py-3 bg-k9-orange text-white text-sm font-bold rounded-xl hover:bg-k9-orange-dark transition-all whitespace-nowrap">
-              Send It
-            </button>
-          </form>
-        </div>
-
-        <div class="mt-6 text-center">
-          <a href="#contact" class="text-neutral-500 hover:text-white text-sm transition-colors">
+        <form id="quiz-form" class="space-y-3 max-w-sm mx-auto">
+          <input type="text" name="quiz_name" required placeholder="Your name"
+            class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm" />
+          <input type="email" name="quiz_email" required placeholder="Email"
+            class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm" />
+          <button type="submit" id="quiz-submit"
+            class="w-full px-6 py-3.5 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30">
+            Send My Results
+          </button>
+          <p class="text-neutral-600 text-xs text-center">No spam. Just your score + actionable tips.</p>
+        </form>
+        <div class="mt-5 text-center">
+          <a href="#contact" class="text-neutral-400 hover:text-white text-sm transition-colors">
             or skip straight to talking to a trainer →
           </a>
         </div>
@@ -236,53 +217,11 @@
         if (currentStep <= 6) {
           showStep(currentStep);
         } else {
-          showResults();
+          showStep('result');
         }
       }, 200);
     });
   });
-
-  function showResults() {
-    const total = Object.values(scores).reduce((a, b) => a + b, 0);
-    const pct = Math.round((total / 18) * 100);
-
-    document.getElementById('quiz-score')!.textContent = String(total);
-
-    const bar = document.getElementById('quiz-score-bar')!;
-    const color = pct >= 83 ? 'bg-emerald-500' : pct >= 56 ? 'bg-amber-500' : 'bg-red-500';
-    bar.classList.add(color);
-    setTimeout(() => { bar.style.width = pct + '%'; }, 50);
-
-    const gradeEl = document.getElementById('quiz-grade')!;
-    if (total >= 15) {
-      gradeEl.textContent = 'Your dog is ahead of the pack';
-      gradeEl.classList.add('text-emerald-400');
-    } else if (total >= 10) {
-      gradeEl.textContent = 'Room for improvement';
-      gradeEl.classList.add('text-amber-400');
-    } else {
-      gradeEl.textContent = 'Your dog needs professional help';
-      gradeEl.classList.add('text-red-400');
-    }
-
-    const weakAreas = document.getElementById('quiz-weak-areas')!;
-    const sorted = Object.entries(scores).sort((a, b) => a[1] - b[1]);
-    const weak = sorted.filter(([, v]) => v <= 2);
-
-    weak.forEach(([key, val]) => {
-      const div = document.createElement('div');
-      div.className = 'flex items-center justify-between px-4 py-3 rounded-xl bg-white/5 border border-white/10';
-      const severity = val === 1 ? 'text-red-400' : 'text-amber-400';
-      const severityLabel = val === 1 ? 'Needs work' : 'Could be better';
-      div.innerHTML = `
-        <span class="text-sm font-medium text-neutral-300">${labels[key]}</span>
-        <span class="text-xs font-bold ${severity}">${severityLabel}</span>
-      `;
-      weakAreas.appendChild(div);
-    });
-
-    showStep('result');
-  }
 
   document.getElementById('quiz-form')?.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -310,6 +249,8 @@
           service: 'behaviour_quiz',
           message: `Behaviour quiz score: ${total}/18. ${scoreBreakdown}`,
           dog_info: '',
+          quiz_scores: scores,
+          quiz_total: total,
         }),
       });
     } catch {}
