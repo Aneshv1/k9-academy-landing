@@ -5,6 +5,7 @@ import Awards from '../components/Awards.astro';
 import ContactForm from '../components/ContactForm.astro';
 import Footer from '../components/Footer.astro';
 import GuideBanner from '../components/GuideBanner.astro';
+import YouTubeEmbed from '../components/YouTubeEmbed.astro';
 import '../styles/global.css';
 ---
 
@@ -99,15 +100,8 @@ import '../styles/global.css';
         </div>
 
         <!-- RIGHT: Video -->
-        <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40 aspect-video">
-          <iframe
-            src="https://www.youtube.com/embed/76P1n4JgNRQ?rel=0"
-            title="K9 Academy Board & Train Program"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            class="absolute inset-0 w-full h-full"
-            loading="lazy"
-          ></iframe>
+        <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
+          <YouTubeEmbed videoId="76P1n4JgNRQ" title="K9 Academy Board & Train Program" />
         </div>
       </div>
     </div>

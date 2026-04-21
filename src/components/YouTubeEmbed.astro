@@ -1,0 +1,41 @@
+---
+interface Props {
+  videoId: string;
+  title?: string;
+}
+const { videoId, title = 'Video' } = Astro.props;
+---
+
+<div class="yt-embed relative aspect-video cursor-pointer group" data-video-id={videoId}>
+  <img
+    src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+    alt={title}
+    class="absolute inset-0 w-full h-full object-cover"
+    loading="lazy"
+  />
+  <div class="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors"></div>
+  <div class="absolute inset-0 flex items-center justify-center">
+    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-k9-orange/90 group-hover:bg-k9-orange group-hover:scale-110 transition-all flex items-center justify-center shadow-lg shadow-black/30">
+      <svg class="w-7 h-7 sm:w-8 sm:h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z" />
+      </svg>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.yt-embed').forEach(el => {
+    el.addEventListener('click', () => {
+      const videoId = (el as HTMLElement).dataset.videoId;
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1`;
+      iframe.title = 'Video';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.className = 'absolute inset-0 w-full h-full';
+      el.innerHTML = '';
+      el.appendChild(iframe);
+      el.classList.remove('cursor-pointer');
+    }, { once: true });
+  });
+</script>
