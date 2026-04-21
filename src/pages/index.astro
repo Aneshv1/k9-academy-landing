@@ -291,28 +291,20 @@ import '../styles/global.css';
       </div>
 
       <div class="space-y-3" id="main-video-carousel">
-        <div class="rounded-2xl overflow-hidden border border-neutral-200/60 shadow-md aspect-video">
-          <iframe
-            src="https://www.youtube.com/embed/gfnMuWAA-LM?rel=0"
-            title="K9 Academy Training"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            class="w-full h-full"
-            loading="lazy"
-            id="main-carousel-player"
-          ></iframe>
+        <div id="main-video" class="rounded-2xl overflow-hidden border border-neutral-200/60 shadow-md">
+          <YouTubeEmbed videoId="gfnMuWAA-LM" title="K9 Academy Training" />
         </div>
 
         <div class="flex gap-2">
-          <button data-video="gfnMuWAA-LM" class="main-video-thumb flex-1 rounded-lg overflow-hidden border-2 border-k9-orange opacity-100 transition-all">
-            <img src="https://img.youtube.com/vi/gfnMuWAA-LM/mqdefault.jpg" alt="Video 1" class="w-full aspect-video object-cover" loading="lazy" />
-          </button>
-          <button data-video="3B-EavE1l_U" class="main-video-thumb flex-1 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition-all">
-            <img src="https://img.youtube.com/vi/3B-EavE1l_U/mqdefault.jpg" alt="Video 2" class="w-full aspect-video object-cover" loading="lazy" />
-          </button>
-          <button data-video="76P1n4JgNRQ" class="main-video-thumb flex-1 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition-all">
-            <img src="https://img.youtube.com/vi/76P1n4JgNRQ/mqdefault.jpg" alt="Video 3" class="w-full aspect-video object-cover" loading="lazy" />
-          </button>
+          {[
+            { id: 'gfnMuWAA-LM', alt: 'Training Overview', active: true },
+            { id: '3B-EavE1l_U', alt: 'Training Results', active: false },
+            { id: '76P1n4JgNRQ', alt: 'Board & Train', active: false },
+          ].map((v) => (
+            <button data-video={v.id} class={`main-video-thumb flex-1 rounded-lg overflow-hidden border-2 transition-all ${v.active ? 'border-k9-orange opacity-100' : 'border-transparent opacity-60 hover:opacity-100'}`}>
+              <img src={`https://img.youtube.com/vi/${v.id}/mqdefault.jpg`} alt={v.alt} class="w-full aspect-video object-cover" loading="lazy" />
+            </button>
+          ))}
         </div>
       </div>
     </div>
@@ -322,8 +314,8 @@ import '../styles/global.css';
     document.querySelectorAll('.main-video-thumb').forEach((btn) => {
       btn.addEventListener('click', () => {
         const videoId = (btn as HTMLElement).dataset.video;
-        const player = document.getElementById('main-carousel-player') as HTMLIFrameElement;
-        player.src = `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1`;
+        const container = document.getElementById('main-video')!;
+        container.innerHTML = `<div class="relative aspect-video"><iframe src="https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1" title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="absolute inset-0 w-full h-full"></iframe></div>`;
 
         document.querySelectorAll('.main-video-thumb').forEach((b) => {
           b.classList.remove('border-k9-orange');
