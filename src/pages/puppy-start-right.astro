@@ -51,12 +51,12 @@ import '../styles/global.css';
           <!-- Outcomes -->
           <div class="mt-7 grid sm:grid-cols-2 gap-2.5 max-w-xl">
             {[
-              '3 phases as your puppy grows',
-              'Socialization at critical windows',
-              'Obedience built in stages',
-              'Crate + potty + leash walking',
-              'Recall + impulse control',
-              'Handover sessions after each phase',
+              'Stay 1: Socialization + confidence',
+              'Stay 2: Leash walking + obedience',
+              'Stay 3: Full off-leash reliability',
+              'Crate + potty + manners',
+              'Handover session after each stay',
+              'Training that grows with your puppy',
             ].map((item) => (
               <div class="flex items-center gap-2.5 text-sm text-neutral-300">
                 <div class="w-5 h-5 rounded-full bg-k9-orange/15 flex items-center justify-center flex-shrink-0">
@@ -153,32 +153,30 @@ import '../styles/global.css';
         <p class="text-k9-orange font-medium text-sm mb-3">3 × 2-week stays across the first year</p>
         <p class="text-neutral-500 text-sm mb-5 leading-relaxed">Three phases timed to your puppy's development. Each stay builds on the last — so training sticks as they grow.</p>
 
-        <div class="grid grid-cols-3 gap-3 mb-6">
-          <div class="text-center p-3 rounded-xl bg-white border border-neutral-200/60">
-            <p class="text-xs font-bold text-k9-orange uppercase mb-1">Phase 1</p>
-            <p class="text-sm font-bold text-neutral-900">Foundation</p>
-            <p class="text-xs text-neutral-500">~8-14 weeks</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+          <div class="p-4 rounded-xl bg-white border border-neutral-200/60">
+            <p class="text-xs font-bold text-k9-orange uppercase mb-2">Stay 1 · ~8-14 weeks</p>
+            <p class="text-sm font-bold text-neutral-900 mb-1">Socialization &amp; Confidence</p>
+            <p class="text-xs text-neutral-500 leading-relaxed">Exposure to people, dogs, sounds, and environments. Confidence building. Puppy manners, bite inhibition, and crate introduction.</p>
           </div>
-          <div class="text-center p-3 rounded-xl bg-white border border-neutral-200/60">
-            <p class="text-xs font-bold text-k9-orange uppercase mb-1">Phase 2</p>
-            <p class="text-sm font-bold text-neutral-900">Reinforcement</p>
-            <p class="text-xs text-neutral-500">~4-6 months</p>
+          <div class="p-4 rounded-xl bg-white border border-neutral-200/60">
+            <p class="text-xs font-bold text-k9-orange uppercase mb-2">Stay 2 · ~4-6 months</p>
+            <p class="text-sm font-bold text-neutral-900 mb-1">Control &amp; Obedience</p>
+            <p class="text-xs text-neutral-500 leading-relaxed">Leash walking, general control, teaching calmness. Structured obedience — sit, down, stay, place, come. Building impulse control.</p>
           </div>
-          <div class="text-center p-3 rounded-xl bg-white border border-neutral-200/60">
-            <p class="text-xs font-bold text-k9-orange uppercase mb-1">Phase 3</p>
-            <p class="text-sm font-bold text-neutral-900">Adolescence</p>
-            <p class="text-xs text-neutral-500">~7-10 months</p>
+          <div class="p-4 rounded-xl bg-white border border-neutral-200/60">
+            <p class="text-xs font-bold text-k9-orange uppercase mb-2">Stay 3 · ~7-10 months</p>
+            <p class="text-sm font-bold text-neutral-900 mb-1">Off-Leash Reliability</p>
+            <p class="text-xs text-neutral-500 leading-relaxed">Full off-leash training. Reliable in all scenarios — parks, trails, distractions. Locking everything in before adolescent regression.</p>
           </div>
         </div>
 
         <ul class="space-y-2 mb-6">
           {[
-            'Obedience built and reinforced across 3 stages',
-            'Socialization at every critical development window',
-            'Crate training + potty training',
-            'Leash walking + off-leash recall foundations',
-            'Bite inhibition + impulse control',
-            'Adolescent regression handled before it sticks',
+            '3 stays timed to your puppy\'s development',
+            'Socialization during the critical window',
+            'Obedience built progressively across stages',
+            'Full off-leash reliability by graduation',
             'Photo + video updates during each stay',
             'Handover session after every phase',
           ].map((d) => (
@@ -217,10 +215,10 @@ import '../styles/global.css';
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {[
-          { num: '01', title: 'Apply', desc: 'Fill out the form or call us. Tell us about your puppy and their age.' },
-          { num: '02', title: 'Phase 1', desc: 'First 2-week stay. Foundation skills — crate, potty, socialization, basic obedience, bite inhibition.' },
-          { num: '03', title: 'Phase 2', desc: 'Second stay a few months later. Reinforcement as your puppy matures — leash work, recall, impulse control.' },
-          { num: '04', title: 'Phase 3', desc: 'Final stay during adolescence. Lock in everything before teenage regression undoes your progress.' },
+          { num: '01', title: 'Apply', desc: 'Tell us about your puppy — breed, age, and what you want to achieve. We plan the 3 stays around their age.' },
+          { num: '02', title: 'Stay 1', desc: 'Socialization, confidence building, exposure to the world, puppy manners, bite inhibition, and crate introduction.' },
+          { num: '03', title: 'Stay 2', desc: 'A few months later — leash walking, general control, calmness, and structured obedience as your puppy matures.' },
+          { num: '04', title: 'Stay 3', desc: 'Full off-leash training and reliability in all scenarios. Everything locked in before adolescent regression hits.' },
         ].map((step) => (
           <div class="text-center sm:text-left">
             <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-k9-orange text-white text-sm font-bold mb-4">
