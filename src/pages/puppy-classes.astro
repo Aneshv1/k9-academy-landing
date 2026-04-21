@@ -135,11 +135,11 @@ import '../styles/global.css';
       <div class="text-center mb-12 sm:mb-16">
         <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Puppy Programs</p>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
-          Two ways to give your puppy the best start
+          Three ways to give your puppy the best start
         </h2>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-5">
+      <div class="grid md:grid-cols-3 gap-5">
         <!-- Puppy Class -->
         <div class="rounded-2xl p-6 sm:p-8 border border-neutral-200/60 bg-white hover:border-neutral-300 hover:shadow-md transition-all">
           <h3 class="text-2xl font-bold text-neutral-900 mb-1">Puppy Program</h3>
@@ -183,6 +183,28 @@ import '../styles/global.css';
             <span class="text-2xl font-extrabold text-neutral-900">$785</span>
             <span class="text-sm text-k9-orange font-semibold">Save $260</span>
             <a href="#contact" class="ml-auto inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-k9-orange text-white hover:bg-k9-orange-dark shadow-sm transition-all">Get on the List</a>
+          </div>
+        </div>
+
+        <!-- Puppy Start Right — Board & Train -->
+        <div class="rounded-2xl p-6 sm:p-8 border border-neutral-200/60 bg-white hover:border-neutral-300 hover:shadow-md transition-all">
+          <div class="inline-flex items-center px-3 py-1 bg-neutral-900 text-white text-xs font-bold rounded-lg uppercase tracking-wide mb-3">Premium</div>
+          <h3 class="text-2xl font-bold text-neutral-900 mb-1">Puppy Start Right</h3>
+          <p class="text-k9-orange font-medium text-sm mb-3">6-week board & train · We raise your puppy for you</p>
+          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">The ultimate head start. Your puppy lives with us for 6 weeks and comes home fully trained — obedience, socialization, crate training, leash walking, recall, and manners. The habits that take most owners months to build, done properly from the start.</p>
+          <ul class="space-y-2 mb-6">
+            {['Full obedience foundation', 'Daily structured socialization', 'Crate + potty training', 'Leash walking + recall', 'Bite inhibition + impulse control', 'Two handover sessions so you maintain results'].map((d) => (
+              <li class="flex items-start gap-2 text-sm text-neutral-600">
+                <svg class="w-4 h-4 text-k9-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>{d}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="flex items-center justify-between pt-5 border-t border-neutral-100">
+            <span class="text-2xl font-extrabold text-neutral-900">$3,995</span>
+            <a href="#contact" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-neutral-100 text-neutral-700 hover:bg-k9-orange hover:text-white transition-all">Apply</a>
           </div>
         </div>
       </div>
