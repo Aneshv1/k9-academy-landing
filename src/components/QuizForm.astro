@@ -8,15 +8,45 @@
       <h2 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
         How does your dog really score?
       </h2>
-      <p class="mt-3 text-neutral-500 text-sm">6 quick questions. Instant results. Takes 30 seconds.</p>
+      <p class="mt-3 text-neutral-500 text-sm">7 quick questions. Instant results. Takes 30 seconds.</p>
     </div>
 
     <div id="quiz-container">
-      <!-- Q1: Leash -->
+
+      <!-- Step 1: Challenge selector (both paths) -->
       <div class="quiz-step" data-step="1">
         <div class="flex items-center justify-between mb-6">
-          <p class="text-neutral-500 text-xs font-medium">1 / 6</p>
-          <div class="flex-1 mx-4 h-1 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-k9-orange rounded-full" style="width:16.6%"></div></div>
+          <p class="text-neutral-500 text-xs font-medium">1 / 7</p>
+          <div class="flex-1 mx-4 h-1 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-k9-orange rounded-full" style="width:14.3%"></div></div>
+        </div>
+        <h3 class="text-lg font-bold text-white text-center mb-6">What best describes your situation?</h3>
+        <div class="grid gap-3">
+          {[
+            { val: 'leash', label: 'Pulling on leash' },
+            { val: 'reactivity', label: 'Reactivity to dogs or people' },
+            { val: 'recall', label: 'Won\'t come when called' },
+            { val: 'separation', label: 'Can\'t be left alone' },
+            { val: 'settling', label: 'Can\'t settle or relax at home' },
+            { val: 'aggression', label: 'Aggression toward people or dogs' },
+            { val: 'general', label: 'General obedience — needs a tune-up' },
+            { val: 'puppy', label: 'Just got a puppy' },
+          ].map((opt) => (
+            <button type="button" class="quiz-option group flex items-center justify-center px-4 py-4 rounded-xl border border-white/10 bg-white/5 text-center hover:border-k9-orange/50 hover:bg-k9-orange/5 transition-all" data-field="challenge" data-value={opt.val}>
+              <span class="text-sm font-medium text-neutral-300 group-hover:text-white transition-colors">{opt.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════ -->
+      <!-- ADULT PATH: Steps 2-7              -->
+      <!-- ═══════════════════════════════════ -->
+
+      <!-- Adult Step 2: Leash -->
+      <div class="quiz-step hidden" data-step="2">
+        <div class="flex items-center justify-between mb-6">
+          <p class="text-neutral-500 text-xs font-medium">2 / 7</p>
+          <div class="flex-1 mx-4 h-1 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-k9-orange rounded-full" style="width:28.6%"></div></div>
         </div>
         <h3 class="text-lg font-bold text-white text-center mb-6">Does your dog pull on leash?</h3>
         <div class="grid gap-3">
@@ -32,11 +62,11 @@
         </div>
       </div>
 
-      <!-- Q2: Reactivity -->
-      <div class="quiz-step hidden" data-step="2">
+      <!-- Adult Step 3: Reactivity -->
+      <div class="quiz-step hidden" data-step="3">
         <div class="flex items-center justify-between mb-6">
-          <p class="text-neutral-500 text-xs font-medium">2 / 6</p>
-          <div class="flex-1 mx-4 h-1 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-k9-orange rounded-full" style="width:33.3%"></div></div>
+          <p class="text-neutral-500 text-xs font-medium">3 / 7</p>
+          <div class="flex-1 mx-4 h-1 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-k9-orange rounded-full" style="width:42.9%"></div></div>
         </div>
         <h3 class="text-lg font-bold text-white text-center mb-6">How does your dog react to other dogs on walks?</h3>
         <div class="grid gap-3">
@@ -52,11 +82,11 @@
         </div>
       </div>
 
-      <!-- Q3: Recall -->
-      <div class="quiz-step hidden" data-step="3">
+      <!-- Adult Step 4: Recall -->
+      <div class="quiz-step hidden" data-step="4">
         <div class="flex items-center justify-between mb-6">
-          <p class="text-neutral-500 text-xs font-medium">3 / 6</p>
-          <div class="flex-1 mx-4 h-1 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-k9-orange rounded-full" style="width:50%"></div></div>
+          <p class="text-neutral-500 text-xs font-medium">4 / 7</p>
+          <div class="flex-1 mx-4 h-1 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-k9-orange rounded-full" style="width:57.1%"></div></div>
         </div>
         <h3 class="text-lg font-bold text-white text-center mb-6">Does your dog come when called off leash?</h3>
         <div class="grid gap-3">
@@ -72,11 +102,11 @@
         </div>
       </div>
 
-      <!-- Q4: Alone -->
-      <div class="quiz-step hidden" data-step="4">
+      <!-- Adult Step 5: Alone -->
+      <div class="quiz-step hidden" data-step="5">
         <div class="flex items-center justify-between mb-6">
-          <p class="text-neutral-500 text-xs font-medium">4 / 6</p>
-          <div class="flex-1 mx-4 h-1 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-k9-orange rounded-full" style="width:66.6%"></div></div>
+          <p class="text-neutral-500 text-xs font-medium">5 / 7</p>
+          <div class="flex-1 mx-4 h-1 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-k9-orange rounded-full" style="width:71.4%"></div></div>
         </div>
         <h3 class="text-lg font-bold text-white text-center mb-6">Can you leave your dog alone for 2+ hours?</h3>
         <div class="grid gap-3">
@@ -92,11 +122,11 @@
         </div>
       </div>
 
-      <!-- Q5: Settling -->
-      <div class="quiz-step hidden" data-step="5">
+      <!-- Adult Step 6: Settling -->
+      <div class="quiz-step hidden" data-step="6">
         <div class="flex items-center justify-between mb-6">
-          <p class="text-neutral-500 text-xs font-medium">5 / 6</p>
-          <div class="flex-1 mx-4 h-1 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-k9-orange rounded-full" style="width:83.3%"></div></div>
+          <p class="text-neutral-500 text-xs font-medium">6 / 7</p>
+          <div class="flex-1 mx-4 h-1 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-k9-orange rounded-full" style="width:85.7%"></div></div>
         </div>
         <h3 class="text-lg font-bold text-white text-center mb-6">Does your dog settle at home without being told?</h3>
         <div class="grid gap-3">
@@ -112,10 +142,10 @@
         </div>
       </div>
 
-      <!-- Q6: Aggression -->
-      <div class="quiz-step hidden" data-step="6">
+      <!-- Adult Step 7: Aggression -->
+      <div class="quiz-step hidden" data-step="7">
         <div class="flex items-center justify-between mb-6">
-          <p class="text-neutral-500 text-xs font-medium">6 / 6</p>
+          <p class="text-neutral-500 text-xs font-medium">7 / 7</p>
           <div class="flex-1 mx-4 h-1 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-k9-orange rounded-full" style="width:100%"></div></div>
         </div>
         <h3 class="text-lg font-bold text-white text-center mb-6">Has your dog shown any aggression toward people or dogs?</h3>
@@ -132,7 +162,133 @@
         </div>
       </div>
 
-      <!-- Results — email gate -->
+      <!-- ═══════════════════════════════════ -->
+      <!-- PUPPY PATH: Steps p2-p7            -->
+      <!-- ═══════════════════════════════════ -->
+
+      <!-- Puppy Step 2: Age (not scored) -->
+      <div class="quiz-step hidden" data-step="p2">
+        <div class="flex items-center justify-between mb-6">
+          <p class="text-neutral-500 text-xs font-medium">2 / 7</p>
+          <div class="flex-1 mx-4 h-1 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-k9-orange rounded-full" style="width:28.6%"></div></div>
+        </div>
+        <h3 class="text-lg font-bold text-white text-center mb-6">How old is your puppy?</h3>
+        <div class="grid gap-3">
+          {[
+            { val: '8to12w', label: '8 - 12 weeks' },
+            { val: '3to4m', label: '3 - 4 months' },
+            { val: '4to5m', label: '4 - 5.5 months' },
+          ].map((opt) => (
+            <button type="button" class="quiz-option group flex items-center justify-center px-4 py-4 rounded-xl border border-white/10 bg-white/5 text-center hover:border-k9-orange/50 hover:bg-k9-orange/5 transition-all" data-field="puppy_age" data-value={opt.val}>
+              <span class="text-sm font-medium text-neutral-300 group-hover:text-white transition-colors">{opt.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Puppy Step 3: Nipping -->
+      <div class="quiz-step hidden" data-step="p3">
+        <div class="flex items-center justify-between mb-6">
+          <p class="text-neutral-500 text-xs font-medium">3 / 7</p>
+          <div class="flex-1 mx-4 h-1 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-k9-orange rounded-full" style="width:42.9%"></div></div>
+        </div>
+        <h3 class="text-lg font-bold text-white text-center mb-6">Does your puppy nip or bite?</h3>
+        <div class="grid gap-3">
+          {[
+            { val: '3', label: 'Rarely' },
+            { val: '2', label: 'Sometimes — mostly during play' },
+            { val: '1', label: 'Constantly — hands, feet, furniture' },
+          ].map((opt) => (
+            <button type="button" class="quiz-option group flex items-center justify-center px-4 py-4 rounded-xl border border-white/10 bg-white/5 text-center hover:border-k9-orange/50 hover:bg-k9-orange/5 transition-all" data-field="nipping" data-value={opt.val}>
+              <span class="text-sm font-medium text-neutral-300 group-hover:text-white transition-colors">{opt.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Puppy Step 4: Potty -->
+      <div class="quiz-step hidden" data-step="p4">
+        <div class="flex items-center justify-between mb-6">
+          <p class="text-neutral-500 text-xs font-medium">4 / 7</p>
+          <div class="flex-1 mx-4 h-1 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-k9-orange rounded-full" style="width:57.1%"></div></div>
+        </div>
+        <h3 class="text-lg font-bold text-white text-center mb-6">Is your puppy potty trained?</h3>
+        <div class="grid gap-3">
+          {[
+            { val: '3', label: 'Yes, fully' },
+            { val: '2', label: 'Getting there — occasional accidents' },
+            { val: '1', label: 'Not at all' },
+          ].map((opt) => (
+            <button type="button" class="quiz-option group flex items-center justify-center px-4 py-4 rounded-xl border border-white/10 bg-white/5 text-center hover:border-k9-orange/50 hover:bg-k9-orange/5 transition-all" data-field="potty" data-value={opt.val}>
+              <span class="text-sm font-medium text-neutral-300 group-hover:text-white transition-colors">{opt.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Puppy Step 5: Crate -->
+      <div class="quiz-step hidden" data-step="p5">
+        <div class="flex items-center justify-between mb-6">
+          <p class="text-neutral-500 text-xs font-medium">5 / 7</p>
+          <div class="flex-1 mx-4 h-1 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-k9-orange rounded-full" style="width:71.4%"></div></div>
+        </div>
+        <h3 class="text-lg font-bold text-white text-center mb-6">Can your puppy settle in a crate?</h3>
+        <div class="grid gap-3">
+          {[
+            { val: '3', label: 'Yes, sleeps calmly' },
+            { val: '2', label: 'With some fussing' },
+            { val: '1', label: 'Howls, panics, or refuses' },
+          ].map((opt) => (
+            <button type="button" class="quiz-option group flex items-center justify-center px-4 py-4 rounded-xl border border-white/10 bg-white/5 text-center hover:border-k9-orange/50 hover:bg-k9-orange/5 transition-all" data-field="crate" data-value={opt.val}>
+              <span class="text-sm font-medium text-neutral-300 group-hover:text-white transition-colors">{opt.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Puppy Step 6: Recall -->
+      <div class="quiz-step hidden" data-step="p6">
+        <div class="flex items-center justify-between mb-6">
+          <p class="text-neutral-500 text-xs font-medium">6 / 7</p>
+          <div class="flex-1 mx-4 h-1 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-k9-orange rounded-full" style="width:85.7%"></div></div>
+        </div>
+        <h3 class="text-lg font-bold text-white text-center mb-6">Does your puppy come when called?</h3>
+        <div class="grid gap-3">
+          {[
+            { val: '3', label: 'Usually yes' },
+            { val: '2', label: 'Only when no distractions' },
+            { val: '1', label: 'Almost never' },
+          ].map((opt) => (
+            <button type="button" class="quiz-option group flex items-center justify-center px-4 py-4 rounded-xl border border-white/10 bg-white/5 text-center hover:border-k9-orange/50 hover:bg-k9-orange/5 transition-all" data-field="puppy_recall" data-value={opt.val}>
+              <span class="text-sm font-medium text-neutral-300 group-hover:text-white transition-colors">{opt.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Puppy Step 7: Socialization -->
+      <div class="quiz-step hidden" data-step="p7">
+        <div class="flex items-center justify-between mb-6">
+          <p class="text-neutral-500 text-xs font-medium">7 / 7</p>
+          <div class="flex-1 mx-4 h-1 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-k9-orange rounded-full" style="width:100%"></div></div>
+        </div>
+        <h3 class="text-lg font-bold text-white text-center mb-6">How is your puppy around new people, dogs, or environments?</h3>
+        <div class="grid gap-3">
+          {[
+            { val: '3', label: 'Confident and curious' },
+            { val: '2', label: 'A bit cautious but warms up' },
+            { val: '1', label: 'Very fearful, hides, or overly excitable' },
+          ].map((opt) => (
+            <button type="button" class="quiz-option group flex items-center justify-center px-4 py-4 rounded-xl border border-white/10 bg-white/5 text-center hover:border-k9-orange/50 hover:bg-k9-orange/5 transition-all" data-field="socialization" data-value={opt.val}>
+              <span class="text-sm font-medium text-neutral-300 group-hover:text-white transition-colors">{opt.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════ -->
+      <!-- Results — email gate               -->
+      <!-- ═══════════════════════════════════ -->
       <div class="quiz-step hidden" data-step="result">
         <div class="text-center mb-6">
           <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-k9-orange/10 mb-4">
@@ -141,7 +297,7 @@
             </svg>
           </div>
           <h3 class="text-xl font-bold text-white mb-2">Your results are ready</h3>
-          <p class="text-neutral-400 text-sm max-w-sm mx-auto">We scored your dog across 6 behavioural areas. Enter your email and we'll send your full score, weakest areas, and what to do about each one.</p>
+          <p class="text-neutral-400 text-sm max-w-sm mx-auto">Enter your email and we'll send your full score, weakest areas, and what to do about each one.</p>
         </div>
 
         <form id="quiz-form" class="space-y-3 max-w-sm mx-auto">
@@ -186,10 +342,11 @@
 </section>
 
 <script>
+  const quizData: Record<string, string> = {};
   const scores: Record<string, number> = {};
-  let currentStep = 1;
+  let stepIndex = 0;
 
-  const labels: Record<string, string> = {
+  const adultLabels: Record<string, string> = {
     leash: 'Leash walking',
     reactivity: 'Reactivity',
     recall: 'Off-leash recall',
@@ -198,7 +355,26 @@
     aggression: 'Aggression',
   };
 
-  function showStep(step: number | string) {
+  const puppyLabels: Record<string, string> = {
+    nipping: 'Nipping / Biting',
+    potty: 'Potty Training',
+    crate: 'Crate Training',
+    puppy_recall: 'Coming When Called',
+    socialization: 'Socialization',
+  };
+
+  const adultSteps = ['1', '2', '3', '4', '5', '6', '7', 'result'];
+  const puppySteps = ['1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'result'];
+
+  function getPath(): string[] {
+    return quizData.challenge === 'puppy' ? puppySteps : adultSteps;
+  }
+
+  function getLabels(): Record<string, string> {
+    return quizData.challenge === 'puppy' ? puppyLabels : adultLabels;
+  }
+
+  function showStep(step: string) {
     document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
     const target = document.querySelector(`.quiz-step[data-step="${step}"]`);
     if (target) target.classList.remove('hidden');
@@ -207,17 +383,22 @@
   document.querySelectorAll('.quiz-option').forEach(btn => {
     btn.addEventListener('click', () => {
       const field = (btn as HTMLElement).dataset.field!;
-      const value = parseInt((btn as HTMLElement).dataset.value!, 10);
-      scores[field] = value;
+      const value = (btn as HTMLElement).dataset.value!;
+      quizData[field] = value;
+
+      // Store numeric scores (1-3)
+      const numVal = parseInt(value, 10);
+      if (!isNaN(numVal) && numVal >= 1 && numVal <= 3) {
+        scores[field] = numVal;
+      }
 
       btn.classList.add('border-k9-orange', 'bg-k9-orange/10');
 
       setTimeout(() => {
-        currentStep++;
-        if (currentStep <= 6) {
-          showStep(currentStep);
-        } else {
-          showStep('result');
+        const path = getPath();
+        stepIndex++;
+        if (stepIndex < path.length) {
+          showStep(path[stepIndex]);
         }
       }, 200);
     });
@@ -233,8 +414,13 @@
     btn.disabled = true;
     btn.textContent = 'Sending...';
 
+    const isPuppy = quizData.challenge === 'puppy';
+    const labels = getLabels();
     const total = Object.values(scores).reduce((a, b) => a + b, 0);
-    const scoreBreakdown = Object.entries(scores).map(([k, v]) => `${labels[k]}: ${v}/3`).join(', ');
+    const maxScore = isPuppy ? 15 : 18;
+    const scoreBreakdown = Object.entries(scores)
+      .map(([k, v]) => `${labels[k] || k}: ${v}/3`)
+      .join(', ');
 
     showStep('thanks');
 
@@ -247,39 +433,61 @@
           email,
           phone: '',
           service: 'behaviour_quiz',
-          message: `Behaviour quiz score: ${total}/18. ${scoreBreakdown}`,
-          dog_info: '',
+          message: `Behaviour quiz score: ${total}/${maxScore}. ${scoreBreakdown}`,
+          dog_info: isPuppy ? `Puppy (${quizData.puppy_age || 'unknown age'})` : '',
           quiz_scores: scores,
           quiz_total: total,
+          quiz_path: isPuppy ? 'puppy' : 'adult',
         }),
       });
     } catch {}
 
     try {
       const _learnq = (window as any)._learnq || [];
-      _learnq.push(['identify', {
+      const identifyData: Record<string, any> = {
         '$email': email,
         '$first_name': name.split(' ')[0] || '',
         'Source': 'Behaviour Quiz',
         'Quiz Score': total,
-        'Quiz Leash': scores.leash,
-        'Quiz Reactivity': scores.reactivity,
-        'Quiz Recall': scores.recall,
-        'Quiz Alone': scores.alone,
-        'Quiz Settling': scores.settling,
-        'Quiz Aggression': scores.aggression,
-      }]);
-      _learnq.push(['track', 'Behaviour Quiz Completed', {
+        'Quiz Path': isPuppy ? 'puppy' : 'adult',
+      };
+      const trackData: Record<string, any> = {
         'Name': name,
         'Email': email,
         'Score': total,
-        'Leash': scores.leash,
-        'Reactivity': scores.reactivity,
-        'Recall': scores.recall,
-        'Alone': scores.alone,
-        'Settling': scores.settling,
-        'Aggression': scores.aggression,
-      }]);
+        'Path': isPuppy ? 'puppy' : 'adult',
+      };
+
+      if (isPuppy) {
+        identifyData['Quiz Nipping'] = scores.nipping;
+        identifyData['Quiz Potty'] = scores.potty;
+        identifyData['Quiz Crate'] = scores.crate;
+        identifyData['Quiz Puppy Recall'] = scores.puppy_recall;
+        identifyData['Quiz Socialization'] = scores.socialization;
+        identifyData['Puppy Age'] = quizData.puppy_age;
+        trackData['Nipping'] = scores.nipping;
+        trackData['Potty'] = scores.potty;
+        trackData['Crate'] = scores.crate;
+        trackData['Puppy Recall'] = scores.puppy_recall;
+        trackData['Socialization'] = scores.socialization;
+        trackData['Puppy Age'] = quizData.puppy_age;
+      } else {
+        identifyData['Quiz Leash'] = scores.leash;
+        identifyData['Quiz Reactivity'] = scores.reactivity;
+        identifyData['Quiz Recall'] = scores.recall;
+        identifyData['Quiz Alone'] = scores.alone;
+        identifyData['Quiz Settling'] = scores.settling;
+        identifyData['Quiz Aggression'] = scores.aggression;
+        trackData['Leash'] = scores.leash;
+        trackData['Reactivity'] = scores.reactivity;
+        trackData['Recall'] = scores.recall;
+        trackData['Alone'] = scores.alone;
+        trackData['Settling'] = scores.settling;
+        trackData['Aggression'] = scores.aggression;
+      }
+
+      _learnq.push(['identify', identifyData]);
+      _learnq.push(['track', 'Behaviour Quiz Completed', trackData]);
     } catch {}
   });
 </script>

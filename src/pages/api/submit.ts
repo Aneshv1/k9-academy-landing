@@ -96,9 +96,10 @@ export const POST: APIRoute = async ({ request }) => {
         const resend = new Resend(resendApiKey);
         const s = body.quiz_scores as Record<string, number>;
         const total = body.quiz_total as number;
-        const pct = Math.round((total / 18) * 100);
+        const isPuppy = body.quiz_path === 'puppy';
+        const maxScore = isPuppy ? 15 : 18;
 
-        const areaLabels: Record<string, string> = {
+        const adultLabels: Record<string, string> = {
           leash: 'Leash Walking',
           reactivity: 'Reactivity',
           recall: 'Off-Leash Recall',
@@ -107,8 +108,26 @@ export const POST: APIRoute = async ({ request }) => {
           aggression: 'Aggression',
         };
 
-        const grade = total >= 15 ? 'Your dog is ahead of the pack' : total >= 10 ? 'There is real room for improvement' : 'Your dog would benefit greatly from working with a professional';
-        const gradeColor = total >= 15 ? '#10b981' : total >= 10 ? '#f59e0b' : '#ef4444';
+        const puppyLabels: Record<string, string> = {
+          nipping: 'Nipping / Biting',
+          potty: 'Potty Training',
+          crate: 'Crate Training',
+          puppy_recall: 'Coming When Called',
+          socialization: 'Socialization',
+        };
+
+        const areaLabels = isPuppy ? puppyLabels : adultLabels;
+
+        // Grading thresholds (scaled to path)
+        const highThreshold = isPuppy ? 13 : 15;
+        const midThreshold = isPuppy ? 8 : 10;
+
+        const grade = total >= highThreshold
+          ? (isPuppy ? 'Your puppy is off to a great start' : 'Your dog is ahead of the pack')
+          : total >= midThreshold
+            ? (isPuppy ? 'Your puppy has some areas to work on' : 'There is real room for improvement')
+            : (isPuppy ? 'Your puppy would benefit from structured training right away' : 'Your dog would benefit greatly from working with a professional');
+        const gradeColor = total >= highThreshold ? '#10b981' : total >= midThreshold ? '#f59e0b' : '#ef4444';
 
         const areaRows = Object.entries(areaLabels).map(([key, label]) => {
           const val = s[key] ?? 0;
@@ -118,26 +137,39 @@ export const POST: APIRoute = async ({ request }) => {
         }).join('');
 
         const tips: string[] = [];
-        if ((s.reactivity ?? 3) <= 1) tips.push('Your dog\'s reactivity is the #1 priority. Reactivity almost always gets worse without intervention — not better. Start by creating distance from triggers and rewarding calm behaviour.');
-        if ((s.alone ?? 3) <= 1) tips.push('Separation anxiety is a genuine panic response. Practice "boring departures" — pick up keys, put on shoes, then sit back down. Desensitize your dog to departure cues gradually.');
-        if ((s.recall ?? 3) <= 1) tips.push('Off-leash recall starts at home with zero distractions. Say your dog\'s name once, reward when they look. Do this 10x a day for a week before trying it outside.');
-        if ((s.leash ?? 3) <= 1) tips.push('Stop walking the moment your dog pulls. Wait for slack, then continue. Painful the first few days — most dogs get it by day 4 or 5.');
-        if ((s.aggression ?? 3) <= 1) tips.push('Aggression that involves snapping or biting needs professional help immediately. Manage the environment to prevent triggers while you seek a trainer.');
-        if ((s.settling ?? 3) <= 1) tips.push('Teach the "place" command. Lure your dog onto a bed, reward them for staying. Start at 10 seconds and build up. This is one of the most transformative commands you can teach.');
-        if (tips.length === 0) tips.push('Your dog is in solid shape. Targeted group classes or a tune-up session can take you from good to great.');
+        if (isPuppy) {
+          if ((s.nipping ?? 3) <= 1) tips.push('Constant nipping is normal but needs redirection now. When your puppy bites, say "ouch" calmly, remove your hand, and offer a chew toy instead. Consistency is everything — every family member needs to do the same thing.');
+          if ((s.potty ?? 3) <= 1) tips.push('Potty training at this age is about management, not correction. Take your puppy out every 30-45 minutes, after naps, after play, and after meals. Reward immediately when they go outside. Clean indoor accidents with enzyme cleaner.');
+          if ((s.crate ?? 3) <= 1) tips.push('Crate panic usually means the crate was introduced too fast. Start by feeding meals inside it with the door open. Build up to closing the door for 5 seconds, then 30, then a minute. Never use the crate as punishment.');
+          if ((s.puppy_recall ?? 3) <= 1) tips.push('Puppy recall is easiest to build now while your puppy still wants to follow you. Say their name in an excited voice, crouch down, and reward with a high-value treat every single time they come. Never call your puppy to punish them.');
+          if ((s.socialization ?? 3) <= 1) tips.push('The socialization window closes around 14-16 weeks. Expose your puppy to new people, sounds, surfaces, and environments daily — but let them approach at their own pace. Flooding a fearful puppy makes it worse.');
+          if (tips.length === 0) tips.push('Your puppy is in great shape! A structured puppy program will set lifelong habits and help you avoid the common teenage regression around 6-8 months.');
+        } else {
+          if ((s.reactivity ?? 3) <= 1) tips.push('Your dog\'s reactivity is the #1 priority. Reactivity almost always gets worse without intervention — not better. Start by creating distance from triggers and rewarding calm behaviour.');
+          if ((s.alone ?? 3) <= 1) tips.push('Separation anxiety is a genuine panic response. Practice "boring departures" — pick up keys, put on shoes, then sit back down. Desensitize your dog to departure cues gradually.');
+          if ((s.recall ?? 3) <= 1) tips.push('Off-leash recall starts at home with zero distractions. Say your dog\'s name once, reward when they look. Do this 10x a day for a week before trying it outside.');
+          if ((s.leash ?? 3) <= 1) tips.push('Stop walking the moment your dog pulls. Wait for slack, then continue. Painful the first few days — most dogs get it by day 4 or 5.');
+          if ((s.aggression ?? 3) <= 1) tips.push('Aggression that involves snapping or biting needs professional help immediately. Manage the environment to prevent triggers while you seek a trainer.');
+          if ((s.settling ?? 3) <= 1) tips.push('Teach the "place" command. Lure your dog onto a bed, reward them for staying. Start at 10 seconds and build up. This is one of the most transformative commands you can teach.');
+          if (tips.length === 0) tips.push('Your dog is in solid shape. Targeted group classes or a tune-up session can take you from good to great.');
+        }
 
         const tipsHtml = tips.map(t => `<li style="margin-bottom:10px;font-size:14px;color:#555;line-height:1.5">${escapeHtml(t)}</li>`).join('');
+
+        const emailHeading = isPuppy ? 'Your Puppy Assessment Results' : 'Your Behaviour Assessment Results';
+        const scoreLabel = isPuppy ? 'Your puppy scored' : 'Your dog scored';
+        const ctaText = isPuppy ? 'Book a Puppy Session' : 'Talk to a Trainer';
 
         const quizHtml = `
           <div style="font-family:system-ui,-apple-system,sans-serif;max-width:560px;margin:0 auto">
             <div style="text-align:center;padding:32px 0 24px">
               <img src="https://k9-academy-landing.vercel.app/logo.png" alt="K9 Academy" style="height:40px;margin:0 auto 16px" />
-              <h1 style="margin:0;font-size:24px;color:#111">Your Behaviour Assessment Results</h1>
+              <h1 style="margin:0;font-size:24px;color:#111">${emailHeading}</h1>
             </div>
 
             <div style="text-align:center;padding:24px;background:#fafafa;border-radius:12px;margin-bottom:24px">
-              <p style="margin:0 0 4px;font-size:13px;color:#888">Your dog scored</p>
-              <p style="margin:0;font-size:48px;font-weight:800;color:#e8782a">${total}<span style="font-size:24px;color:#999"> / 18</span></p>
+              <p style="margin:0 0 4px;font-size:13px;color:#888">${scoreLabel}</p>
+              <p style="margin:0;font-size:48px;font-weight:800;color:#e8782a">${total}<span style="font-size:24px;color:#999"> / ${maxScore}</span></p>
               <p style="margin:8px 0 0;font-size:16px;font-weight:700;color:${gradeColor}">${grade}</p>
             </div>
 
@@ -151,7 +183,7 @@ export const POST: APIRoute = async ({ request }) => {
 
             <div style="text-align:center;padding:24px;background:#1a1a1a;border-radius:12px">
               <p style="margin:0 0 8px;font-size:14px;color:#999">Ready for real results?</p>
-              <a href="https://k9-academy-landing.vercel.app/#contact" style="display:inline-block;padding:12px 28px;background:#e8782a;color:#fff;font-weight:700;font-size:14px;text-decoration:none;border-radius:8px">Talk to a Trainer</a>
+              <a href="https://k9-academy-landing.vercel.app/#contact" style="display:inline-block;padding:12px 28px;background:#e8782a;color:#fff;font-weight:700;font-size:14px;text-decoration:none;border-radius:8px">${ctaText}</a>
               <p style="margin:12px 0 0;font-size:12px;color:#666">437-778-5273 · contact@k9academy.ca</p>
             </div>
 
@@ -159,13 +191,15 @@ export const POST: APIRoute = async ({ request }) => {
           </div>
         `;
 
-        const quizText = `Your dog scored ${total}/18 — ${grade}.\n\n${Object.entries(areaLabels).map(([k, l]) => `${l}: ${s[k] ?? 0}/3`).join('\n')}\n\nK9 Academy · 437-778-5273 · contact@k9academy.ca`;
+        const quizText = `${scoreLabel} ${total}/${maxScore} — ${grade}.\n\n${Object.entries(areaLabels).map(([k, l]) => `${l}: ${s[k] ?? 0}/3`).join('\n')}\n\nK9 Academy · 437-778-5273 · contact@k9academy.ca`;
 
         await resend.emails.send({
           from: 'K9 Academy <contact@k9academy.ca>',
           to: email,
           replyTo: 'contact@k9academy.ca',
-          subject: `Your dog scored ${total}/18 — here's the full breakdown`,
+          subject: isPuppy
+            ? `Your puppy scored ${total}/${maxScore} — here's what to focus on`
+            : `Your dog scored ${total}/${maxScore} — here's the full breakdown`,
           html: quizHtml,
           text: quizText,
         });
