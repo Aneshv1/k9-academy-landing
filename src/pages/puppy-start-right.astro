@@ -142,62 +142,138 @@ import '../styles/global.css';
     </div>
   </section>
 
-  <!-- WHAT'S INCLUDED -->
-  <section class="py-16 sm:py-24 bg-neutral-50 border-y border-neutral-100">
-    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="relative rounded-2xl p-6 sm:p-8 border border-k9-orange/30 bg-k9-orange-light/40 ring-1 ring-k9-orange/10">
-        <div class="absolute -top-3 left-6">
-          <span class="inline-flex items-center px-3 py-1 bg-k9-orange text-white text-xs font-bold rounded-lg uppercase tracking-wide">Best Value</span>
-        </div>
-        <h3 class="text-2xl font-bold text-neutral-900 mb-1 mt-2">Puppy Start Right</h3>
-        <p class="text-k9-orange font-medium text-sm mb-3">3 × 2-week stays across the first year</p>
-        <p class="text-neutral-500 text-sm mb-5 leading-relaxed">Three phases timed to your puppy's development. Each stay builds on the last — so training sticks as they grow.</p>
+  <!-- YOUR PUPPY'S FIRST YEAR — TIMELINE -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="text-k9-orange font-semibold text-xs tracking-widest uppercase mb-3">Your Puppy's First Year</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
+          What happens at each stage — and how we help
+        </h2>
+        <p class="mt-4 text-neutral-500 max-w-2xl mx-auto">Puppies change dramatically in their first year. One board and train too young doesn't stick. Three stays at the right times builds a foundation that lasts.</p>
+      </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
-          <div class="p-4 rounded-xl bg-white border border-neutral-200/60">
-            <p class="text-xs font-bold text-k9-orange uppercase mb-2">Stay 1 · ~8-14 weeks</p>
-            <p class="text-sm font-bold text-neutral-900 mb-1">Socialization &amp; Confidence</p>
-            <p class="text-xs text-neutral-500 leading-relaxed">Exposure to people, dogs, sounds, and environments. Confidence building. Puppy manners, bite inhibition, and crate introduction.</p>
+      <!-- Timeline -->
+      <div class="relative">
+        <!-- Vertical line -->
+        <div class="absolute left-6 sm:left-8 top-0 bottom-0 w-px bg-neutral-200"></div>
+
+        <!-- Stay 1 -->
+        <div class="relative pl-16 sm:pl-20 pb-14">
+          <div class="absolute left-3.5 sm:left-5.5 top-1 w-5 h-5 rounded-full bg-k9-orange flex items-center justify-center">
+            <span class="text-white text-[10px] font-bold">1</span>
           </div>
-          <div class="p-4 rounded-xl bg-white border border-neutral-200/60">
-            <p class="text-xs font-bold text-k9-orange uppercase mb-2">Stay 2 · ~4-6 months</p>
-            <p class="text-sm font-bold text-neutral-900 mb-1">Control &amp; Obedience</p>
-            <p class="text-xs text-neutral-500 leading-relaxed">Leash walking, general control, teaching calmness. Structured obedience — sit, down, stay, place, come. Building impulse control.</p>
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-xs font-bold text-k9-orange uppercase tracking-wide">Stay 1 · ~8-14 weeks</span>
           </div>
-          <div class="p-4 rounded-xl bg-white border border-neutral-200/60">
-            <p class="text-xs font-bold text-k9-orange uppercase mb-2">Stay 3 · ~7-10 months</p>
-            <p class="text-sm font-bold text-neutral-900 mb-1">Off-Leash Reliability</p>
-            <p class="text-xs text-neutral-500 leading-relaxed">Full off-leash training. Reliable in all scenarios — parks, trails, distractions. Locking everything in before adolescent regression.</p>
+          <h3 class="text-xl font-bold text-neutral-900 mb-2">Socialization &amp; Confidence</h3>
+
+          <div class="grid sm:grid-cols-2 gap-4 mt-4">
+            <div class="rounded-xl bg-red-50 border border-red-100 p-4">
+              <p class="text-xs font-bold text-red-600 uppercase tracking-wide mb-2">What's happening at this age</p>
+              <ul class="space-y-1.5 text-sm text-red-900/70">
+                <li>Socialization window is open — closes around 14-16 weeks</li>
+                <li>Fear periods can develop without proper exposure</li>
+                <li>Nipping and biting are constant</li>
+                <li>No concept of boundaries or manners</li>
+              </ul>
+            </div>
+            <div class="rounded-xl bg-emerald-50 border border-emerald-100 p-4">
+              <p class="text-xs font-bold text-emerald-600 uppercase tracking-wide mb-2">What we do</p>
+              <ul class="space-y-1.5 text-sm text-emerald-900/70">
+                <li>Daily exposure to people, dogs, sounds, surfaces</li>
+                <li>Confidence building in new environments</li>
+                <li>Bite inhibition + puppy manners</li>
+                <li>Crate introduction + potty training foundations</li>
+              </ul>
+            </div>
           </div>
+
+          <p class="mt-4 text-sm text-neutral-500 italic">Your puppy comes home socialized, confident, and with the foundation for everything that follows.</p>
         </div>
 
-        <ul class="space-y-2 mb-6">
-          {[
-            '3 stays timed to your puppy\'s development',
-            'Socialization during the critical window',
-            'Obedience built progressively across stages',
-            'Full off-leash reliability by graduation',
-            'Photo + video updates during each stay',
-            'Handover session after every phase',
-          ].map((d) => (
-            <li class="flex items-start gap-2 text-sm text-neutral-600">
-              <svg class="w-4 h-4 text-k9-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-              </svg>
-              <span>{d}</span>
-            </li>
-          ))}
-        </ul>
-        <div class="flex items-center justify-between pt-5 border-t border-neutral-100">
-          <span class="text-3xl font-extrabold text-neutral-900">$3,995</span>
-          <a href="#contact" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-k9-orange text-white hover:bg-k9-orange-dark shadow-sm transition-all">
-            Apply Now
-            <svg class="ml-1.5 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+        <!-- Stay 2 -->
+        <div class="relative pl-16 sm:pl-20 pb-14">
+          <div class="absolute left-3.5 sm:left-5.5 top-1 w-5 h-5 rounded-full bg-k9-orange flex items-center justify-center">
+            <span class="text-white text-[10px] font-bold">2</span>
+          </div>
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-xs font-bold text-k9-orange uppercase tracking-wide">Stay 2 · ~4-6 months</span>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 mb-2">Control &amp; Obedience</h3>
+
+          <div class="grid sm:grid-cols-2 gap-4 mt-4">
+            <div class="rounded-xl bg-red-50 border border-red-100 p-4">
+              <p class="text-xs font-bold text-red-600 uppercase tracking-wide mb-2">What's happening at this age</p>
+              <ul class="space-y-1.5 text-sm text-red-900/70">
+                <li>Adolescent energy is ramping up fast</li>
+                <li>Testing boundaries — ignoring commands that used to work</li>
+                <li>Pulling hard on leash, can't settle</li>
+                <li>Impulse control is nonexistent</li>
+              </ul>
+            </div>
+            <div class="rounded-xl bg-emerald-50 border border-emerald-100 p-4">
+              <p class="text-xs font-bold text-emerald-600 uppercase tracking-wide mb-2">What we do</p>
+              <ul class="space-y-1.5 text-sm text-emerald-900/70">
+                <li>Leash walking + heel position</li>
+                <li>Teaching calmness + place command</li>
+                <li>Structured obedience — sit, down, stay, come</li>
+                <li>Impulse control + general self-control</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="mt-4 text-sm text-neutral-500 italic">Your puppy comes home with real control — walks nicely, settles when told, and responds to commands reliably.</p>
+        </div>
+
+        <!-- Stay 3 -->
+        <div class="relative pl-16 sm:pl-20 pb-4">
+          <div class="absolute left-3.5 sm:left-5.5 top-1 w-5 h-5 rounded-full bg-k9-orange flex items-center justify-center">
+            <span class="text-white text-[10px] font-bold">3</span>
+          </div>
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-xs font-bold text-k9-orange uppercase tracking-wide">Stay 3 · ~7-10 months</span>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 mb-2">Off-Leash Reliability</h3>
+
+          <div class="grid sm:grid-cols-2 gap-4 mt-4">
+            <div class="rounded-xl bg-red-50 border border-red-100 p-4">
+              <p class="text-xs font-bold text-red-600 uppercase tracking-wide mb-2">What's happening at this age</p>
+              <ul class="space-y-1.5 text-sm text-red-900/70">
+                <li>Full adolescent regression hits — the "teenage" phase</li>
+                <li>Selective hearing, testing every rule</li>
+                <li>Chasing squirrels, ignoring recall</li>
+                <li>Everything you taught at 4 months starts slipping</li>
+              </ul>
+            </div>
+            <div class="rounded-xl bg-emerald-50 border border-emerald-100 p-4">
+              <p class="text-xs font-bold text-emerald-600 uppercase tracking-wide mb-2">What we do</p>
+              <ul class="space-y-1.5 text-sm text-emerald-900/70">
+                <li>Full off-leash training + proofing</li>
+                <li>Reliable recall under heavy distractions</li>
+                <li>Real-world reliability — parks, trails, crowds</li>
+                <li>Lock in everything before bad habits become permanent</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="mt-4 text-sm text-neutral-500 italic">Your dog graduates fully trained, off-leash reliable, and set for life. No regression to undo later.</p>
+        </div>
+      </div>
+
+      <!-- Price + CTA -->
+      <div class="mt-12 text-center">
+        <div class="inline-flex flex-col items-center gap-3 rounded-2xl bg-neutral-950 px-10 py-8">
+          <p class="text-neutral-400 text-sm">All 3 stays included</p>
+          <p class="text-4xl font-extrabold text-white">$3,995</p>
+          <a href="#contact" class="inline-flex items-center px-7 py-3.5 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30">
+            Apply for Puppy Start Right
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
           </a>
-        </div>
-        <div class="mt-4 flex items-center gap-3">
-          <img src="/affirm-logo.png" alt="Affirm" class="h-4 w-auto max-w-[60px]" loading="lazy" />
-          <p class="text-neutral-500 text-sm">Financing available — buy now, pay over time.</p>
+          <div class="flex items-center gap-2 mt-2">
+            <img src="/affirm-logo.png" alt="Affirm" class="h-3.5 w-auto max-w-[50px] opacity-60" loading="lazy" />
+            <p class="text-neutral-500 text-xs">Financing available</p>
+          </div>
         </div>
       </div>
     </div>
