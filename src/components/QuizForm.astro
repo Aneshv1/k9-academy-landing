@@ -1,14 +1,18 @@
 ---
+interface Props {
+  puppy?: boolean;
+}
+const { puppy = false } = Astro.props;
 ---
 
-<section id="quiz" class="py-16 sm:py-20 bg-neutral-950 border-y border-white/5">
+<section id="quiz" class="py-16 sm:py-20 bg-neutral-950 border-y border-white/5" data-puppy-mode={puppy ? 'true' : 'false'}>
   <div class="max-w-2xl mx-auto px-4 sm:px-6">
     <div class="text-center mb-10">
-      <p class="text-k9-orange font-semibold text-xs tracking-widest uppercase mb-3">Free Behaviour Assessment</p>
+      <p class="text-k9-orange font-semibold text-xs tracking-widest uppercase mb-3">{puppy ? 'Free Puppy Assessment' : 'Free Behaviour Assessment'}</p>
       <h2 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
-        How does your dog really score?
+        {puppy ? 'How does your puppy really score?' : 'How does your dog really score?'}
       </h2>
-      <p class="mt-3 text-neutral-500 text-sm">7 quick questions. Instant results. Takes 30 seconds.</p>
+      <p class="mt-3 text-neutral-500 text-sm">{puppy ? '5 quick questions. Get your puppy\'s score by email.' : '7 quick questions. Instant results. Takes 30 seconds.'}</p>
     </div>
 
     <div id="quiz-container">
@@ -345,6 +349,19 @@
   const quizData: Record<string, string> = {};
   const scores: Record<string, number> = {};
   let stepIndex = 0;
+
+  // Check if puppy mode is set via data attribute
+  const quizSection = document.getElementById('quiz');
+  const isPuppyMode = quizSection?.dataset.puppyMode === 'true';
+  if (isPuppyMode) {
+    quizData.challenge = 'puppy';
+    // Hide step 1, start at puppy step p2
+    const step1 = document.querySelector('.quiz-step[data-step="1"]');
+    if (step1) step1.classList.add('hidden');
+    const p2 = document.querySelector('.quiz-step[data-step="p2"]');
+    if (p2) p2.classList.remove('hidden');
+    stepIndex = 1; // Start at index 1 in puppySteps array (which is 'p2')
+  }
 
   const adultLabels: Record<string, string> = {
     leash: 'Leash walking',

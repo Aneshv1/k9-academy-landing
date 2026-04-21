@@ -5,6 +5,7 @@ import Awards from '../components/Awards.astro';
 import ContactForm from '../components/ContactForm.astro';
 import Footer from '../components/Footer.astro';
 import GuideBanner from '../components/GuideBanner.astro';
+import QuizForm from '../components/QuizForm.astro';
 import '../styles/global.css';
 ---
 
@@ -44,18 +45,18 @@ import '../styles/global.css';
           </h1>
 
           <p class="mt-6 text-base sm:text-lg text-neutral-400 max-w-xl leading-relaxed">
-            6 weeks with our team. Your puppy comes home obedient, socialized, crate trained, and walking on a leash. No bad habits to fix later.
+            Three 2-week stays spread across your puppy's first year. Because puppies mature and change — one board and train too young doesn't stick. We train them at the stages that matter most.
           </p>
 
           <!-- Outcomes -->
           <div class="mt-7 grid sm:grid-cols-2 gap-2.5 max-w-xl">
             {[
-              'Full obedience foundation',
-              'Daily structured socialization',
-              'Crate + potty trained',
-              'Leash walking + recall',
-              'Bite inhibition + impulse control',
-              'Two handover sessions included',
+              '3 phases as your puppy grows',
+              'Socialization at critical windows',
+              'Obedience built in stages',
+              'Crate + potty + leash walking',
+              'Recall + impulse control',
+              'Handover sessions after each phase',
             ].map((item) => (
               <div class="flex items-center gap-2.5 text-sm text-neutral-300">
                 <div class="w-5 h-5 rounded-full bg-k9-orange/15 flex items-center justify-center flex-shrink-0">
@@ -86,7 +87,7 @@ import '../styles/global.css';
 
           <!-- Trust line -->
           <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-xs text-neutral-500">
-            {['6-week immersive program', 'Puppies under 12 months', '$3,995'].map((item) => (
+            {['3 stays across the first year', 'Puppies under 12 months', '$3,995'].map((item) => (
               <span class="flex items-center gap-1.5">
                 <svg class="w-3.5 h-3.5 text-k9-orange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
@@ -111,7 +112,7 @@ import '../styles/global.css';
       <div class="text-center">
         <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Why start now?</p>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 leading-tight">
-          The first 6 months shape the next 10+ years
+          One board and train at 12 weeks is not enough
         </h2>
       </div>
 
@@ -135,7 +136,7 @@ import '../styles/global.css';
 
       <div class="mt-10 text-center">
         <p class="text-lg text-neutral-500 max-w-2xl mx-auto leading-relaxed">
-          Puppy Start Right gives your puppy 6 weeks of professional structure, training, and socialization — the foundation that prevents every problem on this list.
+          Puppies change dramatically in their first year. What works at 12 weeks needs reinforcing at 5 months and again at 8 months. That is why Puppy Start Right is three separate 2-week stays — timed to match your puppy's development stages. One board and train too young is a waste. Three at the right times builds a foundation that lasts.
         </p>
       </div>
     </div>
@@ -149,18 +150,37 @@ import '../styles/global.css';
           <span class="inline-flex items-center px-3 py-1 bg-k9-orange text-white text-xs font-bold rounded-lg uppercase tracking-wide">Best Value</span>
         </div>
         <h3 class="text-2xl font-bold text-neutral-900 mb-1 mt-2">Puppy Start Right</h3>
-        <p class="text-k9-orange font-medium text-sm mb-3">6-week board & train · Puppies under 12 months</p>
-        <p class="text-neutral-500 text-sm mb-5 leading-relaxed">The ultimate head start. Your puppy lives with us and comes home fully trained.</p>
+        <p class="text-k9-orange font-medium text-sm mb-3">3 × 2-week stays across the first year</p>
+        <p class="text-neutral-500 text-sm mb-5 leading-relaxed">Three phases timed to your puppy's development. Each stay builds on the last — so training sticks as they grow.</p>
+
+        <div class="grid grid-cols-3 gap-3 mb-6">
+          <div class="text-center p-3 rounded-xl bg-white border border-neutral-200/60">
+            <p class="text-xs font-bold text-k9-orange uppercase mb-1">Phase 1</p>
+            <p class="text-sm font-bold text-neutral-900">Foundation</p>
+            <p class="text-xs text-neutral-500">~8-14 weeks</p>
+          </div>
+          <div class="text-center p-3 rounded-xl bg-white border border-neutral-200/60">
+            <p class="text-xs font-bold text-k9-orange uppercase mb-1">Phase 2</p>
+            <p class="text-sm font-bold text-neutral-900">Reinforcement</p>
+            <p class="text-xs text-neutral-500">~4-6 months</p>
+          </div>
+          <div class="text-center p-3 rounded-xl bg-white border border-neutral-200/60">
+            <p class="text-xs font-bold text-k9-orange uppercase mb-1">Phase 3</p>
+            <p class="text-sm font-bold text-neutral-900">Adolescence</p>
+            <p class="text-xs text-neutral-500">~7-10 months</p>
+          </div>
+        </div>
+
         <ul class="space-y-2 mb-6">
           {[
-            'Full obedience — sit, down, stay, place, come',
-            'Loose leash walking in heel position',
-            'Off-leash recall foundations',
+            'Obedience built and reinforced across 3 stages',
+            'Socialization at every critical development window',
             'Crate training + potty training',
+            'Leash walking + off-leash recall foundations',
             'Bite inhibition + impulse control',
-            'Structured daily socialization',
-            'Weekly photo + video updates',
-            'Two in-person handover sessions',
+            'Adolescent regression handled before it sticks',
+            'Photo + video updates during each stay',
+            'Handover session after every phase',
           ].map((d) => (
             <li class="flex items-start gap-2 text-sm text-neutral-600">
               <svg class="w-4 h-4 text-k9-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -197,10 +217,10 @@ import '../styles/global.css';
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {[
-          { num: '01', title: 'Apply', desc: 'Fill out the form or call us. Tell us about your puppy.' },
-          { num: '02', title: 'Phone evaluation', desc: 'We discuss your puppy\'s age, breed, and what you want to achieve.' },
-          { num: '03', title: 'Drop off', desc: 'Your puppy moves in. Daily training, socialization, and structured routine begin.' },
-          { num: '04', title: 'Graduation', desc: 'Pick up a trained puppy. We show you everything they learned and how to maintain it at home.' },
+          { num: '01', title: 'Apply', desc: 'Fill out the form or call us. Tell us about your puppy and their age.' },
+          { num: '02', title: 'Phase 1', desc: 'First 2-week stay. Foundation skills — crate, potty, socialization, basic obedience, bite inhibition.' },
+          { num: '03', title: 'Phase 2', desc: 'Second stay a few months later. Reinforcement as your puppy matures — leash work, recall, impulse control.' },
+          { num: '04', title: 'Phase 3', desc: 'Final stay during adolescence. Lock in everything before teenage regression undoes your progress.' },
         ].map((step) => (
           <div class="text-center sm:text-left">
             <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-k9-orange text-white text-sm font-bold mb-4">
@@ -230,7 +250,7 @@ import '../styles/global.css';
     </div>
   </section>
 
-  <div class="bg-neutral-900 pt-10"><div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-8"><GuideBanner /></div></div>
+  <QuizForm puppy />
   <ContactForm />
   <Footer />
 <script type="application/ld+json" set:html={JSON.stringify({

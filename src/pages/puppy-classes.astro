@@ -5,6 +5,7 @@ import Awards from '../components/Awards.astro';
 import ContactForm from '../components/ContactForm.astro';
 import Footer from '../components/Footer.astro';
 import GuideBanner from '../components/GuideBanner.astro';
+import QuizForm from '../components/QuizForm.astro';
 import '../styles/global.css';
 ---
 
@@ -414,7 +415,7 @@ import '../styles/global.css';
     </div>
   </section>
 
-  <div class="bg-neutral-900 pt-10"><div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-8"><GuideBanner /></div></div>
+  <QuizForm puppy />
   <ContactForm />
   <Footer />
 <script type="application/ld+json" set:html={JSON.stringify({
