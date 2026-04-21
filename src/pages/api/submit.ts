@@ -107,7 +107,7 @@ export const POST: APIRoute = async ({ request }) => {
           aggression: 'Aggression',
         };
 
-        const grade = total >= 15 ? 'Your dog is ahead of the pack' : total >= 10 ? 'There is real room for improvement' : 'Your dog needs professional help';
+        const grade = total >= 15 ? 'Your dog is ahead of the pack' : total >= 10 ? 'There is real room for improvement' : 'Your dog would benefit greatly from working with a professional';
         const gradeColor = total >= 15 ? '#10b981' : total >= 10 ? '#f59e0b' : '#ef4444';
 
         const areaRows = Object.entries(areaLabels).map(([key, label]) => {
