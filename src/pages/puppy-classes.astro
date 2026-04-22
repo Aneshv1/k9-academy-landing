@@ -358,6 +358,21 @@ import '../styles/global.css';
       const email = formData.get('pcurr_email') as string;
 
       try {
+        // Server-side submission (survives ad blockers)
+        await fetch('/api/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name,
+            email,
+            phone: '',
+            service: 'curriculum_download_puppy',
+            message: 'Downloaded puppy curriculum',
+            dog_info: '',
+          }),
+        }).catch(() => {});
+
+        // Push to Klaviyo (client-side backup)
         const _learnq = (window as any)._learnq || [];
         _learnq.push(['identify', {
           '$email': email,
