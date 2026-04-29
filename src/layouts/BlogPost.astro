@@ -1,0 +1,115 @@
+---
+import Layout from './Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import BlogPostCTA from '../components/BlogPostCTA.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    date: Date;
+    updatedDate?: Date;
+    author: string;
+    tags: string[];
+    keywords: string[];
+    servicePage: string;
+    servicePageLabel: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+const dateStr = frontmatter.date.toISOString().split('T')[0];
+const displayDate = frontmatter.date.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Layout title={`${frontmatter.title} | K9 Academy Toronto`} description={frontmatter.description}>
+  <Navbar />
+
+  <!-- Article Hero -->
+  <section class="pt-28 sm:pt-32 pb-10 sm:pb-14 bg-brand-dark">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-wrap gap-2 mb-4">
+        {frontmatter.tags.map((tag) => (
+          <span class="text-xs font-semibold tracking-wide uppercase text-k9-orange bg-k9-orange/10 px-3 py-1 rounded-full">{tag}</span>
+        ))}
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">{frontmatter.title}</h1>
+      <div class="mt-4 flex items-center gap-3 text-sm text-neutral-500">
+        <span>{frontmatter.author}</span>
+        <span>&middot;</span>
+        <time datetime={dateStr}>{displayDate}</time>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Body -->
+  <section class="py-12 sm:py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <article class="prose-k9">
+        <slot />
+      </article>
+      <BlogPostCTA servicePage={frontmatter.servicePage} servicePageLabel={frontmatter.servicePageLabel} />
+    </div>
+  </section>
+
+  <Footer />
+
+  <!-- Article JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": frontmatter.title,
+    "description": frontmatter.description,
+    "datePublished": frontmatter.date.toISOString(),
+    "dateModified": (frontmatter.updatedDate || frontmatter.date).toISOString(),
+    "author": {
+      "@type": "Organization",
+      "name": "K9 Academy Dog Training Center",
+      "url": "https://k9academytraining.ca"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "K9 Academy Dog Training Center",
+      "logo": { "@type": "ImageObject", "url": "https://k9-academy-landing.vercel.app/logo.png" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": Astro.url.href },
+    "keywords": frontmatter.keywords.join(", ")
+  })} />
+</Layout>
+
+<style is:global>
+  .prose-k9 h2 {
+    @apply text-2xl font-bold text-neutral-900 mt-10 mb-4;
+  }
+  .prose-k9 h3 {
+    @apply text-xl font-bold text-neutral-900 mt-8 mb-3;
+  }
+  .prose-k9 p {
+    @apply text-base text-neutral-600 leading-relaxed mb-5;
+  }
+  .prose-k9 ul, .prose-k9 ol {
+    @apply text-base text-neutral-600 leading-relaxed mb-5 pl-6;
+  }
+  .prose-k9 ul {
+    @apply list-disc;
+  }
+  .prose-k9 ol {
+    @apply list-decimal;
+  }
+  .prose-k9 li {
+    @apply mb-2;
+  }
+  .prose-k9 a {
+    @apply text-k9-orange hover:underline;
+  }
+  .prose-k9 strong {
+    @apply text-neutral-900 font-semibold;
+  }
+  .prose-k9 blockquote {
+    @apply border-l-4 border-k9-orange pl-4 italic text-neutral-500 my-6;
+  }
+  .prose-k9 hr {
+    @apply border-neutral-200 my-8;
+  }
+</style>
