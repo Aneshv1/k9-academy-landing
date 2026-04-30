@@ -1,0 +1,156 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import Footer from '../../components/Footer.astro';
+import { areas } from '../../data/areas';
+import '../../styles/global.css';
+
+export function getStaticPaths() {
+  return areas.map((area) => ({
+    params: { area: area.slug },
+    props: { area },
+  }));
+}
+
+const { area } = Astro.props;
+const otherAreas = areas.filter((a) => area.nearbyAreas.includes(a.slug));
+---
+
+<Layout title={area.title} description={area.description}>
+  <Navbar />
+
+  <!-- Hero -->
+  <section class="pt-28 sm:pt-36 pb-14 sm:pb-20 bg-brand-dark">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-k9-orange font-semibold text-xs tracking-widest uppercase mb-3">Serving {area.name}</p>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">Dog Training in {area.name}</h1>
+      <p class="mt-5 text-neutral-400 max-w-2xl mx-auto text-base leading-relaxed">{area.heroText}</p>
+      <div class="mt-6 inline-flex items-center gap-2 text-sm text-neutral-500 bg-white/5 rounded-full px-4 py-2 border border-white/10">
+        <svg class="w-4 h-4 text-k9-orange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+        {area.distance}
+      </div>
+    </div>
+  </section>
+
+  <!-- About the neighbourhood -->
+  <section class="py-14 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl font-extrabold text-neutral-900 mb-4">Training in {area.name}</h2>
+          <p class="text-neutral-600 leading-relaxed mb-4">{area.neighbourhoodContext}</p>
+          <p class="text-neutral-600 leading-relaxed">{area.trainingContext}</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-neutral-900 mb-3">Local Parks for Training</h3>
+          <div class="space-y-2">
+            {area.nearbyParks.map((park) => (
+              <div class="flex items-center gap-2.5 p-3 rounded-xl bg-neutral-50 border border-neutral-100">
+                <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" /></svg>
+                <span class="text-sm font-medium text-neutral-700">{park}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section class="py-14 sm:py-20 bg-neutral-950">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-k9-orange font-semibold text-xs tracking-widest uppercase mb-3">Programs Available</p>
+      <h2 class="text-2xl font-extrabold text-white mb-8">Training Programs for {area.name} Dog Owners</h2>
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        <a href="/private-lessons" class="group block rounded-2xl bg-white/5 border border-white/10 p-6 hover:border-k9-orange/30 transition-all">
+          <h3 class="text-lg font-bold text-white group-hover:text-k9-orange transition-colors mb-2">Private Training</h3>
+          <p class="text-sm text-neutral-400 mb-3">1-on-1 sessions for aggression, reactivity, separation anxiety, and advanced obedience.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-neutral-500">6-8 sessions</span>
+            <span class="text-sm font-bold text-k9-orange">From $1,350</span>
+          </div>
+        </a>
+
+        <a href="/group-classes" class="group block rounded-2xl bg-white/5 border border-white/10 p-6 hover:border-k9-orange/30 transition-all">
+          <h3 class="text-lg font-bold text-white group-hover:text-k9-orange transition-colors mb-2">Group Classes</h3>
+          <p class="text-sm text-neutral-400 mb-3">Level 1, 2 & 3 group obedience. Small groups, real-world distractions, 6-week programs.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-neutral-500">6 weeks per level</span>
+            <span class="text-sm font-bold text-k9-orange">$595/level</span>
+          </div>
+        </a>
+
+        <a href="/board-and-train" class="group block rounded-2xl bg-white/5 border border-white/10 p-6 hover:border-k9-orange/30 transition-all">
+          <h3 class="text-lg font-bold text-white group-hover:text-k9-orange transition-colors mb-2">Board & Train</h3>
+          <p class="text-sm text-neutral-400 mb-3">Your dog lives with us for 2-8 weeks. Daily training, socialization, and real-world proofing.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-neutral-500">2-8 weeks</span>
+            <span class="text-sm font-bold text-k9-orange">From $2,995</span>
+          </div>
+        </a>
+
+        <a href="/puppy-classes" class="group block rounded-2xl bg-white/5 border border-white/10 p-6 hover:border-k9-orange/30 transition-all">
+          <h3 class="text-lg font-bold text-white group-hover:text-k9-orange transition-colors mb-2">Puppy Classes</h3>
+          <p class="text-sm text-neutral-400 mb-3">Socialization, crate training, house training, and basic obedience for puppies.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-neutral-500">4 sessions</span>
+            <span class="text-sm font-bold text-k9-orange">$595</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social proof -->
+  <section class="py-14 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="grid grid-cols-3 gap-6 max-w-lg mx-auto mb-8">
+        <div>
+          <p class="text-3xl sm:text-4xl font-extrabold text-neutral-900">10K+</p>
+          <p class="text-xs text-neutral-500 mt-1">Dogs trained</p>
+        </div>
+        <div>
+          <p class="text-3xl sm:text-4xl font-extrabold text-neutral-900">4.9</p>
+          <p class="text-xs text-neutral-500 mt-1">Google rating</p>
+        </div>
+        <div>
+          <p class="text-3xl sm:text-4xl font-extrabold text-neutral-900">15+</p>
+          <p class="text-xs text-neutral-500 mt-1">Years experience</p>
+        </div>
+      </div>
+      <p class="text-neutral-600 max-w-xl mx-auto">We've trained dogs from across {area.name} and the greater Toronto area. 250+ five-star Google reviews from real clients with real results.</p>
+    </div>
+  </section>
+
+  <!-- Nearby areas -->
+  <section class="py-10 sm:py-14 bg-neutral-50 border-t border-neutral-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h3 class="text-sm font-bold text-neutral-400 uppercase tracking-wide mb-4">Also Serving Nearby</h3>
+      <div class="flex flex-wrap gap-2">
+        {areas.filter((a) => a.slug !== area.slug).map((a) => (
+          <a href={`/areas/${a.slug}`} class="text-sm px-4 py-2 rounded-full bg-white border border-neutral-200 text-neutral-600 hover:border-k9-orange hover:text-k9-orange transition-colors">
+            {a.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ContactForm />
+  <Footer />
+
+  <!-- LocalBusiness + Service schema for this area -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "K9 Academy Dog Training Center",
+    "address": { "@type": "PostalAddress", "streetAddress": "16-30 Canvarco Rd", "addressLocality": "Toronto", "addressRegion": "ON", "postalCode": "M4G 1L3", "addressCountry": "CA" },
+    "telephone": "437-778-5273",
+    "url": "https://k9academytraining.ca",
+    "areaServed": { "@type": "Place", "name": `${area.name}, Toronto` },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "250", "bestRating": "5" },
+    "description": area.description,
+  })} />
+</Layout>
