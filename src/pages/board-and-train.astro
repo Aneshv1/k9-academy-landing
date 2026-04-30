@@ -148,6 +148,56 @@ import '../styles/global.css';
     </div>
   </section>
 
+  <!-- VIDEO CAROUSEL — Transformation proof right after pain points -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">See It in Action</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
+          Watch real Board & Train transformations
+        </h2>
+        <p class="mt-3 text-neutral-500 max-w-xl mx-auto">Real dogs. Real issues. Real results — from our facility to their homes.</p>
+      </div>
+
+      <div class="space-y-3" id="bt-video-carousel">
+        <div id="bt-main-video" class="rounded-2xl overflow-hidden border border-neutral-200/60 shadow-md">
+          <YouTubeEmbed videoId="9AXqpLAorBM" title="K9 Academy Board & Train — Anxious Dog Transformation" />
+        </div>
+
+        <div class="flex gap-2">
+          {[
+            { id: '9AXqpLAorBM', alt: 'Anxious Dog Transformation', active: true },
+            { id: 'uTxxy_-qzrg', alt: 'Board & Train Results', active: false },
+            { id: 'gfnMuWAA-LM', alt: 'Dog Training', active: false },
+            { id: '3B-EavE1l_U', alt: 'Training Results', active: false },
+          ].map((v) => (
+            <button data-video={v.id} class={`bt-video-thumb flex-1 rounded-lg overflow-hidden border-2 transition-all ${v.active ? 'border-k9-orange opacity-100' : 'border-transparent opacity-60 hover:opacity-100'}`}>
+              <img src={`https://img.youtube.com/vi/${v.id}/mqdefault.jpg`} alt={v.alt} class="w-full aspect-video object-cover" loading="lazy" />
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('.bt-video-thumb').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const videoId = (btn as HTMLElement).dataset.video;
+        const container = document.getElementById('bt-main-video')!;
+        container.innerHTML = `<div class="relative aspect-video"><iframe src="https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1" title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="absolute inset-0 w-full h-full"></iframe></div>`;
+
+        document.querySelectorAll('.bt-video-thumb').forEach((b) => {
+          b.classList.remove('border-k9-orange');
+          b.classList.add('border-transparent', 'opacity-60');
+        });
+        btn.classList.add('border-k9-orange');
+        btn.classList.remove('border-transparent', 'opacity-60');
+        btn.classList.add('opacity-100');
+      });
+    });
+  </script>
+
   <!-- PROGRAMS -->
   <section id="programs" class="py-16 sm:py-24 bg-neutral-50 border-y border-neutral-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -430,55 +480,6 @@ import '../styles/global.css';
       </div>
     </div>
   </section>
-
-  <!-- VIDEO CAROUSEL -->
-  <section class="py-16 sm:py-24 bg-white">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-10">
-        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">See It in Action</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
-          Watch real Board & Train transformations
-        </h2>
-      </div>
-
-      <div class="space-y-3" id="bt-video-carousel">
-        <div id="bt-main-video" class="rounded-2xl overflow-hidden border border-neutral-200/60 shadow-md">
-          <YouTubeEmbed videoId="9AXqpLAorBM" title="K9 Academy Board & Train — Anxious Dog Transformation" />
-        </div>
-
-        <div class="flex gap-2">
-          {[
-            { id: '9AXqpLAorBM', alt: 'Anxious Dog Transformation', active: true },
-            { id: 'uTxxy_-qzrg', alt: 'Board & Train Results', active: false },
-            { id: 'gfnMuWAA-LM', alt: 'Dog Training', active: false },
-            { id: '3B-EavE1l_U', alt: 'Training Results', active: false },
-          ].map((v) => (
-            <button data-video={v.id} class={`bt-video-thumb flex-1 rounded-lg overflow-hidden border-2 transition-all ${v.active ? 'border-k9-orange opacity-100' : 'border-transparent opacity-60 hover:opacity-100'}`}>
-              <img src={`https://img.youtube.com/vi/${v.id}/mqdefault.jpg`} alt={v.alt} class="w-full aspect-video object-cover" loading="lazy" />
-            </button>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    document.querySelectorAll('.bt-video-thumb').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const videoId = (btn as HTMLElement).dataset.video;
-        const container = document.getElementById('bt-main-video')!;
-        container.innerHTML = `<div class="relative aspect-video"><iframe src="https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1" title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="absolute inset-0 w-full h-full"></iframe></div>`;
-
-        document.querySelectorAll('.bt-video-thumb').forEach((b) => {
-          b.classList.remove('border-k9-orange');
-          b.classList.add('border-transparent', 'opacity-60');
-        });
-        btn.classList.add('border-k9-orange');
-        btn.classList.remove('border-transparent', 'opacity-60');
-        btn.classList.add('opacity-100');
-      });
-    });
-  </script>
 
   <!-- HOW IT WORKS -->
   <section class="py-16 sm:py-24 bg-brand-dark">
