@@ -6,6 +6,7 @@ import ContactForm from '../components/ContactForm.astro';
 import Footer from '../components/Footer.astro';
 import GuideBanner from '../components/GuideBanner.astro';
 import QuizForm from '../components/QuizForm.astro';
+import YouTubeEmbed from '../components/YouTubeEmbed.astro';
 import '../styles/global.css';
 ---
 
@@ -98,8 +99,10 @@ import '../styles/global.css';
           </div>
         </div>
 
-        <!-- RIGHT: Placeholder -->
-        <div class="hidden lg:block"></div>
+        <!-- RIGHT: Video -->
+        <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
+          <YouTubeEmbed videoId="2LY84P1F4n8" title="Puppy Start Right — K9 Academy Puppy Board & Train" />
+        </div>
       </div>
     </div>
   </section>
