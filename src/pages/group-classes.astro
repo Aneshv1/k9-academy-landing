@@ -5,6 +5,7 @@ import Awards from '../components/Awards.astro';
 import ContactForm from '../components/ContactForm.astro';
 import Footer from '../components/Footer.astro';
 import GuideBanner from '../components/GuideBanner.astro';
+import YouTubeEmbed from '../components/YouTubeEmbed.astro';
 import '../styles/global.css';
 ---
 
@@ -100,24 +101,23 @@ import '../styles/global.css';
             </span>
             <span class="flex items-center gap-1.5">
               <svg class="w-3.5 h-3.5 text-k9-orange" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-              Small group sizes
+              15+ years experience
             </span>
           </div>
         </div>
 
-        <!-- RIGHT: Hero Media -->
+        <!-- RIGHT: Hero Media Placeholder -->
         <div class="relative">
           <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50 bg-neutral-800 aspect-[4/5] sm:aspect-video lg:aspect-[4/5]">
-            <!-- TODO: Replace with hero video or photo.
-                 Video: <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover"><source src="/group-hero.mp4" type="video/mp4"/></video>
-                 Photo: <img src="/group-hero.jpg" alt="..." class="absolute inset-0 w-full h-full object-cover" /> -->
+            <!-- TODO: Replace with hero video when ready.
+                 Video: <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover"><source src="/group-hero.mp4" type="video/mp4"/></video> -->
             <div class="absolute inset-0 bg-gradient-to-br from-neutral-700 via-neutral-800 to-neutral-900 flex items-center justify-center">
               <div class="text-center p-6">
                 <div class="w-20 h-20 rounded-full bg-k9-orange/20 border-2 border-k9-orange/40 flex items-center justify-center mx-auto mb-4">
                   <svg class="w-9 h-9 text-k9-orange ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                 </div>
-                <p class="text-white font-semibold text-sm">Hero video / photo</p>
-                <p class="text-neutral-400 text-xs mt-1">Drop asset at <code class="bg-white/5 px-1.5 py-0.5 rounded">/public/group-hero.mp4</code></p>
+                <p class="text-white font-semibold text-sm">Program overview video</p>
+                <p class="text-neutral-400 text-xs mt-1">Coming soon</p>
               </div>
             </div>
 
@@ -142,8 +142,6 @@ import '../styles/global.css';
     </div>
   </section>
 
-  <Awards />
-
   <!-- PUPPY REDIRECT BANNER -->
   <section class="bg-neutral-950 border-b border-white/5">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -167,108 +165,455 @@ import '../styles/global.css';
     </div>
   </section>
 
-  <!-- CLASS OPTIONS -->
-  <section id="classes" class="py-16 sm:py-24 bg-white">
+  <Awards />
+
+  <!-- ============================================================ -->
+  <!-- LEVEL 1 — THE FOUNDATION                                     -->
+  <!-- ============================================================ -->
+  <section id="level-1" class="py-16 sm:py-24 bg-white">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section Header -->
       <div class="text-center mb-12 sm:mb-16">
-        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Our Obedience Classes</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
-          Three levels. One path. Everyone starts at Level One.
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-k9-orange/10 rounded-full mb-4">
+          <span class="w-2.5 h-2.5 rounded-full bg-k9-orange animate-pulse"></span>
+          <span class="text-k9-orange font-bold text-sm uppercase tracking-wide">Where Everyone Starts</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-neutral-900 leading-tight">
+          Level 1 — Basic Obedience
         </h2>
-        <p class="mt-4 text-neutral-500 max-w-2xl mx-auto">
-          Every dog begins at Level One and progresses through the program. Each level builds on the last — there are no shortcuts. Our Level One alone covers more than most training centres teach in their entire program.
+        <p class="mt-4 text-lg text-neutral-500 max-w-2xl mx-auto">
+          6 weeks that cover more than most training centres teach in their entire program. Your dog walks on a loose leash by the end of session one.
+        </p>
+        <div class="mt-4 flex items-center justify-center gap-4 text-sm">
+          <span class="font-extrabold text-3xl text-neutral-900">$595</span>
+          <span class="text-neutral-300">·</span>
+          <span class="text-neutral-500">6 weeks</span>
+          <span class="text-neutral-300">·</span>
+          <span class="text-neutral-500">Leaside, Toronto</span>
+        </div>
+      </div>
+
+      <!-- What You Get + Test Videos -->
+      <div class="grid md:grid-cols-2 gap-6 mb-12">
+        <div class="space-y-4">
+          <h3 class="text-xl font-bold text-neutral-900">What your dog will be able to do</h3>
+          {[
+            { skill: 'Loose-leash walking in heel position', note: 'Leash pulling is addressed from the very first session' },
+            { skill: 'Sit, down, place, and stay commands', note: 'Under real-world distractions, not just your living room' },
+            { skill: 'Mild reactivity management', note: 'Walk past other dogs without losing it' },
+            { skill: 'Impulse control and focus', note: 'Your dog looks to you instead of reacting to everything' },
+            { skill: 'Structured walk protocol', note: 'Walks become enjoyable instead of stressful' },
+          ].map((item) => (
+            <div class="flex items-start gap-3 p-4 bg-neutral-50 rounded-xl border border-neutral-100">
+              <div class="w-6 h-6 rounded-full bg-k9-orange/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5 text-k9-orange" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-neutral-900 text-sm">{item.skill}</p>
+                <p class="text-neutral-500 text-sm mt-0.5">{item.note}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Level 1 Test Videos -->
+        <div>
+          <h3 class="text-xl font-bold text-neutral-900 mb-2">The Level 1 Test</h3>
+          <p class="text-neutral-500 text-sm mb-4">Every Level 1 graduate takes this test. Real dogs, real distractions, real results.</p>
+          <div class="space-y-4">
+            <div class="rounded-2xl overflow-hidden border border-neutral-200 shadow-sm">
+              <YouTubeEmbed videoId="3N_QU9tk5Bs" title="Level 1 Test — Example 1" />
+            </div>
+            <div class="rounded-2xl overflow-hidden border border-neutral-200 shadow-sm">
+              <YouTubeEmbed videoId="bUkxQEh7Omo" title="Level 1 Test — Example 2" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison Chart -->
+      <div class="mb-12">
+        <div class="text-center mb-8">
+          <h3 class="text-2xl font-extrabold text-neutral-900">How we compare</h3>
+          <p class="mt-2 text-neutral-500 max-w-xl mx-auto text-sm">Most places distract the dog or manage symptoms. We fix the actual problem — and deliver results other companies charge 3–4x more for.</p>
+        </div>
+
+        <div class="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+          <table class="w-full border-collapse text-sm">
+            <thead>
+              <tr>
+                <th class="text-left p-3 sm:p-4 text-neutral-500 font-medium text-xs uppercase tracking-wide"></th>
+                <th class="p-3 sm:p-4 text-center rounded-t-xl bg-k9-orange text-white font-bold text-xs uppercase tracking-wide">K9 Academy Group</th>
+                <th class="p-3 sm:p-4 text-center text-neutral-500 font-medium text-xs uppercase tracking-wide bg-neutral-50">Other Group Classes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { feature: 'Price', k9: '$595', other: '$300–$600' },
+                { feature: 'Fixes the root problem', k9: true, other: false },
+                { feature: 'Leash pulling addressed', k9: 'Session 1', other: 'Weeks 4–6' },
+                { feature: 'Real-world distractions', k9: true, other: false },
+                { feature: 'Off-leash reliability', k9: 'Level 2', other: false },
+                { feature: 'Owner learns too', k9: true, other: 'Minimal' },
+                { feature: 'Reactivity management', k9: true, other: false },
+                { feature: 'Socialization built in', k9: true, other: 'Limited' },
+                { feature: 'Structured test & graduation', k9: true, other: false },
+                { feature: 'E-collar training', k9: 'Level 2', other: false },
+                { feature: 'Results guarantee', k9: true, other: false },
+              ].map((row, i) => (
+                <tr class={i % 2 === 0 ? 'bg-white' : 'bg-neutral-50/50'}>
+                  <td class="p-3 sm:p-4 font-medium text-neutral-900 text-sm whitespace-nowrap">{row.feature}</td>
+                  <td class="p-3 sm:p-4 text-center bg-k9-orange/5 font-semibold text-neutral-900">
+                    {row.k9 === true ? (
+                      <svg class="w-5 h-5 text-k9-orange mx-auto" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                    ) : typeof row.k9 === 'string' ? (
+                      <span class="text-k9-orange font-bold">{row.k9}</span>
+                    ) : (
+                      <svg class="w-5 h-5 text-neutral-300 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                    )}
+                  </td>
+                  <td class="p-3 sm:p-4 text-center text-neutral-500">
+                    {row.other === true ? (
+                      <svg class="w-5 h-5 text-emerald-500 mx-auto" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                    ) : row.other === false ? (
+                      <svg class="w-5 h-5 text-neutral-300 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                    ) : (
+                      <span>{row.other}</span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Level 1 CTA -->
+      <div class="text-center">
+        <a href="#contact" class="inline-flex items-center px-7 py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30 hover:shadow-xl hover:-translate-y-0.5">
+          Join Level 1 Waitlist — $595
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+        <p class="mt-3 text-sm text-neutral-400">No prerequisites. Any breed. Any age.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- LEVEL 2 — OFF-LEASH RELIABLE                                 -->
+  <!-- ============================================================ -->
+  <section id="level-2" class="py-16 sm:py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-12 sm:mb-16">
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 rounded-full mb-4">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+          <span class="text-emerald-700 font-bold text-sm uppercase tracking-wide">The Next Step</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-neutral-900 leading-tight">
+          Level 2 — Complete Off-Leash Control
+        </h2>
+        <p class="mt-4 text-lg text-neutral-500 max-w-2xl mx-auto">
+          Full off-leash control that finally gives you complete freedom — parks, trails, patios, anywhere. E-collar training, bulletproof recall, and obedience under heavy distraction, ending with a graduation hike where your dog proves it in the real world.
+        </p>
+        <div class="mt-4 flex items-center justify-center gap-4 text-sm">
+          <span class="font-extrabold text-3xl text-neutral-900">$595</span>
+          <span class="text-neutral-300">·</span>
+          <span class="text-neutral-500">6 weeks + test</span>
+          <span class="text-neutral-300">·</span>
+          <span class="text-neutral-500">Requires Level 1</span>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 mb-12">
+        <!-- What you learn -->
+        <div class="space-y-4">
+          <h3 class="text-xl font-bold text-neutral-900">What Level 2 adds</h3>
+          {[
+            { skill: 'E-collar introduction and training', note: 'You purchase the e-collar separately — we teach you exactly how to use it humanely and effectively' },
+            { skill: 'Bulletproof off-leash recall', note: 'Your dog comes back on command, every time, even mid-sprint toward a squirrel' },
+            { skill: 'Obedience under heavy distraction', note: 'Sit-stays and down-stays while other dogs, people, and chaos happen around them' },
+            { skill: 'Distance commands', note: 'Control your dog from 30+ feet away with verbal and e-collar cues' },
+            { skill: 'Off-leash graduation hike', note: 'The final session is a real trail hike where your dog proves off-leash reliability in the wild' },
+          ].map((item) => (
+            <div class="flex items-start gap-3 p-4 bg-neutral-50 rounded-xl border border-neutral-100">
+              <div class="w-6 h-6 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-neutral-900 text-sm">{item.skill}</p>
+                <p class="text-neutral-500 text-sm mt-0.5">{item.note}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- The test + graduation -->
+        <div class="space-y-4">
+          <h3 class="text-xl font-bold text-neutral-900">The Level 2 Test</h3>
+          <div class="p-5 bg-neutral-50 rounded-xl border border-neutral-100">
+            <p class="text-neutral-700 text-sm leading-relaxed mb-4">
+              Level 2 ends with a scored test that covers everything: recall under distraction, distance commands, e-collar obedience, and handler control. You need to <strong>pass to graduate</strong>.
+            </p>
+            <p class="text-neutral-700 text-sm leading-relaxed mb-4">
+              The final session is a <strong>graduation hike</strong> — a real off-leash trail walk with the entire class. Your dog walks off-leash alongside other dogs in an uncontrolled environment. This is where it all comes together.
+            </p>
+            <div class="p-4 bg-white rounded-lg border border-neutral-200">
+              <p class="text-sm font-semibold text-neutral-900 mb-2">What Level 2 graduates can do:</p>
+              <ul class="space-y-1.5">
+                {[
+                  'Walk off-leash in busy parks and trails',
+                  'Recall mid-chase (squirrels, other dogs)',
+                  'Hold sit/down stays in chaotic environments',
+                  'Respond to distance commands at 30+ feet',
+                  'Hike off-leash with other dogs confidently',
+                ].map((item) => (
+                  <li class="flex items-center gap-2 text-sm text-neutral-600">
+                    <svg class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div class="p-4 bg-k9-orange/5 rounded-xl border border-k9-orange/20">
+            <p class="text-sm text-neutral-700 leading-relaxed">
+              <strong class="text-neutral-900">Prerequisite:</strong> Must pass Level 1 or pass an assessment. Level 2 builds directly on the foundation — there are no shortcuts.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Level 2 CTA -->
+      <div class="text-center">
+        <a href="#contact" class="inline-flex items-center px-7 py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30 hover:shadow-xl hover:-translate-y-0.5">
+          Join Level 2 Waitlist — $595
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+        <p class="mt-3 text-sm text-neutral-400">Requires Level 1 or assessment.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUNDLE -->
+  <section class="py-12 sm:py-16 bg-neutral-50 border-y border-neutral-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative rounded-2xl p-6 sm:p-8 border-2 border-k9-orange/30 bg-white ring-1 ring-k9-orange/10 shadow-md">
+        <div class="absolute -top-3 left-6">
+          <span class="inline-flex items-center px-3 py-1 bg-k9-orange text-white text-xs font-bold rounded-lg uppercase tracking-wide">Best Value — Save $195</span>
+        </div>
+        <div class="md:flex md:items-center md:justify-between mt-2">
+          <div>
+            <h3 class="text-2xl font-bold text-neutral-900 mb-1">Level 1 + Level 2 Bundle</h3>
+            <p class="text-k9-orange font-medium text-sm mb-2">From zero to off-leash reliable — the full journey</p>
+            <p class="text-neutral-500 text-sm leading-relaxed max-w-lg">Commit to the full path. Level 1 builds the foundation, Level 2 takes it to e-collar, off-leash recall, and a graduation hike.</p>
+            <div class="flex items-center gap-2 mt-3">
+              <div class="flex -space-x-1.5">
+                <div class="w-6 h-6 rounded-full bg-amber-500 border-2 border-white flex items-center justify-center text-white text-[9px] font-bold">D</div>
+                <div class="w-6 h-6 rounded-full bg-purple-500 border-2 border-white flex items-center justify-center text-white text-[9px] font-bold">K</div>
+                <div class="w-6 h-6 rounded-full bg-teal-500 border-2 border-white flex items-center justify-center text-white text-[9px] font-bold">A</div>
+                <div class="w-6 h-6 rounded-full bg-rose-500 border-2 border-white flex items-center justify-center text-white text-[9px] font-bold">E</div>
+              </div>
+              <p class="text-xs text-neutral-500"><strong class="text-neutral-700">9 out of 10 clients</strong> choose the bundle</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 mt-4 md:mt-0">
+            <div class="text-right">
+              <span class="text-sm text-neutral-400 line-through">$1,190</span>
+              <span class="block text-3xl font-extrabold text-neutral-900">$995</span>
+            </div>
+            <a href="#contact" class="inline-flex items-center px-6 py-3 text-sm font-bold rounded-xl bg-k9-orange text-white hover:bg-k9-orange-dark shadow-lg shadow-k9-orange/20 transition-all whitespace-nowrap">
+              Get the Bundle
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM DOWNLOAD LEAD MAGNET -->
+  <section class="py-16 sm:py-24 bg-brand-dark">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Free Download</p>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">
+            See exactly what your dog will learn — download the class curriculum
+          </h2>
+          <p class="text-neutral-400 leading-relaxed mb-6">
+            Get a breakdown of every skill covered in Level 1 and Level 2. See the full week-by-week curriculum so you know exactly what to expect.
+          </p>
+          <ul class="space-y-2 mb-6">
+            {['Level 1 & 2 curriculum breakdown', 'Week-by-week skill progression', 'What to practice between classes'].map((item) => (
+              <li class="flex items-center gap-2 text-sm text-neutral-300">
+                <svg class="w-4 h-4 text-k9-orange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+          <h3 class="text-lg font-bold text-white mb-1">Get the free curriculum</h3>
+          <p class="text-sm text-neutral-400 mb-4">Enter your email and we'll send it right over.</p>
+          <form id="curriculum-form" class="space-y-3">
+            <input type="text" name="curr_name" required placeholder="Your name"
+              class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm" />
+            <input type="email" name="curr_email" required placeholder="Your email"
+              class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm" />
+            <button type="submit" id="curr-submit-btn"
+              class="w-full py-3 bg-k9-orange text-white text-sm font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/20 disabled:opacity-50">
+              Download the Curriculum
+            </button>
+          </form>
+          <div id="curr-success" class="hidden text-center py-6">
+            <svg class="w-10 h-10 mx-auto mb-3 text-k9-orange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+            <p class="text-white font-semibold">Check your email!</p>
+            <p class="text-neutral-400 text-sm mt-1">The curriculum is on its way.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const currForm = document.getElementById('curriculum-form') as HTMLFormElement;
+    const currBtn = document.getElementById('curr-submit-btn') as HTMLButtonElement;
+    const currSuccess = document.getElementById('curr-success') as HTMLDivElement;
+
+    currForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      currBtn.disabled = true;
+      currBtn.textContent = 'Sending...';
+
+      const formData = new FormData(currForm);
+      const name = formData.get('curr_name') as string;
+      const email = formData.get('curr_email') as string;
+
+      try {
+        await fetch('/api/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name,
+            email,
+            phone: '',
+            service: 'curriculum_download_group',
+            message: 'Downloaded group classes curriculum',
+            dog_info: '',
+          }),
+        }).catch(() => {});
+
+        const _learnq = (window as any)._learnq || [];
+        _learnq.push(['identify', {
+          '$email': email,
+          '$first_name': name.split(' ')[0] || '',
+          '$last_name': name.split(' ').slice(1).join(' ') || '',
+          'Source': 'Curriculum Download',
+        }]);
+        _learnq.push(['track', 'Curriculum Download', {
+          'Name': name,
+          'Email': email,
+          'Curriculum': 'Group Classes',
+        }]);
+
+        currForm.classList.add('hidden');
+        currSuccess.classList.remove('hidden');
+
+        if (typeof fbq !== 'undefined') {
+          (window as any).fbq('track', 'Lead', { content_name: 'Curriculum Download' });
+        }
+        if (typeof gtag !== 'undefined') {
+          (window as any).gtag('event', 'generate_lead', { event_category: 'curriculum', event_label: 'group_classes' });
+        }
+      } catch {
+        currBtn.disabled = false;
+        currBtn.textContent = 'Download the Curriculum';
+      }
+    });
+  </script>
+
+  <!-- ============================================================ -->
+  <!-- LEVEL 3 — THE IMPOSSIBLE                                      -->
+  <!-- ============================================================ -->
+  <section id="level-3" class="py-16 sm:py-24 bg-neutral-950 relative overflow-hidden">
+    <!-- Subtle background texture -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(232,97,26,0.08),transparent_60%)] pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(232,97,26,0.05),transparent_50%)] pointer-events-none"></div>
+
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 sm:mb-16">
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full mb-4">
+          <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
+          <span class="text-neutral-400 font-bold text-sm uppercase tracking-widest">By Invitation Only</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+          Level 3 — <span class="bg-gradient-to-r from-k9-orange to-amber-400 bg-clip-text text-transparent">The Impossible</span>
+        </h2>
+        <p class="mt-4 text-lg text-neutral-500 max-w-2xl mx-auto">
+          The highest standard in dog obedience. Power heel, send-outs, scent search, jumps, and A-frame work — culminating in the test we call "The Impossible." We rarely open Level 3 classes.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-5">
-        <!-- Level One -->
-        <div class="relative rounded-2xl p-6 sm:p-8 border border-neutral-200/60 bg-white hover:border-neutral-300 hover:shadow-md transition-all">
-          <div class="absolute -top-3 left-6">
-            <span class="inline-flex items-center gap-1 px-3 py-1 bg-k9-orange text-white text-xs font-bold rounded-lg uppercase tracking-wide">
-              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/></svg>
-              Pulling fixed Day 1
-            </span>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+        {[
+          { skill: 'Power heel', desc: 'Military-precision positioning with instant transitions' },
+          { skill: 'Send-outs', desc: 'Direct your dog to a target location from distance' },
+          { skill: 'Scent search', desc: 'Find hidden objects using nose work fundamentals' },
+          { skill: 'Jumps & A-frame', desc: 'Obstacle course elements under full handler control' },
+        ].map((item) => (
+          <div class="p-5 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition-colors">
+            <h3 class="text-white font-bold text-sm mb-1">{item.skill}</h3>
+            <p class="text-neutral-500 text-sm leading-relaxed">{item.desc}</p>
           </div>
-          <h3 class="text-2xl font-bold text-neutral-900 mb-1 mt-2">Level One</h3>
-          <p class="text-k9-orange font-medium text-sm mb-3">Basic Obedience · 6 weeks</p>
-          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">Foundational obedience for dogs of any age. We fix leash pulling on the very first day — then build loose-leash walking in heel, mild reactivity management, and foundational commands. Our Level One covers more than most training centres teach in their highest level program.</p>
-          <ul class="space-y-2 mb-6">
-            {['Leash pulling fixed Day 1', 'Loose leash walking (heel position)', 'Mild reactivity management', 'Foundational commands', 'No prerequisites required'].map((d) => (
-              <li class="flex items-start gap-2 text-sm text-neutral-600">
-                <svg class="w-4 h-4 text-k9-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-                <span>{d}</span>
-              </li>
-            ))}
-          </ul>
-          <div class="flex items-center justify-between pt-5 border-t border-neutral-100">
-            <span class="text-2xl font-extrabold text-neutral-900">$595</span>
-            <a href="#contact" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-neutral-100 text-neutral-700 hover:bg-k9-orange hover:text-white transition-all">Get on the List</a>
-          </div>
-        </div>
-
-        <!-- Level Two -->
-        <div class="rounded-2xl p-6 sm:p-8 border border-neutral-200/60 bg-white hover:border-neutral-300 hover:shadow-md transition-all">
-          <h3 class="text-2xl font-bold text-neutral-900 mb-1">Level Two</h3>
-          <p class="text-k9-orange font-medium text-sm mb-3">Advanced Obedience · 6 weeks + test</p>
-          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">E-collar training, off-leash recall, and obedience in distracting environments. Includes 5 facility sessions, 1 off-leash graduation hike, and a test.</p>
-          <ul class="space-y-2 mb-6">
-            {['E-collar training (purchased separately)', 'Off-leash recall', 'Obedience under distraction', 'Off-leash graduation hike', 'Must pass Level One or assessment'].map((d) => (
-              <li class="flex items-start gap-2 text-sm text-neutral-600">
-                <svg class="w-4 h-4 text-k9-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-                <span>{d}</span>
-              </li>
-            ))}
-          </ul>
-          <div class="flex items-center justify-between pt-5 border-t border-neutral-100">
-            <span class="text-2xl font-extrabold text-neutral-900">$595</span>
-            <a href="#contact" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-neutral-100 text-neutral-700 hover:bg-k9-orange hover:text-white transition-all">Get on the List</a>
-          </div>
-        </div>
-
-        <!-- Level Three -->
-        <div class="rounded-2xl p-6 sm:p-8 border border-neutral-200/60 bg-white hover:border-neutral-300 hover:shadow-md transition-all">
-          <h3 class="text-2xl font-bold text-neutral-900 mb-1">Level Three</h3>
-          <p class="text-k9-orange font-medium text-sm mb-3">Elite Obedience · 8 weeks</p>
-          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">The highest level. Power heel, send-outs, scent search, jumps, and A-frame work. Culminates in the "IMPOSSIBLE" test. For serious handlers only.</p>
-          <ul class="space-y-2 mb-6">
-            {['Power heel + advanced positioning', 'Send-outs + scent search', 'Jumps + A-frame work', 'The "IMPOSSIBLE" test', 'Must score 80+ on Level Two test'].map((d) => (
-              <li class="flex items-start gap-2 text-sm text-neutral-600">
-                <svg class="w-4 h-4 text-k9-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-                <span>{d}</span>
-              </li>
-            ))}
-          </ul>
-          <div class="flex items-center justify-between pt-5 border-t border-neutral-100">
-            <span class="text-2xl font-extrabold text-neutral-900">$595</span>
-            <a href="#contact" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-neutral-100 text-neutral-700 hover:bg-k9-orange hover:text-white transition-all">Get on the List</a>
-          </div>
-        </div>
+        ))}
       </div>
 
-      <!-- Bundle -->
-      <div class="mt-8">
-        <div class="relative rounded-2xl p-6 sm:p-8 border border-k9-orange/30 bg-k9-orange-light/40 ring-1 ring-k9-orange/10 hover:shadow-md transition-all">
-          <div class="absolute -top-3 left-6">
-            <span class="inline-flex items-center px-3 py-1 bg-k9-orange text-white text-xs font-bold rounded-lg uppercase tracking-wide">Best Value</span>
-          </div>
-          <div class="md:flex md:items-center md:justify-between mt-2">
-            <div>
-              <h3 class="text-2xl font-bold text-neutral-900 mb-1">Level One + Level Two Bundle</h3>
-              <p class="text-k9-orange font-medium text-sm mb-2">From basic obedience to off-leash reliable — the full journey</p>
-              <p class="text-neutral-500 text-sm leading-relaxed max-w-lg">Complete both levels as one program. Level One builds the foundation, Level Two takes it to e-collar, off-leash reliability with a graduation hike.</p>
-            </div>
-            <div class="flex items-center gap-3 mt-4 md:mt-0">
-              <div class="text-right">
-                <span class="text-2xl font-extrabold text-neutral-900">$995</span>
-                <span class="block text-sm text-k9-orange font-semibold">Save $195</span>
+      <!-- The Impossible Test -->
+      <div class="max-w-2xl mx-auto">
+        <div class="rounded-2xl p-6 sm:p-8 bg-white/5 border border-white/10">
+          <div class="text-center">
+            <h3 class="text-xl font-extrabold text-white mb-2">The "Impossible" Test</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed mb-6">
+              8 weeks of elite training. One final test that pushes handler and dog to their absolute limit. Power heel sequences, long-distance send-outs, blind scent searches, obstacle courses — all chained together with zero margin for error.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5">
+              <div class="text-center px-4">
+                <p class="text-2xl font-extrabold text-white">8</p>
+                <p class="text-xs text-neutral-500 uppercase tracking-wide">Weeks</p>
               </div>
-              <a href="#contact" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-k9-orange text-white hover:bg-k9-orange-dark shadow-sm transition-all">Get on the List</a>
+              <span class="hidden sm:block w-px h-8 bg-white/10"></span>
+              <div class="text-center px-4">
+                <p class="text-2xl font-extrabold text-white">80+</p>
+                <p class="text-xs text-neutral-500 uppercase tracking-wide">Score Required on L2</p>
+              </div>
+              <span class="hidden sm:block w-px h-8 bg-white/10"></span>
+              <div class="text-center px-4">
+                <p class="text-2xl font-extrabold text-white">$595</p>
+                <p class="text-xs text-neutral-500 uppercase tracking-wide">When Available</p>
+              </div>
+            </div>
+
+            <div class="mt-6 inline-flex items-center gap-2 px-5 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-neutral-400">
+              <svg class="w-4 h-4 text-neutral-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg>
+              Level 3 classes open by invitation only — join the waitlist to be notified
             </div>
           </div>
         </div>
@@ -277,7 +622,7 @@ import '../styles/global.css';
   </section>
 
   <!-- SCHEDULE -->
-  <section class="py-16 sm:py-24 bg-neutral-50 border-y border-neutral-100">
+  <section id="schedule" class="py-16 sm:py-24 bg-neutral-50 border-y border-neutral-100">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Upcoming Classes</p>
@@ -327,15 +672,6 @@ import '../styles/global.css';
             status: 'open',
             spotsText: 'Just opened',
           },
-          {
-            level: 'Level Three',
-            subtitle: 'Elite Obedience · 8 weeks',
-            startDate: 'Next cohort TBA',
-            day: 'Wednesdays · 7:00 PM',
-            location: 'Leaside',
-            status: 'waitlist',
-            spotsText: 'Waitlist only',
-          },
         ].map((c) => {
           const statusStyles = {
             'almost-full': 'bg-red-50 text-red-700 border-red-200',
@@ -375,8 +711,8 @@ import '../styles/global.css';
                     <span class={`w-1.5 h-1.5 rounded-full ${dotStyles[c.status]}`}></span>
                     {c.spotsText}
                   </div>
-                  <a href="#contact" class={`inline-flex items-center px-4 py-2 text-sm font-semibold rounded-lg transition-all whitespace-nowrap ${c.status === 'waitlist' ? 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200' : 'bg-k9-orange text-white hover:bg-k9-orange-dark shadow-sm'}`}>
-                    {c.status === 'waitlist' ? 'Join Waitlist' : 'Reserve Spot'}
+                  <a href="#contact" class="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-lg bg-k9-orange text-white hover:bg-k9-orange-dark shadow-sm transition-all whitespace-nowrap">
+                    Reserve Spot
                   </a>
                 </div>
               </div>
@@ -402,116 +738,6 @@ import '../styles/global.css';
     </div>
   </section>
 
-  <!-- CURRICULUM DOWNLOAD LEAD MAGNET -->
-  <section class="py-16 sm:py-24 bg-brand-dark">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Free Download</p>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">
-            See exactly what your dog will learn — download the class curriculum
-          </h2>
-          <p class="text-neutral-400 leading-relaxed mb-6">
-            Get a breakdown of every skill covered across all three levels. See the full week-by-week curriculum so you know exactly what to expect.
-          </p>
-          <ul class="space-y-2 mb-6">
-            {['Full curriculum for all 3 levels', 'Week-by-week skill breakdown', 'What to practice between classes'].map((item) => (
-              <li class="flex items-center gap-2 text-sm text-neutral-300">
-                <svg class="w-4 h-4 text-k9-orange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
-          <h3 class="text-lg font-bold text-white mb-1">Get the free curriculum</h3>
-          <p class="text-sm text-neutral-400 mb-4">Enter your email and we'll send it right over.</p>
-          <form id="curriculum-form" class="space-y-3">
-            <input type="text" name="curr_name" required placeholder="Your name"
-              class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm" />
-            <input type="email" name="curr_email" required placeholder="Your email"
-              class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm" />
-            <button type="submit" id="curr-submit-btn"
-              class="w-full py-3 bg-k9-orange text-white text-sm font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/20 disabled:opacity-50">
-              Download the Curriculum
-            </button>
-            <p class="text-xs text-neutral-500 text-center">No spam. Just the curriculum and helpful training tips.</p>
-          </form>
-          <div id="curr-success" class="hidden text-center py-6">
-            <svg class="w-10 h-10 mx-auto mb-3 text-k9-orange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-            <p class="text-white font-semibold">Check your email!</p>
-            <p class="text-neutral-400 text-sm mt-1">The curriculum is on its way.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    const currForm = document.getElementById('curriculum-form') as HTMLFormElement;
-    const currBtn = document.getElementById('curr-submit-btn') as HTMLButtonElement;
-    const currSuccess = document.getElementById('curr-success') as HTMLDivElement;
-
-    currForm?.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      currBtn.disabled = true;
-      currBtn.textContent = 'Sending...';
-
-      const formData = new FormData(currForm);
-      const name = formData.get('curr_name') as string;
-      const email = formData.get('curr_email') as string;
-
-      try {
-        // Server-side submission (survives ad blockers)
-        await fetch('/api/submit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name,
-            email,
-            phone: '',
-            service: 'curriculum_download_group',
-            message: 'Downloaded group classes curriculum',
-            dog_info: '',
-          }),
-        }).catch(() => {});
-
-        // Push to Klaviyo (client-side backup)
-        const _learnq = (window as any)._learnq || [];
-        _learnq.push(['identify', {
-          '$email': email,
-          '$first_name': name.split(' ')[0] || '',
-          '$last_name': name.split(' ').slice(1).join(' ') || '',
-          'Source': 'Curriculum Download',
-        }]);
-        _learnq.push(['track', 'Curriculum Download', {
-          'Name': name,
-          'Email': email,
-          'Curriculum': 'Group Classes',
-        }]);
-
-        currForm.classList.add('hidden');
-        currSuccess.classList.remove('hidden');
-
-        // Fire tracking events
-        if (typeof fbq !== 'undefined') {
-          (window as any).fbq('track', 'Lead', { content_name: 'Curriculum Download' });
-        }
-        if (typeof gtag !== 'undefined') {
-          (window as any).gtag('event', 'generate_lead', { event_category: 'curriculum', event_label: 'group_classes' });
-        }
-      } catch {
-        currBtn.disabled = false;
-        currBtn.textContent = 'Download the Curriculum';
-      }
-    });
-  </script>
-
   <!-- WHY GROUP -->
   <section class="py-16 sm:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -528,8 +754,8 @@ import '../styles/global.css';
           { num: '02', title: 'Socialization that actually works', desc: 'Structured interaction with other dogs under professional guidance. Not a dog park free-for-all.' },
           { num: '03', title: 'Expert instruction every session', desc: 'Led by K9 Academy\'s training team — 15+ years experience, 10,000+ dogs trained.' },
           { num: '04', title: 'A community that gets it', desc: 'You\'re surrounded by other owners working through the same challenges. Support makes the difference.' },
-          { num: '05', title: 'Affordable path to obedience', desc: 'Group classes deliver real results at a fraction of the cost of private lessons. Bundles save even more.' },
-          { num: '06', title: 'New classes open frequently', desc: 'Classes run every week. We open new classes regularly and fill them fast. Get on the list to be first to know.' },
+          { num: '05', title: 'Affordable path to obedience', desc: 'Group classes deliver real results at a fraction of the cost of private lessons. The bundle saves you $195.' },
+          { num: '06', title: 'New classes open frequently', desc: 'We open new cohorts regularly and they always fill. Get on the list to be first to know when spots open.' },
         ].map((prop) => (
           <div class="rounded-2xl p-6 bg-neutral-50 border border-neutral-200/60 hover:border-neutral-300 transition-all">
             <div class="w-8 h-8 rounded-lg bg-k9-orange/10 flex items-center justify-center mb-4">
@@ -643,51 +869,6 @@ import '../styles/global.css';
         </div>
       </div>
 
-      <!-- Instagram + Facebook DMs -->
-      <div class="mb-16">
-        <div class="flex items-center justify-center gap-2 mb-8">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="ig-gc" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FDB813"/><stop offset="50%" stop-color="#E1306C"/><stop offset="100%" stop-color="#833AB4"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" stroke="url(#ig-gc)" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="url(#ig-gc)" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="url(#ig-gc)"/></svg>
-          <svg class="w-5 h-5" viewBox="0 0 24 24"><path fill="#1877F2" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
-          <h3 class="text-sm font-bold uppercase tracking-wide text-neutral-500">Instagram & Facebook DMs</h3>
-        </div>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {[
-            { handle: '@joeytheaussie_', platform: 'Instagram', breed: 'Aussie Shepherd', issue: 'Leash pulling', msgs: ['JOEY GRADUATED LEVEL 1', 'the leash walking alone was worth the money', 'signed up for level 2 before we left the building lol'] },
-            { handle: 'Danielle T.', platform: 'Facebook', breed: 'Doberman', issue: 'General obedience', msgs: ['Ok so I dragged my husband to class fully expecting to waste $600', 'Our dobe walked on a loose leash by session 2', 'My husband signed us up for level 2 in the parking lot'] },
-            { handle: '@rosie.mini.schnauzer', platform: 'Instagram', breed: 'Mini Schnauzer', issue: 'Distractions', msgs: ['people keep asking where we trained her', 'yes the tiny schnauzer did group obedience', 'she walks better than dogs twice her size now'] },
-            { handle: '@akiraoffleash', platform: 'Instagram', breed: 'Mixed', issue: 'Recall', msgs: ['level 2 graduation hike today', 'akira recalled off a full sprint toward a squirrel', 'ON A TRAIL', 'off leash reliable at 11 months'] },
-            { handle: 'Tara & Jeff M.', platform: 'Facebook', breed: 'Labradoodle', issue: 'Reactivity', msgs: ['Our labradoodle used to lunge at every single dog we passed', 'She did a sit stay while a rottie walked past her in class last week', 'Jeff cried in the car after 😂'] },
-            { handle: '@sadietheaussie.to', platform: 'Instagram', breed: 'Mini Aussie', issue: 'Reactivity', msgs: ['ppl who say balanced training is cruel have not seen my dog sprinting back to me off leash with the biggest smile', 'she used to run from her harness and now puts her head into the prong on her own', 'level 1 and 2 changed everything for us'] },
-            { handle: '@thepibblesisters', platform: 'Instagram', breed: 'Pitbull', issue: 'Reactivity', msgs: ['both girls finished level 1 today', 'they did a down stay next to a golden', 'a golden.', 'six months ago we couldnt walk past a dog across the street'] },
-            { handle: 'Devon K.', platform: 'Facebook', breed: 'Rescue mix', issue: 'Leash pulling', msgs: ['Adopted our boy 6 months ago and honestly almost returned him, he was that bad on leash', 'After level 1 he walks like a completely different dog', 'Signed up for level 2 next month'] },
-          ].map((d) => (
-            <div class="bg-white rounded-2xl border border-neutral-200/60 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
-              <div class="flex items-center gap-3 px-4 py-3 border-b border-neutral-100">
-                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-amber-400 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                  {d.handle.replace('@','').charAt(0).toUpperCase()}
-                </div>
-                <div class="flex-1 min-w-0">
-                  <p class="font-semibold text-neutral-900 text-sm truncate">{d.handle}</p>
-                  <p class="text-xs text-neutral-400">{d.platform}</p>
-                </div>
-                <div class="flex flex-col items-end gap-1 flex-shrink-0">
-                  <span class="inline-flex items-center px-2 py-1 rounded-full bg-k9-orange/10 text-k9-orange text-[10px] font-bold uppercase tracking-wide">{d.breed}</span>
-                  <span class="inline-flex items-center px-2 py-1 rounded-full bg-neutral-100 text-neutral-600 text-[10px] font-bold uppercase tracking-wide">{d.issue}</span>
-                </div>
-              </div>
-              <div class="p-4 space-y-2 bg-neutral-50/50 flex-grow">
-                {d.msgs.map((m) => (
-                  <div class="flex justify-start">
-                    <div class="max-w-[85%] bg-neutral-200/80 text-neutral-800 text-sm rounded-2xl rounded-tl-md px-4 py-2 leading-snug">{m}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
       <!-- Emails -->
       <div>
         <div class="flex items-center justify-center gap-2 mb-8">
@@ -747,7 +928,7 @@ import '../styles/global.css';
 
       <div class="grid sm:grid-cols-3 gap-6">
         {[
-          { num: '01', title: 'Pick your class', desc: 'Puppy, Beginner, Advanced, or a bundle. Not sure? We\'ll help you choose.' },
+          { num: '01', title: 'Pick your level', desc: 'Everyone starts at Level 1. Already trained? We\'ll assess and place you.' },
           { num: '02', title: 'Get on the list', desc: 'Fill out the form or call us. We let you know as soon as the next class opens.' },
           { num: '03', title: 'Come to class', desc: 'Show up at our Leaside location with your dog. We handle the rest.' },
         ].map((step) => (
@@ -769,9 +950,97 @@ import '../styles/global.css';
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="py-16 sm:py-24 bg-white border-t border-neutral-100">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Common Questions</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
+          Before you sign up
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {[
+          {
+            q: '"I tried group classes before and they didn\'t work."',
+            a: 'We hear this all the time — and it\'s usually the first thing people tell us. Most group programs are watered down. Ours is built to deliver board &amp; train level results at a fraction of the cost. Watch the Level 1 test videos above — that\'s what 6 weeks looks like.',
+          },
+          {
+            q: 'What level does my dog start at?',
+            a: 'Everyone starts at Level 1, regardless of your dog\'s experience. Our Level 1 covers more than most training centres teach in their entire program. The only exception is if your dog trained with a facility we specifically approve — which is very rare.',
+          },
+          {
+            q: 'Is my dog too old to start?',
+            a: 'No. It\'s never too late. We\'ve trained dogs of every age — puppies to seniors. Older dogs can absolutely learn new behaviors and break old habits.',
+          },
+          {
+            q: 'Does this work for all breeds?',
+            a: 'Every breed. Labs, Huskies, Pit Bulls, Doodles, Frenchies, Malinois, rescues — we\'ve trained them all. The method works regardless of breed, size, or background.',
+          },
+          {
+            q: 'My dog is reactive — can they handle group class?',
+            a: 'Yes. The group setting is actually ideal for reactive dogs because it provides controlled exposure to real distractions. Our trainers manage spacing and work with each dog individually within the group. Some of our best transformations come from reactive dogs.',
+          },
+          {
+            q: 'What if I miss a session?',
+            a: 'We\'ll reschedule you into another class that week so you don\'t fall behind. Life happens — we make it work.',
+          },
+          {
+            q: 'Is there parking at the Leaside location?',
+            a: 'Yes, there\'s plenty of free parking at 16-30 Canvarco Rd.',
+          },
+        ].map((faq) => (
+          <details class="group rounded-2xl border border-neutral-200/60 bg-neutral-50 hover:border-neutral-300 transition-all">
+            <summary class="flex items-center justify-between cursor-pointer p-5 sm:p-6 text-left">
+              <span class="font-semibold text-neutral-900 text-sm sm:text-base pr-4">{faq.q}</span>
+              <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 group-open:rotate-45 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </summary>
+            <div class="px-5 sm:px-6 pb-5 sm:pb-6 -mt-1">
+              <p class="text-neutral-600 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <div class="bg-neutral-900 pt-10"><div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-8"><GuideBanner /></div></div>
   <ContactForm />
   <Footer />
+
+  <!-- Sticky Mobile CTA -->
+  <div id="sticky-cta" class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-t border-neutral-200 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] translate-y-full transition-transform duration-300 lg:hidden">
+    <div class="max-w-lg mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <div class="min-w-0">
+        <p class="font-bold text-neutral-900 text-sm truncate">Group Classes — $595</p>
+        <a href="tel:4377785273" class="text-xs text-neutral-500 hover:text-k9-orange transition-colors">437-778-5273</a>
+      </div>
+      <a href="#contact" class="inline-flex items-center px-5 py-2.5 bg-k9-orange text-white text-sm font-bold rounded-lg hover:bg-k9-orange-dark transition-all shadow-sm whitespace-nowrap flex-shrink-0">
+        Join Waitlist
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const stickyCta = document.getElementById('sticky-cta');
+    const heroCta = document.querySelector('section a[href="#contact"]');
+    if (stickyCta && heroCta) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            stickyCta.classList.add('translate-y-full');
+          } else {
+            stickyCta.classList.remove('translate-y-full');
+          }
+        },
+        { threshold: 0 }
+      );
+      observer.observe(heroCta);
+    }
+  </script>
 <script type="application/ld+json" set:html={JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Service",
@@ -794,9 +1063,11 @@ import '../styles/global.css';
   "@type": "FAQPage",
   "mainEntity": [
     { "@type": "Question", "name": "How much are group dog classes in Toronto?", "acceptedAnswer": { "@type": "Answer", "text": "Each level is $595. The Level 1 + 2 bundle is $995, saving you $195. Classes run for 6 weeks at our Leaside location." }},
-    { "@type": "Question", "name": "What level should my dog start at?", "acceptedAnswer": { "@type": "Answer", "text": "Everyone starts at Level 1 regardless of experience. Our Level 1 covers more than most training centres' highest level. We assess from there." }},
-    { "@type": "Question", "name": "How many dogs are in each group class?", "acceptedAnswer": { "@type": "Answer", "text": "We keep groups small to ensure individual attention. Classes fill quickly — we recommend getting on the waitlist early." }},
-    { "@type": "Question", "name": "Will my reactive dog be okay in group class?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The group setting is actually ideal for reactive dogs because it provides controlled exposure to real distractions. Our trainers manage spacing and work with each dog individually within the group." }}
+    { "@type": "Question", "name": "What level should my dog start at?", "acceptedAnswer": { "@type": "Answer", "text": "Everyone starts at Level 1 regardless of experience. Our Level 1 covers more than most training centres' highest level. The only exception is if your dog trained with a facility we specifically approve." }},
+    { "@type": "Question", "name": "Will my reactive dog be okay in group class?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The group setting is actually ideal for reactive dogs because it provides controlled exposure to real distractions. Our trainers manage spacing and work with each dog individually within the group." }},
+    { "@type": "Question", "name": "Is my dog too old to start training?", "acceptedAnswer": { "@type": "Answer", "text": "No. It's never too late. We've trained dogs of every age — puppies to seniors. Older dogs can absolutely learn new behaviors and break old habits." }},
+    { "@type": "Question", "name": "What if I miss a group class session?", "acceptedAnswer": { "@type": "Answer", "text": "We'll reschedule you into another class that week so you don't fall behind." }},
+    { "@type": "Question", "name": "Does group training work for all dog breeds?", "acceptedAnswer": { "@type": "Answer", "text": "Every breed. Labs, Huskies, Pit Bulls, Doodles, Frenchies, Malinois, rescues — the method works regardless of breed, size, or background." }}
   ]
 })} />
 </Layout>

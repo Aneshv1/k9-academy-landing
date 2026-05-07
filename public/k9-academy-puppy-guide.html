@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K9 Academy Puppy Assessment Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #f5f5f4;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 48px 52px;
+    background: #ffffff;
+    page-break-after: always;
+    position: relative;
+  }
+  .page:last-child { page-break-after: avoid; }
+
+  .orange { color: #E8611A; }
+  .section-num {
+    width: 44px; height: 44px; border-radius: 50%; background: #E8611A; color: #fff;
+    font-weight: 800; font-size: 18px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .card {
+    background: #fafafa; border: 1px solid #eee; border-radius: 10px; padding: 20px 24px; margin-bottom: 14px;
+  }
+  .card-label {
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #E8611A; margin-bottom: 6px;
+  }
+  .card p { font-size: 13px; line-height: 1.7; color: #555; }
+  .tip-card {
+    background: #FFF4ED; border-left: 4px solid #E8611A; border-radius: 0 10px 10px 0; padding: 18px 22px; margin-bottom: 14px;
+  }
+  .tip-card p { font-size: 13px; line-height: 1.7; color: #555; }
+  .warn-card {
+    background: #fef2f2; border-left: 4px solid #dc2626; border-radius: 0 10px 10px 0; padding: 18px 22px; margin-bottom: 14px;
+  }
+  .warn-card p { font-size: 13px; line-height: 1.7; color: #7f1d1d; }
+  .review-card { background: #fafafa; border: 1px solid #eee; border-radius: 10px; padding: 20px 24px; }
+  .review-stars { color: #f59e0b; font-size: 16px; letter-spacing: 2px; margin-bottom: 8px; }
+  .review-text { font-size: 13px; color: #555; line-height: 1.6; font-style: italic; }
+  .review-name { font-size: 12px; color: #999; margin-top: 8px; font-style: normal; }
+  .video-link {
+    display: flex; align-items: center; gap: 12px; background: #111; border-radius: 10px; padding: 14px 18px; text-decoration: none; margin-bottom: 10px;
+  }
+  .video-play {
+    width: 36px; height: 36px; border-radius: 50%; background: #E8611A; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .video-play svg { width: 14px; height: 14px; fill: #fff; margin-left: 2px; }
+  .video-title { font-size: 13px; color: #fff; font-weight: 600; }
+  .video-sub { font-size: 11px; color: #888; margin-top: 2px; }
+
+  h1 { font-size: 36px; font-weight: 900; line-height: 1.1; color: #111; }
+  h2 { font-size: 22px; font-weight: 800; line-height: 1.2; color: #111; margin-bottom: 14px; }
+  h3 { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 4px; }
+  .subtitle { font-size: 16px; color: #888; font-weight: 500; margin-top: 10px; }
+  .divider { width: 50px; height: 3px; background: #E8611A; margin: 20px 0; border-radius: 2px; }
+
+  .score-row { display: flex; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 1px solid #eee; }
+  .score-range { font-size: 28px; font-weight: 900; color: #E8611A; width: 80px; text-align: center; flex-shrink: 0; }
+  .score-label { font-size: 15px; font-weight: 700; color: #111; }
+  .score-desc { font-size: 13px; color: #777; margin-top: 4px; }
+
+  .page-footer {
+    position: absolute; bottom: 28px; left: 52px; right: 52px; display: flex; justify-content: space-between;
+    align-items: center; font-size: 10px; color: #bbb; border-top: 1px solid #eee; padding-top: 10px;
+  }
+
+  .cover-header { background: #111; border-radius: 14px; padding: 40px 36px; text-align: center; margin-bottom: 32px; }
+  .cover-header h1 { color: #fff; font-size: 38px; }
+  .cover-header .subtitle { color: #999; }
+  .logo-bar { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 24px; }
+  .logo-bar span { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #E8611A; }
+
+  .stat-row { display: flex; justify-content: center; gap: 28px; margin-top: 20px; }
+  .stat { text-align: center; }
+  .stat-num { font-size: 26px; font-weight: 900; color: #E8611A; }
+  .stat-label { font-size: 10px; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+  .cta-box { background: #111; border-radius: 14px; padding: 32px; text-align: center; margin-top: 28px; }
+  .cta-box h3 { color: #fff; font-size: 20px; margin-bottom: 8px; }
+  .cta-box a {
+    display: inline-block; background: #E8611A; color: #fff; font-weight: 700; font-size: 15px;
+    padding: 12px 36px; border-radius: 8px; text-decoration: none; margin-top: 16px;
+  }
+
+  @media print { body { background: #fff; } .page { margin: 0; box-shadow: none; } }
+  @media screen { .page { margin: 20px auto; box-shadow: 0 2px 20px rgba(0,0,0,0.08); } }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="page" style="display:flex; flex-direction:column; justify-content:center;">
+  <div class="cover-header">
+    <div class="logo-bar"><span>K9 Academy Dog Training Center</span></div>
+    <h1>Your Puppy's Score</h1>
+    <p class="subtitle">And What To Do About It</p>
+  </div>
+
+  <div style="text-align:center;">
+    <p style="font-size:14px; color:#888; max-width:380px; margin:0 auto;">The K9 Academy Puppy Assessment Guide &mdash; a section-by-section breakdown of your puppy's results with actionable tips for each area.</p>
+  </div>
+
+  <div class="stat-row" style="margin-top:36px;">
+    <div class="stat"><div class="stat-num">4.9</div><div class="stat-label">Google Rating</div></div>
+    <div class="stat"><div class="stat-num">250+</div><div class="stat-label">Reviews</div></div>
+    <div class="stat"><div class="stat-num">10K+</div><div class="stat-label">Dogs Trained</div></div>
+    <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Years</div></div>
+  </div>
+
+  <div style="margin-top:36px; display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"We brought our puppy at 12 weeks. Best decision we ever made. She learned everything before bad habits had a chance to form."</p>
+      <p class="review-name">&mdash; Sarah T. &middot; Puppy Program</p>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"We dropped off a puppy and picked up a dog. Reliable recall, loose leash, settles at home. Puppy Start Right was worth every penny."</p>
+      <p class="review-name">&mdash; Puppy Start Right Graduate</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>k9academytraining.ca</span>
+    <span class="orange">437-778-5273</span>
+  </div>
+</div>
+
+<!-- PAGE 2: HOW TO USE -->
+<div class="page">
+  <p class="card-label">Introduction</p>
+  <h2>How to Use This Guide</h2>
+  <div class="divider"></div>
+
+  <div class="card" style="margin-top:20px;">
+    <p>Your puppy just completed the K9 Academy puppy assessment. This guide breaks down the 5 areas we scored, explains what's actually going on, and gives you something you can start working on today for each.</p>
+  </div>
+  <div class="card">
+    <p>Puppies develop fast &mdash; what's normal at 10 weeks is a problem at 6 months. The earlier you address these areas, the easier everything is. Waiting doesn't make things better. It makes them harder.</p>
+  </div>
+
+  <div style="margin-top:28px;">
+    <p class="card-label">The 7 Areas We Score</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px;">
+      <div class="card" style="display:flex; align-items:center; gap:14px; padding:14px 18px;">
+        <div class="section-num">1</div>
+        <div><h3>Nipping &amp; Biting</h3><p style="font-size:11px; color:#999; margin:0;">Mouthy behaviour</p></div>
+      </div>
+      <div class="card" style="display:flex; align-items:center; gap:14px; padding:14px 18px;">
+        <div class="section-num">2</div>
+        <div><h3>Potty Training</h3><p style="font-size:11px; color:#999; margin:0;">Housebreaking progress</p></div>
+      </div>
+      <div class="card" style="display:flex; align-items:center; gap:14px; padding:14px 18px;">
+        <div class="section-num">3</div>
+        <div><h3>Crate Training</h3><p style="font-size:11px; color:#999; margin:0;">Settling alone</p></div>
+      </div>
+      <div class="card" style="display:flex; align-items:center; gap:14px; padding:14px 18px;">
+        <div class="section-num">4</div>
+        <div><h3>Recall</h3><p style="font-size:11px; color:#999; margin:0;">Coming when called</p></div>
+      </div>
+      <div class="card" style="display:flex; align-items:center; gap:14px; padding:14px 18px;">
+        <div class="section-num">5</div>
+        <div><h3>Socialization</h3><p style="font-size:11px; color:#999; margin:0;">Confidence with new things</p></div>
+      </div>
+      <div class="card" style="display:flex; align-items:center; gap:14px; padding:14px 18px;">
+        <div class="section-num">6</div>
+        <div><h3>Calmness</h3><p style="font-size:11px; color:#999; margin:0;">Settling at home</p></div>
+      </div>
+      <div class="card" style="display:flex; align-items:center; gap:14px; padding:14px 18px; grid-column: span 2;">
+        <div class="section-num">7</div>
+        <div><h3>Demanding Behaviour</h3><p style="font-size:11px; color:#999; margin:0;">Attention seeking, barking, whining</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>K9 Academy Puppy Assessment Guide</span>
+    <span class="orange">Page 2</span>
+  </div>
+</div>
+
+<!-- PAGE 3: NIPPING -->
+<div class="page">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;">
+    <div class="section-num">1</div>
+    <div><p class="card-label" style="margin-bottom:0;">Section 1</p><h2 style="margin-bottom:0;">Nipping &amp; Biting</h2></div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="card">
+    <div class="card-label">What's actually happening</div>
+    <p>Puppies explore the world with their mouths. Nipping during play is normal &mdash; but it needs to be addressed early. A puppy that learns biting gets a reaction (even a negative one) will keep doing it. And puppy teeth at 12 weeks become adult teeth at 6 months.</p>
+  </div>
+  <div class="card">
+    <div class="card-label">What most owners get wrong</div>
+    <p>Yelping, pulling away dramatically, or pushing the puppy off. All of these are exciting to a puppy &mdash; you've just turned biting into a game. The other mistake: letting it slide because "they're just a puppy." They won't grow out of it on their own.</p>
+  </div>
+  <div class="tip-card">
+    <div class="card-label">What you can start doing now</div>
+    <p><strong>Redirect immediately.</strong> The moment teeth touch skin, calmly remove your hand and give the puppy something appropriate to chew on (a toy, a chew). If they keep going for your hands, end the interaction &mdash; stand up, turn away, disengage. Biting means the fun stops. Be consistent and every person in the household needs to follow the same rule.</p>
+  </div>
+  <div class="warn-card">
+    <div class="card-label" style="color:#dc2626;">When to get help</div>
+    <p>If your puppy is biting hard enough to break skin regularly, if the biting is paired with growling or stiffening, or if it's getting worse despite consistent redirection. Early intervention prevents this from becoming a real aggression issue as an adult.</p>
+  </div>
+
+  <div class="page-footer"><span>K9 Academy Puppy Assessment Guide</span><span class="orange">Page 3</span></div>
+</div>
+
+<!-- PAGE 4: POTTY TRAINING -->
+<div class="page">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;">
+    <div class="section-num">2</div>
+    <div><p class="card-label" style="margin-bottom:0;">Section 2</p><h2 style="margin-bottom:0;">Potty Training</h2></div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="card">
+    <div class="card-label">What's actually happening</div>
+    <p>Puppies have small bladders and haven't yet learned where they're supposed to go. Accidents aren't defiance &mdash; they're a communication failure. Your puppy doesn't know the rules yet because you haven't made them clear enough.</p>
+  </div>
+  <div class="card">
+    <div class="card-label">What most owners get wrong</div>
+    <p>Giving the puppy too much freedom too soon. A puppy with full access to the house will find a corner to use. The other mistake: punishing accidents after the fact. If you didn't catch them in the act, the moment has passed &mdash; your puppy has no idea why you're upset.</p>
+  </div>
+  <div class="tip-card">
+    <div class="card-label">What you can start doing now</div>
+    <p><strong>Restrict freedom and increase frequency.</strong> Use the crate when you can't supervise. Take your puppy out every 1&ndash;2 hours, immediately after eating, drinking, playing, and waking up. When they go outside, reward immediately &mdash; not when you get back inside, right there on the spot. If they don't go within 5 minutes, back to the crate, try again in 20 minutes.</p>
+  </div>
+  <div class="warn-card">
+    <div class="card-label" style="color:#dc2626;">When to get help</div>
+    <p>If your puppy is over 5 months and still having daily accidents despite consistent routine, or if they're going in their crate regularly. Something else may be going on &mdash; a vet check is the first step, then professional training guidance.</p>
+  </div>
+
+  <div class="page-footer"><span>K9 Academy Puppy Assessment Guide</span><span class="orange">Page 4</span></div>
+</div>
+
+<!-- PAGE 5: CRATE TRAINING -->
+<div class="page">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;">
+    <div class="section-num">3</div>
+    <div><p class="card-label" style="margin-bottom:0;">Section 3</p><h2 style="margin-bottom:0;">Crate Training</h2></div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="card">
+    <div class="card-label">What's actually happening</div>
+    <p>A puppy that can't settle in a crate is a puppy that hasn't learned to be alone. The crate isn't punishment &mdash; it's their safe space. But if it was introduced badly (shoved in during a tantrum, used only when you leave), your puppy has already built a negative association.</p>
+  </div>
+  <div class="card">
+    <div class="card-label">What most owners get wrong</div>
+    <p>Only using the crate when they leave the house &mdash; so the crate becomes the thing that predicts being alone. The other mistake: letting the puppy out when they cry. You just taught them that crying opens the door.</p>
+  </div>
+  <div class="tip-card">
+    <div class="card-label">What you can start doing now</div>
+    <p><strong>Use the crate while you're home.</strong> Feed meals in the crate. Give chews in the crate. Close the door for short periods while you're in the same room. Your puppy needs to learn that the crate is a normal part of daily life &mdash; not a signal that you're leaving. Build duration gradually and never let them out while they're fussing.</p>
+  </div>
+  <div class="warn-card">
+    <div class="card-label" style="color:#dc2626;">When to get help</div>
+    <p>If your puppy is injuring themselves in the crate (broken nails, bloody gums from chewing bars), if they're howling for 30+ minutes without settling, or if crate anxiety is getting worse instead of better. This can escalate into full separation anxiety if not addressed.</p>
+  </div>
+
+  <div class="review-card" style="margin-top:8px;">
+    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <p class="review-text">"Our puppy screamed in the crate for weeks. After starting the Puppy Program, she settled within days. Wish we'd started sooner."</p>
+    <p class="review-name">&mdash; K9 Academy Puppy Program Client</p>
+  </div>
+
+  <div class="page-footer"><span>K9 Academy Puppy Assessment Guide</span><span class="orange">Page 5</span></div>
+</div>
+
+<!-- PAGE 6: RECALL -->
+<div class="page">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;">
+    <div class="section-num">4</div>
+    <div><p class="card-label" style="margin-bottom:0;">Section 4</p><h2 style="margin-bottom:0;">Recall</h2></div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="card">
+    <div class="card-label">What's actually happening</div>
+    <p>Puppies are naturally curious and easily distracted. When they ignore you, it's not stubbornness &mdash; whatever they're doing is simply more rewarding than coming to you. Recall needs to be built from the ground up, and it needs to be enforced every single time so your puppy learns it's not optional.</p>
+  </div>
+  <div class="card">
+    <div class="card-label">What most owners get wrong</div>
+    <p>Calling the puppy only when it's time to leave the park or go in the crate. Your puppy quickly learns that "come" means the fun is over. The other mistake: repeating the command five times. You're teaching them they don't need to respond until you've said it enough.</p>
+  </div>
+  <div class="tip-card">
+    <div class="card-label">What you can start doing now</div>
+    <p><strong>Use high-value treats and a long leash.</strong> Call your puppy once. If they come, reward immediately. If they ignore you, use the long leash to guide them back &mdash; then reward. The long leash means you can always enforce the recall, so your puppy learns that "come" is not optional. Practice daily in low-distraction environments first.</p>
+  </div>
+  <div class="warn-card">
+    <div class="card-label" style="color:#dc2626;">When to get help</div>
+    <p>If your puppy has zero recall with any distraction present, or if they're a flight risk (bolting out doors, running away at the park). Don't wait until they're an adult &mdash; recall is dramatically easier to build in a puppy than to fix in a grown dog.</p>
+  </div>
+
+  <div class="page-footer"><span>K9 Academy Puppy Assessment Guide</span><span class="orange">Page 6</span></div>
+</div>
+
+<!-- PAGE 7: SOCIALIZATION -->
+<div class="page">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;">
+    <div class="section-num">5</div>
+    <div><p class="card-label" style="margin-bottom:0;">Section 5</p><h2 style="margin-bottom:0;">Socialization</h2></div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="card">
+    <div class="card-label">What's actually happening</div>
+    <p>Puppies have a critical socialization window that starts closing around 14&ndash;16 weeks. During this period, their brain is wired to accept new experiences as normal. After the window closes, new things become scary by default. A puppy that wasn't properly socialized is far more likely to develop fear, reactivity, and anxiety as an adult.</p>
+  </div>
+  <div class="card">
+    <div class="card-label">What most owners get wrong</div>
+    <p>Confusing socialization with "meeting lots of dogs." Quality matters more than quantity. Letting a puppy get mobbed at a dog park or overwhelmed by strangers isn't socialization &mdash; it's flooding, and it creates the exact fear you're trying to prevent. The other mistake: waiting until they're "fully vaccinated" to start. The socialization window doesn't wait for the vaccine schedule.</p>
+  </div>
+  <div class="tip-card">
+    <div class="card-label">What you can start doing now</div>
+    <p><strong>Expose your puppy to new things daily &mdash; at their pace.</strong> Different surfaces, sounds, people, environments. Let them observe from a safe distance. Reward calm, confident behaviour. Don't force interactions &mdash; let the puppy approach on their terms. A puppy that chooses to investigate is building real confidence. A puppy that's dragged into situations is learning to be afraid.</p>
+  </div>
+  <div class="warn-card">
+    <div class="card-label" style="color:#dc2626;">When to get help</div>
+    <p>If your puppy is past 14 weeks and showing fear of new people, dogs, or environments. The window is closing and professional guidance will make the most of the time you have left. If your puppy is already highly fearful or reactive, start now &mdash; it only gets harder with age.</p>
+  </div>
+
+  <div class="review-card" style="margin-top:8px;">
+    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <p class="review-text">"We enrolled at 10 weeks and by 5 months our puppy was the most confident, well-behaved dog at every park. The socialization work was everything."</p>
+    <p class="review-name">&mdash; K9 Academy Puppy Program Client</p>
+  </div>
+
+  <div class="page-footer"><span>K9 Academy Puppy Assessment Guide</span><span class="orange">Page 7</span></div>
+</div>
+
+<!-- PAGE 8: CALMNESS & SETTLING -->
+<div class="page">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;">
+    <div class="section-num">6</div>
+    <div><p class="card-label" style="margin-bottom:0;">Section 6</p><h2 style="margin-bottom:0;">Calmness &amp; Settling</h2></div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="card">
+    <div class="card-label">What's actually happening</div>
+    <p>A puppy that can never settle &mdash; constantly following you, pacing, whining, unable to just lie down and relax &mdash; has never learned that doing nothing is an option. They're stuck in a loop of needing constant stimulation or attention, and it only gets worse as they grow.</p>
+  </div>
+  <div class="card">
+    <div class="card-label">What most owners get wrong</div>
+    <p>Giving attention every time the puppy demands it. Picking them up when they whine, petting when they nudge, talking to them when they pace. You're rewarding the exact behaviour you want to stop. The other mistake: assuming they'll "calm down with age." Some do. Most don't without being taught.</p>
+  </div>
+  <div class="tip-card">
+    <div class="card-label">What you can start doing now</div>
+    <p><strong>Teach the "place" command.</strong> Pick a bed or mat. Lure your puppy onto it with a treat. Say "place." Reward for staying. Start with 10 seconds, build to minutes over days. The goal: your puppy learns that going to their spot and doing nothing earns calm, quiet reward. Also &mdash; stop responding to every demand. If your puppy nudges you for attention, ignore it. Reward calm behaviour instead.</p>
+  </div>
+  <div class="warn-card">
+    <div class="card-label" style="color:#dc2626;">When to get help</div>
+    <p>If your puppy literally cannot settle for any period of time, if the restlessness is paired with anxiety symptoms (panting, drooling, destructive behaviour), or if it's getting worse. A puppy that can't switch off is under chronic stress &mdash; and it affects their health and development.</p>
+  </div>
+
+  <div class="page-footer"><span>K9 Academy Puppy Assessment Guide</span><span class="orange">Page 8</span></div>
+</div>
+
+<!-- PAGE 9: DEMANDING BEHAVIOUR -->
+<div class="page">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;">
+    <div class="section-num">7</div>
+    <div><p class="card-label" style="margin-bottom:0;">Section 7</p><h2 style="margin-bottom:0;">Demanding Behaviour</h2></div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="card">
+    <div class="card-label">What's actually happening</div>
+    <p>Your puppy has learned that barking, whining, pawing, or nudging gets them what they want &mdash; whether that's food, attention, play, or access to something. Every time it works, the behaviour gets stronger. You've accidentally trained your puppy to be demanding.</p>
+  </div>
+  <div class="card">
+    <div class="card-label">What most owners get wrong</div>
+    <p>Giving in "just to stop the noise." Even once. That one time teaches your puppy that persistence pays off. They learn to push harder, bark louder, whine longer &mdash; because eventually it works. The other mistake: yelling "no" or "stop" &mdash; which is still attention, and attention is what they wanted.</p>
+  </div>
+  <div class="tip-card">
+    <div class="card-label">What you can start doing now</div>
+    <p><strong>Completely ignore demanding behaviour.</strong> No eye contact, no talking, no touching. Wait for even 2 seconds of quiet or calm, then reward that. You're teaching your puppy that being calm gets them what they want &mdash; not barking. Everyone in the household needs to be on the same page. One person giving in undoes everyone else's work.</p>
+  </div>
+  <div class="warn-card">
+    <div class="card-label" style="color:#dc2626;">When to get help</div>
+    <p>If the demanding behaviour has escalated to snapping, resource guarding, or aggressive outbursts when your puppy doesn't get what they want. That's no longer just annoying &mdash; it's a behaviour that will become a serious problem as an adult if not corrected now.</p>
+  </div>
+
+  <div class="review-card" style="margin-top:8px;">
+    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <p class="review-text">"Our puppy was running the house. Barking for food, whining at the door, demanding everything. After the Foundation Program she's a completely different dog &mdash; calm, patient, and listens."</p>
+    <p class="review-name">&mdash; K9 Academy Foundation Program Client</p>
+  </div>
+
+  <div class="page-footer"><span>K9 Academy Puppy Assessment Guide</span><span class="orange">Page 9</span></div>
+</div>
+
+<!-- PAGE 10: SCORE BREAKDOWN -->
+<div class="page">
+  <p class="card-label">Your Results</p>
+  <h2>What Your Puppy's Score Means</h2>
+  <div class="divider"></div>
+
+  <div style="margin-top:24px;">
+    <div class="score-row">
+      <div class="score-range">18-21</div>
+      <div>
+        <div class="score-label">Your puppy is ahead of the pack</div>
+        <div class="score-desc">Great foundation. Your puppy is in good shape &mdash; now is the time to build on it before adolescence hits. Group puppy classes or the Foundation Program will take you from good to bulletproof.</div>
+      </div>
+    </div>
+    <div class="score-row">
+      <div class="score-range">11-17</div>
+      <div>
+        <div class="score-label">Room for improvement</div>
+        <div class="score-desc">Your puppy has some gaps that are very fixable right now &mdash; but will get harder with each passing week. The Puppy Program or Foundation Program will address these before they become ingrained habits.</div>
+      </div>
+    </div>
+    <div class="score-row" style="border-bottom:none;">
+      <div class="score-range">7-10</div>
+      <div>
+        <div class="score-label">Your puppy needs professional help now</div>
+        <div class="score-desc">Multiple areas need attention and they're likely reinforcing each other. The longer you wait, the harder the fix. Puppy Start Right (our 3-stay board &amp; train) or the Foundation Program is the fastest path forward.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:28px;">
+    <p class="card-label">Recommended Programs</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px;">
+      <div class="card" style="padding:16px 20px;">
+        <h3 style="color:#E8611A;">Puppy Program</h3>
+        <p style="font-size:12px;">4 sessions &mdash; $450<br>Under 5.5 months. Commands, nipping, potty, crate, socialization.</p>
+      </div>
+      <div class="card" style="padding:16px 20px;">
+        <h3 style="color:#E8611A;">Foundation Program</h3>
+        <p style="font-size:12px;">10 sessions &mdash; $785 (save $260)<br>Puppy Program + full Level 1 obedience.</p>
+      </div>
+      <div class="card" style="padding:16px 20px; grid-column: span 2; border: 2px solid #E8611A;">
+        <h3 style="color:#E8611A;">Puppy Start Right</h3>
+        <p style="font-size:12px;">3 board &amp; train stays across first year &mdash; $3,995<br>The most comprehensive program. Your puppy graduates fully trained and off-leash reliable with no adolescent regression to undo.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer"><span>K9 Academy Puppy Assessment Guide</span><span class="orange">Page 8</span></div>
+</div>
+
+<!-- PAGE 9: CTA -->
+<div class="page" style="display:flex; flex-direction:column; justify-content:center;">
+  <div style="text-align:center;">
+    <p class="card-label" style="text-align:center;">Next Steps</p>
+    <h2 style="font-size:28px;">The First 6 Months Matter More Than You Think</h2>
+    <div class="divider" style="margin:20px auto;"></div>
+    <p style="font-size:14px; color:#888; max-width:420px; margin:0 auto; line-height:1.7;">
+      Most of the adult dogs we work with &mdash; the reactive ones, the ones that pull, the ones that can't be left alone &mdash; developed those behaviours in their first 6 months. Starting now is the single best investment you can make in the next 10+ years with your dog.
+    </p>
+  </div>
+
+  <div class="cta-box">
+    <h3>K9 Academy Dog Training Center</h3>
+    <p style="font-size:14px; color:#999;">16-30 Canvarco Rd, Leaside, Toronto</p>
+    <p style="font-size:20px; color:#E8611A; font-weight:700; margin-top:12px;">437-778-5273</p>
+    <p style="font-size:13px; color:#777; margin-top:4px;">contact@k9academy.ca</p>
+    <a href="https://k9academytraining.ca/puppy-classes">Get on the Puppy Waitlist</a>
+  </div>
+
+  <div class="stat-row" style="margin-top:32px;">
+    <div class="stat"><div class="stat-num">4.9</div><div class="stat-label">Google Rating</div></div>
+    <div class="stat"><div class="stat-num">250+</div><div class="stat-label">Reviews</div></div>
+    <div class="stat"><div class="stat-num">10K+</div><div class="stat-label">Dogs Trained</div></div>
+    <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Years</div></div>
+  </div>
+
+  <div style="margin-top:28px; display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"Best decision we ever made. She learned everything before bad habits had a chance to form."</p>
+      <p class="review-name">&mdash; Sarah T. &middot; Puppy Program</p>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"Our puppy is the most well-behaved dog at every park. Starting early was everything."</p>
+      <p class="review-name">&mdash; K9 Academy Client</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>K9 Academy Puppy Assessment Guide</span>
+    <span class="orange">k9academytraining.ca</span>
+  </div>
+</div>
+
+</body>
+</html>

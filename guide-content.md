@@ -43,7 +43,7 @@ Comforting your dog when they react. "It is okay, buddy" reinforces the state th
 
 **One thing to try today**
 
-Create distance. When you see a trigger approaching, calmly change direction before your dog reacts. The goal is to keep them under threshold — the point where they notice but have not lost it yet. Reward calm behaviour at that distance. Over days, gradually decrease the distance.
+Set firm leash rules for the entire walk — not just when you see another dog. If you let your dog sniff everything, pull you from tree to tree, and walk wherever they want, you cannot expect them to suddenly listen when a dog appears. Structure the walk first. Your dog walks beside you, on a loose leash, focused on you. Once the walk has rules, reactivity becomes much easier to address.
 
 **When to get help**
 
@@ -63,7 +63,7 @@ Only calling your dog when it is time to leave the park. Your dog learns that "c
 
 **One thing to try today**
 
-Practice recall at home first — zero distractions. Say your dog's name once, and when they look at you, reward immediately (treat, toy, praise). Do this 10 times a day for a week. You are building the reflex: my name = something good happens. Do not try this off leash in public until it is reliable in your house and backyard.
+Use high-value treats (cheese, hot dog, chicken — something your dog goes crazy for) and a long leash. Call your dog once. If they come, reward immediately. If they ignore you, use the long leash to guide them back to you — then reward. The long leash means you can always enforce the recall, so your dog learns that "come" is not optional.
 
 **When to get help**
 
@@ -81,13 +81,17 @@ Separation anxiety is not your dog being dramatic. It is a genuine panic respons
 
 Making departures and arrivals a big deal. Long goodbyes and excited greetings teach your dog that your leaving and returning are significant events. Also: crating a dog with severe separation anxiety without desensitization — this often makes it worse.
 
-**One thing to try today**
+**What you can start doing now**
 
-Practice "boring departures." Pick up your keys, put on your shoes, then sit back down. Do this 10 times. Open the front door, step out for 3 seconds, come back in. No greeting. Do this 10 times. You are desensitizing your dog to departure cues. Slowly increase the duration over days and weeks.
+Stop over-coddling your dog. Constantly carrying them, letting them follow you into every room, never letting them be alone — this builds dependence, not confidence. Your dog needs to learn that being alone is normal and safe.
 
-**When to get help**
+Leave your dog alone regularly — starting young. If you have a puppy, make alone time a daily habit from day one. Crate them for short periods while you are home. Leave the house without making it a big deal. Build independence before anxiety has a chance to form.
 
-If your dog is injuring themselves (breaking out of crates, chewing through doors, breaking windows), if your building has noise complaints, or if the behaviour has lasted more than a month. Separation anxiety is one of the hardest issues to fix alone — most owners need professional guidance to get it right.
+**But if it is already a problem — get help**
+
+True separation anxiety is not a DIY fix. The internet is full of tips like "practice boring departures" or "desensitize to your keys" — in our experience, they do not work. They waste your time and delay the real fix.
+
+Separation anxiety is a panic response that needs to be addressed directly with structured training. The longer it goes unaddressed, the worse it gets. If your dog is howling, destroying things, or panicking when you leave — call us.
 
 ---
 
@@ -115,19 +119,21 @@ If your dog's inability to settle is paired with anxiety symptoms (panting, droo
 
 **What is actually happening when your dog shows aggression**
 
-Aggression is almost never random. It is a response to fear, pain, resource value, or territorial instinct. Growling, stiffening, snapping, and biting are communication — your dog is saying "I am uncomfortable and I need this to stop." The problem is that these signals escalate if they are not addressed.
+Aggression can look scary, but it is rarely random. Whether it is rooted in fear, territorial instinct, or resource guarding, there is always a reason behind it — and with the right approach, it can be addressed. The key is not to ignore it or hope it goes away, because it will not.
 
 **What most owners get wrong**
 
-Punishing growling. A growl is a warning. If you punish the warning, you still have a dog that is uncomfortable — they just stop warning you before they bite. Also: assuming your dog will "grow out of it." Aggression escalates without intervention.
+Working around the problem instead of addressing it. Avoiding certain situations, keeping your dog away from triggers, rearranging your routine — these feel like solutions but they do not change the underlying behaviour. Your dog needs clear structure, consistent rules, and guidance on what is expected of them.
 
-**One thing to try today**
+**What you can start doing now**
 
-If you can identify the trigger (strangers at the door, resource guarding food, being touched in a certain spot), manage the environment to prevent the situation from occurring while you seek professional help. For resource guarding: trade up. Approach with something better than what they have. Do not take things away — offer an exchange.
+Add more structure to your dog's daily life. Clear rules, consistent boundaries, and calm leadership make a real difference. Dogs with aggression issues often improve when they understand what is expected of them.
 
-**When to get help**
+For resource guarding: do not leave high-value items lying around for the dog to claim and protect. If your dog guards toys, bones, or food — manage access to those resources. You decide when they are available.
 
-Immediately, if your dog has made contact (bitten) or if the aggression is escalating in frequency or intensity. This is not something to work through with online tips. You need a trainer who specializes in behaviour modification and will assess your dog in person. We work with dogs other trainers have turned down — including dogs with bite history.
+**This is one to get help with early**
+
+Aggression tends to get worse over time if it is not addressed. The sooner you work with a professional, the easier and faster the fix. Your dog needs to learn proper socialization while understanding that aggressive behaviour is not the answer. We have helped thousands of dogs with aggression — including cases other trainers have turned down.
 
 ---
 

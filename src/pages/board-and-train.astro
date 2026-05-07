@@ -395,46 +395,6 @@ import '../styles/global.css';
         </div>
       </div>
 
-      <!-- Instagram + Facebook DMs -->
-      <div class="mb-16">
-        <div class="flex items-center justify-center gap-2 mb-8">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="ig-bt" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FDB813"/><stop offset="50%" stop-color="#E1306C"/><stop offset="100%" stop-color="#833AB4"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" stroke="url(#ig-bt)" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="url(#ig-bt)" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="url(#ig-bt)"/></svg>
-          <svg class="w-5 h-5" viewBox="0 0 24 24"><path fill="#1877F2" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
-          <h3 class="text-sm font-bold uppercase tracking-wide text-neutral-500">Instagram & Facebook DMs</h3>
-        </div>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {[
-            { handle: '@simba.the.hound', platform: 'Instagram', issue: 'Recall', msgs: ['YOU GUYS', 'simba walked past 3 dogs today and didnt even look', 'this is the dog that used to bolt the second you unclipped his leash'] },
-            { handle: 'Annie L.', platform: 'Facebook', issue: 'Separation anxiety', msgs: ['We left the house for 6 hours today. He was fine. Completely fine', 'Before board and train we could not leave him for 10 minutes', 'I keep waiting for the howling to start and it just… doesn\'t'] },
-            { handle: '@sky.and.indy', platform: 'Instagram', issue: 'Obedience', msgs: ['two years. multiple trainers. nobody could figure our husky out', 'ONE month with anesh', 'walks without pulling. recalls off squirrels. sits when told.', 'a husky. doing all of that. still processing'] },
-            { handle: 'Greg & Lisa M.', platform: 'Facebook', issue: 'Reactivity', msgs: ['Got the weekly update photos and honestly who is this dog', 'He looks calm?? Relaxed??', 'This is the dog who used to resource guard his food bowl from us'] },
-            { handle: '@mila.the.corso', platform: 'Instagram', issue: 'Aggression', msgs: ['pick up day', 'they showed us everything she learned', 'loose leash heel. recall. crate. place.', 'we dropped off a liability and picked up a dog'] },
-            { handle: 'Sharleen T.', platform: 'Facebook', issue: 'First dog', msgs: ['Teddy was our first dog and we had zero clue', 'He came back and our kids can walk him now', 'Our 5 year old. Walking the dog. Loose leash. I am still processing'] },
-          ].map((d) => (
-            <div class="bg-white rounded-2xl border border-neutral-200/60 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
-              <div class="flex items-center gap-3 px-4 py-3 border-b border-neutral-100">
-                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-amber-400 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                  {d.handle.replace('@','').charAt(0).toUpperCase()}
-                </div>
-                <div class="flex-1 min-w-0">
-                  <p class="font-semibold text-neutral-900 text-sm truncate">{d.handle}</p>
-                  <p class="text-xs text-neutral-400">{d.platform}</p>
-                </div>
-                <span class="inline-flex items-center px-2 py-1 rounded-full bg-k9-orange/10 text-k9-orange text-[10px] font-bold uppercase tracking-wide flex-shrink-0">{d.issue}</span>
-              </div>
-              <div class="p-4 space-y-2 bg-neutral-50/50 flex-grow">
-                {d.msgs.map((m) => (
-                  <div class="flex justify-start">
-                    <div class="max-w-[85%] bg-neutral-200/80 text-neutral-800 text-sm rounded-2xl rounded-tl-md px-4 py-2 leading-snug">{m}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
       <!-- Client Emails -->
       <div>
         <div class="flex items-center justify-center gap-2 mb-8">

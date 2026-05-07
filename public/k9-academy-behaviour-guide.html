@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K9 Academy Behaviour Assessment Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #f5f5f4;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 48px 52px;
+    background: #ffffff;
+    page-break-after: always;
+    position: relative;
+  }
+  .page:last-child { page-break-after: avoid; }
+
+  .orange { color: #E8611A; }
+  .orange-bg { background: #E8611A; }
+
+  .section-num {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #E8611A;
+    color: #fff;
+    font-weight: 800;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .card {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 14px;
+  }
+  .card-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #E8611A;
+    margin-bottom: 6px;
+  }
+  .card p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #555;
+  }
+
+  .tip-card {
+    background: #FFF4ED;
+    border-left: 4px solid #E8611A;
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+    margin-bottom: 14px;
+  }
+  .tip-card p { font-size: 13px; line-height: 1.7; color: #555; }
+
+  .warn-card {
+    background: #fef2f2;
+    border-left: 4px solid #dc2626;
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+    margin-bottom: 14px;
+  }
+  .warn-card p { font-size: 13px; line-height: 1.7; color: #7f1d1d; }
+
+  .review-card {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 20px 24px;
+  }
+  .review-stars { color: #f59e0b; font-size: 16px; letter-spacing: 2px; margin-bottom: 8px; }
+  .review-text { font-size: 13px; color: #555; line-height: 1.6; font-style: italic; }
+  .review-name { font-size: 12px; color: #999; margin-top: 8px; font-style: normal; }
+
+  .video-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #111;
+    border-radius: 10px;
+    padding: 14px 18px;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+  .video-play {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #E8611A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .video-play svg { width: 14px; height: 14px; fill: #fff; margin-left: 2px; }
+  .video-title { font-size: 13px; color: #fff; font-weight: 600; }
+  .video-sub { font-size: 11px; color: #888; margin-top: 2px; }
+
+  h1 { font-size: 36px; font-weight: 900; line-height: 1.1; color: #111; }
+  h2 { font-size: 22px; font-weight: 800; line-height: 1.2; color: #111; margin-bottom: 14px; }
+  h3 { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 4px; }
+
+  .subtitle { font-size: 16px; color: #888; font-weight: 500; margin-top: 10px; }
+  .divider { width: 50px; height: 3px; background: #E8611A; margin: 20px 0; border-radius: 2px; }
+
+  .score-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .score-range { font-size: 28px; font-weight: 900; color: #E8611A; width: 80px; text-align: center; flex-shrink: 0; }
+  .score-label { font-size: 15px; font-weight: 700; color: #111; }
+  .score-desc { font-size: 13px; color: #777; margin-top: 4px; }
+
+  .page-footer {
+    position: absolute;
+    bottom: 28px;
+    left: 52px;
+    right: 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    color: #bbb;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+  }
+  .page-footer .orange { font-weight: 700; }
+
+  .cta-box {
+    background: #111;
+    border-radius: 14px;
+    padding: 32px;
+    text-align: center;
+    margin-top: 28px;
+  }
+  .cta-box h3 { color: #fff; font-size: 20px; margin-bottom: 8px; }
+  .cta-box a {
+    display: inline-block;
+    background: #E8611A;
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 12px 36px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 16px;
+  }
+
+  .stat-row { display: flex; justify-content: center; gap: 28px; margin-top: 20px; }
+  .stat { text-align: center; }
+  .stat-num { font-size: 26px; font-weight: 900; color: #E8611A; }
+  .stat-label { font-size: 10px; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+  /* Cover dark header */
+  .cover-header {
+    background: #111;
+    border-radius: 14px;
+    padding: 40px 36px;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .cover-header h1 { color: #fff; font-size: 38px; }
+  .cover-header .subtitle { color: #999; }
+
+  .logo-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .logo-bar span {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #E8611A;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; box-shadow: none; }
+  }
+  @media screen {
+    .page { margin: 20px auto; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="page" style="display:flex; flex-direction:column; justify-content:center;">
+  <div class="cover-header">
+    <div class="logo-bar">
+      <span>K9 Academy Dog Training Center</span>
+    </div>
+    <h1>Understanding Your Dog's Score</h1>
+    <p class="subtitle">And What To Do About It</p>
+  </div>
+
+  <div style="text-align:center;">
+    <p style="font-size:14px; color:#888; max-width:380px; margin:0 auto;">The K9 Academy Behaviour Assessment Guide &mdash; a section-by-section breakdown of your dog's results with actionable tips for each area.</p>
+  </div>
+
+  <div class="stat-row" style="margin-top:36px;">
+    <div class="stat"><div class="stat-num">4.9</div><div class="stat-label">Google Rating</div></div>
+    <div class="stat"><div class="stat-num">250+</div><div class="stat-label">Reviews</div></div>
+    <div class="stat"><div class="stat-num">10K+</div><div class="stat-label">Dogs Trained</div></div>
+    <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Years</div></div>
+  </div>
+
+  <!-- Social proof -->
+  <div style="margin-top:36px; display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"We dropped off a nightmare and picked up a family dog. Can't believe this is the same animal."</p>
+      <p class="review-name">&mdash; David & Kim L. &middot; German Shepherd</p>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"Level 1 and 2 was literally life changing. At 1 year old she is fully off leash with perfect recall."</p>
+      <p class="review-name">&mdash; Katryna R. &middot; Mini Aussie</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>k9academytraining.ca</span>
+    <span class="orange">437-778-5273</span>
+  </div>
+</div>
+
+<!-- PAGE 2: HOW TO USE -->
+<div class="page">
+  <p class="card-label">Introduction</p>
+  <h2>How to Use This Guide</h2>
+  <div class="divider"></div>
+
+  <div class="card" style="margin-top:20px;">
+    <p>You just completed the K9 Academy behaviour assessment. This guide breaks down the 6 areas we tested, explains what is actually going on with your dog, and gives you one thing you can try today for each.</p>
+  </div>
+  <div class="card">
+    <p>This is not a replacement for professional training. It is a starting point &mdash; and for some dogs, it will be enough to see immediate improvement. For others, it will show you exactly why professional help is the next step.</p>
+  </div>
+
+  <div style="margin-top:28px;">
+    <p class="card-label">The 6 Areas We Test</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px;">
+      <div class="card" style="display:flex; align-items:center; gap:14px; padding:16px 20px;">
+        <div class="section-num">1</div>
+        <div><h3>Leash Walking</h3><p style="font-size:11px; color:#999; margin:0;">Pulling, control, focus</p></div>
+      </div>
+      <div class="card" style="display:flex; align-items:center; gap:14px; padding:16px 20px;">
+        <div class="section-num">2</div>
+        <div><h3>Reactivity</h3><p style="font-size:11px; color:#999; margin:0;">Dogs, people, triggers</p></div>
+      </div>
+      <div class="card" style="display:flex; align-items:center; gap:14px; padding:16px 20px;">
+        <div class="section-num">3</div>
+        <div><h3>Off-Leash Recall</h3><p style="font-size:11px; color:#999; margin:0;">Coming when called</p></div>
+      </div>
+      <div class="card" style="display:flex; align-items:center; gap:14px; padding:16px 20px;">
+        <div class="section-num">4</div>
+        <div><h3>Separation</h3><p style="font-size:11px; color:#999; margin:0;">Being alone calmly</p></div>
+      </div>
+      <div class="card" style="display:flex; align-items:center; gap:14px; padding:16px 20px;">
+        <div class="section-num">5</div>
+        <div><h3>Settling</h3><p style="font-size:11px; color:#999; margin:0;">Calm at home</p></div>
+      </div>
+      <div class="card" style="display:flex; align-items:center; gap:14px; padding:16px 20px;">
+        <div class="section-num">6</div>
+        <div><h3>Aggression</h3><p style="font-size:11px; color:#999; margin:0;">Guarding, biting, fear</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video links -->
+  <div style="margin-top:28px;">
+    <p class="card-label">Watch: What Our Training Looks Like</p>
+    <div style="margin-top:12px;">
+      <a class="video-link" href="https://www.youtube.com/watch?v=3N_QU9tk5Bs" target="_blank">
+        <div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div><div class="video-title">Level 1 Obedience Test</div><div class="video-sub">Watch a Level 1 graduate demonstrate real-world obedience</div></div>
+      </a>
+      <a class="video-link" href="https://www.youtube.com/watch?v=bUkxQEh7Omo" target="_blank">
+        <div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div><div class="video-title">Level 1 Test &mdash; Example 2</div><div class="video-sub">Another graduate showing what 6 weeks of training looks like</div></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>K9 Academy Behaviour Assessment Guide</span>
+    <span class="orange">Page 2</span>
+  </div>
+</div>
+
+<!-- PAGE 3: LEASH WALKING -->
+<div class="page">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;">
+    <div class="section-num">1</div>
+    <div><p class="card-label" style="margin-bottom:0;">Section 1</p><h2 style="margin-bottom:0;">Leash Walking</h2></div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="card">
+    <div class="card-label">What's actually happening</div>
+    <p>Your dog is not being "bad." They are simply more motivated by what is ahead of them than by what is beside them &mdash; you. Pulling works. Every time they pull and reach the thing they want, they learn that pulling = reward.</p>
+  </div>
+  <div class="card">
+    <div class="card-label">What most owners get wrong</div>
+    <p>Letting your dog pull "just this once." Inconsistency is the number one reason leash training fails. If pulling works sometimes, your dog will keep trying.</p>
+  </div>
+  <div class="tip-card">
+    <div class="card-label">One thing to try today</div>
+    <p>The moment your dog pulls, stop walking. Don't yank them back. Just stop. Wait until there is slack in the leash, then continue. If they pull again, stop again. Your walk will be painfully slow the first few days. By day 4 or 5, most dogs start to get it &mdash; pulling means we stop, loose leash means we go.</p>
+  </div>
+  <div class="warn-card">
+    <div class="card-label" style="color:#dc2626;">When to get help</div>
+    <p>If your dog is over 40 lbs and physically dragging you, or if they redirect aggression when corrected on leash, stop trying to fix this alone. You need a trainer who can introduce the right tools safely.</p>
+  </div>
+
+  <div class="page-footer"><span>K9 Academy Behaviour Assessment Guide</span><span class="orange">Page 3</span></div>
+</div>
+
+<!-- PAGE 4: REACTIVITY -->
+<div class="page">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;">
+    <div class="section-num">2</div>
+    <div><p class="card-label" style="margin-bottom:0;">Section 2</p><h2 style="margin-bottom:0;">Reactivity</h2></div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="card">
+    <div class="card-label">What's actually happening</div>
+    <p>Reactivity is almost always rooted in fear or frustration &mdash; not aggression. Your dog sees another dog and their nervous system fires. They bark, lunge, or growl because they've learned that making noise makes the scary thing go away.</p>
+  </div>
+  <div class="card">
+    <div class="card-label">What most owners get wrong</div>
+    <p>Comforting your dog when they react. "It's okay, buddy" reinforces the state they're in. Also: avoiding triggers entirely means your dog never learns to handle them.</p>
+  </div>
+  <div class="tip-card">
+    <div class="card-label">One thing to try today</div>
+    <p>Set firm leash rules for the entire walk &mdash; not just when you see another dog. If you let your dog sniff everything, pull you from tree to tree, and walk wherever they want, you can't expect them to suddenly listen when a dog appears. Structure the walk first. Your dog walks beside you, on a loose leash, focused on you. Once the walk has rules, reactivity becomes much easier to address.</p>
+  </div>
+  <div class="warn-card">
+    <div class="card-label" style="color:#dc2626;">When to get help</div>
+    <p>If your dog is reacting at 50+ feet, if they have ever made contact with another dog or person, or if you feel physically unsafe on walks. Reactivity escalates without intervention.</p>
+  </div>
+
+  <!-- Inline review -->
+  <div class="review-card" style="margin-top:8px;">
+    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <p class="review-text">"Our mini Aussie was lunging at everything. Level 1 and 2 was literally life changing. She's fully off leash now at 1 year old with perfect recall."</p>
+    <p class="review-name">&mdash; Katryna R. &middot; Mini Aussie Shepherd &middot; Level 1 + 2</p>
+  </div>
+
+  <div class="page-footer"><span>K9 Academy Behaviour Assessment Guide</span><span class="orange">Page 4</span></div>
+</div>
+
+<!-- PAGE 5: RECALL -->
+<div class="page">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;">
+    <div class="section-num">3</div>
+    <div><p class="card-label" style="margin-bottom:0;">Section 3</p><h2 style="margin-bottom:0;">Off-Leash Recall</h2></div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="card">
+    <div class="card-label">What's actually happening</div>
+    <p>Your dog has learned that whatever they're doing is more rewarding than coming back to you. Recall is not about obedience &mdash; it's about being more interesting than the environment.</p>
+  </div>
+  <div class="card">
+    <div class="card-label">What most owners get wrong</div>
+    <p>Only calling your dog when it's time to leave the park. Your dog learns that "come" means "fun is over." Also: repeating the command. If you say "come" five times, your dog learns they don't need to respond until the fifth.</p>
+  </div>
+  <div class="tip-card">
+    <div class="card-label">One thing to try today</div>
+    <p>Use high-value treats (cheese, hot dog, chicken &mdash; something your dog goes crazy for) and a long leash. Call your dog once. If they come, reward immediately. If they ignore you, use the long leash to guide them back &mdash; then reward. The long leash means you can always enforce the recall, so your dog learns that "come" is not optional.</p>
+  </div>
+  <div class="warn-card">
+    <div class="card-label" style="color:#dc2626;">When to get help</div>
+    <p>If your dog has zero recall around distractions, or if they're a flight risk. Off-leash reliability requires structured e-collar work in most cases &mdash; that needs a professional.</p>
+  </div>
+
+  <div class="review-card" style="margin-top:8px;">
+    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <p class="review-text">"I am now 100% confident with my dog being off leash after completing Level 2. My dog's recall is now solid. They really set your dog up for success."</p>
+    <p class="review-name">&mdash; Aki &middot; Mixed breed &middot; Level 1 + 2</p>
+  </div>
+
+  <div class="page-footer"><span>K9 Academy Behaviour Assessment Guide</span><span class="orange">Page 5</span></div>
+</div>
+
+<!-- PAGE 6: SEPARATION -->
+<div class="page">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;">
+    <div class="section-num">4</div>
+    <div><p class="card-label" style="margin-bottom:0;">Section 4</p><h2 style="margin-bottom:0;">Separation Tolerance</h2></div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="card">
+    <div class="card-label">What's actually happening</div>
+    <p>Separation anxiety is not your dog being dramatic. It is a genuine panic response. Their nervous system cannot regulate without you present. Common signs: howling, destruction at exits, panting, pacing, refusing to eat.</p>
+  </div>
+  <div class="card">
+    <div class="card-label">What most owners get wrong</div>
+    <p>Making departures and arrivals a big deal. Long goodbyes and excited greetings teach your dog that your leaving and returning are significant events.</p>
+  </div>
+  <div class="tip-card">
+    <div class="card-label">What you can start doing now</div>
+    <p><strong>Stop over-coddling your dog.</strong> Constantly carrying them, letting them follow you into every room, never letting them be alone &mdash; this builds dependence, not confidence. Your dog needs to learn that being alone is normal and safe, not something to panic about.</p>
+    <p style="margin-top:10px;"><strong>Leave your dog alone regularly &mdash; starting young.</strong> If you have a puppy, make alone time a daily habit from day one. Crate them for short periods while you're home. Leave the house without making it a big deal. Build independence before anxiety has a chance to form.</p>
+  </div>
+
+  <div class="warn-card">
+    <div class="card-label" style="color:#dc2626;">But if it's already a problem &mdash; get help</div>
+    <p>True separation anxiety is not a DIY fix. The internet is full of tips like "practice boring departures" or "desensitize to your keys" &mdash; in our experience, they don't work. They waste your time and delay the real fix.</p>
+    <p style="margin-top:10px;">Separation anxiety is a panic response that needs to be addressed directly with structured training. The longer it goes unaddressed, the worse it gets. If your dog is howling, destroying things, or panicking when you leave &mdash; call us.</p>
+  </div>
+
+  <div class="page-footer"><span>K9 Academy Behaviour Assessment Guide</span><span class="orange">Page 6</span></div>
+</div>
+
+<!-- PAGE 7: SETTLING -->
+<div class="page">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;">
+    <div class="section-num">5</div>
+    <div><p class="card-label" style="margin-bottom:0;">Section 5</p><h2 style="margin-bottom:0;">Settling at Home</h2></div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="card">
+    <div class="card-label">What's actually happening</div>
+    <p>A dog that cannot settle is a dog with no off switch. They follow you room to room, whine when you sit down, demand attention constantly. This is often because the dog was never taught that doing nothing is an option.</p>
+  </div>
+  <div class="card">
+    <div class="card-label">What most owners get wrong</div>
+    <p>Giving attention every time the dog demands it. Petting when they nudge you, talking when they whine. You're rewarding the behaviour you want to stop.</p>
+  </div>
+  <div class="tip-card">
+    <div class="card-label">One thing to try today</div>
+    <p>The "place" command. Pick a bed or mat. Lure your dog onto it with a treat. Say "place." Reward them for staying. Start with 10 seconds, build to minutes. This is one of the most transformative commands you can teach.</p>
+  </div>
+  <div class="warn-card">
+    <div class="card-label" style="color:#dc2626;">When to get help</div>
+    <p>If your dog's inability to settle is paired with anxiety symptoms, or if they're reactive to sounds and movement inside the home. A dog that cannot relax is under chronic stress.</p>
+  </div>
+
+  <div class="page-footer"><span>K9 Academy Behaviour Assessment Guide</span><span class="orange">Page 7</span></div>
+</div>
+
+<!-- PAGE 8: AGGRESSION -->
+<div class="page">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;">
+    <div class="section-num">6</div>
+    <div><p class="card-label" style="margin-bottom:0;">Section 6</p><h2 style="margin-bottom:0;">Aggression</h2></div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="card">
+    <div class="card-label">What's actually happening</div>
+    <p>Aggression can look scary, but it's rarely random. Whether it's rooted in fear, territorial instinct, or resource guarding, there's always a reason behind it &mdash; and with the right approach, it can be addressed. The key is not to ignore it or hope it goes away, because it won't.</p>
+  </div>
+  <div class="card">
+    <div class="card-label">What most owners get wrong</div>
+    <p>Working around the problem instead of addressing it. Avoiding certain situations, keeping your dog away from triggers, rearranging your routine &mdash; these feel like solutions but they don't change the underlying behaviour. Your dog needs clear structure, consistent rules, and guidance on what's expected of them.</p>
+  </div>
+  <div class="tip-card">
+    <div class="card-label">What you can start doing now</div>
+    <p><strong>Add more structure to your dog's daily life.</strong> Clear rules, consistent boundaries, and calm leadership make a real difference. Dogs with aggression issues often improve when they understand what's expected of them.</p>
+    <p style="margin-top:10px;"><strong>For resource guarding:</strong> don't leave high-value items lying around for the dog to claim and protect. If your dog guards toys, bones, or food &mdash; manage access to those resources. You decide when they're available.</p>
+  </div>
+  <div class="warn-card">
+    <div class="card-label" style="color:#dc2626;">This is one to get help with early</div>
+    <p>Aggression tends to get worse over time if it's not addressed. The sooner you work with a professional, the easier and faster the fix. Your dog needs to learn proper socialization while understanding that aggressive behaviour isn't the answer. We've helped thousands of dogs with aggression &mdash; including cases other trainers have turned down.</p>
+  </div>
+
+  <div class="review-card" style="margin-top:8px;">
+    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <p class="review-text">"We were told our dog was too aggressive for group classes. Two trainers gave up on him. K9 Academy took him for 4 weeks and we literally can't believe this is the same dog."</p>
+    <p class="review-name">&mdash; David & Kim L. &middot; German Shepherd &middot; Board & Train</p>
+  </div>
+
+  <div class="page-footer"><span>K9 Academy Behaviour Assessment Guide</span><span class="orange">Page 8</span></div>
+</div>
+
+<!-- PAGE 9: SCORE BREAKDOWN -->
+<div class="page">
+  <p class="card-label">Your Results</p>
+  <h2>What Your Score Means</h2>
+  <div class="divider"></div>
+
+  <div style="margin-top:24px;">
+    <div class="score-row">
+      <div class="score-range">15-18</div>
+      <div>
+        <div class="score-label">Your dog is ahead of the pack</div>
+        <div class="score-desc">You have a solid foundation. Targeted group classes or a tune-up session can take you from good to great &mdash; especially if off-leash reliability is the goal.</div>
+      </div>
+    </div>
+    <div class="score-row">
+      <div class="score-range">10-14</div>
+      <div>
+        <div class="score-label">Room for improvement</div>
+        <div class="score-desc">Your dog has some clear gaps. The good news: these are very fixable with the right approach. Private training or group classes will get you there.</div>
+      </div>
+    </div>
+    <div class="score-row" style="border-bottom:none;">
+      <div class="score-range">6-9</div>
+      <div>
+        <div class="score-label">Your dog needs professional help</div>
+        <div class="score-desc">Multiple behavioural issues reinforcing each other. This is not a DIY situation. Board &amp; Train or intensive private sessions are the fastest path.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Program recommendations -->
+  <div style="margin-top:28px;">
+    <p class="card-label">Recommended Programs by Score</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px;">
+      <div class="card" style="padding:16px 20px;">
+        <h3 style="color:#E8611A;">Group Classes</h3>
+        <p style="font-size:12px;">Level 1 &amp; 2 &mdash; from $595<br>Best for scores 10+</p>
+      </div>
+      <div class="card" style="padding:16px 20px;">
+        <h3 style="color:#E8611A;">Private Training</h3>
+        <p style="font-size:12px;">6 or 8 sessions &mdash; from $1,350<br>Best for scores 8&ndash;12, specific issues, or flexible scheduling</p>
+      </div>
+      <div class="card" style="padding:16px 20px;">
+        <h3 style="color:#E8611A;">Board &amp; Train</h3>
+        <p style="font-size:12px;">2-8 weeks &mdash; from $2,995<br>Best for scores under 10</p>
+      </div>
+      <div class="card" style="padding:16px 20px;">
+        <h3 style="color:#E8611A;">Puppy Program</h3>
+        <p style="font-size:12px;">Under 5.5 months &mdash; from $450<br>Foundation building</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer"><span>K9 Academy Behaviour Assessment Guide</span><span class="orange">Page 9</span></div>
+</div>
+
+<!-- PAGE 10: CTA -->
+<div class="page" style="display:flex; flex-direction:column; justify-content:center;">
+  <div style="text-align:center;">
+    <p class="card-label" style="text-align:center;">Next Steps</p>
+    <h2 style="font-size:28px;">Ready for Real Results?</h2>
+    <div class="divider" style="margin:20px auto;"></div>
+    <p style="font-size:14px; color:#888; max-width:400px; margin:0 auto; line-height:1.7;">
+      This guide gives you a starting point. If you want the full transformation &mdash; where your dog walks on a loose leash, recalls off distractions, and settles calmly at home &mdash; that's what we do every day.
+    </p>
+  </div>
+
+  <div class="cta-box">
+    <h3>K9 Academy Dog Training Center</h3>
+    <p style="font-size:14px; color:#999;">16-30 Canvarco Rd, Leaside, Toronto</p>
+    <p style="font-size:20px; color:#E8611A; font-weight:700; margin-top:12px;">437-778-5273</p>
+    <p style="font-size:13px; color:#777; margin-top:4px;">contact@k9academy.ca</p>
+    <a href="https://k9academytraining.ca">Book a Free Consultation</a>
+  </div>
+
+  <div class="stat-row" style="margin-top:32px;">
+    <div class="stat"><div class="stat-num">4.9</div><div class="stat-label">Google Rating</div></div>
+    <div class="stat"><div class="stat-num">250+</div><div class="stat-label">Reviews</div></div>
+    <div class="stat"><div class="stat-num">10K+</div><div class="stat-label">Dogs Trained</div></div>
+    <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Years</div></div>
+  </div>
+
+  <!-- Final review -->
+  <div style="margin-top:28px; display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"There is truly no one better. Don't waste your time looking elsewhere or for a cheaper company."</p>
+      <p class="review-name">&mdash; Danielle M. &middot; Doberman</p>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"Most of our walks involve off leash time and we live downtown. Worth every penny."</p>
+      <p class="review-name">&mdash; Dalton K. &middot; Aussie Shepherd</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>K9 Academy Behaviour Assessment Guide</span>
+    <span class="orange">k9academytraining.ca</span>
+  </div>
+</div>
+
+</body>
+</html>

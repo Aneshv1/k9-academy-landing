@@ -51,12 +51,16 @@ import '../styles/global.css';
           <!-- Outcomes -->
           <div class="mt-7 grid sm:grid-cols-2 gap-2.5 max-w-xl">
             {[
-              'Aggression + resource guarding',
-              'Separation anxiety',
-              'Reactivity + lunging',
-              'Leash pulling + barking',
-              'Off-leash recall',
-              'Calm + obedient at home',
+              'Leash reactivity + lunging',
+              'Dog-to-dog aggression',
+              'Multi-dog households with fighting',
+              'Aggression toward people',
+              'In-home reactivity (doors, guests, sounds)',
+              'Separation anxiety + destructive behaviour',
+              'On-leash + off-leash obedience',
+              'Human socialization + stranger fear',
+              'Resource guarding',
+              'Off-leash recall + e-collar training',
             ].map((item) => (
               <div class="flex items-center gap-2.5 text-sm text-neutral-300">
                 <div class="w-5 h-5 rounded-full bg-k9-orange/15 flex items-center justify-center flex-shrink-0">
@@ -153,13 +157,14 @@ import '../styles/global.css';
 
       <div class="mt-10 grid sm:grid-cols-2 gap-3">
         {[
-          "Your dog struggles to focus around distractions — other dogs, people, noises",
-          "They get overexcited toward other dogs and you cannot control it",
-          "Pulling and lunging on walks makes every outing stressful",
-          "Your dog jumps on everyone and will not settle",
-          "Off-leash recall is non-existent — you cannot trust them",
-          "Your dog is reactive, fearful, or has poor social skills",
-          "Separation anxiety, territorial behaviour, or resource guarding",
+          "Your dog lunges and barks at other dogs or people on walks",
+          "You have multiple dogs at home that fight or can't coexist",
+          "Your dog is aggressive toward strangers or guests in your home",
+          "Separation anxiety — destructive behaviour, howling, panic when left alone",
+          "Your dog reacts to everything inside the house — doorbells, noises, movement",
+          "You can't trust your dog off leash — zero recall",
+          "Your dog is fearful or aggressive around new people",
+          "Resource guarding food, toys, or spaces",
         ].map((pain) => (
           <div class="flex items-start gap-3 bg-neutral-50 rounded-xl p-4 border border-neutral-200/60">
             <svg class="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -195,7 +200,7 @@ import '../styles/global.css';
         <!-- 6 Session -->
         <div class="rounded-2xl p-6 sm:p-8 border border-neutral-200/60 bg-white hover:border-neutral-300 hover:shadow-md transition-all">
           <h3 class="text-2xl font-bold text-neutral-900 mb-1">Advanced Obedience</h3>
-          <p class="text-k9-orange font-medium text-sm mb-3">6 sessions · Off-leash focus</p>
+          <p class="text-k9-orange font-medium text-sm mb-3">6 private sessions + 4 group classes · Off-leash focus</p>
           <p class="text-neutral-500 text-sm mb-5 leading-relaxed">For dogs struggling with focus around distractions, overexcitement, pulling on walks, jumping, and unreliable off-leash recall. Includes e-collar, training tools, and an off-leash hike.</p>
           <ul class="space-y-2 mb-6">
             {['Focus around distractions', 'Overexcitement toward dogs + people', 'Pulling + lunging on walks', 'Jumping on people', 'Off-leash recall', 'E-collar + tools included ($350 value)'].map((d) => (
@@ -222,7 +227,7 @@ import '../styles/global.css';
             <span class="inline-flex items-center px-3 py-1 bg-k9-orange text-white text-xs font-bold rounded-lg uppercase tracking-wide">Most Comprehensive</span>
           </div>
           <h3 class="text-2xl font-bold text-neutral-900 mb-1 mt-2">Behaviour Modification</h3>
-          <p class="text-k9-orange font-medium text-sm mb-3">8 sessions · Reactivity, aggression + fear</p>
+          <p class="text-k9-orange font-medium text-sm mb-3">8 private sessions + 6 group classes · Reactivity, aggression + fear</p>
           <p class="text-neutral-500 text-sm mb-5 leading-relaxed">For dogs with reactivity, aggression, fear, anxiety, or poor social skills. Addresses barking and lunging at dogs or strangers, resource guarding, nervousness, and socialization difficulties.</p>
           <ul class="space-y-2 mb-6">
             {['Reactivity + aggression', 'Barking + lunging at dogs/strangers', 'Resource guarding', 'Fear + nervousness', 'Socialization difficulties', 'Dog socialization sessions included'].map((d) => (
@@ -384,13 +389,15 @@ import '../styles/global.css';
 
         <div class="mt-6 flex flex-wrap items-center justify-center gap-2">
           {[
-            'Aggression',
+            'Leash reactivity',
+            'Dog-to-dog aggression',
+            'Multi-dog fighting',
+            'Human aggression',
+            'In-home reactivity',
             'Separation anxiety',
             'Resource guarding',
-            'Reactivity',
-            'Leash pulling',
-            'Barking',
             'Off-leash recall',
+            'Stranger fear',
           ].map((tag) => (
             <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-white border border-neutral-200 text-xs font-semibold text-neutral-700">
               {tag}
@@ -461,48 +468,6 @@ import '../styles/global.css';
         </div>
       </div>
 
-      <!-- Instagram + Facebook DMs -->
-      <div class="mb-16">
-        <div class="flex items-center justify-center gap-2 mb-8">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="ig" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FDB813"/><stop offset="50%" stop-color="#E1306C"/><stop offset="100%" stop-color="#833AB4"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" stroke="url(#ig)" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="url(#ig)" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="url(#ig)"/></svg>
-          <svg class="w-5 h-5" viewBox="0 0 24 24"><path fill="#1877F2" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
-          <h3 class="text-sm font-bold uppercase tracking-wide text-neutral-500">Instagram & Facebook DMs</h3>
-        </div>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {[
-            { handle: '@baileys_walk_diary', platform: 'Instagram', issue: 'Leash pulling', msgs: ['OK I HAVE TO TELL SOMEONE', 'we just did the entire beltline loop on a loose leash', 'six weeks ago she was literally dragging me into traffic'] },
-            { handle: 'Sarah M.', platform: 'Facebook', issue: 'Aggression', msgs: ['Hi! Quick update — we had our first visitor since starting sessions and Bruno sat at the door. No lunging. No growling.', 'Two months ago we could not even have the conversation about guests coming over'] },
-            { handle: '@konathehusky', platform: 'Instagram', issue: 'Recall', msgs: ['ngl i was TERRIFIED of the ecollar', 'tried it on my own hand first lol', 'kona recalled off a full sprint at a squirrel yesterday', 'a squirrel.'] },
-            { handle: '@doodlemom.to', platform: 'Instagram', issue: 'Separation anxiety', msgs: ['8 HOURS IN THE CRATE', 'no barking no whining nothing', 'keep checking the camera and shes literally just napping??'] },
-            { handle: 'Ahmed & Mira R.', platform: 'Facebook', issue: 'Reactivity', msgs: ['Wanted to share — we walked Zeus through a busy farmers market Saturday. Dogs everywhere, kids running around, he just walked beside us the whole time', 'Anesh told us at session 1 this would happen and we did not believe him'] },
-            { handle: '@charliebarksalot', platform: 'Instagram', issue: 'Barking', msgs: ['sooo remember that noise complaint letter from our building??', 'showed it to anesh at our first session', 'apartment has been dead quiet for 3 weeks', 'might frame the letter honestly'] },
-            { handle: 'Priya D.', platform: 'Facebook', issue: 'Resource guarding', msgs: ['I have to tell you this', 'We took the bone away last night. No growl. No stiffness. He just looked at us.', 'Three months ago we were filling out rehoming paperwork'] },
-            { handle: '@viviandthepibble', platform: 'Instagram', issue: 'Reactivity', msgs: ['walked past a german shepherd on the sidewalk', 'nothing', 'no lunge no bark just kept walking', 'im shaking typing this rn'] },
-          ].map((d) => (
-            <div class="bg-white rounded-2xl border border-neutral-200/60 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
-              <div class="flex items-center gap-3 px-4 py-3 border-b border-neutral-100">
-                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-amber-400 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                  {d.handle.replace('@','').charAt(0).toUpperCase()}
-                </div>
-                <div class="flex-1 min-w-0">
-                  <p class="font-semibold text-neutral-900 text-sm truncate">{d.handle}</p>
-                  <p class="text-xs text-neutral-400">{d.platform}</p>
-                </div>
-                <span class="inline-flex items-center px-2 py-1 rounded-full bg-k9-orange/10 text-k9-orange text-[10px] font-bold uppercase tracking-wide flex-shrink-0">{d.issue}</span>
-              </div>
-              <div class="p-4 space-y-2 bg-neutral-50/50 flex-grow">
-                {d.msgs.map((m) => (
-                  <div class="flex justify-start">
-                    <div class="max-w-[85%] bg-neutral-200/80 text-neutral-800 text-sm rounded-2xl rounded-tl-md px-4 py-2 leading-snug">{m}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
       <!-- Emails -->
       <div>
         <div class="flex items-center justify-center gap-2 mb-8">
@@ -546,6 +511,118 @@ import '../styles/global.css';
           Book Private Training
           <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON CHART -->
+  <section class="py-16 sm:py-24 bg-white border-t border-neutral-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8">
+        <h3 class="text-2xl font-extrabold text-neutral-900">How we compare to other private trainers</h3>
+        <p class="mt-2 text-neutral-500 max-w-xl mx-auto text-sm">Most private trainers charge the same or more — and deliver a fraction of the results.</p>
+      </div>
+
+      <div class="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+        <table class="w-full border-collapse text-sm">
+          <thead>
+            <tr>
+              <th class="text-left p-3 sm:p-4 text-neutral-500 font-medium text-xs uppercase tracking-wide"></th>
+              <th class="p-3 sm:p-4 text-center rounded-t-xl bg-k9-orange text-white font-bold text-xs uppercase tracking-wide">K9 Academy</th>
+              <th class="p-3 sm:p-4 text-center text-neutral-500 font-medium text-xs uppercase tracking-wide bg-neutral-50">Other Private Trainers</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { feature: 'Price (6-8 sessions)', k9: '$1,350–$1,685', other: '$1,200–$3,000+' },
+              { feature: 'E-collar + tools included', k9: '$350 value included', other: 'Usually extra' },
+              { feature: 'Group class passes included', k9: '4-6 passes', other: false },
+              { feature: 'Off-leash hike included', k9: true, other: false },
+              { feature: 'Addresses root cause', k9: true, other: 'Sometimes' },
+              { feature: 'Aggression + bite cases accepted', k9: true, other: 'Often refused' },
+              { feature: 'Dog socialization sessions', k9: '8-session pkg', other: false },
+              { feature: 'Home visit available', k9: true, other: 'Varies' },
+              { feature: 'Real-world proofing', k9: true, other: 'Rarely' },
+              { feature: 'Ongoing support after program', k9: true, other: false },
+              { feature: 'Results in first session', k9: true, other: 'Varies' },
+            ].map((row, i) => (
+              <tr class={i % 2 === 0 ? 'bg-white' : 'bg-neutral-50/50'}>
+                <td class="p-3 sm:p-4 font-medium text-neutral-900 text-sm whitespace-nowrap">{row.feature}</td>
+                <td class="p-3 sm:p-4 text-center bg-k9-orange/5 font-semibold text-neutral-900">
+                  {row.k9 === true ? (
+                    <svg class="w-5 h-5 text-k9-orange mx-auto" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                  ) : typeof row.k9 === 'string' ? (
+                    <span class="text-k9-orange font-bold">{row.k9}</span>
+                  ) : (
+                    <svg class="w-5 h-5 text-neutral-300 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                  )}
+                </td>
+                <td class="p-3 sm:p-4 text-center text-neutral-500">
+                  {row.other === true ? (
+                    <svg class="w-5 h-5 text-emerald-500 mx-auto" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                  ) : row.other === false ? (
+                    <svg class="w-5 h-5 text-neutral-300 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                  ) : (
+                    <span>{row.other}</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 sm:py-24 bg-neutral-50 border-y border-neutral-100">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Common Questions</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
+          Before you book
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {[
+          {
+            q: '"$1,350 feels like a lot for dog training."',
+            a: 'We include an e-collar and professional training tools worth $350 in every package — most trainers charge that on top. When you factor in the tools, you\'re paying less per session than most private trainers in Toronto. And unlike trainers who charge $200/session with no end in sight, our programs have a clear finish line with measurable results. Most clients see a real difference by session 1.',
+          },
+          {
+            q: '"Will this actually work for my dog?"',
+            a: 'We\'ve trained over 10,000 dogs — including cases other trainers have turned down. Aggression, severe reactivity, separation anxiety, resource guarding, bite history. There has never been a case we couldn\'t help. If your dog has a problem, we can fix it.',
+          },
+          {
+            q: '"I\'ve tried other trainers and nothing worked."',
+            a: 'We hear this almost every week. Most trainers teach tricks and manage symptoms. We fix the root cause. The difference is in the approach — we use every tool necessary (prong collar, e-collar, structured socialization) to create real, lasting change. Read our reviews — the majority of our clients came to us after other trainers failed.',
+          },
+          {
+            q: '"How fast will I see results?"',
+            a: 'Most clients see a noticeable change in the first session — especially with leash walking and impulse control. By session 3-4, the transformation is clear. By session 6-8, your dog is proofed in real-world environments and off-leash reliable. The exact timeline depends on the severity of the issues, but we don\'t drag things out.',
+          },
+          {
+            q: '"My dog\'s problems are specific to my home — door manners, guests, separation."',
+            a: 'That\'s exactly what private training is for. We train at our facility first to build the foundation, then we can come to your home to address environment-specific issues. Door reactivity, guest behaviour, resource guarding at home, separation anxiety — we work where the problem actually happens. Home visits are built into both packages when needed.',
+          },
+          {
+            q: '"What if my dog is aggressive or has bitten someone?"',
+            a: 'We take cases other trainers won\'t. Dogs with bite history, severe aggression, and dangerous behaviour are exactly the cases that need professional intervention — not avoidance. We\'ll assess your dog honestly, recommend the right program, and give you a realistic timeline. If Board & Train is a better fit, we\'ll tell you that too.',
+          },
+        ].map((faq) => (
+          <details class="group rounded-2xl border border-neutral-200/60 bg-white hover:border-neutral-300 transition-all">
+            <summary class="flex items-center justify-between cursor-pointer p-5 sm:p-6 text-left">
+              <span class="font-semibold text-neutral-900 text-sm sm:text-base pr-4">{faq.q}</span>
+              <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 group-open:rotate-45 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </summary>
+            <div class="px-5 sm:px-6 pb-5 sm:pb-6 -mt-1">
+              <p class="text-neutral-600 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
       </div>
     </div>
   </section>
@@ -634,6 +711,37 @@ import '../styles/global.css';
   <div class="bg-neutral-900 pt-10"><div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-8"><GuideBanner /></div></div>
   <ContactForm />
   <Footer />
+
+  <!-- Sticky Mobile CTA -->
+  <div id="sticky-cta-private" class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-t border-neutral-200 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] translate-y-full transition-transform duration-300 lg:hidden">
+    <div class="max-w-lg mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <div class="min-w-0">
+        <p class="font-bold text-neutral-900 text-sm truncate">Private Training — from $1,350</p>
+        <a href="tel:4377785273" class="text-xs text-neutral-500 hover:text-k9-orange transition-colors">437-778-5273</a>
+      </div>
+      <a href="#contact" class="inline-flex items-center px-5 py-2.5 bg-k9-orange text-white text-sm font-bold rounded-lg hover:bg-k9-orange-dark transition-all shadow-sm whitespace-nowrap flex-shrink-0">
+        Book Now
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const stickyCtaPrivate = document.getElementById('sticky-cta-private');
+    const heroCtaPrivate = document.querySelector('section a[href="#contact"]');
+    if (stickyCtaPrivate && heroCtaPrivate) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            stickyCtaPrivate.classList.add('translate-y-full');
+          } else {
+            stickyCtaPrivate.classList.remove('translate-y-full');
+          }
+        },
+        { threshold: 0 }
+      );
+      observer.observe(heroCtaPrivate);
+    }
+  </script>
 <script type="application/ld+json" set:html={JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Service",

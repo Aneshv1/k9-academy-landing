@@ -3,6 +3,7 @@ import Layout from './Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import BlogPostCTA from '../components/BlogPostCTA.astro';
+import '../styles/global.css';
 
 interface Props {
   frontmatter: {
@@ -111,5 +112,17 @@ const displayDate = frontmatter.date.toLocaleDateString('en-CA', { year: 'numeri
   }
   .prose-k9 hr {
     @apply border-neutral-200 my-8;
+  }
+  .prose-k9 img {
+    @apply max-w-md w-full mx-auto rounded-2xl my-8 shadow-sm block;
+  }
+  .prose-k9 table {
+    @apply w-full text-sm mb-6 border-collapse;
+  }
+  .prose-k9 th {
+    @apply text-left p-3 bg-neutral-50 font-semibold text-neutral-900 border-b border-neutral-200;
+  }
+  .prose-k9 td {
+    @apply p-3 border-b border-neutral-100 text-neutral-600;
   }
 </style>
