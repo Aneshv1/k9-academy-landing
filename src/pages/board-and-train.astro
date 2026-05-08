@@ -441,6 +441,122 @@ import '../styles/global.css';
     </div>
   </section>
 
+  <!-- COMPARISON CHART -->
+  <section class="py-16 sm:py-24 bg-white border-t border-neutral-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8">
+        <h3 class="text-2xl font-extrabold text-neutral-900">How we compare to other board &amp; train programs</h3>
+        <p class="mt-2 text-neutral-500 max-w-xl mx-auto text-sm">Most board &amp; train programs are glorified boarding with 20 minutes of training. Ours is a full-time training program with daily structure.</p>
+      </div>
+
+      <div class="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+        <table class="w-full border-collapse text-sm">
+          <thead>
+            <tr>
+              <th class="text-left p-3 sm:p-4 text-neutral-500 font-medium text-xs uppercase tracking-wide"></th>
+              <th class="p-3 sm:p-4 text-center rounded-t-xl bg-k9-orange text-white font-bold text-xs uppercase tracking-wide">K9 Academy</th>
+              <th class="p-3 sm:p-4 text-center text-neutral-500 font-medium text-xs uppercase tracking-wide bg-neutral-50">Other Board &amp; Train</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { feature: 'Daily training hours', k9: '3-4 hours', other: '20-30 min' },
+              { feature: 'Daily daycare + socialization', k9: true, other: false },
+              { feature: 'Outdoor experiences + real-world proofing', k9: true, other: false },
+              { feature: 'Dog-to-dog socialization sessions', k9: true, other: 'Rarely' },
+              { feature: 'Video/photo updates', k9: 'Weekly', other: 'Varies' },
+              { feature: 'Owner handoff sessions', k9: true, other: 'Sometimes' },
+              { feature: 'Lifetime support after graduation', k9: true, other: false },
+              { feature: 'Free access to all group programs', k9: true, other: false },
+              { feature: 'Severe aggression + bite cases', k9: true, other: 'Often refused' },
+              { feature: 'E-collar training included', k9: true, other: 'Varies' },
+              { feature: 'Financing available', k9: 'Affirm', other: 'Rarely' },
+            ].map((row, i) => (
+              <tr class={i % 2 === 0 ? 'bg-white' : 'bg-neutral-50/50'}>
+                <td class="p-3 sm:p-4 font-medium text-neutral-900 text-sm whitespace-nowrap">{row.feature}</td>
+                <td class="p-3 sm:p-4 text-center bg-k9-orange/5 font-semibold text-neutral-900">
+                  {row.k9 === true ? (
+                    <svg class="w-5 h-5 text-k9-orange mx-auto" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                  ) : typeof row.k9 === 'string' ? (
+                    <span class="text-k9-orange font-bold">{row.k9}</span>
+                  ) : (
+                    <svg class="w-5 h-5 text-neutral-300 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                  )}
+                </td>
+                <td class="p-3 sm:p-4 text-center text-neutral-500">
+                  {row.other === true ? (
+                    <svg class="w-5 h-5 text-emerald-500 mx-auto" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                  ) : row.other === false ? (
+                    <svg class="w-5 h-5 text-neutral-300 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                  ) : (
+                    <span>{row.other}</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 sm:py-24 bg-neutral-50 border-y border-neutral-100">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Common Questions</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
+          Before you apply
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {[
+          {
+            q: '"$3,000–$5,000 is a lot of money."',
+            a: 'It is — and it should be, because your dog gets 3-4 hours of structured training every day, daily daycare and socialization, outdoor real-world experiences, weekly updates, owner handoff sessions, and lifetime support after graduation. Most board & train programs charge similar prices for 20 minutes of daily training. Ours is a full-time program. We also include free access to all group programs after graduation, and financing is available through Affirm so you can start now and pay over time.',
+          },
+          {
+            q: '"Will my dog forget everything when they come home?"',
+            a: 'This is the #1 concern — and the reason we include owner handoff sessions in every program. Before you pick your dog up, we spend time teaching you exactly how to maintain everything. Same commands, same tools, same approach. We also give you lifetime access to our group classes so your dog stays sharp, and our team is available for ongoing support if anything comes up. The training sticks because we train the owner too.',
+          },
+          {
+            q: '"I\'m nervous about leaving my dog with strangers for weeks."',
+            a: 'Completely understandable. Your dog stays at our dedicated facility in Stouffville with our training team — the same people, every day. We send weekly photo and video updates so you can see exactly how they\'re doing. You\'re welcome to call anytime. Most owners tell us their dog was more comfortable than they expected within the first day or two.',
+          },
+          {
+            q: '"I\'ve tried other board & train programs and it didn\'t work."',
+            a: 'We hear this regularly. Most board & train programs are essentially glorified boarding — your dog sits in a kennel and gets 20 minutes of training a day. Ours is a full-time training program: 3-4 hours of structured work daily, plus socialization, outdoor experiences, and real-world proofing. That\'s why our results are different. Read our reviews — the majority of our clients came to us after something else failed.',
+          },
+          {
+            q: '"Is my dog\'s case too severe?"',
+            a: 'There has never been a case we couldn\'t help. We specialize in the dogs other trainers turn down — severe aggression, multiple bite incidents, multi-dog fighting, extreme anxiety, dogs that have been through 2-3 trainers with no results. Our Intensive Rehabilitation program exists specifically for these cases. If your dog has a problem, we can fix it.',
+          },
+          {
+            q: '"What does my dog actually do all day?"',
+            a: 'Your dog gets 3-4 hours of structured training (not 20 minutes), daily daycare with supervised play and socialization, outdoor experiences and environmental exposure, crate training and settling practice, and structured walks. They\'re not sitting in a kennel. They\'re living a full, structured day that builds the behaviours you want and eliminates the ones you don\'t.',
+          },
+          {
+            q: '"What happens after graduation?"',
+            a: 'You get lifetime support — call us anytime with questions, send us videos for feedback, bring your dog back for refresher sessions. You also get free access to all of our group class programs so your dog can continue learning and socializing in a structured environment. No other board & train program offers this.',
+          },
+        ].map((faq) => (
+          <details class="group rounded-2xl border border-neutral-200/60 bg-white hover:border-neutral-300 transition-all">
+            <summary class="flex items-center justify-between cursor-pointer p-5 sm:p-6 text-left">
+              <span class="font-semibold text-neutral-900 text-sm sm:text-base pr-4">{faq.q}</span>
+              <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 group-open:rotate-45 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </summary>
+            <div class="px-5 sm:px-6 pb-5 sm:pb-6 -mt-1">
+              <p class="text-neutral-600 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- HOW IT WORKS -->
   <section class="py-16 sm:py-24 bg-brand-dark">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -520,6 +636,37 @@ import '../styles/global.css';
   <div class="bg-neutral-900 pt-10"><div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-8"><GuideBanner /></div></div>
   <ContactForm />
   <Footer />
+
+  <!-- Sticky Mobile CTA -->
+  <div id="sticky-cta-bt" class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-t border-neutral-200 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] translate-y-full transition-transform duration-300 lg:hidden">
+    <div class="max-w-lg mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <div class="min-w-0">
+        <p class="font-bold text-neutral-900 text-sm truncate">Board & Train — from $2,995</p>
+        <a href="tel:4377785273" class="text-xs text-neutral-500 hover:text-k9-orange transition-colors">437-778-5273</a>
+      </div>
+      <a href="#contact" class="inline-flex items-center px-5 py-2.5 bg-k9-orange text-white text-sm font-bold rounded-lg hover:bg-k9-orange-dark transition-all shadow-sm whitespace-nowrap flex-shrink-0">
+        Apply Now
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const stickyCtaBt = document.getElementById('sticky-cta-bt');
+    const heroCtaBt = document.querySelector('section a[href="#contact"]');
+    if (stickyCtaBt && heroCtaBt) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            stickyCtaBt.classList.add('translate-y-full');
+          } else {
+            stickyCtaBt.classList.remove('translate-y-full');
+          }
+        },
+        { threshold: 0 }
+      );
+      observer.observe(heroCtaBt);
+    }
+  </script>
 <script type="application/ld+json" set:html={JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Service",
@@ -543,8 +690,10 @@ import '../styles/global.css';
   "mainEntity": [
     { "@type": "Question", "name": "How long is board and train for dogs?", "acceptedAnswer": { "@type": "Answer", "text": "We offer 2-week, 4-6 week, and 6-8 week programs depending on severity. The 2 Week Express is for basic behaviour issues, while Intensive Rehabilitation handles severe aggression and anxiety." }},
     { "@type": "Question", "name": "How much does board and train cost in Toronto?", "acceptedAnswer": { "@type": "Answer", "text": "Programs start at $2,995 for the 2 Week Express, $3,995+ for Behaviour Modification, and $4,995+ for Intensive Rehabilitation. Financing is available through Affirm." }},
-    { "@type": "Question", "name": "Will I get updates during board and train?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You receive weekly updates with photos and progress reports throughout the program. We also provide two in-person training sessions so you learn how to maintain results at home." }},
-    { "@type": "Question", "name": "Do you take aggressive dogs for board and train?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We specialize in cases other trainers turn down — including dogs with bite history, severe human and dog aggression, and multi-dog conflict. Our Intensive Rehabilitation program is designed specifically for these cases." }}
+    { "@type": "Question", "name": "Will my dog forget everything when they come home?", "acceptedAnswer": { "@type": "Answer", "text": "No. Every program includes owner handoff sessions where we teach you how to maintain everything. You also get lifetime support and free access to all group programs after graduation." }},
+    { "@type": "Question", "name": "Do you take aggressive dogs for board and train?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. There has never been a case we couldn't help. We specialize in cases other trainers turn down — including dogs with bite history, severe aggression, and multi-dog conflict." }},
+    { "@type": "Question", "name": "What does my dog do all day during board and train?", "acceptedAnswer": { "@type": "Answer", "text": "Your dog gets 3-4 hours of structured training daily, plus daycare, socialization, outdoor experiences, crate training, and structured walks. This is a full-time program, not boarding with 20 minutes of training." }},
+    { "@type": "Question", "name": "What happens after board and train graduation?", "acceptedAnswer": { "@type": "Answer", "text": "You get lifetime support — call us anytime, send videos for feedback, bring your dog back for refreshers. You also get free access to all group class programs for continued learning and socialization." }}
   ]
 })} />
 </Layout>
