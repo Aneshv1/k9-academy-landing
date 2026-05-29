@@ -12,6 +12,7 @@ const {
   canonical,
   ogImage = '/og-image.jpg',
 } = Astro.props;
+import ChatBot from '../components/ChatBot.astro';
 ---
 
 <!doctype html>
@@ -98,5 +99,6 @@ const {
   </head>
   <body>
     <slot />
+    <ChatBot />
   </body>
 </html>

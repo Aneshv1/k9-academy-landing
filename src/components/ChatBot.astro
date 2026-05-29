@@ -1,0 +1,188 @@
+<!-- Chat Bubble + Window -->
+<div id="chat-widget">
+  <!-- Toggle Button -->
+  <button id="chat-toggle" class="fixed bottom-5 right-5 z-50 w-14 h-14 bg-k9-orange text-white rounded-full shadow-lg shadow-k9-orange/30 hover:bg-k9-orange-dark transition-all hover:scale-105 flex items-center justify-center">
+    <svg id="chat-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 006 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337z" />
+    </svg>
+    <svg id="chat-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+
+  <!-- Chat Window -->
+  <div id="chat-window" class="fixed bottom-24 right-5 z-50 w-[360px] max-w-[calc(100vw-2.5rem)] bg-white rounded-2xl shadow-2xl border border-neutral-200 hidden flex-col overflow-hidden" style="height: 500px; max-height: calc(100vh - 120px);">
+
+    <!-- Header -->
+    <div class="bg-neutral-900 px-5 py-4 flex items-center gap-3">
+      <div class="w-9 h-9 rounded-full bg-k9-orange flex items-center justify-center flex-shrink-0">
+        <span class="text-white text-xs font-black">K9</span>
+      </div>
+      <div class="flex-grow">
+        <p class="text-white text-sm font-bold">K9 Academy</p>
+        <p class="text-neutral-400 text-xs flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+          Online — usually replies instantly
+        </p>
+      </div>
+    </div>
+
+    <!-- Messages -->
+    <div id="chat-messages" class="flex-grow overflow-y-auto px-4 py-4 space-y-3" style="flex: 1;">
+      <!-- Welcome message -->
+      <div class="flex gap-2">
+        <div class="w-7 h-7 rounded-full bg-k9-orange flex items-center justify-center flex-shrink-0 mt-0.5">
+          <span class="text-white text-[8px] font-black">K9</span>
+        </div>
+        <div class="bg-neutral-100 rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-[85%]">
+          <p class="text-sm text-neutral-800">Hey! 👋 I'm K9 Academy's assistant. I can help you find the right training program, answer questions about pricing, or get you connected with our team. What's going on with your dog?</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Typing indicator -->
+    <div id="chat-typing" class="hidden px-4 pb-2">
+      <div class="flex gap-2">
+        <div class="w-7 h-7 rounded-full bg-k9-orange flex items-center justify-center flex-shrink-0">
+          <span class="text-white text-[8px] font-black">K9</span>
+        </div>
+        <div class="bg-neutral-100 rounded-2xl rounded-tl-sm px-4 py-3">
+          <div class="flex gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-neutral-400 animate-bounce" style="animation-delay: 0ms"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-neutral-400 animate-bounce" style="animation-delay: 150ms"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-neutral-400 animate-bounce" style="animation-delay: 300ms"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div class="border-t border-neutral-100 px-4 py-3">
+      <form id="chat-form" class="flex gap-2">
+        <input id="chat-input" type="text" placeholder="Type a message..." autocomplete="off"
+          class="flex-grow px-4 py-2.5 border border-neutral-200 rounded-xl text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition" />
+        <button type="submit" class="w-10 h-10 bg-k9-orange text-white rounded-xl hover:bg-k9-orange-dark transition-colors flex items-center justify-center flex-shrink-0">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  const toggle = document.getElementById('chat-toggle')!;
+  const window_ = document.getElementById('chat-window')!;
+  const iconOpen = document.getElementById('chat-icon-open')!;
+  const iconClose = document.getElementById('chat-icon-close')!;
+  const form = document.getElementById('chat-form') as HTMLFormElement;
+  const input = document.getElementById('chat-input') as HTMLInputElement;
+  const messagesContainer = document.getElementById('chat-messages')!;
+  const typingIndicator = document.getElementById('chat-typing')!;
+
+  let isOpen = false;
+  let messages: Array<{ role: 'user' | 'assistant'; content: string }> = [];
+  let leadInfo: Record<string, string> = {};
+  let leadSent = false;
+
+  toggle.addEventListener('click', () => {
+    isOpen = !isOpen;
+    window_.classList.toggle('hidden', !isOpen);
+    window_.style.display = isOpen ? 'flex' : 'none';
+    iconOpen.classList.toggle('hidden', isOpen);
+    iconClose.classList.toggle('hidden', !isOpen);
+    if (isOpen) {
+      input.focus();
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+  });
+
+  function addMessage(role: 'user' | 'assistant', content: string) {
+    const wrapper = document.createElement('div');
+    wrapper.className = role === 'user' ? 'flex justify-end' : 'flex gap-2';
+
+    if (role === 'assistant') {
+      wrapper.innerHTML = `
+        <div class="w-7 h-7 rounded-full bg-k9-orange flex items-center justify-center flex-shrink-0 mt-0.5">
+          <span class="text-white text-[8px] font-black">K9</span>
+        </div>
+        <div class="bg-neutral-100 rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-[85%]">
+          <p class="text-sm text-neutral-800">${content.replace(/\n/g, '<br>')}</p>
+        </div>`;
+    } else {
+      wrapper.innerHTML = `
+        <div class="bg-k9-orange text-white rounded-2xl rounded-tr-sm px-4 py-2.5 max-w-[85%]">
+          <p class="text-sm">${content.replace(/\n/g, '<br>')}</p>
+        </div>`;
+    }
+
+    messagesContainer.appendChild(wrapper);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+
+  // Extract lead info from conversation
+  function extractLeadInfo(allMessages: typeof messages) {
+    const fullText = allMessages.map(m => m.content).join(' ');
+
+    // Try to extract email
+    const emailMatch = fullText.match(/[\w.-]+@[\w.-]+\.\w+/);
+    if (emailMatch) leadInfo.email = emailMatch[0];
+
+    // Try to extract phone
+    const phoneMatch = fullText.match(/(\+?1?\s*[-.]?\s*\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})/);
+    if (phoneMatch) leadInfo.phone = phoneMatch[1];
+  }
+
+  async function sendMessage(userMessage: string) {
+    messages.push({ role: 'user', content: userMessage });
+    addMessage('user', userMessage);
+
+    // Extract any contact info from messages
+    extractLeadInfo(messages);
+
+    // Show typing
+    typingIndicator.classList.remove('hidden');
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages }),
+      });
+
+      const data = await res.json();
+      typingIndicator.classList.add('hidden');
+
+      if (data.message) {
+        messages.push({ role: 'assistant', content: data.message });
+        addMessage('assistant', data.message);
+
+        // Check if AI collected enough info to send lead
+        extractLeadInfo(messages);
+        if (leadInfo.email && !leadSent) {
+          leadSent = true;
+          // Send lead in background
+          fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ messages, leadInfo }),
+          }).catch(() => {});
+        }
+      }
+    } catch {
+      typingIndicator.classList.add('hidden');
+      addMessage('assistant', 'Sorry, I\'m having trouble connecting. You can call us directly at <strong>437-778-5273</strong> or email <strong>contact@k9academy.ca</strong>.');
+    }
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const msg = input.value.trim();
+    if (!msg) return;
+    input.value = '';
+    sendMessage(msg);
+  });
+</script>

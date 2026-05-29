@@ -91,104 +91,197 @@ import '../styles/global.css';
         </div>
       </div>
 
-      <!-- Stats -->
-      <div class="mt-14 sm:mt-20 grid grid-cols-2 sm:grid-cols-4 gap-8 max-w-3xl mx-auto pb-14 sm:pb-20">
-        {[
-          { stat: '10,000+', label: 'Dogs Trained' },
-          { stat: '15+', label: 'Years Experience' },
-          { stat: '4.9★', label: 'Google Rating' },
-          { stat: '100+', label: 'Media Features' },
-        ].map(({ stat, label }) => (
-          <div class="text-center">
-            <div class="text-3xl sm:text-4xl font-extrabold text-white">{stat}</div>
-            <div class="text-sm text-neutral-500 mt-1 font-medium">{label}</div>
-          </div>
-        ))}
+      <!-- Stats + Awards — compact trust strip -->
+      <div class="mt-12 sm:mt-16 border-t border-white/5 pt-6 pb-8 sm:pb-10">
+        <div class="flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-8 gap-y-1 mb-5">
+          {[
+            { stat: '10,000+', label: 'Dogs' },
+            { stat: '15+', label: 'Years' },
+            { stat: '4.9★', label: 'Google' },
+            { stat: '100+', label: 'Press' },
+          ].map(({ stat, label }, i) => (
+            <div class="flex items-center gap-1.5">
+              <span class="text-lg sm:text-xl font-extrabold text-white">{stat}</span>
+              <span class="text-xs text-neutral-500 uppercase tracking-wide">{label}</span>
+              {i < 3 && <span class="ml-4 sm:ml-6 w-px h-4 bg-white/10 hidden sm:block"></span>}
+            </div>
+          ))}
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-8 gap-y-3">
+          <span class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mr-2">Award-winning from multiple publications</span>
+          {[
+            { src: '/badges/readers-choice.png', alt: "Toronto Star Readers' Choice 2023" },
+            { src: '/badges/quality-2025.jpg', alt: '2025 Quality Business Awards' },
+            { src: '/badges/consumer-choice.png', alt: 'Consumer Choice Award' },
+            { src: '/badges/threebest-rated.png', alt: 'ThreeBest Rated 2025' },
+            { src: '/badges/trustanalytica.png', alt: 'Top 10 Toronto — TrustAnalytica' },
+            { src: '/badges/canadian-choice-trophy.png', alt: 'Canadian Choice Award' },
+          ].map((award) => (
+            <img
+              src={award.src}
+              alt={award.alt}
+              class="h-9 sm:h-10 w-auto object-contain grayscale brightness-150 opacity-70 hover:grayscale-0 hover:brightness-100 hover:opacity-100 transition-all duration-300"
+              loading="lazy"
+            />
+          ))}
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Awards Strip -->
-  <section class="py-8 sm:py-10 bg-neutral-900 border-y border-white/5">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-center text-[11px] font-semibold text-neutral-600 uppercase tracking-[0.2em] mb-6">
-        As Featured In
-      </p>
-      <div class="flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-12 gap-y-5">
-        {[
-          { src: '/badges/readers-choice.png', alt: "Toronto Star Readers' Choice 2023" },
-          { src: '/badges/quality-2025.jpg', alt: '2025 Quality Business Awards' },
-          { src: '/badges/consumer-choice.png', alt: 'Consumer Choice Award' },
-          { src: '/badges/threebest-rated.png', alt: 'ThreeBest Rated 2025' },
-          { src: '/badges/trustanalytica.png', alt: 'Top 10 Toronto — TrustAnalytica' },
-          { src: '/badges/canadian-choice-trophy.png', alt: 'Canadian Choice Award' },
-        ].map((award) => (
-          <img
-            src={award.src}
-            alt={award.alt}
-            class="h-12 sm:h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
-            loading="lazy"
-          />
-        ))}
-      </div>
-    </div>
-  </section>
+  <!-- PAS SECTION — Problem → Proof → Action -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
-  <!-- PAS SECTION — Problem, Agitate, Solve -->
-  <section class="py-16 sm:py-24 bg-neutral-900">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- PROBLEM -->
-      <div class="text-center mb-12">
+      <!-- PROBLEM — 3 hard-hitting pain points -->
+      <div class="text-center mb-10">
         <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-4">Sound Familiar?</p>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
-          You Love Your Dog. But You Don't Trust Them.
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-neutral-900 leading-tight">
+          You love your dog.<br/>But you don't trust them.
         </h2>
       </div>
 
-      <div class="grid sm:grid-cols-2 gap-4 mb-12">
+      <div class="grid md:grid-cols-3 gap-5 mb-14">
         {[
-          '"Every walk is a battle — lunging, pulling, barking at everything"',
-          '"We\'ve been through 2 trainers and nothing has stuck"',
-          '"My dog has shown aggression and I\'m scared of what comes next"',
-          '"I can\'t let my dog off-leash because recall is non-existent"',
-          '"My puppy is out of control and getting worse every week"',
-          '"I\'m embarrassed by my dog\'s behaviour in public"',
-        ].map((pain) => (
-          <div class="flex items-start gap-3 bg-white/5 rounded-xl p-5 border border-white/5">
-            <svg class="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
-            </svg>
-            <p class="text-neutral-300 text-sm leading-relaxed">{pain}</p>
+          {
+            pain: 'Every walk is a fight',
+            detail: 'Lunging, barking, pulling toward every dog, person, or squirrel. You\'ve stopped walking certain routes. You dread leaving the house.',
+            iconPath: 'M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z',
+          },
+          {
+            pain: 'Other trainers failed you',
+            detail: 'You spent thousands on "positive only" methods, YouTube tips, or trainers who ghosted after 3 sessions. Nothing stuck.',
+            iconPath: 'M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636',
+          },
+          {
+            pain: 'It\'s getting worse, not better',
+            detail: 'The aggression is escalating. Guests can\'t come over. You\'re scared of what happens next — a bite, a lawsuit, or worse.',
+            iconPath: 'M2.25 6L9 12.75l4.286-4.286a11.948 11.948 0 014.306 6.43l.776 2.898m0 0l3.182-5.511m-3.182 5.51l-5.511-3.181',
+          },
+        ].map((item) => (
+          <div class="rounded-2xl bg-neutral-50 border border-neutral-200 p-6 text-center hover:border-red-200 hover:bg-red-50/30 transition-all group">
+            <div class="w-12 h-12 rounded-full bg-red-50 border border-red-100 flex items-center justify-center mx-auto mb-4 group-hover:bg-red-100 transition-colors">
+              <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d={item.iconPath} />
+              </svg>
+            </div>
+            <h3 class="text-lg font-extrabold text-neutral-900 mb-2">{item.pain}</h3>
+            <p class="text-neutral-500 text-sm leading-relaxed">{item.detail}</p>
           </div>
         ))}
       </div>
 
-      <!-- RESULTS -->
-      <div class="bg-white/5 rounded-2xl p-8 sm:p-10 border border-white/5 mb-12">
-        <h3 class="text-xl sm:text-2xl font-bold text-white mb-4">Real results — with every breed and every issue.</h3>
-        <p class="text-neutral-300 leading-relaxed mb-4">
-          Huskies that recall off squirrels. GSDs that walk calmly past other dogs. Rescue dogs with bite history that are safe, social family members again. We have done it over 10,000 times — and we have the reviews to prove it.
-        </p>
-        <p class="text-neutral-300 leading-relaxed">
-          Whether your dog needs private sessions, group classes, or a full board and train — we build a plan around your dog's specific behaviour, not a one-size-fits-all program. Most clients see a difference within the first session.
-        </p>
+      <!-- BEFORE → AFTER TRANSFORMATION -->
+      <div class="rounded-2xl overflow-hidden border border-neutral-200 mb-14">
+        <div class="grid md:grid-cols-2">
+          <!-- Before -->
+          <div class="bg-neutral-900 p-8 sm:p-10">
+            <p class="text-red-400 text-xs font-bold uppercase tracking-widest mb-4">Before K9 Academy</p>
+            <ul class="space-y-3">
+              {['Can\'t walk past another dog', 'Pulls so hard your shoulder hurts', 'Barks and lunges at strangers', 'Zero recall — won\'t come when called', 'Other trainers said "he\'s too far gone"'].map((item) => (
+                <li class="flex items-start gap-2.5 text-neutral-300 text-sm">
+                  <svg class="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <!-- After -->
+          <div class="bg-emerald-950 p-8 sm:p-10">
+            <p class="text-emerald-400 text-xs font-bold uppercase tracking-widest mb-4">After K9 Academy</p>
+            <ul class="space-y-3">
+              {['Walks calmly past dogs, people, bikes', 'Loose leash — no more pulling', 'Relaxed around guests and strangers', 'Reliable off-leash recall', 'Other owners ask "how did you do that?"'].map((item) => (
+                <li class="flex items-start gap-2.5 text-emerald-100 text-sm">
+                  <svg class="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <!-- Stats bar -->
+        <div class="bg-neutral-950 px-6 py-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+          {[
+            { stat: '10,000+', label: 'dogs transformed' },
+            { stat: '4 weeks', label: 'average turnaround' },
+            { stat: '4.9★', label: 'on Google (250+ reviews)' },
+          ].map((s) => (
+            <div class="flex items-center gap-2 text-sm">
+              <span class="font-extrabold text-white">{s.stat}</span>
+              <span class="text-neutral-500">{s.label}</span>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <!-- SOLVE -->
-      <div class="text-center">
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">
-          K9 Academy is <span class="text-k9-orange">the other side of that.</span>
-        </h3>
-        <p class="text-lg text-neutral-400 max-w-2xl mx-auto mb-8 leading-relaxed">
-          15 years. 10,000+ dogs. E-collar specialists. Two dedicated facilities. The dogs other trainers gave up on are our specialty — and the results speak for themselves.
-        </p>
-        <a href="#programs" class="inline-flex items-center px-8 py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30 hover:shadow-xl hover:-translate-y-0.5">
-          Find the Right Program
-          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+      <!-- FEATURED REVIEW — real proof -->
+      <div class="rounded-2xl bg-neutral-50 border border-neutral-200 overflow-hidden mb-14 grid md:grid-cols-[1fr_1.5fr]">
+        <div class="aspect-square md:aspect-auto">
+          <img src="/images/husky.jpg" alt="Husky trained at K9 Academy" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="p-8 sm:p-10 flex flex-col justify-center">
+        <div class="flex items-center gap-2 mb-4">
+          <svg class="w-6 h-6" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
           </svg>
-        </a>
+          <div class="flex items-center gap-0.5">
+            {[1,2,3,4,5].map(() => (
+              <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+          </div>
+          <span class="text-sm text-neutral-400 ml-1">Google Review</span>
+        </div>
+        <blockquote class="text-lg sm:text-xl font-semibold text-neutral-900 leading-relaxed mb-4">
+          "My dog bit someone. I was told to consider euthanasia. The K9 Academy team took the time to understand what was going on. 8 weeks later, my dog is safe, calm, and part of the family again."
+        </blockquote>
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <p class="font-bold text-neutral-900 text-sm">Rachel D.</p>
+            <p class="text-xs text-neutral-400">Husky mix, 5 years · Board & Train — 8 weeks</p>
+          </div>
+          <a href="#contact" class="inline-flex items-center px-6 py-3 bg-k9-orange text-white text-sm font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30 hover:-translate-y-0.5">
+            Get the Same Results
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+        </div>
+        </div>
       </div>
+
+      <!-- CTA -->
+      <div class="text-center">
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-neutral-900 mb-3">
+          Your dog isn't a lost cause.
+        </h3>
+        <p class="text-neutral-500 max-w-xl mx-auto mb-6">
+          The dogs other trainers gave up on are our specialty. Tell us what you're dealing with — we'll tell you exactly how we'd fix it.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a href="#contact" class="inline-flex items-center px-8 py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30 hover:shadow-xl hover:-translate-y-0.5">
+            Get a Free Consultation
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+          <a href="tel:4377785273" class="inline-flex items-center gap-2 px-7 py-4 text-neutral-500 font-medium hover:text-neutral-900 transition-colors border border-neutral-200 rounded-xl hover:border-neutral-300">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+            </svg>
+            437-778-5273
+          </a>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -217,6 +310,7 @@ import '../styles/global.css';
             link: '/board-and-train',
             cta: 'Learn More',
             highlight: true,
+            img: '/images/hero-training.jpg',
           },
           {
             title: 'Private Lessons',
@@ -226,6 +320,7 @@ import '../styles/global.css';
             link: '/private-lessons',
             cta: 'Learn More',
             highlight: false,
+            img: '/images/private-training.jpg',
           },
           {
             title: 'Group Classes',
@@ -235,6 +330,7 @@ import '../styles/global.css';
             link: '/group-classes',
             cta: 'Learn More',
             highlight: false,
+            img: '/images/group-class.jpg',
           },
           {
             title: 'Puppy Program',
@@ -244,9 +340,14 @@ import '../styles/global.css';
             link: '/puppy-classes',
             cta: 'Learn More',
             highlight: false,
+            img: '/images/dogs-playing.jpg',
           },
         ].map((s) => (
-          <a href={s.link} class={`group rounded-2xl p-6 border transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col ${s.highlight ? 'border-k9-orange/30 bg-k9-orange-light/30 ring-1 ring-k9-orange/10' : 'border-neutral-200/60 bg-white hover:border-neutral-300'}`}>
+          <a href={s.link} class={`group rounded-2xl overflow-hidden border transition-all hover:shadow-lg hover:-translate-y-0.5 flex flex-col ${s.highlight ? 'border-k9-orange/30 bg-k9-orange-light/30 ring-1 ring-k9-orange/10' : 'border-neutral-200/60 bg-white hover:border-neutral-300'}`}>
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src={s.img} alt={s.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
             <h3 class="text-xl font-bold text-neutral-900 mb-1">{s.title}</h3>
             <p class="text-k9-orange font-medium text-xs mb-3">{s.tagline}</p>
             <p class="text-neutral-500 text-sm leading-relaxed flex-grow mb-5">{s.desc}</p>
@@ -258,6 +359,7 @@ import '../styles/global.css';
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </span>
+            </div>
             </div>
           </a>
         ))}
@@ -280,50 +382,61 @@ import '../styles/global.css';
     </div>
   </section>
 
-  <!-- VIDEO CAROUSEL -->
-  <section class="py-16 sm:py-24 bg-white">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-10">
-        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">See It in Action</p>
+  <!-- PROOF — Watch Real Transformations -->
+  <section class="py-16 sm:py-24 bg-neutral-50 border-y border-neutral-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Watch Real Transformations</p>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
-          Watch what K9 Academy training looks like
+          Don't take our word for it — watch
         </h2>
       </div>
 
-      <div class="space-y-3" id="main-video-carousel">
-        <div id="main-video" class="rounded-2xl overflow-hidden border border-neutral-200/60 shadow-md">
-          <YouTubeEmbed videoId="gfnMuWAA-LM" title="K9 Academy Training" />
-        </div>
-
-        <div class="flex gap-2">
-          {[
-            { id: 'gfnMuWAA-LM', alt: 'Training Overview', active: true },
-            { id: '3B-EavE1l_U', alt: 'Training Results', active: false },
-            { id: '76P1n4JgNRQ', alt: 'Board & Train', active: false },
-          ].map((v) => (
-            <button data-video={v.id} class={`main-video-thumb flex-1 rounded-lg overflow-hidden border-2 transition-all ${v.active ? 'border-k9-orange opacity-100' : 'border-transparent opacity-60 hover:opacity-100'}`}>
-              <img src={`https://img.youtube.com/vi/${v.id}/mqdefault.jpg`} alt={v.alt} class="w-full aspect-video object-cover" loading="lazy" />
-            </button>
-          ))}
-        </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        {[
+          {
+            id: 'gfnMuWAA-LM',
+            label: 'Reactive → Calm',
+            desc: 'Watch a reactive dog learn to walk past triggers without lunging',
+          },
+          {
+            id: '3B-EavE1l_U',
+            label: 'Zero Recall → Off-Leash',
+            desc: 'From ignoring commands to reliable recall in real-world settings',
+          },
+          {
+            id: '76P1n4JgNRQ',
+            label: 'Board & Train Results',
+            desc: 'See what 4 weeks of immersive training looks like start to finish',
+          },
+        ].map((v) => (
+          <div class="group">
+            <div class="rounded-2xl overflow-hidden border border-neutral-200 shadow-sm hover:shadow-md transition-shadow mb-3">
+              <div class="relative cursor-pointer video-card" data-video-id={v.id}>
+                <img src={`https://img.youtube.com/vi/${v.id}/maxresdefault.jpg`} alt={v.label} class="w-full aspect-video object-cover" loading="lazy" />
+                <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/20 transition-colors">
+                  <div class="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <svg class="w-6 h-6 text-neutral-900 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="font-bold text-neutral-900 text-sm">{v.label}</p>
+            <p class="text-neutral-500 text-xs mt-0.5">{v.desc}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
   <script>
-    document.querySelectorAll('.main-video-thumb').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const videoId = (btn as HTMLElement).dataset.video;
-        const container = document.getElementById('main-video')!;
+    document.querySelectorAll('.video-card').forEach((card) => {
+      card.addEventListener('click', () => {
+        const videoId = (card as HTMLElement).dataset.videoId;
+        const container = card as HTMLElement;
         container.innerHTML = `<div class="relative aspect-video"><iframe src="https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1" title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="absolute inset-0 w-full h-full"></iframe></div>`;
-
-        document.querySelectorAll('.main-video-thumb').forEach((b) => {
-          b.classList.remove('border-k9-orange');
-          b.classList.add('border-transparent', 'opacity-60');
-        });
-        btn.classList.add('border-k9-orange');
-        btn.classList.remove('border-transparent', 'opacity-60');
-        btn.classList.add('opacity-100');
       });
     });
   </script>
@@ -332,77 +445,96 @@ import '../styles/global.css';
 
   <!-- WHY K9 -->
   <section class="py-16 sm:py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12 sm:mb-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
         <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Why K9 Academy</p>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
-          Why 10,000+ Dog Owners Across the GTA Chose Us
+          What makes us different
         </h2>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="grid sm:grid-cols-2 gap-5">
         {[
-          { icon: '🏆', title: 'The Experience That Gets Results — 15 Years, 10,000+ Dogs', desc: 'This is not a side hustle. K9 Academy has been training at the highest level for over 15 years across the GTA. The depth of experience shows in the results.' },
-          { icon: '🐕', title: 'Your Dog Isn\'t a Lost Cause — We Specialize in the Cases Others Refuse', desc: 'Bite histories, severe reactivity, working breeds other trainers won\'t touch — that is our expertise. The dogs others gave up on are our specialty.' },
-          { icon: '⚡', title: 'Real Off-Leash Results — Using Methods Most Toronto Trainers Won\'t Touch', desc: 'We use e-collar protocols and balanced methods because the results speak for themselves. Not trendy — effective. Your dog learns to listen everywhere, not just in a training room.' },
-          { icon: '📍', title: 'Train in Toronto, Board in Stouffville — Two Purpose-Built Facilities', desc: 'Leaside for private lessons and group classes. Stouffville for Board & Train and daycare. Professional environments designed from the ground up for dog training.' },
-          { icon: '🔒', title: 'Results That Last — Not Temporary Fixes That Fade in a Week', desc: 'We keep working until your dog performs reliably in real-world situations. If results slip after the program, we are here. That\'s the K9 Academy commitment.' },
-          { icon: '📰', title: 'Trusted by 250+ Owners and 100+ Publications Across the GTA', desc: 'Featured in 100+ publications. Readers\' Choice winner. Consumer Choice Award. ThreeBest Rated. Top 10 in Toronto. The credibility is earned, not bought.' },
+          {
+            title: 'We take the cases others won\'t',
+            desc: 'Bite histories, severe aggression, reactive working breeds. The dogs other trainers gave up on are our specialty.',
+            iconPath: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
+          },
+          {
+            title: '15 years and 10,000+ dogs',
+            desc: 'Not a side hustle. Full-time, professional training at the highest level across the GTA since 2011.',
+            iconPath: 'M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z',
+          },
+          {
+            title: 'Real off-leash results',
+            desc: 'E-collar protocols and balanced methods that work in the real world — not just in a training room.',
+            iconPath: 'M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z',
+          },
+          {
+            title: 'Results that last',
+            desc: 'We keep working until your dog performs reliably everywhere. If results slip, we\'re here. That\'s the commitment.',
+            iconPath: 'M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z',
+          },
         ].map((prop) => (
-          <div class="rounded-2xl p-6 bg-neutral-50 border border-neutral-200/60 hover:border-neutral-300 transition-all">
-            <div class="w-10 h-10 rounded-xl bg-k9-orange/10 flex items-center justify-center mb-4 text-xl">
-              {prop.icon}
+          <div class="flex gap-4 p-5 rounded-2xl border border-neutral-100 hover:border-k9-orange/20 hover:bg-k9-orange-light/20 transition-all group">
+            <div class="w-11 h-11 rounded-xl bg-k9-orange/10 flex items-center justify-center flex-shrink-0 group-hover:bg-k9-orange/20 transition-colors">
+              <svg class="w-5 h-5 text-k9-orange" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d={prop.iconPath} />
+              </svg>
             </div>
-            <h3 class="text-base font-bold text-neutral-900 mb-2">{prop.title}</h3>
-            <p class="text-neutral-500 text-sm leading-relaxed">{prop.desc}</p>
+            <div>
+              <h3 class="text-base font-bold text-neutral-900 mb-1">{prop.title}</h3>
+              <p class="text-neutral-500 text-sm leading-relaxed">{prop.desc}</p>
+            </div>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- FROM INQUIRY TO A DOG YOU'RE PROUD OF -->
+
+  <!-- K9 vs OTHER TRAINERS -->
   <section class="py-16 sm:py-24 bg-neutral-900">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
-        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">From Inquiry to a Dog You're Proud Of</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
-          Three Steps to Real, Lasting Results
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
+          Why owners switch to K9 Academy
         </h2>
-        <p class="mt-4 text-neutral-400 max-w-2xl mx-auto">
-          No guesswork. No wasted time. Here's exactly what happens after you reach out.
-        </p>
+        <p class="text-neutral-400 mt-3 text-sm">Most trainers manage symptoms. We fix the problem.</p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="rounded-2xl overflow-hidden border border-white/10">
+        <!-- Header -->
+        <div class="grid grid-cols-[1fr_1fr_1fr]">
+          <div class="p-4"></div>
+          <div class="p-4 bg-k9-orange text-center">
+            <p class="text-white font-bold text-sm">K9 Academy</p>
+          </div>
+          <div class="p-4 bg-white/5 text-center">
+            <p class="text-neutral-400 font-medium text-sm">Other Trainers</p>
+          </div>
+        </div>
+        <!-- Rows -->
         {[
-          {
-            step: '01',
-            title: 'Tell Us What You\'re Dealing With',
-            desc: 'Fill out the form or call us. Describe your dog\'s breed, age, and the specific issues — reactivity, aggression, recall, pulling, whatever it is. We typically respond within hours.',
-          },
-          {
-            step: '02',
-            title: 'Get a Custom Training Recommendation',
-            desc: 'We\'ll assess your situation and recommend the right program — Board & Train, Private Lessons, Group Classes, or Puppy. No upselling. Just the program that fits your dog.',
-          },
-          {
-            step: '03',
-            title: 'Your Dog Starts Transforming',
-            desc: 'Training begins at our purpose-built facilities. You\'ll get progress updates, video check-ins, and a detailed handover so the results transfer to your life — permanently.',
-          },
-        ].map((item) => (
-          <div class="relative">
-            <div class="text-5xl font-black text-k9-orange/20 mb-3">{item.step}</div>
-            <h3 class="text-lg font-bold text-white mb-2">{item.title}</h3>
-            <p class="text-neutral-400 text-sm leading-relaxed">{item.desc}</p>
+          { feature: 'Visible results', k9: 'Session 1', other: 'Rarely' },
+          { feature: 'Leash pulling fixed', k9: 'Day 1', other: 'Weeks — if ever' },
+          { feature: 'Works with aggression', k9: '✓', other: '✗ Refused' },
+          { feature: 'Off-leash reliability', k9: '✓', other: '✗' },
+          { feature: 'Real-world training', k9: '✓ Parks, streets, trails', other: '✗ Classroom only' },
+          { feature: 'Owner learns too', k9: '✓', other: '✗ Minimal' },
+          { feature: 'Results guarantee', k9: '✓', other: '✗' },
+        ].map((row, i) => (
+          <div class={`grid grid-cols-[1fr_1fr_1fr] ${i % 2 === 0 ? 'bg-white/[0.02]' : ''}`}>
+            <div class="p-4 text-sm text-neutral-300 font-medium">{row.feature}</div>
+            <div class="p-4 text-center text-sm font-semibold text-k9-orange bg-k9-orange/5">{row.k9}</div>
+            <div class="p-4 text-center text-sm text-neutral-500">{row.other}</div>
           </div>
         ))}
       </div>
 
-      <div class="mt-12 text-center">
+      <div class="mt-8 text-center">
         <a href="#contact" class="inline-flex items-center px-8 py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30 hover:shadow-xl hover:-translate-y-0.5">
-          Start Your Dog's Transformation
+          Get a Free Consultation
           <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
           </svg>
@@ -411,177 +543,67 @@ import '../styles/global.css';
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="py-16 sm:py-24 bg-brand-dark">
+  <!-- CONTENT — Blog, Instagram, Podcast (compact) -->
+  <section class="py-12 sm:py-16 bg-neutral-950">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-        <!-- Left: Stats -->
+      <!-- Three columns: Blog · Instagram · Podcast -->
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Blog -->
         <div>
-          <p class="text-k9-orange font-semibold text-xs tracking-widest uppercase mb-4">About K9 Academy</p>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight mb-6">
-            No dog is beyond help.
-          </h2>
-          <p class="text-neutral-400 text-sm leading-relaxed mb-8">
-            We work with the dogs other trainers turn down — severe aggression, reactivity, bite history, separation anxiety. Our team has seen it all and fixed it all. That is not marketing. It is what 10,000+ dogs and 250+ five-star reviews are built on.
-          </p>
-
-          <div class="grid grid-cols-3 gap-4">
-            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
-              <p class="text-2xl sm:text-3xl font-extrabold text-white">10K+</p>
-              <p class="text-xs text-neutral-500 mt-1">Dogs trained</p>
-            </div>
-            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
-              <p class="text-2xl sm:text-3xl font-extrabold text-white">4.9</p>
-              <p class="text-xs text-neutral-500 mt-1">Google rating</p>
-            </div>
-            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
-              <p class="text-2xl sm:text-3xl font-extrabold text-white">15+</p>
-              <p class="text-xs text-neutral-500 mt-1">Years experience</p>
-            </div>
+          <h3 class="text-sm font-bold text-white uppercase tracking-wide mb-4">From the Blog</h3>
+          <div class="space-y-3">
+            {[
+              { href: '/blog/board-and-train-cost-toronto', title: 'How Much Does Board & Train Cost?' },
+              { href: '/blog/how-to-fix-leash-reactivity', title: 'How to Fix Leash Reactivity' },
+              { href: '/blog/how-to-stop-puppy-biting', title: 'How to Stop Puppy Biting' },
+              { href: '/blog/separation-anxiety-dogs', title: 'Separation Anxiety in Dogs' },
+            ].map((post) => (
+              <a href={post.href} class="block text-sm text-neutral-400 hover:text-k9-orange transition-colors py-2 border-b border-white/5">
+                {post.title} <span class="text-k9-orange ml-1">&rarr;</span>
+              </a>
+            ))}
           </div>
+          <a href="/blog" class="inline-block mt-4 text-xs font-semibold text-k9-orange hover:underline">View all posts &rarr;</a>
         </div>
 
-        <!-- Right: Philosophy + Team -->
-        <div class="space-y-5">
-          <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
-            <h3 class="text-sm font-bold text-white mb-2">We teach you, not just your dog</h3>
-            <p class="text-neutral-400 text-sm leading-relaxed">You learn to read your dog's body language, understand their state of mind, and communicate clearly. The training sticks because you understand the why — not just the commands.</p>
+        <!-- Instagram -->
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <h3 class="text-sm font-bold text-white uppercase tracking-wide">Instagram</h3>
+            <span class="text-xs text-neutral-500">49K followers</span>
           </div>
-          <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
-            <h3 class="text-sm font-bold text-white mb-2">Rescue rehab across Ontario</h3>
-            <p class="text-neutral-400 text-sm leading-relaxed">We work with rescue centres across the province to rehabilitate dogs with severe behavioural issues. Dogs that were days away from being put down now live normal, happy lives.</p>
-          </div>
-          <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
-            <h3 class="text-sm font-bold text-white mb-2">Leaside, Toronto</h3>
-            <p class="text-neutral-400 text-sm leading-relaxed">16-30 Canvarco Rd. Private training, group classes (Level 1, 2, 3), board &amp; train, and puppy programs. Led by Anesh alongside trainers Sophie, Johnny, John, and Ivana.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTENT HUB — Blog, Instagram, Podcast -->
-  <section class="py-16 sm:py-24 bg-neutral-950">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <p class="text-k9-orange font-semibold text-xs tracking-widest uppercase mb-3">Tips, Training & More</p>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Learn From the Trainers</h2>
-        <p class="text-neutral-500 mt-3 max-w-xl mx-auto text-sm">Training guides, real transformations on Instagram, and honest conversations on the podcast.</p>
-      </div>
-
-      <!-- Blog Cards — horizontal scroll on mobile, grid on desktop -->
-      <div class="mb-12">
-        <div class="flex items-center justify-between mb-5">
-          <h3 class="text-sm font-bold text-white uppercase tracking-wide">Latest from the Blog</h3>
-          <a href="/blog" class="text-xs font-semibold text-k9-orange hover:underline">View all 20 posts &rarr;</a>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {[
-            { href: '/blog/board-and-train-cost-toronto', title: 'How Much Does Board and Train Cost in Toronto?', tag: 'Pricing', tagColor: 'bg-green-500/20 text-green-400', icon: '💰' },
-            { href: '/blog/how-to-stop-puppy-biting', title: 'How to Stop a Puppy From Biting', tag: 'Puppy', tagColor: 'bg-blue-500/20 text-blue-400', icon: '🐶' },
-            { href: '/blog/how-to-fix-leash-reactivity', title: 'How to Fix Leash Reactivity', tag: 'Reactivity', tagColor: 'bg-red-500/20 text-red-400', icon: '🔥' },
-            { href: '/blog/separation-anxiety-dogs', title: 'Separation Anxiety in Dogs', tag: 'Anxiety', tagColor: 'bg-purple-500/20 text-purple-400', icon: '🧠' },
-          ].map((post) => (
-            <a href={post.href} class="group block rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.03] border border-white/10 hover:border-k9-orange/40 p-5 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-k9-orange/10">
-              <div class="flex items-center justify-between mb-3">
-                <span class={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${post.tagColor}`}>{post.tag}</span>
-                <span class="text-xl">{post.icon}</span>
-              </div>
-              <p class="text-sm font-bold text-white group-hover:text-k9-orange transition-colors leading-snug">{post.title}</p>
-              <p class="text-xs text-k9-orange font-semibold mt-3 opacity-0 group-hover:opacity-100 transition-opacity">Read article &rarr;</p>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      <!-- Instagram + Podcast side by side -->
-      <div class="grid md:grid-cols-2 gap-6">
-
-        <!-- Instagram — Phone Mockup -->
-        <div class="flex flex-col items-center justify-center">
-          <!-- Phone frame -->
-          <div class="relative w-[280px] mx-auto">
-            <!-- Phone body -->
-            <div class="rounded-[2.5rem] border-[3px] border-neutral-700 bg-black p-1.5 shadow-2xl shadow-black/50">
-              <!-- Notch -->
-              <div class="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-b-2xl z-10"></div>
-              <!-- Screen -->
-              <div class="rounded-[2rem] overflow-hidden bg-white">
-                <!-- IG Header -->
-                <div class="bg-white px-3 pt-8 pb-2 flex items-center justify-between border-b border-neutral-100">
-                  <div class="flex items-center gap-2">
-                    <div class="w-7 h-7 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
-                      <span class="text-white text-[8px] font-black">K9</span>
-                    </div>
-                    <span class="text-[11px] font-bold text-neutral-900">k9academyto</span>
-                    <svg class="w-3 h-3 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                  </div>
-                  <svg class="w-4 h-4 text-neutral-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" /></svg>
+          <a href="https://www.instagram.com/k9academyto/" target="_blank" rel="noopener" class="block group">
+            <div class="grid grid-cols-3 gap-1 rounded-lg overflow-hidden">
+              {[
+                '/images/hero-training.jpg',
+                '/images/dogs-playing.jpg',
+                '/images/group-class.jpg',
+                '/images/private-training.jpg',
+                '/images/husky.jpg',
+                '/images/ambassadors.jpg',
+              ].map((src) => (
+                <div class="aspect-square overflow-hidden">
+                  <img src={src} alt="K9 Academy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                 </div>
-                <!-- IG Post 1 -->
-                <div>
-                  <div class="aspect-square bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 flex items-center justify-center p-6">
-                    <div class="text-center">
-                      <p class="text-k9-orange text-[10px] font-bold uppercase tracking-widest mb-2">Before & After</p>
-                      <p class="text-white text-sm font-black leading-tight">From reactive<br/>to reliable.<br/><span class="text-k9-orange">4 weeks.</span></p>
-                      <div class="mt-3 flex items-center justify-center gap-1">
-                        <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
-                        <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
-                        <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
-                        <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
-                        <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
-                      </div>
-                      <p class="text-neutral-500 text-[9px] mt-1.5">4.9 stars &middot; 250+ reviews</p>
-                    </div>
-                  </div>
-                  <!-- IG Actions -->
-                  <div class="px-3 py-2">
-                    <div class="flex items-center gap-3 mb-1.5">
-                      <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/></svg>
-                      <svg class="w-5 h-5 text-neutral-800" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 006 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337z"/></svg>
-                      <svg class="w-5 h-5 text-neutral-800" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
-                    </div>
-                    <p class="text-[11px] text-neutral-900"><span class="font-bold">k9academyto</span> Another transformation in the books. This boy came in reactive to every dog on the street. 4 weeks later — loose leash, calm around triggers. 🔥</p>
-                    <p class="text-[9px] text-neutral-400 mt-1">View all 47 comments</p>
-                  </div>
-                </div>
-                <!-- IG Grid preview -->
-                <div class="grid grid-cols-3 gap-px bg-neutral-200">
-                  <div class="aspect-square bg-gradient-to-br from-neutral-800 to-neutral-700 flex items-center justify-center"><span class="text-lg">🐕</span></div>
-                  <div class="aspect-square bg-gradient-to-br from-k9-orange/30 to-amber-900/30 flex items-center justify-center"><span class="text-lg">💪</span></div>
-                  <div class="aspect-square bg-gradient-to-br from-neutral-900 to-neutral-800 flex items-center justify-center"><span class="text-lg">🎓</span></div>
-                </div>
-              </div>
+              ))}
             </div>
-          </div>
-          <!-- CTA below phone -->
-          <a href="https://www.instagram.com/k9academyto/" target="_blank" rel="noopener" class="mt-6 inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white text-sm font-bold rounded-lg hover:opacity-90 transition-opacity">
-            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
-            Follow @k9academyto
+          </a>
+          <a href="https://www.instagram.com/k9academyto/" target="_blank" rel="noopener" class="inline-flex items-center mt-4 text-xs font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 hover:opacity-80 transition-opacity">
+            Follow @k9academyto &rarr;
           </a>
         </div>
 
         <!-- Podcast -->
-        <div class="rounded-2xl bg-gradient-to-br from-k9-orange/10 to-amber-900/10 border border-white/10 p-6 sm:p-8">
-          <div class="flex items-center gap-3 mb-5">
-            <div class="w-10 h-10 rounded-xl bg-k9-orange flex items-center justify-center">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" /></svg>
-            </div>
-            <div>
-              <p class="text-white font-bold text-sm">Everything Dogs Show</p>
-              <p class="text-neutral-500 text-xs">The K9 Academy Podcast</p>
-            </div>
-          </div>
-          <!-- Buzzsprout embed player -->
-          <div class="rounded-xl overflow-hidden mb-5">
+        <div>
+          <h3 class="text-sm font-bold text-white uppercase tracking-wide mb-4">Podcast</h3>
+          <div class="rounded-xl overflow-hidden mb-3">
             <iframe src="https://www.buzzsprout.com/1094681?client_source=small_player&iframe=true" loading="lazy" width="100%" height="200" frameborder="0" scrolling="no" title="Everything Dogs Show"></iframe>
           </div>
-          <p class="text-neutral-400 text-sm leading-relaxed mb-4">Honest conversations about what works (and what doesn't) in dog training. Real cases, real advice from Toronto's top trainers.</p>
-          <a href="https://www.buzzsprout.com/1094681/" target="_blank" rel="noopener" class="inline-flex items-center px-6 py-2.5 bg-k9-orange text-white text-sm font-bold rounded-lg hover:bg-k9-orange-dark transition-colors">
-            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-            All Episodes
+          <p class="text-neutral-500 text-xs mb-3">Real talk about what works in dog training.</p>
+          <a href="https://www.buzzsprout.com/1094681/" target="_blank" rel="noopener" class="inline-flex items-center text-xs font-semibold text-k9-orange hover:underline">
+            All episodes &rarr;
           </a>
         </div>
 
