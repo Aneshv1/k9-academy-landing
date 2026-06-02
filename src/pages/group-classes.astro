@@ -962,18 +962,48 @@ import '../styles/global.css';
   </section>
 
   <!-- LEVEL 3 TEASER -->
-  <section class="py-10 bg-neutral-950 border-t border-white/5">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full mb-3">
-        <svg class="w-3 h-3 text-neutral-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg>
-        <span class="text-neutral-500 font-semibold text-[10px] uppercase tracking-widest">Invitation Only</span>
+  <section class="py-12 sm:py-14 bg-neutral-950 border-t border-white/5">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full mb-3">
+          <svg class="w-3 h-3 text-neutral-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg>
+          <span class="text-neutral-500 font-semibold text-[10px] uppercase tracking-widest">Invitation Only</span>
+        </div>
+        <h3 class="text-xl font-extrabold text-white mb-2">
+          Level 3 — <span class="bg-gradient-to-r from-k9-orange to-amber-400 bg-clip-text text-transparent">The Impossible</span>
+        </h3>
       </div>
-      <h3 class="text-xl font-extrabold text-white mb-2">
-        Level 3 — <span class="bg-gradient-to-r from-k9-orange to-amber-400 bg-clip-text text-transparent">The Impossible</span>
-      </h3>
-      <p class="text-neutral-500 text-sm max-w-lg mx-auto">
-        Power heel. Send-outs. Scent search. Obstacle courses. You can't sign up — you have to earn it. <a href="#contact" class="text-k9-orange hover:underline">Start with Level 1.</a>
-      </p>
+
+      <!-- Skills preview -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-5">
+        {['Power heel', 'Long-distance send-outs', 'Blind scent search', 'Jumps & A-frame', 'Full obstacle course'].map((skill) => (
+          <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-neutral-400">{skill}</span>
+        ))}
+      </div>
+
+      <!-- The test -->
+      <div class="max-w-xl mx-auto rounded-xl bg-white/[0.03] border border-white/10 p-5 text-center mb-5">
+        <p class="text-white font-bold text-sm mb-1">The "Impossible" Test</p>
+        <p class="text-neutral-500 text-xs leading-relaxed">Every skill chained together. Zero margin for error. One shot. The final test most dogs — and owners — will never attempt.</p>
+        <div class="flex items-center justify-center gap-6 mt-3">
+          <div class="text-center">
+            <p class="text-lg font-extrabold text-white">8</p>
+            <p class="text-[9px] text-neutral-600 uppercase tracking-wide">Weeks</p>
+          </div>
+          <span class="w-px h-6 bg-white/10"></span>
+          <div class="text-center">
+            <p class="text-lg font-extrabold text-white">80+</p>
+            <p class="text-[9px] text-neutral-600 uppercase tracking-wide">L2 Score Required</p>
+          </div>
+          <span class="w-px h-6 bg-white/10"></span>
+          <div class="text-center">
+            <p class="text-lg font-extrabold text-white">$595</p>
+            <p class="text-[9px] text-neutral-600 uppercase tracking-wide">When Available</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-center text-neutral-600 text-xs">You can't sign up — you have to earn it. <a href="#contact" class="text-k9-orange hover:underline">Start with Level 1.</a></p>
     </div>
   </section>
 
