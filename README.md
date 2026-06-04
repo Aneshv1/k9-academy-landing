@@ -63,33 +63,36 @@ src/
     group-classes.astro      — Level 1/2/3 group obedience ($595 each)
     puppy-classes.astro      — puppy program ($450)
     puppy-start-right.astro  — puppy start right B&T ($3,995)
+    in-home.astro            — premium in-home training ($625/session) [HIDDEN]
+    events.astro             — drop-in classes + socials with Stripe [HIDDEN]
     faq.astro                — 24 FAQs across 5 categories
     blog/                    — blog index + individual posts
-    areas/                   — neighbourhood landing pages (SEO)
+    areas/                   — 30 neighbourhood landing pages (SEO)
     api/
-      submit.ts              — contact form + quiz results handler (Supabase + Resend)
-      chat.ts                — AI chatbot API (Claude Haiku + Resend for leads)
+      submit.ts              — contact form + quiz results (Supabase + Resend)
+      chat.ts                — AI chatbot API (Claude Haiku + Resend)
   components/
     Navbar.astro             — site navigation
     Footer.astro             — footer with area links
     ContactForm.astro        — lead capture form (Supabase + Resend + Klaviyo)
-    ChatBot.astro            — AI chatbot widget (appears on every page)
+    ChatBot.astro            — AI chatbot widget (every page)
+    BlogPostCTA.astro        — CTA + in-home promo at bottom of every blog post
     Testimonials.astro       — client testimonials (from real emails)
     QuizForm.astro           — behavioural assessment quiz
     YouTubeEmbed.astro       — lazy-loaded YouTube player
     GuideBanner.astro        — PDF guide download banner
   content/
-    blog/                    — 35 markdown blog posts
+    blog/                    — 45 markdown blog posts
   data/
-    areas.ts                 — neighbourhood data for area pages
+    areas.ts                 — 30 neighbourhood entries for area pages
   layouts/
     Layout.astro             — base layout (includes chatbot)
-    BlogPost.astro           — blog post layout
+    BlogPost.astro           — blog post layout with CTA
   styles/
     global.css               — Tailwind + custom styles
 public/
-  images/                    — training photos, husky, group class, etc.
-  badges/                    — award badges (Readers' Choice, ThreeBest, etc.)
+  images/                    — training photos
+  badges/                    — award badges
   logo.png                   — K9 Academy logo
   robots.txt                 — SEO robots file
 email-templates/             — 21 Klaviyo email HTML templates
@@ -100,43 +103,90 @@ email-templates/             — 21 Klaviyo email HTML templates
 - **10,000+ dogs trained** · **15+ years** · **4.9/5 Google (250+ reviews)**
 - Phone: 437-778-5273
 - Email: contact@k9academy.ca
-- Leaside location: 16-30 Canvarco Rd, Toronto (private + group)
-- Stouffville location: Board & Train + daycare
+- Leaside: 16-30 Canvarco Rd, Toronto (private + group)
+- Stouffville: 22 Cardico Dr, Gormley (Board & Train + daycare)
 - Training methods: balanced training, e-collar protocols
 
-## Pricing (keep in sync across pages)
+## Pricing (keep in sync across pages + chatbot)
 
 | Program | Price |
 |---------|-------|
 | Puppy Program | $450 |
 | Group Level 1/2/3 | $595 each |
-| Group Bundle (all 3) | $995 |
+| Group Bundle (L1+L2) | $995 |
 | Foundation Program | $785 |
 | Private 6-Session | $1,350 |
 | Private 8-Session | $1,685 |
+| In-Home (per session) | $625 (+travel fee outside Toronto core) |
 | Board & Train Basic (2wk) | $2,995 |
 | Board & Train Standard (4wk) | $3,495 |
 | Board & Train Premium (8wk) | $4,995+ |
 | Puppy Start Right | $3,995 |
+| Drop-In Impulse Control | $45 |
+| Adult Dog Social | $55 |
+| Puppy Social | $35 |
+
+If you change pricing, update it in:
+1. The service page itself
+2. `src/pages/api/chat.ts` (chatbot system prompt)
+3. This README
+
+## Hidden pages
+
+These pages are NOT linked in the nav or sitemap. Only accessible via direct link:
+
+- `/in-home` — premium in-home training ($625/session, by application)
+- `/events` — drop-in classes and socials with Stripe payment
 
 ## AI Chatbot
 
-The chatbot (`src/components/ChatBot.astro` + `src/pages/api/chat.ts`) uses Claude Haiku to answer visitor questions about programs, pricing, and training. It:
-- Knows all programs, pricing, FAQ answers, locations, and methods
+The chatbot (`ChatBot.astro` + `api/chat.ts`) uses Claude Haiku. It:
+- Knows all programs, pricing, FAQ answers, locations, methods
 - Captures lead info (email/phone) from conversations
 - Emails leads + full chat transcript to contact@k9academy.ca via Resend
 - Costs ~$0.01-0.05 per conversation
 
-The knowledge base is in the system prompt inside `api/chat.ts`. Update it if pricing or programs change.
+Update the `SYSTEM_PROMPT` in `api/chat.ts` if pricing or programs change.
+
+## Events page
+
+Edit `src/pages/events.astro`. Events are managed in an array at the top of the file:
+
+1. Uncomment an event block
+2. Set the `date`, `time`, and `stripeLink`
+3. Push to deploy
+
+When the event is over, comment it out or delete it. The page shows "Notify Me" when no dates are scheduled.
 
 ## Updating content
 
-- **Blog posts**: Add markdown files to `src/content/blog/`
-- **Testimonials**: Edit `src/components/Testimonials.astro`
-- **Group class dates**: Edit schedule block in `src/pages/group-classes.astro` (search for `startDate`)
-- **Photos**: Drop images in `public/images/`, reference as `/images/filename.jpg`
-- **Chatbot knowledge**: Update the `SYSTEM_PROMPT` in `src/pages/api/chat.ts`
-- **Email templates**: In `email-templates/` — need to be built in Klaviyo manually
+| What | Where |
+|------|-------|
+| Blog posts | Add `.md` files to `src/content/blog/` |
+| Area pages | Add entries to `src/data/areas.ts` (pages auto-generate) |
+| Testimonials | Edit `src/components/Testimonials.astro` |
+| Group class dates | Edit `startDate` in `src/pages/group-classes.astro` |
+| Photos | Drop in `public/images/`, reference as `/images/filename.jpg` |
+| Chatbot knowledge | Update `SYSTEM_PROMPT` in `src/pages/api/chat.ts` |
+| Email templates | In `email-templates/` (build in Klaviyo manually) |
+| Events | Edit array in `src/pages/events.astro` |
+
+## Writing rules (important)
+
+- **Never use em-dashes (—)** in any copy. Use periods, commas, semicolons, or colons instead. Em-dashes are an AI writing giveaway.
+- Write in Anesh's voice: direct, no fluff, expert, real, fifth-grade reading level.
+- No corporate speak. No "vibecoded" look.
+- Prices are non-negotiable. Never hint at discounts.
+
+## SEO pages
+
+**30 area pages** at `/areas/[slug]`:
+- Toronto: Leaside, East York, Moore Park, Davisville, Lawrence Park, Rosedale, Yorkville, Summerhill, Midtown, Forest Hill, Don Mills, Bridle Path, York Mills, Casa Loma, Deer Park, The Annex, Hoggs Hollow, Chaplin Estates
+- York Region: King City, Aurora, Kleinburg, Vaughan, Richmond Hill, Markham, Newmarket, Stouffville
+- GTA: Oakville, Mississauga, Caledon, Brampton
+
+**45 blog posts** at `/blog/[slug]`:
+- Covers reactivity, board & train, puppy training, in-home training, area-specific posts, comparisons
 
 ## Social proof sections
 
@@ -145,4 +195,4 @@ Private lessons and group classes pages have social proof grids with:
 - Client email screenshots
 - Before/after stories
 
-Each is data-driven — edit the arrays inline in the page files.
+Each is data-driven. Edit the arrays inline in the page files.
