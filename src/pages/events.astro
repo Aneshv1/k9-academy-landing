@@ -10,8 +10,8 @@ import '../styles/global.css';
 // Set stripeLink to the Stripe Payment Link URL for each event
 // ============================================================
 const events = [
-  // DROP-IN IMPULSE CONTROL
-  // Copy this block and change date/time/stripeLink for each new session
+  // ── DROP-IN IMPULSE CONTROL ──
+  // Uncomment and update date/time/stripeLink when scheduling a session
   // {
   //   type: 'impulse',
   //   name: 'Drop-In Impulse Control Class',
@@ -26,7 +26,7 @@ const events = [
   //   stripeLink: 'https://buy.stripe.com/YOUR_LINK_HERE',
   // },
 
-  // ADULT DOG SOCIAL
+  // ── ADULT DOG SOCIAL ──
   // {
   //   type: 'social',
   //   name: 'Adult Dog Social',
@@ -41,7 +41,7 @@ const events = [
   //   stripeLink: 'https://buy.stripe.com/YOUR_LINK_HERE',
   // },
 
-  // PUPPY SOCIAL
+  // ── PUPPY SOCIAL ──
   // {
   //   type: 'puppy',
   //   name: 'Puppy Social',
@@ -55,6 +55,34 @@ const events = [
   //   description: 'Supervised socialization for puppies. Structured introductions, play, and early confidence building.',
   //   stripeLink: 'https://buy.stripe.com/YOUR_LINK_HERE',
   // },
+];
+
+// Event types available (always shown even if no dates scheduled)
+const eventTypes = [
+  {
+    type: 'impulse',
+    name: 'Drop-In Impulse Control Class',
+    price: 45,
+    spots: 12,
+    requirement: 'Must have completed Level 1 or equivalent',
+    description: 'Focused session on impulse control — stays, leave it, settling under distraction. Perfect for dogs who need a tune-up between classes.',
+  },
+  {
+    type: 'social',
+    name: 'Adult Dog Social',
+    price: 55,
+    spots: 6,
+    requirement: 'Must have completed Level 1 or equivalent',
+    description: 'Structured off-leash social for trained adult dogs. Small group, supervised by our trainers. Real socialization — not a dog park.',
+  },
+  {
+    type: 'puppy',
+    name: 'Puppy Social',
+    price: 35,
+    spots: 12,
+    requirement: 'Puppies 6 months and under only',
+    description: 'Supervised socialization for puppies. Structured introductions, play, and early confidence building during the critical window.',
+  },
 ];
 
 const typeConfig: Record<string, { label: string; color: string; icon: string }> = {
@@ -91,68 +119,68 @@ function formatDate(dateStr: string) {
         </p>
       </div>
 
-      {events.length === 0 ? (
-        <!-- No events -->
-        <div class="text-center py-16 rounded-2xl bg-white/5 border border-white/10">
-          <p class="text-neutral-400 text-lg mb-2">No events scheduled right now.</p>
-          <p class="text-neutral-500 text-sm">Check back soon — we add new sessions regularly.</p>
-          <a href="/#contact" class="inline-flex items-center mt-6 px-6 py-3 bg-k9-orange text-white text-sm font-bold rounded-xl hover:bg-k9-orange-dark transition-all">
-            Get Notified When We Add Events
-          </a>
-        </div>
-      ) : (
-        <!-- Event cards -->
-        <div class="space-y-4">
-          {events.map((event) => {
-            const config = typeConfig[event.type] || typeConfig.impulse;
-            return (
-              <div class="rounded-2xl bg-white/[0.03] border border-white/10 hover:border-white/20 transition-all overflow-hidden">
-                <div class="p-6 sm:p-8">
-                  <div class="sm:flex sm:items-start sm:justify-between gap-6">
-                    <!-- Left -->
-                    <div class="flex-grow">
-                      <div class="flex items-center gap-2 mb-3">
-                        <span class={`inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full border ${config.color}`}>
-                          {config.label}
-                        </span>
-                        <span class="text-neutral-600 text-xs">{event.spots} spots</span>
-                      </div>
-                      <h3 class="text-lg font-bold text-white mb-1">{event.name}</h3>
-                      <p class="text-neutral-400 text-sm mb-3">{event.description}</p>
-                      <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-neutral-500">
-                        <span class="flex items-center gap-1">
-                          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
-                          {formatDate(event.date)}
-                        </span>
-                        <span class="flex items-center gap-1">
-                          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                          {event.time} · {event.duration}
-                        </span>
-                        <span class="flex items-center gap-1">
-                          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
-                          {event.location}
-                        </span>
-                      </div>
-                      <p class="text-neutral-600 text-xs mt-2 italic">{event.requirement}</p>
-                    </div>
-
-                    <!-- Right — Price + CTA -->
-                    <div class="flex sm:flex-col items-center gap-3 mt-4 sm:mt-0 sm:text-right flex-shrink-0">
-                      <p class="text-2xl font-extrabold text-white">${event.price}</p>
-                      <a href={event.stripeLink} target="_blank" rel="noopener" class="inline-flex items-center px-5 py-2.5 bg-k9-orange text-white text-sm font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/20 whitespace-nowrap">
-                        Book Spot
-                        <svg class="ml-1.5 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                        </svg>
-                      </a>
-                    </div>
+      <!-- Event type cards — always visible -->
+      <div class="space-y-6">
+        {eventTypes.map((et) => {
+          const config = typeConfig[et.type] || typeConfig.impulse;
+          const scheduled = events.filter(e => e.type === et.type);
+          return (
+            <div class="rounded-2xl bg-white/[0.03] border border-white/10 overflow-hidden">
+              <!-- Event type header -->
+              <div class="p-6 sm:p-8">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class={`inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full border ${config.color}`}>
+                    {config.label}
+                  </span>
+                  <span class="text-neutral-600 text-xs">{et.spots} spots max</span>
+                </div>
+                <div class="sm:flex sm:items-start sm:justify-between gap-4">
+                  <div>
+                    <h3 class="text-lg font-bold text-white mb-1">{et.name}</h3>
+                    <p class="text-neutral-400 text-sm mb-2">{et.description}</p>
+                    <p class="text-neutral-600 text-xs italic">{et.requirement}</p>
                   </div>
+                  <p class="text-2xl font-extrabold text-white mt-3 sm:mt-0 flex-shrink-0">${et.price}</p>
                 </div>
               </div>
-            );
-          })}
-        </div>
-      )}
+
+              <!-- Scheduled dates or waitlist -->
+              <div class="border-t border-white/5 bg-white/[0.02] px-6 sm:px-8 py-4">
+                {scheduled.length > 0 ? (
+                  <div class="space-y-3">
+                    <p class="text-xs text-neutral-500 uppercase tracking-wide font-semibold mb-2">Upcoming dates</p>
+                    {scheduled.map((event) => (
+                      <div class="flex items-center justify-between gap-4 py-2 border-b border-white/5 last:border-0">
+                        <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-neutral-300">
+                          <span class="flex items-center gap-1.5">
+                            <svg class="w-3.5 h-3.5 text-neutral-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
+                            {formatDate(event.date)}
+                          </span>
+                          <span class="flex items-center gap-1.5">
+                            <svg class="w-3.5 h-3.5 text-neutral-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            {event.time}
+                          </span>
+                        </div>
+                        <a href={event.stripeLink} target="_blank" rel="noopener" class="inline-flex items-center px-4 py-2 bg-k9-orange text-white text-xs font-bold rounded-lg hover:bg-k9-orange-dark transition-all whitespace-nowrap">
+                          Book Spot
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div class="flex items-center justify-between gap-4">
+                    <p class="text-neutral-500 text-sm">No dates scheduled yet — get notified when we add one.</p>
+                    <a href="/#contact" class="inline-flex items-center gap-1.5 px-4 py-2 bg-white/5 border border-white/10 text-white text-xs font-semibold rounded-lg hover:border-k9-orange/30 hover:bg-white/10 transition-all whitespace-nowrap">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" /></svg>
+                      Notify Me
+                    </a>
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
 
       <!-- Info -->
       <div class="mt-10 rounded-xl bg-white/5 border border-white/10 p-5">

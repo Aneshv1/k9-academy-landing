@@ -1,0 +1,276 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+
+<Layout title="Private In-Home Training with Anesh | K9 Academy" description="Exclusive one-on-one dog training in your home with K9 Academy founder Anesh. Premium, private, results-driven. By application only.">
+  <Navbar />
+
+  <!-- HERO — Dark, premium feel -->
+  <section class="relative pt-28 sm:pt-36 pb-20 sm:pb-28 bg-neutral-950 overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(232,97,26,0.06),transparent_60%)] pointer-events-none"></div>
+
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full mb-6">
+        <span class="w-2 h-2 rounded-full bg-k9-orange"></span>
+        <span class="text-neutral-400 font-semibold text-[10px] uppercase tracking-[0.2em]">By Application Only</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-5">
+        Private In-Home Training<br/>
+        <span class="bg-gradient-to-r from-k9-orange to-amber-400 bg-clip-text text-transparent">with our Senior Trainers</span>
+      </h1>
+
+      <p class="text-lg text-neutral-400 max-w-xl mx-auto leading-relaxed mb-8">
+        One-on-one training in your home with Anesh or one of K9 Academy's top-level trainers. No group settings. No distractions. Just you, your dog, and elite-level experience — in the environment that matters most.
+      </p>
+
+      <div class="flex items-center justify-center gap-6 mb-10">
+        <div class="text-center">
+          <p class="text-3xl font-extrabold text-white">15+</p>
+          <p class="text-[10px] text-neutral-500 uppercase tracking-widest mt-1">Years</p>
+        </div>
+        <span class="w-px h-10 bg-white/10"></span>
+        <div class="text-center">
+          <p class="text-3xl font-extrabold text-white">10K+</p>
+          <p class="text-[10px] text-neutral-500 uppercase tracking-widest mt-1">Dogs</p>
+        </div>
+        <span class="w-px h-10 bg-white/10"></span>
+        <div class="text-center">
+          <p class="text-3xl font-extrabold text-white">1:1</p>
+          <p class="text-[10px] text-neutral-500 uppercase tracking-widest mt-1">With Anesh</p>
+        </div>
+      </div>
+
+      <a href="#apply" class="inline-flex items-center px-8 py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30 hover:shadow-xl hover:-translate-y-0.5">
+        Apply for In-Home Training
+        <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- WHY IN-HOME -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900">
+          Why clients choose in-home
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        {[
+          {
+            title: 'Your dog learns where it matters',
+            desc: 'Most behavioural issues happen at home — guests arriving, doorbell reactivity, settling, separation anxiety. We fix it where it happens.',
+          },
+          {
+            title: 'Train with the best we have',
+            desc: 'Anesh or one of our senior trainers — not a junior, not a recent hire. The same people who built K9 Academy\'s reputation.',
+          },
+          {
+            title: 'Completely private',
+            desc: 'No other dogs. No other clients. No waiting rooms. Your session. Your schedule. Your home.',
+          },
+          {
+            title: 'For clients who value their time',
+            desc: 'No commute to a facility. No parking. No scheduling around group class times. We come to you, on your terms.',
+          },
+        ].map((item) => (
+          <div class="flex gap-4 p-5 rounded-2xl border border-neutral-100 hover:border-k9-orange/20 transition-all">
+            <svg class="w-5 h-5 text-k9-orange mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+            <div>
+              <h3 class="text-sm font-bold text-neutral-900 mb-1">{item.title}</h3>
+              <p class="text-neutral-500 text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="py-16 sm:py-20 bg-neutral-50 border-y border-neutral-100">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900 mb-3">Investment</h2>
+        <p class="text-neutral-500 text-sm">Each session is 60 minutes, one-on-one with Anesh, in your home.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        <!-- Within 10km -->
+        <div class="rounded-2xl p-6 bg-white border-2 border-k9-orange/30 ring-1 ring-k9-orange/10 shadow-md relative">
+          <div class="absolute -top-3 left-6">
+            <span class="inline-flex items-center px-3 py-1 bg-k9-orange text-white text-[10px] font-bold rounded-lg uppercase tracking-wide">Standard</span>
+          </div>
+          <div class="mt-2">
+            <p class="text-3xl font-extrabold text-neutral-900 mb-1">$625<span class="text-base font-medium text-neutral-400"> / session</span></p>
+            <p class="text-neutral-500 text-sm mb-4">Within 10km of Leaside</p>
+            <ul class="space-y-2 text-sm text-neutral-600">
+              {['60-minute private session', 'In your home', 'With a senior trainer', 'Custom plan for your dog', 'E-collar & tools included'].map((item) => (
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-k9-orange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Beyond 10km -->
+        <div class="rounded-2xl p-6 bg-white border border-neutral-200">
+          <div class="mt-2">
+            <p class="text-3xl font-extrabold text-neutral-900 mb-1">$750<span class="text-base font-medium text-neutral-400"> / session</span></p>
+            <p class="text-neutral-500 text-sm mb-4">Beyond 10km of Leaside</p>
+            <ul class="space-y-2 text-sm text-neutral-600">
+              {['60-minute private session', 'In your home', 'With a senior trainer', 'Custom plan for your dog', 'E-collar & tools included', 'Extended travel included'].map((item) => (
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-k9-orange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-center text-neutral-400 text-xs mt-6">Pay per session. No commitment required. 24-hour cancellation policy.</p>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section class="py-16 sm:py-20 bg-neutral-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-extrabold text-white mb-6">This is for you if</h2>
+      <div class="grid sm:grid-cols-2 gap-4 text-left">
+        {[
+          'You want the best — not the most convenient',
+          'Your schedule doesn\'t accommodate group classes',
+          'You want your dog trained in your actual environment',
+          'Privacy matters to you',
+          'You\'ve tried other trainers and need someone who gets results',
+          'You want to work with the people who built K9 Academy',
+        ].map((item) => (
+          <div class="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
+            <svg class="w-4 h-4 text-k9-orange mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+            <p class="text-neutral-300 text-sm">{item}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICATION FORM -->
+  <section id="apply" class="py-16 sm:py-20 bg-white">
+    <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl font-extrabold text-neutral-900 mb-2">Apply for In-Home Training</h2>
+        <p class="text-neutral-500 text-sm">Spots are limited. Tell us about your dog and we'll confirm availability.</p>
+      </div>
+
+      <form id="inhome-form" class="space-y-4">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label for="ih-name" class="block text-sm font-medium text-neutral-700 mb-1">Your Name</label>
+            <input type="text" id="ih-name" name="name" required
+              class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm"
+              placeholder="First & last name" />
+          </div>
+          <div>
+            <label for="ih-phone" class="block text-sm font-medium text-neutral-700 mb-1">Phone</label>
+            <input type="tel" id="ih-phone" name="phone" required
+              class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm"
+              placeholder="(416) 555-1234" />
+          </div>
+        </div>
+
+        <div>
+          <label for="ih-email" class="block text-sm font-medium text-neutral-700 mb-1">Email</label>
+          <input type="email" id="ih-email" name="email" required
+            class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm"
+            placeholder="you@email.com" />
+        </div>
+
+        <div>
+          <label for="ih-address" class="block text-sm font-medium text-neutral-700 mb-1">Your Address / Neighbourhood</label>
+          <input type="text" id="ih-address" name="address"
+            class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm"
+            placeholder="e.g. Forest Hill, Rosedale, Yorkville" />
+        </div>
+
+        <div>
+          <label for="ih-dog" class="block text-sm font-medium text-neutral-700 mb-1">Dog's Breed, Age & Issues</label>
+          <textarea id="ih-dog" name="dog_info" rows="3"
+            class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition resize-none text-sm"
+            placeholder="Tell us about your dog and what you're dealing with"></textarea>
+        </div>
+
+        <button type="submit" id="ih-submit"
+          class="w-full py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/20 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed">
+          Submit Application
+        </button>
+      </form>
+
+      <div id="ih-success" class="hidden text-center py-8">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-k9-orange/10 flex items-center justify-center">
+          <svg class="w-8 h-8 text-k9-orange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-neutral-900 mb-2">Application received</h3>
+        <p class="text-neutral-500">Our team will review your application and be in touch within 24 hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  const form = document.getElementById('inhome-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('ih-submit') as HTMLButtonElement;
+  const successMsg = document.getElementById('ih-success') as HTMLDivElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const res = await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          dog_info: data.dog_info,
+          service: 'in_home_private',
+          message: `In-Home Training Application\nAddress: ${data.address || '—'}\nDog: ${data.dog_info || '—'}`,
+        }),
+      });
+
+      if (res.ok) {
+        form.classList.add('hidden');
+        successMsg.classList.remove('hidden');
+      } else {
+        throw new Error('Failed');
+      }
+    } catch {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Application';
+      alert('Something went wrong. Please call us at 437-778-5273.');
+    }
+  });
+</script>
