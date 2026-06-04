@@ -6,3 +6,5 @@ dist/
 .DS_Store
 tailwind.config.mjs
 .vercel
+.env.local
+.env
