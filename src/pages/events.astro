@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 // ============================================================
-// EDIT EVENTS HERE — add/remove events as needed
+// EDIT EVENTS HERE. add/remove events as needed
 // Only events listed below will appear on the page
 // Set stripeLink to the Stripe Payment Link URL for each event
 // ============================================================
@@ -18,11 +18,11 @@ const events = [
   //   date: '2026-06-14',
   //   time: '10:00 AM',
   //   duration: '1 hour',
-  //   location: 'Leaside — 16-30 Canvarco Rd, Toronto',
+  //   location: 'Leaside. 16-30 Canvarco Rd, Toronto',
   //   price: 45,
   //   spots: 12,
   //   requirement: 'Must have completed Level 1 or equivalent',
-  //   description: 'Focused session on impulse control — stays, leave it, settling under distraction. Perfect for dogs who need a tune-up.',
+  //   description: 'Focused session on impulse control. stays, leave it, settling under distraction. Perfect for dogs who need a tune-up.',
   //   stripeLink: 'https://buy.stripe.com/YOUR_LINK_HERE',
   // },
 
@@ -33,7 +33,7 @@ const events = [
   //   date: '2026-06-15',
   //   time: '2:00 PM',
   //   duration: '1.5 hours',
-  //   location: 'Leaside — 16-30 Canvarco Rd, Toronto',
+  //   location: 'Leaside. 16-30 Canvarco Rd, Toronto',
   //   price: 55,
   //   spots: 6,
   //   requirement: 'Must have completed Level 1 or equivalent',
@@ -48,7 +48,7 @@ const events = [
   //   date: '2026-06-15',
   //   time: '12:00 PM',
   //   duration: '1 hour',
-  //   location: 'Leaside — 16-30 Canvarco Rd, Toronto',
+  //   location: 'Leaside. 16-30 Canvarco Rd, Toronto',
   //   price: 35,
   //   spots: 12,
   //   requirement: 'Puppies 6 months and under only',
@@ -65,7 +65,7 @@ const eventTypes = [
     price: 45,
     spots: 12,
     requirement: 'Must have completed Level 1 or equivalent',
-    description: 'Focused session on impulse control — stays, leave it, settling under distraction. Perfect for dogs who need a tune-up between classes.',
+    description: 'Focused session on impulse control. stays, leave it, settling under distraction. Perfect for dogs who need a tune-up between classes.',
   },
   {
     type: 'social',
@@ -73,7 +73,7 @@ const eventTypes = [
     price: 55,
     spots: 6,
     requirement: 'Must have completed Level 1 or equivalent',
-    description: 'Structured off-leash social for trained adult dogs. Small group, supervised by our trainers. Real socialization — not a dog park.',
+    description: 'Structured off-leash social for trained adult dogs. Small group, supervised by our trainers. Real socialization; not a dog park.',
   },
   {
     type: 'puppy',
@@ -97,7 +97,7 @@ function formatDate(dateStr: string) {
 }
 ---
 
-<Layout title="K9 Academy Events — Drop-Ins, Socials & More" description="Drop-in impulse control classes, adult dog socials, and puppy socials at K9 Academy Leaside. Limited spots.">
+<Layout title="K9 Academy Events | Drop-Ins, Socials & More" description="Drop-in impulse control classes, adult dog socials, and puppy socials at K9 Academy Leaside. Limited spots.">
   <Navbar />
 
   <section class="pt-28 sm:pt-36 pb-16 sm:pb-24 bg-neutral-950 min-h-screen">
@@ -115,11 +115,11 @@ function formatDate(dateStr: string) {
           Upcoming Events
         </h1>
         <p class="text-neutral-400 max-w-lg mx-auto">
-          Drop-in classes, dog socials, and puppy socials. Limited spots — book yours below.
+          Drop-in classes, dog socials, and puppy socials. Limited spots, book yours below.
         </p>
       </div>
 
-      <!-- Event type cards — always visible -->
+      <!-- Event type cards. always visible -->
       <div class="space-y-6">
         {eventTypes.map((et) => {
           const config = typeConfig[et.type] || typeConfig.impulse;
@@ -169,7 +169,7 @@ function formatDate(dateStr: string) {
                   </div>
                 ) : (
                   <div class="flex items-center justify-between gap-4">
-                    <p class="text-neutral-500 text-sm">No dates scheduled yet — get notified when we add one.</p>
+                    <p class="text-neutral-500 text-sm">No dates scheduled yet, get notified when we add one.</p>
                     <a href="/#contact" class="inline-flex items-center gap-1.5 px-4 py-2 bg-white/5 border border-white/10 text-white text-xs font-semibold rounded-lg hover:border-k9-orange/30 hover:bg-white/10 transition-all whitespace-nowrap">
                       <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" /></svg>
                       Notify Me
@@ -188,7 +188,7 @@ function formatDate(dateStr: string) {
         <ul class="space-y-1.5 text-neutral-400 text-sm">
           <li class="flex items-start gap-2">
             <svg class="w-4 h-4 text-k9-orange mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-            Book and pay online — your spot is confirmed immediately
+            Book and pay online, your spot is confirmed immediately
           </li>
           <li class="flex items-start gap-2">
             <svg class="w-4 h-4 text-k9-orange mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
@@ -196,7 +196,7 @@ function formatDate(dateStr: string) {
           </li>
           <li class="flex items-start gap-2">
             <svg class="w-4 h-4 text-k9-orange mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-            Spots are limited and non-refundable — please give 24hr notice to reschedule
+            Spots are limited and non-refundable, please give 24hr notice to reschedule
           </li>
         </ul>
       </div>

@@ -32,7 +32,7 @@ const { puppy = false } = Astro.props;
             { val: 'separation', label: 'Can\'t be left alone' },
             { val: 'settling', label: 'Can\'t settle or relax at home' },
             { val: 'aggression', label: 'Aggression toward people or dogs' },
-            { val: 'general', label: 'General obedience — needs a tune-up' },
+            { val: 'general', label: 'General obedience. needs a tune-up' },
             { val: 'puppy', label: 'Just got a puppy' },
           ].map((opt) => (
             <button type="button" class="quiz-option group flex items-center justify-center px-4 py-4 rounded-xl border border-white/10 bg-white/5 text-center hover:border-k9-orange/50 hover:bg-k9-orange/5 transition-all" data-field="challenge" data-value={opt.val}>
@@ -55,9 +55,9 @@ const { puppy = false } = Astro.props;
         <h3 class="text-lg font-bold text-white text-center mb-6">Does your dog pull on leash?</h3>
         <div class="grid gap-3">
           {[
-            { val: '3', label: 'Rarely — walks nicely most of the time' },
-            { val: '2', label: 'Sometimes — depends on distractions' },
-            { val: '1', label: 'Constantly — every single walk' },
+            { val: '3', label: 'Rarely. walks nicely most of the time' },
+            { val: '2', label: 'Sometimes. depends on distractions' },
+            { val: '1', label: 'Constantly. every single walk' },
           ].map((opt) => (
             <button type="button" class="quiz-option group flex items-center justify-center px-4 py-4 rounded-xl border border-white/10 bg-white/5 text-center hover:border-k9-orange/50 hover:bg-k9-orange/5 transition-all" data-field="leash" data-value={opt.val}>
               <span class="text-sm font-medium text-neutral-300 group-hover:text-white transition-colors">{opt.label}</span>
@@ -97,7 +97,7 @@ const { puppy = false } = Astro.props;
           {[
             { val: '3', label: 'Yes, almost every time' },
             { val: '2', label: 'Only when there are no distractions' },
-            { val: '1', label: 'Almost never — I don\'t trust it' },
+            { val: '1', label: 'Almost never. I don\'t trust it' },
           ].map((opt) => (
             <button type="button" class="quiz-option group flex items-center justify-center px-4 py-4 rounded-xl border border-white/10 bg-white/5 text-center hover:border-k9-orange/50 hover:bg-k9-orange/5 transition-all" data-field="recall" data-value={opt.val}>
               <span class="text-sm font-medium text-neutral-300 group-hover:text-white transition-colors">{opt.label}</span>
@@ -135,9 +135,9 @@ const { puppy = false } = Astro.props;
         <h3 class="text-lg font-bold text-white text-center mb-6">Does your dog settle at home without being told?</h3>
         <div class="grid gap-3">
           {[
-            { val: '3', label: 'Yes — relaxes on their own' },
+            { val: '3', label: 'Yes. relaxes on their own' },
             { val: '2', label: 'Sometimes, but often restless or needy' },
-            { val: '1', label: 'Rarely — always pacing, barking, or following me' },
+            { val: '1', label: 'Rarely. always pacing, barking, or following me' },
           ].map((opt) => (
             <button type="button" class="quiz-option group flex items-center justify-center px-4 py-4 rounded-xl border border-white/10 bg-white/5 text-center hover:border-k9-orange/50 hover:bg-k9-orange/5 transition-all" data-field="settling" data-value={opt.val}>
               <span class="text-sm font-medium text-neutral-300 group-hover:text-white transition-colors">{opt.label}</span>
@@ -200,8 +200,8 @@ const { puppy = false } = Astro.props;
         <div class="grid gap-3">
           {[
             { val: '3', label: 'Rarely' },
-            { val: '2', label: 'Sometimes — mostly during play' },
-            { val: '1', label: 'Constantly — hands, feet, furniture' },
+            { val: '2', label: 'Sometimes. mostly during play' },
+            { val: '1', label: 'Constantly. hands, feet, furniture' },
           ].map((opt) => (
             <button type="button" class="quiz-option group flex items-center justify-center px-4 py-4 rounded-xl border border-white/10 bg-white/5 text-center hover:border-k9-orange/50 hover:bg-k9-orange/5 transition-all" data-field="nipping" data-value={opt.val}>
               <span class="text-sm font-medium text-neutral-300 group-hover:text-white transition-colors">{opt.label}</span>
@@ -220,7 +220,7 @@ const { puppy = false } = Astro.props;
         <div class="grid gap-3">
           {[
             { val: '3', label: 'Yes, fully' },
-            { val: '2', label: 'Getting there — occasional accidents' },
+            { val: '2', label: 'Getting there. occasional accidents' },
             { val: '1', label: 'Not at all' },
           ].map((opt) => (
             <button type="button" class="quiz-option group flex items-center justify-center px-4 py-4 rounded-xl border border-white/10 bg-white/5 text-center hover:border-k9-orange/50 hover:bg-k9-orange/5 transition-all" data-field="potty" data-value={opt.val}>
@@ -299,9 +299,9 @@ const { puppy = false } = Astro.props;
         <h3 class="text-lg font-bold text-white text-center mb-6">Can your puppy relax and settle at home?</h3>
         <div class="grid gap-3">
           {[
-            { val: '3', label: 'Yes — can lie down and chill on their own' },
+            { val: '3', label: 'Yes. can lie down and chill on their own' },
             { val: '2', label: 'Sometimes, but mostly follows me everywhere' },
-            { val: '1', label: 'Never settles — constantly wired, pacing, or restless' },
+            { val: '1', label: 'Never settles. constantly wired, pacing, or restless' },
           ].map((opt) => (
             <button type="button" class="quiz-option group flex items-center justify-center px-4 py-4 rounded-xl border border-white/10 bg-white/5 text-center hover:border-k9-orange/50 hover:bg-k9-orange/5 transition-all" data-field="puppy_calmness" data-value={opt.val}>
               <span class="text-sm font-medium text-neutral-300 group-hover:text-white transition-colors">{opt.label}</span>
@@ -319,9 +319,9 @@ const { puppy = false } = Astro.props;
         <h3 class="text-lg font-bold text-white text-center mb-6">Does your puppy bark, whine, or paw at you for attention?</h3>
         <div class="grid gap-3">
           {[
-            { val: '3', label: 'Rarely — waits patiently' },
-            { val: '2', label: 'Sometimes — nudges or whines when they want something' },
-            { val: '1', label: 'Constantly — barks, paws, or demands attention nonstop' },
+            { val: '3', label: 'Rarely. waits patiently' },
+            { val: '2', label: 'Sometimes. nudges or whines when they want something' },
+            { val: '1', label: 'Constantly. barks, paws, or demands attention nonstop' },
           ].map((opt) => (
             <button type="button" class="quiz-option group flex items-center justify-center px-4 py-4 rounded-xl border border-white/10 bg-white/5 text-center hover:border-k9-orange/50 hover:bg-k9-orange/5 transition-all" data-field="puppy_demanding" data-value={opt.val}>
               <span class="text-sm font-medium text-neutral-300 group-hover:text-white transition-colors">{opt.label}</span>
@@ -331,7 +331,7 @@ const { puppy = false } = Astro.props;
       </div>
 
       <!-- ═══════════════════════════════════ -->
-      <!-- Results — email gate               -->
+      <!-- Results. email gate               -->
       <!-- ═══════════════════════════════════ -->
       <div class="quiz-step hidden" data-step="result">
         <div class="text-center mb-6">

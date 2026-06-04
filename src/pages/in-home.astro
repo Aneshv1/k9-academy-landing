@@ -5,83 +5,111 @@ import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 ---
 
-<Layout title="Private In-Home Training with Anesh | K9 Academy" description="Exclusive one-on-one dog training in your home with K9 Academy founder Anesh. Premium, private, results-driven. By application only.">
+<Layout title="In-Home Private Training with Anesh | K9 Academy Toronto" description="Premium in-home dog training in Toronto with K9 Academy's senior trainers. $625/session. Your home. Your dog. Real results. By application only.">
   <Navbar />
 
-  <!-- HERO — Dark, premium feel -->
-  <section class="relative pt-28 sm:pt-36 pb-20 sm:pb-28 bg-neutral-950 overflow-hidden">
+  <!-- HERO. Above the fold -->
+  <section class="relative pt-28 sm:pt-36 pb-16 sm:pb-24 bg-neutral-950 overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(232,97,26,0.06),transparent_60%)] pointer-events-none"></div>
 
     <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full mb-6">
-        <span class="w-2 h-2 rounded-full bg-k9-orange"></span>
-        <span class="text-neutral-400 font-semibold text-[10px] uppercase tracking-[0.2em]">By Application Only</span>
+      <!-- Google rating pill -->
+      <div class="inline-flex items-center gap-2.5 bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10 mb-6">
+        <svg class="w-5 h-5" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+        </svg>
+        <span class="text-sm font-semibold text-white">4.9/5</span>
+        <span class="w-px h-4 bg-white/20"></span>
+        <span class="text-sm text-neutral-400">250+ Reviews</span>
       </div>
 
+      <!-- Headline: End Result + Time + Emotional Payoff -->
       <h1 class="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-5">
-        Private In-Home Training<br/>
-        <span class="bg-gradient-to-r from-k9-orange to-amber-400 bg-clip-text text-transparent">with our Senior Trainers</span>
+        Your dog trained in your home —<br/>
+        <span class="bg-gradient-to-r from-k9-orange to-amber-400 bg-clip-text text-transparent">by the people who built K9 Academy</span>
       </h1>
 
+      <!-- Sub-headline: Pain + Differentiator -->
       <p class="text-lg text-neutral-400 max-w-xl mx-auto leading-relaxed mb-8">
-        One-on-one training in your home with Anesh or one of K9 Academy's top-level trainers. No group settings. No distractions. Just you, your dog, and elite-level experience — in the environment that matters most.
+        Most training falls apart the second your dog gets home. We skip that step entirely. One-on-one sessions in your environment, with Anesh or a senior trainer. No classroom. No commute. Just results where they actually matter.
       </p>
 
-      <div class="flex items-center justify-center gap-6 mb-10">
-        <div class="text-center">
-          <p class="text-3xl font-extrabold text-white">15+</p>
-          <p class="text-[10px] text-neutral-500 uppercase tracking-widest mt-1">Years</p>
-        </div>
-        <span class="w-px h-10 bg-white/10"></span>
-        <div class="text-center">
-          <p class="text-3xl font-extrabold text-white">10K+</p>
-          <p class="text-[10px] text-neutral-500 uppercase tracking-widest mt-1">Dogs</p>
-        </div>
-        <span class="w-px h-10 bg-white/10"></span>
-        <div class="text-center">
-          <p class="text-3xl font-extrabold text-white">1:1</p>
-          <p class="text-[10px] text-neutral-500 uppercase tracking-widest mt-1">With Anesh</p>
-        </div>
-      </div>
-
+      <!-- CTA -->
       <a href="#apply" class="inline-flex items-center px-8 py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30 hover:shadow-xl hover:-translate-y-0.5">
         Apply for In-Home Training
         <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
         </svg>
       </a>
+
+      <!-- FUD reducers -->
+      <div class="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2">
+        {['Same-day response from Anesh', 'No obligation', 'Pay per session'].map((item) => (
+          <div class="flex items-center gap-1.5 text-sm text-neutral-500">
+            <svg class="w-4 h-4 text-k9-orange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+            <span>{item}</span>
+          </div>
+        ))}
+      </div>
+
+      <!-- Badge -->
+      <div class="mt-10 inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full">
+        <span class="w-2 h-2 rounded-full bg-k9-orange"></span>
+        <span class="text-neutral-400 font-semibold text-[10px] uppercase tracking-[0.2em]">By Application Only. Limited Availability</span>
+      </div>
     </div>
   </section>
 
-  <!-- WHY IN-HOME -->
+  <!-- PAS. Pain, Agitate, Solve -->
   <section class="py-16 sm:py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900">
-          Why clients choose in-home
-        </h2>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Problem -->
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900 mb-4 text-center">
+        Your dog behaves at the trainer's facility.<br/>Then you get home and it all falls apart.
+      </h2>
+      <!-- Agitate -->
+      <p class="text-neutral-500 text-center max-w-xl mx-auto mb-10 leading-relaxed">
+        You've spent thousands on group classes and private sessions. Your dog sits perfectly at the training centre. But the second the doorbell rings, a guest walks in, or you try to leave the house. it's like the training never happened. Sound familiar?
+      </p>
+      <!-- Solve -->
+      <div class="rounded-2xl bg-neutral-50 border border-neutral-200 p-8 text-center">
+        <p class="text-k9-orange font-semibold text-sm uppercase tracking-wide mb-3">Here's what's different</p>
+        <p class="text-neutral-900 font-bold text-lg mb-3">We train your dog where the problems actually happen.</p>
+        <p class="text-neutral-500 text-sm leading-relaxed max-w-lg mx-auto">
+          Doorbell reactivity? We're at your front door. Separation anxiety? We're in your living room. Aggression with guests? We bring the triggers to you. Your dog learns in the environment where it needs to perform; not a controlled classroom they'll never see again.
+        </p>
       </div>
+    </div>
+  </section>
 
+  <!-- VALUE PROPS. Feature + Derived Benefit -->
+  <section class="py-16 sm:py-20 bg-neutral-50 border-y border-neutral-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid sm:grid-cols-2 gap-5">
         {[
           {
-            title: 'Your dog learns where it matters',
-            desc: 'Most behavioural issues happen at home — guests arriving, doorbell reactivity, settling, separation anxiety. We fix it where it happens.',
+            title: 'Train with the people who built K9 Academy; not a junior hire',
+            desc: 'Anesh or one of our senior trainers. 15 years, 10,000+ dogs. The same people behind every program, every result, every 5-star review.',
           },
           {
-            title: 'Train with the best we have',
-            desc: 'Anesh or one of our senior trainers — not a junior, not a recent hire. The same people who built K9 Academy\'s reputation.',
+            title: 'Results in your environment; not a training room you\'ll never visit again',
+            desc: 'Most training fails at home because it was never trained at home. We fix that by working where the problems actually happen.',
           },
           {
-            title: 'Completely private',
-            desc: 'No other dogs. No other clients. No waiting rooms. Your session. Your schedule. Your home.',
+            title: 'Completely private. your session, your schedule, your terms',
+            desc: 'No other dogs. No other clients. No driving across the city. We come to you, when it works for you.',
           },
           {
-            title: 'For clients who value their time',
-            desc: 'No commute to a facility. No parking. No scheduling around group class times. We come to you, on your terms.',
+            title: 'For people who value results over convenience theatre',
+            desc: 'This isn\'t the cheapest option. It\'s the one that works. One session here replaces weeks of group classes that don\'t transfer.',
           },
         ].map((item) => (
-          <div class="flex gap-4 p-5 rounded-2xl border border-neutral-100 hover:border-k9-orange/20 transition-all">
+          <div class="flex gap-4 p-5 rounded-2xl bg-white border border-neutral-100">
             <svg class="w-5 h-5 text-k9-orange mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
@@ -95,138 +123,175 @@ import '../styles/global.css';
     </div>
   </section>
 
-  <!-- PRICING -->
-  <section class="py-16 sm:py-20 bg-neutral-50 border-y border-neutral-100">
+  <!-- SOCIAL PROOF. Micro case study -->
+  <section class="py-16 sm:py-20 bg-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-10">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900 mb-3">Investment</h2>
-        <p class="text-neutral-500 text-sm">Each session is 60 minutes, one-on-one with Anesh, in your home.</p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 gap-5">
-        <!-- Within 10km -->
-        <div class="rounded-2xl p-6 bg-white border-2 border-k9-orange/30 ring-1 ring-k9-orange/10 shadow-md relative">
-          <div class="absolute -top-3 left-6">
-            <span class="inline-flex items-center px-3 py-1 bg-k9-orange text-white text-[10px] font-bold rounded-lg uppercase tracking-wide">Standard</span>
-          </div>
-          <div class="mt-2">
-            <p class="text-3xl font-extrabold text-neutral-900 mb-1">$625<span class="text-base font-medium text-neutral-400"> / session</span></p>
-            <p class="text-neutral-500 text-sm mb-4">Within 10km of Leaside</p>
-            <ul class="space-y-2 text-sm text-neutral-600">
-              {['60-minute private session', 'In your home', 'With a senior trainer', 'Custom plan for your dog', 'E-collar & tools included'].map((item) => (
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-k9-orange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  {item}
-                </li>
-              ))}
-            </ul>
+      <div class="rounded-2xl bg-neutral-50 border border-neutral-200 p-8">
+        <div class="flex items-center gap-2 mb-4">
+          <svg class="w-5 h-5" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+          </svg>
+          <div class="flex items-center gap-0.5">
+            {[1,2,3,4,5].map(() => (
+              <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
           </div>
         </div>
-
-        <!-- Beyond 10km -->
-        <div class="rounded-2xl p-6 bg-white border border-neutral-200">
-          <div class="mt-2">
-            <p class="text-3xl font-extrabold text-neutral-900 mb-1">$750<span class="text-base font-medium text-neutral-400"> / session</span></p>
-            <p class="text-neutral-500 text-sm mb-4">Beyond 10km of Leaside</p>
-            <ul class="space-y-2 text-sm text-neutral-600">
-              {['60-minute private session', 'In your home', 'With a senior trainer', 'Custom plan for your dog', 'E-collar & tools included', 'Extended travel included'].map((item) => (
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-k9-orange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        <blockquote class="text-lg font-semibold text-neutral-900 leading-relaxed mb-4">
+          "We had Anesh come to our house because our dog was aggressive with anyone who walked through the front door. Two sessions. Two. The dog that used to lunge at our guests now sits and waits for them to come in. My wife cried."
+        </blockquote>
+        <p class="text-neutral-500 text-sm">— In-home client · Rosedale · GSD, 4 years</p>
       </div>
-
-      <p class="text-center text-neutral-400 text-xs mt-6">Pay per session. No commitment required. 24-hour cancellation policy.</p>
     </div>
   </section>
 
-  <!-- WHO THIS IS FOR -->
+  <!-- PRICING. Single card -->
   <section class="py-16 sm:py-20 bg-neutral-900">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-2xl font-extrabold text-white mb-6">This is for you if</h2>
-      <div class="grid sm:grid-cols-2 gap-4 text-left">
-        {[
-          'You want the best — not the most convenient',
-          'Your schedule doesn\'t accommodate group classes',
-          'You want your dog trained in your actual environment',
-          'Privacy matters to you',
-          'You\'ve tried other trainers and need someone who gets results',
-          'You want to work with the people who built K9 Academy',
-        ].map((item) => (
-          <div class="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
-            <svg class="w-4 h-4 text-k9-orange mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-            <p class="text-neutral-300 text-sm">{item}</p>
-          </div>
-        ))}
+    <div class="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-2xl p-8 bg-white text-center shadow-2xl">
+        <p class="text-k9-orange font-semibold text-xs uppercase tracking-widest mb-4">Investment</p>
+        <p class="text-5xl font-extrabold text-neutral-900 mb-1">$625</p>
+        <p class="text-neutral-400 text-sm mb-6">per session · 60 minutes · in your home</p>
+
+        <ul class="space-y-3 text-sm text-neutral-600 text-left mb-6">
+          {[
+            'One-on-one with Anesh or a senior trainer',
+            'Training in your actual environment',
+            'Custom plan built around your dog\'s specific issues',
+            'E-collar and all tools included',
+            'No commitment. pay per session',
+            'Results in the place that matters most',
+          ].map((item) => (
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-k9-orange mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              {item}
+            </li>
+          ))}
+        </ul>
+
+        <a href="#apply" class="inline-flex items-center justify-center w-full py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/20">
+          Apply Now
+        </a>
+        <p class="text-neutral-400 text-xs mt-3">A travel fee may apply for locations outside the Toronto core.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR. Qualification -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-extrabold text-neutral-900 mb-8 text-center">This isn't for everyone.</h2>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <!-- Green. who it's for -->
+        <div class="rounded-2xl p-6 bg-emerald-50 border border-emerald-100">
+          <p class="text-emerald-700 font-bold text-sm mb-3">This is for you if:</p>
+          <ul class="space-y-2">
+            {[
+              'You want the best. not the most convenient',
+              'Your schedule doesn\'t fit group class times',
+              'Your dog\'s issues happen at home, not a facility',
+              'Privacy matters to you',
+              'You\'ve tried other trainers and need someone who delivers',
+            ].map((item) => (
+              <li class="flex items-start gap-2 text-sm text-emerald-800">
+                <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <!-- Red. who it's not for -->
+        <div class="rounded-2xl p-6 bg-red-50 border border-red-100">
+          <p class="text-red-700 font-bold text-sm mb-3">This is not for you if:</p>
+          <ul class="space-y-2">
+            {[
+              'You\'re shopping for the cheapest option',
+              'You want a quick fix without putting in the work',
+              'You\'re not willing to follow through between sessions',
+              'You expect results without consistency',
+              'You\'re looking for a dog walker, not a trainer',
+            ].map((item) => (
+              <li class="flex items-start gap-2 text-sm text-red-800">
+                <svg class="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- APPLICATION FORM -->
-  <section id="apply" class="py-16 sm:py-20 bg-white">
+  <section id="apply" class="py-16 sm:py-20 bg-neutral-50 border-t border-neutral-100">
     <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8">
         <h2 class="text-2xl font-extrabold text-neutral-900 mb-2">Apply for In-Home Training</h2>
-        <p class="text-neutral-500 text-sm">Spots are limited. Tell us about your dog and we'll confirm availability.</p>
+        <p class="text-neutral-500 text-sm">Spots are limited. Tell us about your dog and we'll confirm availability within 24 hours.</p>
       </div>
 
-      <form id="inhome-form" class="space-y-4">
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div>
-            <label for="ih-name" class="block text-sm font-medium text-neutral-700 mb-1">Your Name</label>
-            <input type="text" id="ih-name" name="name" required
-              class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm"
-              placeholder="First & last name" />
+      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-neutral-200">
+        <form id="inhome-form" class="space-y-4">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label for="ih-name" class="block text-sm font-medium text-neutral-700 mb-1">Your Name</label>
+              <input type="text" id="ih-name" name="name" required
+                class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm"
+                placeholder="First & last name" />
+            </div>
+            <div>
+              <label for="ih-phone" class="block text-sm font-medium text-neutral-700 mb-1">Phone</label>
+              <input type="tel" id="ih-phone" name="phone" required
+                class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm"
+                placeholder="(416) 555-1234" />
+            </div>
           </div>
+
           <div>
-            <label for="ih-phone" class="block text-sm font-medium text-neutral-700 mb-1">Phone</label>
-            <input type="tel" id="ih-phone" name="phone" required
+            <label for="ih-email" class="block text-sm font-medium text-neutral-700 mb-1">Email</label>
+            <input type="email" id="ih-email" name="email" required
               class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm"
-              placeholder="(416) 555-1234" />
+              placeholder="you@email.com" />
           </div>
-        </div>
 
-        <div>
-          <label for="ih-email" class="block text-sm font-medium text-neutral-700 mb-1">Email</label>
-          <input type="email" id="ih-email" name="email" required
-            class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm"
-            placeholder="you@email.com" />
-        </div>
+          <div>
+            <label for="ih-address" class="block text-sm font-medium text-neutral-700 mb-1">Your Neighbourhood</label>
+            <input type="text" id="ih-address" name="address"
+              class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm"
+              placeholder="e.g. Forest Hill, Rosedale, Yorkville, Lawrence Park" />
+          </div>
 
-        <div>
-          <label for="ih-address" class="block text-sm font-medium text-neutral-700 mb-1">Your Address / Neighbourhood</label>
-          <input type="text" id="ih-address" name="address"
-            class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm"
-            placeholder="e.g. Forest Hill, Rosedale, Yorkville" />
-        </div>
+          <div>
+            <label for="ih-dog" class="block text-sm font-medium text-neutral-700 mb-1">What are you dealing with?</label>
+            <textarea id="ih-dog" name="dog_info" rows="3"
+              class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition resize-none text-sm"
+              placeholder="Dog's breed, age, and the specific issues. reactivity, aggression, separation anxiety, recall, etc."></textarea>
+          </div>
 
-        <div>
-          <label for="ih-dog" class="block text-sm font-medium text-neutral-700 mb-1">Dog's Breed, Age & Issues</label>
-          <textarea id="ih-dog" name="dog_info" rows="3"
-            class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition resize-none text-sm"
-            placeholder="Tell us about your dog and what you're dealing with"></textarea>
-        </div>
+          <button type="submit" id="ih-submit"
+            class="w-full py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/20 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed">
+            Submit Application
+          </button>
+          <p class="text-center text-neutral-400 text-xs">We respond to every application personally. Usually within hours.</p>
+        </form>
 
-        <button type="submit" id="ih-submit"
-          class="w-full py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/20 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed">
-          Submit Application
-        </button>
-      </form>
-
-      <div id="ih-success" class="hidden text-center py-8">
-        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-k9-orange/10 flex items-center justify-center">
-          <svg class="w-8 h-8 text-k9-orange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-          </svg>
+        <div id="ih-success" class="hidden text-center py-8">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-k9-orange/10 flex items-center justify-center">
+            <svg class="w-8 h-8 text-k9-orange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 mb-2">Application received.</h3>
+          <p class="text-neutral-500">We'll review your application and be in touch within 24 hours.</p>
         </div>
-        <h3 class="text-xl font-bold text-neutral-900 mb-2">Application received</h3>
-        <p class="text-neutral-500">Our team will review your application and be in touch within 24 hours.</p>
       </div>
     </div>
   </section>
@@ -257,7 +322,7 @@ import '../styles/global.css';
           phone: data.phone,
           dog_info: data.dog_info,
           service: 'in_home_private',
-          message: `In-Home Training Application\nAddress: ${data.address || '—'}\nDog: ${data.dog_info || '—'}`,
+          message: `IN-HOME APPLICATION\nNeighbourhood: ${data.address || '—'}\nIssues: ${data.dog_info || '—'}`,
         }),
       });
 

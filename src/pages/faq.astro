@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 ---
 
-<Layout title="FAQ — Dog Training Questions Answered | K9 Academy Toronto" description="Answers to the most common questions about dog training in Toronto — pricing, programs, what to expect, reactive dogs, aggressive dogs, puppies, and more.">
+<Layout title="FAQ. Dog Training Questions Answered | K9 Academy Toronto" description="Answers to the most common questions about dog training in Toronto. pricing, programs, what to expect, reactive dogs, aggressive dogs, puppies, and more.">
   <Navbar />
 
   <section class="pt-28 sm:pt-32 pb-10 sm:pb-14 bg-brand-dark">
@@ -27,10 +27,10 @@ import '../styles/global.css';
         </h2>
         <div class="space-y-3">
           {[
-            { q: 'What breeds do you work with?', a: 'Every breed. Labs, Huskies, Pit Bulls, Doodles, Frenchies, Malinois, German Shepherds, rescues — we\'ve trained them all. The method works regardless of breed, size, or background.' },
-            { q: 'Is my dog too old to start training?', a: 'No. It\'s never too late. We\'ve trained dogs of every age — puppies to seniors. Older dogs can absolutely learn new behaviours and break old habits.' },
+            { q: 'What breeds do you work with?', a: 'Every breed. Labs, Huskies, Pit Bulls, Doodles, Frenchies, Malinois, German Shepherds, rescues. we\'ve trained them all. The method works regardless of breed, size, or background.' },
+            { q: 'Is my dog too old to start training?', a: 'No. It\'s never too late. We\'ve trained dogs of every age. puppies to seniors. Older dogs can absolutely learn new behaviours and break old habits.' },
             { q: 'Do you use e-collars and prong collars?', a: 'Yes, when appropriate. Our trainers may employ tools they deem necessary to achieve your training goals, including prong collars, slip leads, muzzles, crates, and e-collars. These tools are introduced gradually and only when the dog will benefit. Many clients who were initially skeptical report it was the breakthrough their dog needed.' },
-            { q: 'Do you take aggressive dogs or dogs with bite history?', a: 'Yes. There has never been a case we couldn\'t help. We specialize in the dogs other trainers turn down — severe aggression, multiple bite incidents, multi-dog fighting, extreme anxiety. If your dog has a problem, we can fix it.' },
+            { q: 'Do you take aggressive dogs or dogs with bite history?', a: 'Yes. There has never been a case we couldn\'t help. We specialize in the dogs other trainers turn down. severe aggression, multiple bite incidents, multi-dog fighting, extreme anxiety. If your dog has a problem, we can fix it.' },
             { q: 'Where are you located?', a: 'We have two locations. Training facility in Leaside: 16-30 Canvarco Rd, Toronto, ON M4G 1L3. Board & Train and daycare facility in Stouffville: 22 Cardico Dr, Gormley, ON. Plenty of free parking at both locations.' },
           ].map((faq) => (
             <details class="group rounded-2xl border border-neutral-200/60 bg-neutral-50 hover:border-neutral-300 transition-all">
@@ -53,10 +53,10 @@ import '../styles/global.css';
         <div class="space-y-3">
           {[
             { q: 'How much are group classes?', a: 'Each level is $595. The Level 1 + 2 bundle is $995, saving you $195. Classes run for 6 weeks at our Leaside location.' },
-            { q: 'What level does my dog start at?', a: 'Everyone starts at Level 1 regardless of experience. Our Level 1 covers more than most training centres teach in their entire program. The only exception is if your dog trained with a facility we specifically approve — which is very rare.' },
-            { q: '"I tried group classes before and they didn\'t work."', a: 'We hear this all the time. Most group programs are watered down. Ours is built to deliver board & train level results at a fraction of the cost. Watch the Level 1 test videos on our group classes page — that\'s what 6 weeks looks like.' },
-            { q: 'My dog is reactive — can they handle group class?', a: 'Yes. The group setting is actually ideal for reactive dogs because it provides controlled exposure to real distractions. Our trainers manage spacing and work with each dog individually within the group. Some of our best transformations come from reactive dogs.' },
-            { q: 'What if I miss a session?', a: 'We\'ll reschedule you into another class that week so you don\'t fall behind. Life happens — we make it work.' },
+            { q: 'What level does my dog start at?', a: 'Everyone starts at Level 1 regardless of experience. Our Level 1 covers more than most training centres teach in their entire program. The only exception is if your dog trained with a facility we specifically approve. which is very rare.' },
+            { q: '"I tried group classes before and they didn\'t work."', a: 'We hear this all the time. Most group programs are watered down. Ours is built to deliver board & train level results at a fraction of the cost. Watch the Level 1 test videos on our group classes page. that\'s what 6 weeks looks like.' },
+            { q: 'My dog is reactive. can they handle group class?', a: 'Yes. The group setting is actually ideal for reactive dogs because it provides controlled exposure to real distractions. Our trainers manage spacing and work with each dog individually within the group. Some of our best transformations come from reactive dogs.' },
+            { q: 'What if I miss a session?', a: 'We\'ll reschedule you into another class that week so you don\'t fall behind. Life happens. we make it work.' },
           ].map((faq) => (
             <details class="group rounded-2xl border border-neutral-200/60 bg-neutral-50 hover:border-neutral-300 transition-all">
               <summary class="flex items-center justify-between cursor-pointer p-5 text-left">
@@ -78,10 +78,10 @@ import '../styles/global.css';
         <div class="space-y-3">
           {[
             { q: 'How much does private training cost?', a: 'Our 6-session Advanced Obedience program is $1,350 and the 8-session Behaviour Modification program is $1,685. Both include an e-collar and professional training tools worth $350, plus group class passes. Financing is available through Affirm.' },
-            { q: 'How fast will I see results?', a: 'Most clients see a noticeable change in the first session — especially with leash walking and impulse control. By session 3-4, the transformation is clear. By session 6-8, your dog is proofed in real-world environments and off-leash reliable.' },
-            { q: '"I\'ve tried other trainers and nothing worked."', a: 'We hear this almost every week. Most trainers teach tricks and manage symptoms. We fix the root cause. The difference is in the approach — we use every tool necessary to create real, lasting change. Read our reviews — the majority of our clients came to us after other trainers failed.' },
-            { q: 'Can you help with problems specific to my home?', a: 'That\'s exactly what private training is for. We train at our facility first to build the foundation, then we can come to your home to address environment-specific issues — door reactivity, guest behaviour, resource guarding, separation anxiety. We work where the problem actually happens.' },
-            { q: 'What issues can private training fix?', a: 'Leash reactivity, dog-to-dog aggression, multi-dog fighting, human aggression, in-home reactivity, separation anxiety, resource guarding, off-leash recall, stranger fear, on and off-leash obedience — and anything else. There has never been a case we couldn\'t help.' },
+            { q: 'How fast will I see results?', a: 'Most clients see a noticeable change in the first session. especially with leash walking and impulse control. By session 3-4, the transformation is clear. By session 6-8, your dog is proofed in real-world environments and off-leash reliable.' },
+            { q: '"I\'ve tried other trainers and nothing worked."', a: 'We hear this almost every week. Most trainers teach tricks and manage symptoms. We fix the root cause. The difference is in the approach. we use every tool necessary to create real, lasting change. Read our reviews. the majority of our clients came to us after other trainers failed.' },
+            { q: 'Can you help with problems specific to my home?', a: 'That\'s exactly what private training is for. We train at our facility first to build the foundation, then we can come to your home to address environment-specific issues. door reactivity, guest behaviour, resource guarding, separation anxiety. We work where the problem actually happens.' },
+            { q: 'What issues can private training fix?', a: 'Leash reactivity, dog-to-dog aggression, multi-dog fighting, human aggression, in-home reactivity, separation anxiety, resource guarding, off-leash recall, stranger fear, on and off-leash obedience. and anything else. There has never been a case we couldn\'t help.' },
           ].map((faq) => (
             <details class="group rounded-2xl border border-neutral-200/60 bg-neutral-50 hover:border-neutral-300 transition-all">
               <summary class="flex items-center justify-between cursor-pointer p-5 text-left">
@@ -103,10 +103,10 @@ import '../styles/global.css';
         <div class="space-y-3">
           {[
             { q: 'How much does board and train cost?', a: 'Programs start at $2,995 for the 2 Week Express, $3,995+ for Behaviour Modification (4-6 weeks), and $4,995+ for Intensive Rehabilitation (6-8 weeks). Financing is available through Affirm.' },
-            { q: 'Will my dog forget everything when they come home?', a: 'No. Every program includes owner handoff sessions where we teach you how to maintain everything — same commands, same tools, same approach. You also get lifetime support and free access to all group programs after graduation. The training sticks because we train the owner too.' },
+            { q: 'Will my dog forget everything when they come home?', a: 'No. Every program includes owner handoff sessions where we teach you how to maintain everything. same commands, same tools, same approach. You also get lifetime support and free access to all group programs after graduation. The training sticks because we train the owner too.' },
             { q: 'What does my dog actually do all day?', a: 'Your dog gets 3-4 hours of structured training daily (not 20 minutes), daily daycare with supervised play and socialization, outdoor real-world experiences, crate training and settling practice, and structured walks. This is a full-time training program.' },
-            { q: 'What happens after graduation?', a: 'You get lifetime support — call us anytime with questions, send videos for feedback, bring your dog back for refresher sessions. You also get free access to all of our group class programs. No other board & train program offers this.' },
-            { q: '"I\'ve tried other board & train programs and it didn\'t work."', a: 'Most board & train programs are glorified boarding — your dog sits in a kennel and gets 20 minutes of training. Ours is a full-time program: 3-4 hours daily, plus socialization, outdoor experiences, and real-world proofing. Read our reviews — the majority of our clients came to us after something else failed.' },
+            { q: 'What happens after graduation?', a: 'You get lifetime support. call us anytime with questions, send videos for feedback, bring your dog back for refresher sessions. You also get free access to all of our group class programs. No other board & train program offers this.' },
+            { q: '"I\'ve tried other board & train programs and it didn\'t work."', a: 'Most board & train programs are glorified boarding; your dog sits in a kennel and gets 20 minutes of training. Ours is a full-time program: 3-4 hours daily, plus socialization, outdoor experiences, and real-world proofing. Read our reviews. the majority of our clients came to us after something else failed.' },
           ].map((faq) => (
             <details class="group rounded-2xl border border-neutral-200/60 bg-neutral-50 hover:border-neutral-300 transition-all">
               <summary class="flex items-center justify-between cursor-pointer p-5 text-left">
@@ -127,9 +127,9 @@ import '../styles/global.css';
         </h2>
         <div class="space-y-3">
           {[
-            { q: 'When should I start training my puppy?', a: 'As early as possible. We accept puppies from 8 weeks old. The first 6 months are the most critical window for socialization and habit formation. Waiting doesn\'t make things easier — it makes them harder.' },
+            { q: 'When should I start training my puppy?', a: 'As early as possible. We accept puppies from 8 weeks old. The first 6 months are the most critical window for socialization and habit formation. Waiting doesn\'t make things easier. it makes them harder.' },
             { q: 'What does the puppy program include?', a: 'Socialization, crate training, house training, basic obedience commands, no-bite training, and building confidence in new environments. The Foundation Program ($785) adds full Level 1 obedience.' },
-            { q: 'What is Puppy Start Right?', a: 'Our premium 3-stay board & train program for puppies ($3,995). Three 2-week stays spread across your puppy\'s first year — timed to their development stages. Your puppy graduates fully trained and off-leash reliable with no adolescent regression to undo.' },
+            { q: 'What is Puppy Start Right?', a: 'Our premium 3-stay board & train program for puppies ($3,995). Three 2-week stays spread across your puppy\'s first year. timed to their development stages. Your puppy graduates fully trained and off-leash reliable with no adolescent regression to undo.' },
             { q: 'How much does puppy training cost?', a: 'Puppy Program: $450 (4 sessions). Foundation Program: $785 (10 sessions, save $260). Puppy Start Right: $3,995 (3 board & train stays). Financing available through Affirm.' },
           ].map((faq) => (
             <details class="group rounded-2xl border border-neutral-200/60 bg-neutral-50 hover:border-neutral-300 transition-all">
@@ -166,8 +166,8 @@ import '../styles/global.css';
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "What breeds do you train?", "acceptedAnswer": { "@type": "Answer", "text": "Every breed. Labs, Huskies, Pit Bulls, Doodles, Frenchies, Malinois, German Shepherds, rescues — we've trained them all." }},
-    { "@type": "Question", "name": "Is my dog too old for training?", "acceptedAnswer": { "@type": "Answer", "text": "No. It's never too late. We've trained dogs of every age — puppies to seniors." }},
+    { "@type": "Question", "name": "What breeds do you train?", "acceptedAnswer": { "@type": "Answer", "text": "Every breed. Labs, Huskies, Pit Bulls, Doodles, Frenchies, Malinois, German Shepherds, rescues. we've trained them all." }},
+    { "@type": "Question", "name": "Is my dog too old for training?", "acceptedAnswer": { "@type": "Answer", "text": "No. It's never too late. We've trained dogs of every age. puppies to seniors." }},
     { "@type": "Question", "name": "Do you take aggressive dogs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. There has never been a case we couldn't help. We specialize in cases other trainers turn down." }},
     { "@type": "Question", "name": "How much are group classes in Toronto?", "acceptedAnswer": { "@type": "Answer", "text": "Each level is $595. The Level 1 + 2 bundle is $995, saving you $195." }},
     { "@type": "Question", "name": "How much does private dog training cost in Toronto?", "acceptedAnswer": { "@type": "Answer", "text": "6-session Advanced Obedience is $1,350 and 8-session Behaviour Modification is $1,685. Both include e-collar and tools worth $350." }},

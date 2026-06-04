@@ -79,7 +79,7 @@ export const POST: APIRoute = async ({ request }) => {
           from: notifyFrom,
           to: notifyTo,
           replyTo: email,
-          subject: `New lead: ${name} — ${service || 'inquiry'}`,
+          subject: `New lead: ${name}. ${service || 'inquiry'}`,
           html,
           text,
         });
@@ -133,22 +133,22 @@ export const POST: APIRoute = async ({ request }) => {
           const val = s[key] ?? 0;
           const color = val === 3 ? '#10b981' : val === 2 ? '#f59e0b' : '#ef4444';
           const status = val === 3 ? 'Good' : val === 2 ? 'Could be better' : 'Needs work';
-          return `<tr><td style="padding:8px 12px;font-size:14px;color:#333">${escapeHtml(label)}</td><td style="padding:8px 12px;font-size:14px;font-weight:bold;color:${color};text-align:right">${val}/3 — ${status}</td></tr>`;
+          return `<tr><td style="padding:8px 12px;font-size:14px;color:#333">${escapeHtml(label)}</td><td style="padding:8px 12px;font-size:14px;font-weight:bold;color:${color};text-align:right">${val}/3. ${status}</td></tr>`;
         }).join('');
 
         const tips: string[] = [];
         if (isPuppy) {
-          if ((s.nipping ?? 3) <= 1) tips.push('Constant nipping is normal but needs redirection now. When your puppy bites, say "ouch" calmly, remove your hand, and offer a chew toy instead. Consistency is everything — every family member needs to do the same thing.');
+          if ((s.nipping ?? 3) <= 1) tips.push('Constant nipping is normal but needs redirection now. When your puppy bites, say "ouch" calmly, remove your hand, and offer a chew toy instead. Consistency is everything. every family member needs to do the same thing.');
           if ((s.potty ?? 3) <= 1) tips.push('Potty training at this age is about management, not correction. Take your puppy out every 30-45 minutes, after naps, after play, and after meals. Reward immediately when they go outside. Clean indoor accidents with enzyme cleaner.');
           if ((s.crate ?? 3) <= 1) tips.push('Crate panic usually means the crate was introduced too fast. Start by feeding meals inside it with the door open. Build up to closing the door for 5 seconds, then 30, then a minute. Never use the crate as punishment.');
           if ((s.puppy_recall ?? 3) <= 1) tips.push('Puppy recall is easiest to build now while your puppy still wants to follow you. Say their name in an excited voice, crouch down, and reward with a high-value treat every single time they come. Never call your puppy to punish them.');
-          if ((s.socialization ?? 3) <= 1) tips.push('The socialization window closes around 14-16 weeks. Expose your puppy to new people, sounds, surfaces, and environments daily — but let them approach at their own pace. Flooding a fearful puppy makes it worse.');
+          if ((s.socialization ?? 3) <= 1) tips.push('The socialization window closes around 14-16 weeks. Expose your puppy to new people, sounds, surfaces, and environments daily. but let them approach at their own pace. Flooding a fearful puppy makes it worse.');
           if (tips.length === 0) tips.push('Your puppy is in great shape! A structured puppy program will set lifelong habits and help you avoid the common teenage regression around 6-8 months.');
         } else {
-          if ((s.reactivity ?? 3) <= 1) tips.push('Your dog\'s reactivity is the #1 priority. Reactivity almost always gets worse without intervention — not better. Start by creating distance from triggers and rewarding calm behaviour.');
-          if ((s.alone ?? 3) <= 1) tips.push('Separation anxiety is a genuine panic response. Practice "boring departures" — pick up keys, put on shoes, then sit back down. Desensitize your dog to departure cues gradually.');
+          if ((s.reactivity ?? 3) <= 1) tips.push('Your dog\'s reactivity is the #1 priority. Reactivity almost always gets worse without intervention. not better. Start by creating distance from triggers and rewarding calm behaviour.');
+          if ((s.alone ?? 3) <= 1) tips.push('Separation anxiety is a genuine panic response. Practice "boring departures". pick up keys, put on shoes, then sit back down. Desensitize your dog to departure cues gradually.');
           if ((s.recall ?? 3) <= 1) tips.push('Off-leash recall starts at home with zero distractions. Say your dog\'s name once, reward when they look. Do this 10x a day for a week before trying it outside.');
-          if ((s.leash ?? 3) <= 1) tips.push('Stop walking the moment your dog pulls. Wait for slack, then continue. Painful the first few days — most dogs get it by day 4 or 5.');
+          if ((s.leash ?? 3) <= 1) tips.push('Stop walking the moment your dog pulls. Wait for slack, then continue. Painful the first few days. most dogs get it by day 4 or 5.');
           if ((s.aggression ?? 3) <= 1) tips.push('Aggression that involves snapping or biting needs professional help immediately. Manage the environment to prevent triggers while you seek a trainer.');
           if ((s.settling ?? 3) <= 1) tips.push('Teach the "place" command. Lure your dog onto a bed, reward them for staying. Start at 10 seconds and build up. This is one of the most transformative commands you can teach.');
           if (tips.length === 0) tips.push('Your dog is in solid shape. Targeted group classes or a tune-up session can take you from good to great.');
@@ -191,15 +191,15 @@ export const POST: APIRoute = async ({ request }) => {
           </div>
         `;
 
-        const quizText = `${scoreLabel} ${total}/${maxScore} — ${grade}.\n\n${Object.entries(areaLabels).map(([k, l]) => `${l}: ${s[k] ?? 0}/3`).join('\n')}\n\nK9 Academy · 437-778-5273 · contact@k9academy.ca`;
+        const quizText = `${scoreLabel} ${total}/${maxScore}. ${grade}.\n\n${Object.entries(areaLabels).map(([k, l]) => `${l}: ${s[k] ?? 0}/3`).join('\n')}\n\nK9 Academy · 437-778-5273 · contact@k9academy.ca`;
 
         await resend.emails.send({
           from: 'K9 Academy <contact@k9academy.ca>',
           to: email,
           replyTo: 'contact@k9academy.ca',
           subject: isPuppy
-            ? `Your puppy scored ${total}/${maxScore} — here's what to focus on`
-            : `Your dog scored ${total}/${maxScore} — here's the full breakdown`,
+            ? `Your puppy scored ${total}/${maxScore}. here's what to focus on`
+            : `Your dog scored ${total}/${maxScore}. here's the full breakdown`,
           html: quizHtml,
           text: quizText,
         });
