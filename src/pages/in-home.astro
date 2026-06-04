@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 ---
 
-<Layout title="In-Home Private Training with Anesh | K9 Academy Toronto" description="Premium in-home dog training in Toronto with K9 Academy's senior trainers. $625/session. Your home. Your dog. Real results. By application only.">
+<Layout title="In-Home Dog Training Toronto | Private Trainer Comes to You | K9 Academy" description="Private in-home dog training in Toronto. Our senior trainers come to your house to fix reactivity, aggression, separation anxiety, and doorbell reactivity where it actually happens. $625/session. 15+ years, 10,000+ dogs.">
   <Navbar />
 
   <!-- HERO. Above the fold -->
@@ -34,7 +34,7 @@ import '../styles/global.css';
 
       <!-- Sub-headline: Pain + Differentiator -->
       <p class="text-lg text-neutral-400 max-w-xl mx-auto leading-relaxed mb-8">
-        Most training falls apart the second your dog gets home. We skip that step entirely. One-on-one sessions in your environment, with Anesh or a senior trainer. No classroom. No commute. Just results where they actually matter.
+        Most training falls apart the second your dog gets home. We skip that step entirely. One-on-one sessions in your environment with Anesh or a senior trainer. Trusted by professionals, executives, and public figures across the GTA who need real results and complete discretion.
       </p>
 
       <!-- CTA -->
@@ -105,8 +105,8 @@ import '../styles/global.css';
             desc: 'No other dogs. No other clients. No driving across the city. We come to you, when it works for you.',
           },
           {
-            title: 'For people who value results over convenience theatre',
-            desc: 'This isn\'t the cheapest option. It\'s the one that works. One session here replaces weeks of group classes that don\'t transfer.',
+            title: 'Complete discretion for high-profile clients',
+            desc: 'We train dogs for professionals, executives, and public figures who need results without the spotlight. No social media posts. No name drops. Just results.',
           },
         ].map((item) => (
           <div class="flex gap-4 p-5 rounded-2xl bg-white border border-neutral-100">
@@ -146,6 +146,19 @@ import '../styles/global.css';
           "We had Anesh come to our house because our dog was aggressive with anyone who walked through the front door. Two sessions. Two. The dog that used to lunge at our guests now sits and waits for them to come in. My wife cried."
         </blockquote>
         <p class="text-neutral-500 text-sm">— In-home client · Rosedale · GSD, 4 years</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREAS SERVED — SEO -->
+  <section class="py-12 sm:py-16 bg-neutral-50 border-y border-neutral-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-xl font-extrabold text-neutral-900 mb-2">In-home dog training across Toronto's premier neighbourhoods</h2>
+      <p class="text-neutral-500 text-sm mb-6">We come to you. Serving Rosedale, Forest Hill, Yorkville, The Bridle Path, Lawrence Park, Moore Park, Summerhill, Leaside, The Annex, Casa Loma, Hoggs Hollow, and surrounding areas.</p>
+      <div class="flex flex-wrap justify-center gap-2">
+        {['Rosedale', 'Forest Hill', 'Yorkville', 'The Bridle Path', 'Lawrence Park', 'Moore Park', 'Summerhill', 'Leaside', 'The Annex', 'Casa Loma', 'Hoggs Hollow', 'Davisville', 'Midtown', 'North Toronto', 'Don Mills'].map((area) => (
+          <span class="px-3 py-1.5 bg-white border border-neutral-200 rounded-full text-xs text-neutral-600">{area}</span>
+        ))}
       </div>
     </div>
   </section>
