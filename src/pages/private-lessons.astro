@@ -5,6 +5,7 @@ import Awards from '../components/Awards.astro';
 import ContactForm from '../components/ContactForm.astro';
 import Footer from '../components/Footer.astro';
 import GuideBanner from '../components/GuideBanner.astro';
+import YouTubeEmbed from '../components/YouTubeEmbed.astro';
 import '../styles/global.css';
 ---
 
@@ -108,19 +109,8 @@ import '../styles/global.css';
 
         <!-- RIGHT: Hero Media -->
         <div class="relative">
-          <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50 bg-neutral-800 aspect-[4/5] sm:aspect-video lg:aspect-[4/5]">
-            <!-- TODO: Replace with hero video or photo.
-                 Video: <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover"><source src="/hero.mp4" type="video/mp4"/></video>
-                 Photo: <img src="/hero.jpg" alt="..." class="absolute inset-0 w-full h-full object-cover" /> -->
-            <div class="absolute inset-0 bg-gradient-to-br from-neutral-700 via-neutral-800 to-neutral-900 flex items-center justify-center">
-              <div class="text-center p-6">
-                <div class="w-20 h-20 rounded-full bg-k9-orange/20 border-2 border-k9-orange/40 flex items-center justify-center mx-auto mb-4">
-                  <svg class="w-9 h-9 text-k9-orange ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                </div>
-                <p class="text-white font-semibold text-sm">Hero video / photo</p>
-                <p class="text-neutral-400 text-xs mt-1">Drop asset at <code class="bg-white/5 px-1.5 py-0.5 rounded">/public/hero.mp4</code></p>
-              </div>
-            </div>
+          <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50 bg-neutral-800">
+            <YouTubeEmbed videoId="zqd66o8dr2k" title="K9 Academy Private Training" />
 
             <!-- Floating badge -->
             <div class="absolute bottom-4 left-4 right-4 sm:right-auto">
