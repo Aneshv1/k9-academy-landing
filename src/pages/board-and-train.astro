@@ -462,41 +462,45 @@ import '../styles/global.css';
     </div>
   </section>
 
-  <!-- WHAT THEY LEARN -->
+  <!-- BEFORE → AFTER -->
   <section class="py-16 sm:py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12 sm:mb-16">
-        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">What Your Dog Learns</p>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
         <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
-          Your dog graduates with real-world skills. not tricks
+          What changes after Board & Train
         </h2>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {[
-          { title: 'Loose leash walking', desc: 'Calm, controlled walking in any environment. No more pulling, lunging, or crossing the street to avoid other dogs.' },
-          { title: 'Off-leash recall', desc: 'Reliable recall anywhere. parks, trails, the neighbourhood. Come when called, every time.' },
-          { title: 'Obedience in any environment', desc: 'Sit, down, stay, place; not just at home, but in real-world situations with real distractions.' },
-          { title: 'Socialization', desc: 'Structured interaction with dogs and people. Calm confidence replaces anxiety, fear, and reactivity.' },
-        ].map((item) => (
-          <div class="rounded-2xl p-6 bg-neutral-50 border border-neutral-200/60">
-            <h3 class="text-base font-bold text-neutral-900 mb-2">{item.title}</h3>
-            <p class="text-neutral-500 text-sm leading-relaxed">{item.desc}</p>
+      <div class="rounded-2xl overflow-hidden border border-neutral-200">
+        <div class="grid md:grid-cols-2">
+          <!-- Before -->
+          <div class="bg-neutral-900 p-8 sm:p-10">
+            <p class="text-red-400 text-xs font-bold uppercase tracking-widest mb-4">Before</p>
+            <ul class="space-y-3">
+              {['Pulls so hard your shoulder hurts', 'Lunges and barks at every dog', 'Zero recall off-leash', 'Can\'t settle at home or in public', 'Anxious, reactive, unpredictable', 'Other trainers said "too far gone"'].map((item) => (
+                <li class="flex items-start gap-2.5 text-neutral-300 text-sm">
+                  <svg class="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
-        ))}
-      </div>
-
-      <div class="mt-8 bg-neutral-50 rounded-2xl p-6 border border-neutral-200/60">
-        <h3 class="text-lg font-bold text-neutral-900 mb-3">By graduation, your dog will have eliminated:</h3>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {['Excessive barking', 'Nervousness + anxiety', 'Leash pulling + reactivity', 'Resource guarding'].map((item) => (
-            <div class="flex items-center gap-2 text-sm text-neutral-600">
-              <svg class="w-4 h-4 text-k9-orange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-              </svg>
-              <span>{item}</span>
-            </div>
-          ))}
+          <!-- After -->
+          <div class="bg-emerald-950 p-8 sm:p-10">
+            <p class="text-emerald-400 text-xs font-bold uppercase tracking-widest mb-4">After Graduation</p>
+            <ul class="space-y-3">
+              {['Loose leash walking in any environment', 'Calm and relaxed around other dogs', 'Reliable off-leash recall, every time', 'Settles on command at home and in public', 'Confident, social, predictable', 'Other owners ask "how did you do that?"'].map((item) => (
+                <li class="flex items-start gap-2.5 text-emerald-100 text-sm">
+                  <svg class="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
