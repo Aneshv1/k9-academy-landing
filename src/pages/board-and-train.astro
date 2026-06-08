@@ -208,61 +208,76 @@ import '../styles/global.css';
         </h2>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {[
-          {
-            name: '2 Week',
-            sub: 'Basic obedience + manners',
-            price: '$2,995',
-            items: ['Leash pulling', 'Basic obedience', 'Mild reactivity', 'Socialization'],
-            highlight: false,
-          },
-          {
-            name: '4 Week',
-            sub: 'Behaviour modification',
-            price: '$3,995',
-            items: ['Reactivity + aggression', 'Fear + nervousness', 'Resource guarding', 'Advanced obedience'],
-            highlight: true,
-          },
-          {
-            name: '6 Week',
-            sub: 'Severe cases',
-            price: '$4,995',
-            items: ['Severe aggression', 'Multiple triggers', 'Deep-rooted anxiety', 'Full rehabilitation'],
-            highlight: false,
-          },
-          {
-            name: '8 Week',
-            sub: 'Complex rehabilitation',
-            price: '$7,995',
-            items: ['Bite history', 'Multi-dog aggression', 'Emergency cases', 'Extended rehab program'],
-            highlight: false,
-          },
-        ].map((tier) => (
-          <div class={`relative rounded-2xl p-6 border transition-all hover:shadow-md ${tier.highlight ? 'border-k9-orange/30 bg-k9-orange-light/30 ring-1 ring-k9-orange/10' : 'border-neutral-200/60 bg-white hover:border-neutral-300'}`}>
-            {tier.highlight && (
-              <div class="absolute -top-3 left-6">
-                <span class="inline-flex items-center px-3 py-1 bg-k9-orange text-white text-xs font-bold rounded-lg uppercase tracking-wide">Most Popular</span>
-              </div>
-            )}
-            <h3 class={`text-xl font-bold text-neutral-900 mb-0.5 ${tier.highlight ? 'mt-2' : ''}`}>{tier.name}</h3>
-            <p class="text-k9-orange font-medium text-xs mb-3">{tier.sub}</p>
-            <ul class="space-y-2 mb-5">
-              {tier.items.map((d) => (
-                <li class="flex items-start gap-2 text-sm text-neutral-600">
-                  <svg class="w-4 h-4 text-k9-orange flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
-                  <span>{d}</span>
-                </li>
-              ))}
-            </ul>
-            <div class="pt-4 border-t border-neutral-100">
-              <span class="text-2xl font-extrabold text-neutral-900">{tier.price}</span>
-            </div>
+      <div class="grid md:grid-cols-3 gap-5">
+        <!-- 2 Week Express -->
+        <div class="rounded-2xl p-6 sm:p-8 border border-neutral-200/60 bg-white hover:border-neutral-300 hover:shadow-md transition-all">
+          <h3 class="text-2xl font-bold text-neutral-900 mb-1">2 Week</h3>
+          <p class="text-k9-orange font-medium text-sm mb-3">Basic obedience + manners</p>
+          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">Ideal for young dogs that transition easily. Addresses basic behaviour issues like leash pulling, mild reactivity, and off-leash training in a short, focused program.</p>
+          <ul class="space-y-2 mb-6">
+            {['Leash pulling', 'Off-leash training', 'Mild reactivity', 'Socialization', 'Basic behaviour correction', 'Handler training included'].map((d) => (
+              <li class="flex items-start gap-2 text-sm text-neutral-600">
+                <svg class="w-4 h-4 text-k9-orange flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>{d}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="flex items-center justify-between pt-5 border-t border-neutral-100">
+            <span class="text-2xl font-extrabold text-neutral-900">$2,995</span>
+            <a href="#contact" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-neutral-100 text-neutral-700 hover:bg-k9-orange hover:text-white transition-all">Apply</a>
           </div>
-        ))}
+        </div>
+
+        <!-- 4 Week / Behaviour Modification -->
+        <div class="relative rounded-2xl p-6 sm:p-8 border border-k9-orange/30 bg-k9-orange-light/40 ring-1 ring-k9-orange/10 hover:shadow-md transition-all">
+          <div class="absolute -top-3 left-6">
+            <span class="inline-flex items-center px-3 py-1 bg-k9-orange text-white text-xs font-bold rounded-lg uppercase tracking-wide">Most Popular</span>
+          </div>
+          <h3 class="text-2xl font-bold text-neutral-900 mb-1 mt-2">4 Week</h3>
+          <p class="text-k9-orange font-medium text-sm mb-3">Behaviour modification</p>
+          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">For fearful, nervous, reactive, or over-excitable dogs. Dogs showing aggression toward humans or other dogs. Constantly anxious dogs and resource guarders. This is the program most clients choose.</p>
+          <ul class="space-y-2 mb-6">
+            {['Fear + nervousness', 'Reactivity + aggression', 'Over-excitability', 'Resource guarding', 'Advanced obedience', 'Full socialization program'].map((d) => (
+              <li class="flex items-start gap-2 text-sm text-neutral-600">
+                <svg class="w-4 h-4 text-k9-orange flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>{d}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="flex items-center justify-between pt-5 border-t border-neutral-100">
+            <span class="text-2xl font-extrabold text-neutral-900">$3,995</span>
+            <a href="#contact" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-k9-orange text-white hover:bg-k9-orange-dark shadow-sm transition-all">Apply</a>
+          </div>
+        </div>
+
+        <!-- 6 Week / Severe Cases -->
+        <div class="rounded-2xl p-6 sm:p-8 border border-neutral-200/60 bg-white hover:border-neutral-300 hover:shadow-md transition-all">
+          <h3 class="text-2xl font-bold text-neutral-900 mb-1">6 Week</h3>
+          <p class="text-k9-orange font-medium text-sm mb-3">Aggression, anxiety + severe cases</p>
+          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">For very nervous, anxious, or aggressive dogs. Multiple bite incidents, severe human and dog aggression, emergency cases, multi-dog conflict, and deep-rooted behavioural issues.</p>
+          <ul class="space-y-2 mb-6">
+            {['Severe aggression', 'Multiple bite incidents', 'Emergency cases', 'Multi-dog conflict', 'Deep-rooted anxiety', 'Extended rehabilitation'].map((d) => (
+              <li class="flex items-start gap-2 text-sm text-neutral-600">
+                <svg class="w-4 h-4 text-k9-orange flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>{d}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="flex items-center justify-between pt-5 border-t border-neutral-100">
+            <span class="text-2xl font-extrabold text-neutral-900">$4,995</span>
+            <a href="#contact" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-neutral-100 text-neutral-700 hover:bg-k9-orange hover:text-white transition-all">Apply</a>
+          </div>
+        </div>
       </div>
+
+      <!-- 8 Week note -->
+      <p class="text-center text-neutral-400 text-xs mt-5">For extremely severe cases (complex bite history, emergency rehabilitation), we offer an intensive 8-week program at $7,995. <a href="#contact" class="text-k9-orange hover:underline">Contact us to discuss.</a></p>
 
       <!-- LIFETIME SUPPORT BANNER -->
       <div class="mt-8 rounded-2xl bg-neutral-900 p-6 sm:p-8 border border-white/10">
