@@ -233,6 +233,99 @@ import '../styles/global.css';
     </div>
   </section>
 
+  <!-- SESSION FLOW -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 sm:mb-16">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">The Training Progression</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
+          How private sessions usually flow
+        </h2>
+        <p class="mt-4 text-lg text-neutral-500 max-w-2xl mx-auto leading-relaxed">
+          Every dog moves through the same progression. we only advance once they are reliable at each stage.
+        </p>
+      </div>
+
+      <div class="relative">
+        <div class="hidden md:block absolute left-[27px] top-2 bottom-2 w-0.5 bg-gradient-to-b from-k9-orange via-k9-orange/40 to-neutral-200"></div>
+
+        <div class="space-y-5">
+          {[
+            {
+              num: '01',
+              phase: 'Phase 1',
+              title: 'Fix major control issues',
+              desc: 'We start with the fundamentals that make your dog livable: loose-leash walking, on-leash reactivity, and foundational obedience. No advanced work until these hold.',
+              tags: ['Leash walking', 'On-leash reactivity', 'Sit / down / place', 'Focus + engagement'],
+            },
+            {
+              num: '02',
+              phase: 'Phase 2',
+              title: 'Introduce off-leash control with the e-collar',
+              desc: 'Once your dog is reliable on-leash, we layer in the e-collar to condition off-leash responsiveness in a controlled environment. Low-level, clear, and fair.',
+              tags: ['E-collar conditioning', 'Recall foundations', 'Off-leash heel', 'Remote guidance'],
+            },
+            {
+              num: '03',
+              phase: 'Phase 3',
+              title: 'Increase on-leash pressure',
+              desc: 'Now we proof the basics under real distractions. other dogs, people, noise, movement. Your dog learns to hold obedience when the environment is not cooperating.',
+              tags: ['Distraction proofing', 'Real-world settings', 'Duration + distance', 'Handler confidence'],
+            },
+            {
+              num: '04',
+              phase: 'Phase 4',
+              title: 'Increase off-leash pressure',
+              desc: 'With the e-collar as backup, we expose your dog to progressively harder off-leash challenges. The goal: your dog chooses you over every distraction.',
+              tags: ['Off-leash distraction work', 'Reliable recall', 'Real environments', 'E-collar as communication'],
+            },
+            {
+              num: '05',
+              phase: 'Phase 5',
+              title: 'Socialize + off-leash at the park',
+              desc: 'Once your dog is reliable, we socialize structured and take them off-leash in public spaces. parks, trails, patios. This is the reward for the work above.',
+              tags: ['Structured socialization', 'Park work', 'Patio manners', 'Real-world graduation'],
+            },
+            {
+              num: '06',
+              phase: 'If needed',
+              title: 'Home visit',
+              desc: 'If problems persist in your home environment. door manners, guests, resource guarding, separation. we come to you and address it where it actually happens.',
+              tags: ['In-home assessment', 'Door + guest work', 'Environment-specific issues', 'Household integration'],
+              optional: true,
+            },
+          ].map((step) => (
+            <div class={`relative flex gap-5 rounded-2xl p-5 sm:p-6 border transition-all ${step.optional ? 'border-dashed border-neutral-300 bg-neutral-50' : 'border-neutral-200/60 bg-neutral-50/70 hover:border-k9-orange/30 hover:shadow-md'}`}>
+              <div class="flex-shrink-0">
+                <div class={`w-14 h-14 rounded-2xl flex items-center justify-center font-extrabold text-lg relative z-10 ${step.optional ? 'bg-white border-2 border-dashed border-neutral-300 text-neutral-500' : 'bg-k9-orange text-white shadow-lg shadow-k9-orange/20'}`}>
+                  {step.num}
+                </div>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class={`text-xs font-bold uppercase tracking-wide ${step.optional ? 'text-neutral-400' : 'text-k9-orange'}`}>{step.phase}</span>
+                </div>
+                <h3 class="text-lg sm:text-xl font-bold text-neutral-900 mb-2">{step.title}</h3>
+                <p class="text-neutral-600 text-sm sm:text-base leading-relaxed mb-4">{step.desc}</p>
+                <div class="flex flex-wrap gap-2">
+                  {step.tags.map((tag) => (
+                    <span class="inline-flex items-center px-3 py-1 rounded-full bg-white border border-neutral-200 text-xs font-medium text-neutral-600">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="mt-10 rounded-2xl bg-k9-orange-light/40 border border-k9-orange/20 p-6 text-center">
+        <p class="text-neutral-700 text-sm sm:text-base leading-relaxed">
+          <strong class="text-neutral-900">We only advance when your dog is ready.</strong> Rushing stages is how trainers get brittle results. The progression above is the standard flow; your dog's pace is their own.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- SOCIAL PROOF -->
   <section class="py-16 sm:py-24 bg-neutral-50 border-y border-neutral-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -400,99 +493,6 @@ import '../styles/global.css';
     </div>
   </section>
 
-  <!-- SESSION FLOW -->
-  <section class="py-16 sm:py-24 bg-white">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12 sm:mb-16">
-        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">The Training Progression</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
-          How private sessions usually flow
-        </h2>
-        <p class="mt-4 text-lg text-neutral-500 max-w-2xl mx-auto leading-relaxed">
-          Every dog moves through the same progression. we only advance once they are reliable at each stage.
-        </p>
-      </div>
-
-      <div class="relative">
-        <div class="hidden md:block absolute left-[27px] top-2 bottom-2 w-0.5 bg-gradient-to-b from-k9-orange via-k9-orange/40 to-neutral-200"></div>
-
-        <div class="space-y-5">
-          {[
-            {
-              num: '01',
-              phase: 'Phase 1',
-              title: 'Fix major control issues',
-              desc: 'We start with the fundamentals that make your dog livable: loose-leash walking, on-leash reactivity, and foundational obedience. No advanced work until these hold.',
-              tags: ['Leash walking', 'On-leash reactivity', 'Sit / down / place', 'Focus + engagement'],
-            },
-            {
-              num: '02',
-              phase: 'Phase 2',
-              title: 'Introduce off-leash control with the e-collar',
-              desc: 'Once your dog is reliable on-leash, we layer in the e-collar to condition off-leash responsiveness in a controlled environment. Low-level, clear, and fair.',
-              tags: ['E-collar conditioning', 'Recall foundations', 'Off-leash heel', 'Remote guidance'],
-            },
-            {
-              num: '03',
-              phase: 'Phase 3',
-              title: 'Increase on-leash pressure',
-              desc: 'Now we proof the basics under real distractions. other dogs, people, noise, movement. Your dog learns to hold obedience when the environment is not cooperating.',
-              tags: ['Distraction proofing', 'Real-world settings', 'Duration + distance', 'Handler confidence'],
-            },
-            {
-              num: '04',
-              phase: 'Phase 4',
-              title: 'Increase off-leash pressure',
-              desc: 'With the e-collar as backup, we expose your dog to progressively harder off-leash challenges. The goal: your dog chooses you over every distraction.',
-              tags: ['Off-leash distraction work', 'Reliable recall', 'Real environments', 'E-collar as communication'],
-            },
-            {
-              num: '05',
-              phase: 'Phase 5',
-              title: 'Socialize + off-leash at the park',
-              desc: 'Once your dog is reliable, we socialize structured and take them off-leash in public spaces. parks, trails, patios. This is the reward for the work above.',
-              tags: ['Structured socialization', 'Park work', 'Patio manners', 'Real-world graduation'],
-            },
-            {
-              num: '06',
-              phase: 'If needed',
-              title: 'Home visit',
-              desc: 'If problems persist in your home environment. door manners, guests, resource guarding, separation. we come to you and address it where it actually happens.',
-              tags: ['In-home assessment', 'Door + guest work', 'Environment-specific issues', 'Household integration'],
-              optional: true,
-            },
-          ].map((step) => (
-            <div class={`relative flex gap-5 rounded-2xl p-5 sm:p-6 border transition-all ${step.optional ? 'border-dashed border-neutral-300 bg-neutral-50' : 'border-neutral-200/60 bg-neutral-50/70 hover:border-k9-orange/30 hover:shadow-md'}`}>
-              <div class="flex-shrink-0">
-                <div class={`w-14 h-14 rounded-2xl flex items-center justify-center font-extrabold text-lg relative z-10 ${step.optional ? 'bg-white border-2 border-dashed border-neutral-300 text-neutral-500' : 'bg-k9-orange text-white shadow-lg shadow-k9-orange/20'}`}>
-                  {step.num}
-                </div>
-              </div>
-              <div class="flex-1 min-w-0">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class={`text-xs font-bold uppercase tracking-wide ${step.optional ? 'text-neutral-400' : 'text-k9-orange'}`}>{step.phase}</span>
-                </div>
-                <h3 class="text-lg sm:text-xl font-bold text-neutral-900 mb-2">{step.title}</h3>
-                <p class="text-neutral-600 text-sm sm:text-base leading-relaxed mb-4">{step.desc}</p>
-                <div class="flex flex-wrap gap-2">
-                  {step.tags.map((tag) => (
-                    <span class="inline-flex items-center px-3 py-1 rounded-full bg-white border border-neutral-200 text-xs font-medium text-neutral-600">{tag}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div class="mt-10 rounded-2xl bg-k9-orange-light/40 border border-k9-orange/20 p-6 text-center">
-        <p class="text-neutral-700 text-sm sm:text-base leading-relaxed">
-          <strong class="text-neutral-900">We only advance when your dog is ready.</strong> Rushing stages is how trainers get brittle results. The progression above is the standard flow; your dog's pace is their own.
-        </p>
-      </div>
-    </div>
-  </section>
-
   <!-- COMPARISON CHART -->
   <section class="py-16 sm:py-24 bg-white border-t border-neutral-100">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -624,7 +624,6 @@ import '../styles/global.css';
     </div>
   </section>
 
-  <div class="bg-neutral-900 pt-10"><div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-8"><GuideBanner /></div></div>
   <ContactForm />
   <Footer />
 
