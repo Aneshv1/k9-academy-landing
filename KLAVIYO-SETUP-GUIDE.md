@@ -233,3 +233,110 @@ These are the values sent from the website form dropdown:
 - **No em-dashes** in any email copy.
 - **Reply-to:** Always `contact@k9academy.ca` so replies go to the team.
 - **Frequency:** Don't add people to multiple flows at the same time. Use flow filters to exclude people already in another active flow.
+
+---
+
+## Klaviyo Events Reference (Updated)
+
+These are the events fired from the website. Use them as flow triggers.
+
+| Action on Website | Klaviyo Event Name | Data Included |
+|---|---|---|
+| Contact form submission | `Landing Page Inquiry` | name, email, phone, dog info, service interest, message |
+| Group classes curriculum download | `Curriculum Download` | name, email, curriculum: "Group Classes" |
+| Puppy curriculum download | `Puppy Curriculum Download` | name, email, curriculum: "Puppy Classes" |
+| Behaviour quiz completed | `Behaviour Quiz Completed` | email, score, max score, challenge, quiz path |
+| Chatbot lead captured | Sent via Resend only (not Klaviyo) | name, email, phone, chat transcript |
+| In-home application | `Landing Page Inquiry` with service = `in_home_private` | name, email, phone, neighbourhood, dog info |
+
+### Service Interest Codes (from contact form dropdown)
+
+| Form Selection | Code in Klaviyo |
+|---|---|
+| Board & Train | `bt_4wk` |
+| Private Lessons | `private_single` |
+| Group Classes | `group_puppy` |
+| Not sure yet | (empty) |
+| In-Home (from /in-home page) | `in_home_private` |
+
+---
+
+## Monthly Campaign Emails
+
+In addition to automated flows, you need to send **16 campaign emails per month** (3-4 per week). These go to your entire list.
+
+### Where to Find Them
+- Templates: `email-campaigns/month-1/` (and future months)
+- Instructions: `email-campaigns/README.md`
+- Strategy: `MARKETING-PLAN-2.5M.md`
+
+### How to Send Campaigns in Klaviyo
+1. Go to **Campaigns** in Klaviyo
+2. Click **Create Campaign**
+3. Select your main list (all contacts)
+4. **Exclude** anyone currently in an active flow (first 7-10 days after inquiry)
+5. Copy the subject line and body from the campaign file
+6. For **plain-text emails**: use Klaviyo's text-only template. No images, no branding. Just text.
+7. For **graphic emails**: use Klaviyo's drag-and-drop editor with K9 branding
+8. Schedule for the correct day (see filename: `week-1-monday-educational.md`)
+9. **Sender:** K9 Academy <contact@k9academy.ca>
+10. **Reply-to:** contact@k9academy.ca
+
+### Monthly Pillar Balance (follow this every month)
+
+| Pillar | Count | Format |
+|---|---|---|
+| Educational (training tips, myth busting) | 4 | 3 graphic, 1 plain-text |
+| Social Proof (transformations, reviews) | 3 | 2 graphic, 1 plain-text |
+| Brand/Community (Anesh stories, BTS) | 3 | 1 graphic, 2 plain-text |
+| Service Spotlight (program deep dives) | 4 | 3 graphic, 1 plain-text |
+| Offer/Sale (urgency, scarcity, events) | 2 | 2 graphic |
+| **Total** | **16** | **11 graphic, 5 plain-text** |
+
+---
+
+## Google Reviews Automation
+
+The review request flow is triggered when you add a client to the "Program Completed" list in Klaviyo.
+
+### How to Request Reviews
+1. Create a Klaviyo list called **"Program Completed"**
+2. When a client graduates from any program, add them to this list
+3. The flow sends 2 emails:
+   - **Day 14:** "How's [Dog Name] doing?" (check-in + soft ask)
+   - **Day 21:** "Quick favour?" (direct ask for Google review with link)
+4. Include the direct Google review link: `https://g.page/r/YOUR_GOOGLE_PLACE_ID/review`
+
+### Getting Your Google Review Link
+1. Search "K9 Academy Training" on Google
+2. Click your business listing
+3. Click "Write a review"
+4. Copy the URL from your browser
+5. Use this URL in the review request email template
+
+---
+
+## Checklist: Everything Staff Needs to Do
+
+### Week 1 Setup (one-time)
+- [ ] Log into Klaviyo
+- [ ] Build all 10 automated flows (follow the flow tables above)
+- [ ] Test each flow with a test submission
+- [ ] Create "Program Completed" list for review requests
+- [ ] Create "Booked Clients" list for post-booking flow
+- [ ] Schedule week 1 campaign emails (4 emails)
+- [ ] Verify all events are coming through (submit test forms on live site)
+
+### Every Week (ongoing)
+- [ ] Schedule 3-4 campaign emails for the week
+- [ ] Add graduating clients to "Program Completed" list
+- [ ] Add booked clients to "Booked Clients" list
+- [ ] Check Klaviyo analytics: open rates, click rates, unsubscribes
+- [ ] Monitor bounced emails and clean list
+
+### Every Month (ongoing)
+- [ ] Write or use next month's 16 campaign emails
+- [ ] Review flow performance (how many emails sent, conversion rate)
+- [ ] Clean email list: remove hard bounces, inactive 6+ months
+- [ ] Update flow content if pricing or programs change
+- [ ] Report: leads from email, bookings attributed to email
