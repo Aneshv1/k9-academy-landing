@@ -36,8 +36,8 @@
     </svg>
   </button>
 
-  <!-- Chat Window: full screen on mobile, floating on desktop -->
-  <div id="chat-window" class="fixed z-50 bg-white shadow-2xl border-neutral-200 hidden flex-col overflow-hidden inset-0 sm:inset-auto sm:bottom-24 sm:right-5 sm:w-[360px] sm:h-[500px] sm:max-h-[calc(100vh-120px)] sm:rounded-2xl sm:border">
+  <!-- Chat Window -->
+  <div id="chat-window" class="fixed bottom-24 right-5 z-50 w-[360px] max-w-[calc(100vw-2.5rem)] bg-white rounded-2xl shadow-2xl border border-neutral-200 hidden flex-col overflow-hidden" style="height: 500px; max-height: calc(100vh - 120px);">
 
     <!-- Header -->
     <div class="bg-neutral-900 px-5 py-4 flex items-center gap-3 safe-top">
@@ -159,8 +159,6 @@
     openChat();
   });
 
-  const isMobile = () => window.innerWidth < 640;
-
   function openChat() {
     isOpen = true;
     window_.classList.remove('hidden');
@@ -168,10 +166,6 @@
     iconOpen.classList.add('hidden');
     iconClose.classList.remove('hidden');
     chatDot.classList.add('hidden');
-    if (isMobile()) {
-      toggle.classList.add('hidden');
-      document.body.style.overflow = 'hidden';
-    }
     preview.classList.add('hidden');
     input.focus();
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
@@ -183,7 +177,6 @@
     window_.style.display = 'none';
     iconOpen.classList.remove('hidden');
     iconClose.classList.add('hidden');
-    toggle.classList.remove('hidden');
     document.body.style.overflow = '';
   }
 

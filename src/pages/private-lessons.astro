@@ -13,7 +13,7 @@ import '../styles/global.css';
   <Navbar />
 
   <!-- HERO -->
-  <section class="relative pt-28 sm:pt-32 pb-14 sm:pb-20 overflow-hidden bg-brand-dark">
+  <section class="relative pt-22 sm:pt-32 pb-14 sm:pb-20 overflow-hidden bg-brand-dark">
     <div class="absolute inset-0 bg-gradient-to-br from-k9-orange/5 via-transparent to-transparent pointer-events-none"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
@@ -48,8 +48,8 @@ import '../styles/global.css';
             Private 1-on-1 sessions for the issues that make life hard. aggression, separation anxiety, resource guarding, reactivity, leash pulling, incessant barking, or off-leash reliability. We fix the root cause, not the symptom.
           </p>
 
-          <!-- Outcomes -->
-          <div class="mt-7 grid sm:grid-cols-2 gap-2.5 max-w-xl">
+          <!-- Outcomes (hidden on mobile to keep hero tight) -->
+          <div class="mt-7 hidden sm:grid sm:grid-cols-2 gap-2.5 max-w-xl">
             {[
               'Leash reactivity + lunging',
               'Dog-to-dog aggression',
