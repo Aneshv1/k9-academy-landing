@@ -118,3 +118,20 @@ Full plan with phases, ad budgets, and strategy in `MARKETING-PLAN-2.5M.md`.
 - [x] Mobile optimization (tighter heroes, chatbot fixes)
 - [x] Em-dashes removed sitewide
 - [x] README, TODO, Klaviyo guide, marketing plan for staff
+
+## Latest Completed (June 9, 2026)
+
+- [x] Puppy page full conversion rework (3 pain points, urgency banner, quote, testimonials before pricing, removed filler)
+- [x] Puppy Start Right testimonial video added
+- [x] Events page: 5 event types with photos, bullets, requirements (impulse control, adult social, puppy social, group hike, pack walk)
+- [x] Private lessons: "You need results quickly" pain point, photo+quote with Lincoln
+- [x] Group classes: calm settling + reliable recall added to skills
+- [x] Homepage: duplicate stats bar removed
+- [x] Mobile chatbot fix (smaller floating box, not fullscreen)
+- [x] Mobile hero optimization (tighter padding, hidden sub-text)
+- [x] Build error fix (group-classes literal newlines)
+- [x] Domain live: training.k9academy.ca
+- [x] Klaviyo event naming fixed (puppy curriculum separate from group)
+- [x] Klaviyo guide updated with events reference, campaign instructions, review automation, staff checklist
+- [x] $2.5M marketing plan written
+- [x] Daycare removed from contact form
