@@ -6,6 +6,7 @@ import ContactForm from '../components/ContactForm.astro';
 import Footer from '../components/Footer.astro';
 import GuideBanner from '../components/GuideBanner.astro';
 import QuizForm from '../components/QuizForm.astro';
+import YouTubeEmbed from '../components/YouTubeEmbed.astro';
 import '../styles/global.css';
 ---
 
@@ -75,6 +76,11 @@ import '../styles/global.css';
               <span>{item}</span>
             </div>
           ))}
+        </div>
+
+        <!-- Hero Video -->
+        <div class="mt-10 max-w-3xl mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50">
+          <YouTubeEmbed videoId="44swSqb9woU" title="K9 Academy Puppy Training" />
         </div>
       </div>
     </div>
