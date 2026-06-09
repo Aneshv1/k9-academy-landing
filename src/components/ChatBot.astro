@@ -36,11 +36,11 @@
     </svg>
   </button>
 
-  <!-- Chat Window -->
-  <div id="chat-window" class="fixed bottom-24 right-5 z-50 w-[360px] max-w-[calc(100vw-2.5rem)] bg-white rounded-2xl shadow-2xl border border-neutral-200 hidden flex-col overflow-hidden" style="height: 500px; max-height: calc(100vh - 120px);">
+  <!-- Chat Window: full screen on mobile, floating on desktop -->
+  <div id="chat-window" class="fixed z-50 bg-white shadow-2xl border-neutral-200 hidden flex-col overflow-hidden inset-0 sm:inset-auto sm:bottom-24 sm:right-5 sm:w-[360px] sm:h-[500px] sm:max-h-[calc(100vh-120px)] sm:rounded-2xl sm:border">
 
     <!-- Header -->
-    <div class="bg-neutral-900 px-5 py-4 flex items-center gap-3">
+    <div class="bg-neutral-900 px-5 py-4 flex items-center gap-3 safe-top">
       <div class="w-9 h-9 rounded-full bg-k9-orange flex items-center justify-center flex-shrink-0">
         <span class="text-white text-xs font-black">K9</span>
       </div>
@@ -51,6 +51,11 @@
           Online · usually replies instantly
         </p>
       </div>
+      <button id="chat-close-header" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
     </div>
 
     <!-- Messages -->
@@ -110,6 +115,7 @@
   const window_ = document.getElementById('chat-window')!;
   const iconOpen = document.getElementById('chat-icon-open')!;
   const iconClose = document.getElementById('chat-icon-close')!;
+  const closeHeader = document.getElementById('chat-close-header')!;
   const chatDot = document.getElementById('chat-dot')!;
   const preview = document.getElementById('chat-preview')!;
   const previewClose = document.getElementById('chat-preview-close')!;
@@ -153,6 +159,8 @@
     openChat();
   });
 
+  const isMobile = () => window.innerWidth < 640;
+
   function openChat() {
     isOpen = true;
     window_.classList.remove('hidden');
@@ -160,6 +168,10 @@
     iconOpen.classList.add('hidden');
     iconClose.classList.remove('hidden');
     chatDot.classList.add('hidden');
+    if (isMobile()) {
+      toggle.classList.add('hidden');
+      document.body.style.overflow = 'hidden';
+    }
     preview.classList.add('hidden');
     input.focus();
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
@@ -171,7 +183,11 @@
     window_.style.display = 'none';
     iconOpen.classList.remove('hidden');
     iconClose.classList.add('hidden');
+    toggle.classList.remove('hidden');
+    document.body.style.overflow = '';
   }
+
+  closeHeader.addEventListener('click', () => closeChat());
 
   toggle.addEventListener('click', () => {
     if (isOpen) {
