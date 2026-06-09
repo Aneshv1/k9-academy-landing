@@ -65,7 +65,9 @@ const eventTypes = [
     price: 45,
     spots: 12,
     requirement: 'Must have completed Level 1 or equivalent',
-    description: 'Focused session on impulse control. stays, leave it, settling under distraction. Perfect for dogs who need a tune-up between classes.',
+    description: 'A focused tune-up session for dogs who have been through our program.',
+    bullets: ['Sit, down, stay, and place under heavy distraction', 'Impulse control drills with real triggers', 'Settling practice in a group environment', 'Perfect for maintaining skills between programs'],
+    img: '/images/group-class.jpg',
   },
   {
     type: 'social',
@@ -73,20 +75,46 @@ const eventTypes = [
     price: 55,
     spots: 6,
     requirement: 'Must have completed Level 1 or equivalent',
-    description: 'Structured off-leash social for trained adult dogs. Small group, supervised by our trainers. Real socialization; not a dog park.',
+    description: 'Structured off-leash interaction for trained adult dogs. Not a dog park free-for-all.',
+    bullets: ['Small group (6 dogs max) for safety and quality', 'Supervised by our trainers the entire session', 'Structured introductions and monitored play', 'Builds social confidence in a controlled setting'],
+    img: '/images/dogs-playing.jpg',
   },
   {
     type: 'puppy',
     name: 'Puppy Social',
     price: 35,
     spots: 12,
-    requirement: 'Puppies 6 months and under only',
-    description: 'Supervised socialization for puppies. Structured introductions, play, and early confidence building during the critical window.',
+    requirement: 'Puppies 6 months and under only. Vaccinations required.',
+    description: 'Supervised socialization during your puppy\'s critical development window.',
+    bullets: ['Structured introductions with age-appropriate puppies', 'Confidence building through guided play', 'Learn proper social cues from day one', 'Prevents fear and reactivity before it starts'],
+    img: '/images/hero-training.jpg',
+  },
+  {
+    type: 'hike',
+    name: 'Group Hike',
+    price: 45,
+    spots: 15,
+    requirement: 'Must have completed Level 2 or equivalent off-leash program',
+    description: 'Off-leash group hike on real trails. Put your training to the test in the wild.',
+    bullets: ['Off-leash hiking with other trained dogs', 'Real-world recall and obedience under distraction', 'Supervised by our trainers on every trail', 'The reward for all the hard work you put in'],
+    img: '/images/private-training.jpg',
+  },
+  {
+    type: 'packwalk',
+    name: 'Pack Walk',
+    price: 0,
+    spots: 20,
+    requirement: 'Must have previously trained with K9 Academy',
+    description: 'A free structured pack walk for our community. On-leash, calm, controlled.',
+    bullets: ['On-leash structured walk with the K9 community', 'Practice loose-leash walking in a real group', 'Meet other owners working on the same goals', 'Free for all K9 Academy graduates and current clients'],
+    img: '/images/socialization-golden-gsd.jpg',
   },
 ];
 
 const typeConfig: Record<string, { label: string; color: string; icon: string }> = {
-  impulse: { label: 'Drop-In Class', color: 'bg-blue-500/10 text-blue-500 border-blue-500/20', icon: '⚡' },
+  impulse: { label: 'Drop-In Class', color: 'bg-blue-500/10 text-blue-500 border-blue-500/20' },
+  hike: { label: 'Group Hike', color: 'bg-amber-500/10 text-amber-500 border-amber-500/20' },
+  packwalk: { label: 'Pack Walk', color: 'bg-teal-500/10 text-teal-500 border-teal-500/20' },
   social: { label: 'Adult Social', color: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20', icon: '🐕' },
   puppy: { label: 'Puppy Social', color: 'bg-purple-500/10 text-purple-500 border-purple-500/20', icon: '🐶' },
 };
@@ -115,7 +143,7 @@ function formatDate(dateStr: string) {
           Upcoming Events
         </h1>
         <p class="text-neutral-400 max-w-lg mx-auto">
-          Drop-in classes, dog socials, and puppy socials. Limited spots, book yours below.
+          Drop-in classes, dog socials, puppy socials, group hikes, and pack walks. Limited spots.
         </p>
       </div>
 
@@ -126,21 +154,34 @@ function formatDate(dateStr: string) {
           const scheduled = events.filter(e => e.type === et.type);
           return (
             <div class="rounded-2xl bg-white/[0.03] border border-white/10 overflow-hidden">
-              <!-- Event type header -->
-              <div class="p-6 sm:p-8">
-                <div class="flex items-center gap-2 mb-3">
-                  <span class={`inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full border ${config.color}`}>
-                    {config.label}
-                  </span>
-                  <span class="text-neutral-600 text-xs">{et.spots} spots max</span>
+              <!-- Event card with photo -->
+              <div class="grid md:grid-cols-[1fr_1.5fr]">
+                <div class="aspect-[4/3] md:aspect-auto overflow-hidden">
+                  <img src={et.img} alt={et.name} class="w-full h-full object-cover" loading="lazy" />
                 </div>
-                <div class="sm:flex sm:items-start sm:justify-between gap-4">
-                  <div>
-                    <h3 class="text-lg font-bold text-white mb-1">{et.name}</h3>
-                    <p class="text-neutral-400 text-sm mb-2">{et.description}</p>
-                    <p class="text-neutral-600 text-xs italic">{et.requirement}</p>
+                <div class="p-6 sm:p-8">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class={`inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full border ${config.color}`}>
+                      {config.label}
+                    </span>
+                    <span class="text-neutral-600 text-xs">{et.spots} spots max</span>
                   </div>
-                  <p class="text-2xl font-extrabold text-white mt-3 sm:mt-0 flex-shrink-0">${et.price}</p>
+                  <div class="flex items-start justify-between gap-4 mb-3">
+                    <h3 class="text-lg font-bold text-white">{et.name}</h3>
+                    <p class="text-2xl font-extrabold text-white flex-shrink-0">{et.price === 0 ? 'Free' : `$${et.price}`}</p>
+                  </div>
+                  <p class="text-neutral-400 text-sm mb-3">{et.description}</p>
+                  <ul class="space-y-1.5 mb-3">
+                    {et.bullets.map((b) => (
+                      <li class="flex items-start gap-2 text-sm text-neutral-300">
+                        <svg class="w-4 h-4 text-k9-orange mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                        </svg>
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                  <p class="text-neutral-600 text-xs italic">{et.requirement}</p>
                 </div>
               </div>
 
