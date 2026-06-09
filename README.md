@@ -47,18 +47,13 @@ These are set in Vercel and pulled via `npx vercel env pull`:
 
 Pushes to `main` auto-deploy to production via Vercel. No manual deploy needed.
 
-Manual deploy (if needed):
-```bash
-npx vercel deploy --prod
-```
-
 ## Project layout
 
 ```
 src/
   pages/
     index.astro              — homepage
-    board-and-train.astro    — board & train programs
+    board-and-train.astro    — board & train programs ($2,995-$7,995)
     private-lessons.astro    — private training ($1,350 / $1,685)
     group-classes.astro      — Level 1/2/3 group obedience ($595 each)
     puppy-classes.astro      — puppy program ($450)
@@ -70,12 +65,12 @@ src/
     areas/                   — 30 neighbourhood landing pages (SEO)
     api/
       submit.ts              — contact form + quiz results (Supabase + Resend)
-      chat.ts                — AI chatbot API (Claude Haiku + Resend)
+      chat.ts                — AI chatbot API (Claude Sonnet + Resend)
   components/
-    Navbar.astro             — site navigation
+    Navbar.astro             — site navigation (phone pill + Get Started)
     Footer.astro             — footer with area links
     ContactForm.astro        — lead capture form (Supabase + Resend + Klaviyo)
-    ChatBot.astro            — AI chatbot widget (every page)
+    ChatBot.astro            — AI chatbot with auto-popup (every page)
     BlogPostCTA.astro        — CTA + in-home promo at bottom of every blog post
     Testimonials.astro       — client testimonials (from real emails)
     QuizForm.astro           — behavioural assessment quiz
@@ -86,7 +81,7 @@ src/
   data/
     areas.ts                 — 30 neighbourhood entries for area pages
   layouts/
-    Layout.astro             — base layout (includes chatbot)
+    Layout.astro             — base layout (includes chatbot, GA4, Meta Pixel)
     BlogPost.astro           — blog post layout with CTA
   styles/
     global.css               — Tailwind + custom styles
@@ -95,7 +90,8 @@ public/
   badges/                    — award badges
   logo.png                   — K9 Academy logo
   robots.txt                 — SEO robots file
-email-templates/             — 21 Klaviyo email HTML templates
+email-templates/             — 28 Klaviyo flow email HTML templates (10 flows)
+email-campaigns/             — monthly campaign emails (16/month)
 ```
 
 ## Key brand facts
@@ -118,9 +114,10 @@ email-templates/             — 21 Klaviyo email HTML templates
 | Private 6-Session | $1,350 |
 | Private 8-Session | $1,685 |
 | In-Home (per session) | $625 (+travel fee outside Toronto core) |
-| Board & Train Basic (2wk) | $2,995 |
-| Board & Train Standard (4wk) | $3,495 |
-| Board & Train Premium (8wk) | $4,995+ |
+| Board & Train 2-week | $2,995 |
+| Board & Train 4-week | $3,995 (most popular, off-leash guarantee) |
+| Board & Train 6-week | $4,995 |
+| Board & Train 8-week | $7,995 (severe cases only) |
 | Puppy Start Right | $3,995 |
 | Drop-In Impulse Control | $45 |
 | Adult Dog Social | $55 |
@@ -140,13 +137,31 @@ These pages are NOT linked in the nav or sitemap. Only accessible via direct lin
 
 ## AI Chatbot
 
-The chatbot (`ChatBot.astro` + `api/chat.ts`) uses Claude Haiku. It:
+The chatbot (`ChatBot.astro` + `api/chat.ts`) uses Claude Sonnet. It:
+- Auto-pops up after 5 seconds with a dark preview bubble
 - Knows all programs, pricing, FAQ answers, locations, methods
 - Captures lead info (email/phone) from conversations
 - Emails leads + full chat transcript to contact@k9academy.ca via Resend
-- Costs ~$0.01-0.05 per conversation
+- Offers priority callback when someone wants to talk to a human
+- Costs ~$0.03-0.05 per conversation
 
 Update the `SYSTEM_PROMPT` in `api/chat.ts` if pricing or programs change.
+
+## Tracking
+
+| Tool | Status | ID |
+|------|--------|-----|
+| Google Analytics 4 | ✅ Live | G-450PG6DTXP |
+| Google Search Console | ✅ Verified | sitemap submitted |
+| Meta Pixel | ✅ Live | 886775375816530 |
+| Microsoft Clarity | ❌ Not set up | placeholder in Layout.astro |
+| Klaviyo | ✅ Wired in | Script loaded, events pushing |
+
+## Klaviyo Email Setup
+
+- **Flows (automated):** 10 flows, 28 emails. Follow `KLAVIYO-SETUP-GUIDE.md`.
+- **Campaigns (monthly):** 16 emails/month. Templates in `email-campaigns/`.
+- **Data flow:** Form submit → Klaviyo `identify` + `track` event → triggers flow
 
 ## Events page
 
@@ -156,7 +171,7 @@ Edit `src/pages/events.astro`. Events are managed in an array at the top of the 
 2. Set the `date`, `time`, and `stripeLink`
 3. Push to deploy
 
-When the event is over, comment it out or delete it. The page shows "Notify Me" when no dates are scheduled.
+When the event is over, comment it out or delete it.
 
 ## Updating content
 
@@ -168,31 +183,21 @@ When the event is over, comment it out or delete it. The page shows "Notify Me" 
 | Group class dates | Edit `startDate` in `src/pages/group-classes.astro` |
 | Photos | Drop in `public/images/`, reference as `/images/filename.jpg` |
 | Chatbot knowledge | Update `SYSTEM_PROMPT` in `src/pages/api/chat.ts` |
-| Email templates | In `email-templates/` (build in Klaviyo manually) |
+| Email flow templates | In `email-templates/` (build in Klaviyo manually) |
+| Campaign emails | In `email-campaigns/` (schedule in Klaviyo) |
 | Events | Edit array in `src/pages/events.astro` |
 
-## Writing rules (important)
+## Writing rules
 
-- **Never use em-dashes (—)** in any copy. Use periods, commas, semicolons, or colons instead. Em-dashes are an AI writing giveaway.
+- **Never use em-dashes (—)** in any copy. Use periods, commas, semicolons, or colons.
 - Write in Anesh's voice: direct, no fluff, expert, real, fifth-grade reading level.
-- No corporate speak. No "vibecoded" look.
+- No corporate speak.
 - Prices are non-negotiable. Never hint at discounts.
+- Sign off as "Anesh", never "The K9 Academy Team."
 
-## SEO pages
+## SEO
 
-**30 area pages** at `/areas/[slug]`:
-- Toronto: Leaside, East York, Moore Park, Davisville, Lawrence Park, Rosedale, Yorkville, Summerhill, Midtown, Forest Hill, Don Mills, Bridle Path, York Mills, Casa Loma, Deer Park, The Annex, Hoggs Hollow, Chaplin Estates
-- York Region: King City, Aurora, Kleinburg, Vaughan, Richmond Hill, Markham, Newmarket, Stouffville
-- GTA: Oakville, Mississauga, Caledon, Brampton
-
-**45 blog posts** at `/blog/[slug]`:
-- Covers reactivity, board & train, puppy training, in-home training, area-specific posts, comparisons
-
-## Social proof sections
-
-Private lessons and group classes pages have social proof grids with:
-- Google Reviews cards
-- Client email screenshots
-- Before/after stories
-
-Each is data-driven. Edit the arrays inline in the page files.
+- **30 area pages** at `/areas/[slug]` — Toronto premium + York Region + GTA
+- **45 blog posts** at `/blog/[slug]` — reactivity, B&T, puppy, in-home, area-specific
+- Google Search Console verified, sitemap submitted
+- JSON-LD schemas on all pages (LocalBusiness, Service, FAQPage, Article)
