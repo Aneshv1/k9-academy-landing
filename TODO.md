@@ -135,3 +135,16 @@ Full plan with phases, ad budgets, and strategy in `MARKETING-PLAN-2.5M.md`.
 - [x] Klaviyo guide updated with events reference, campaign instructions, review automation, staff checklist
 - [x] $2.5M marketing plan written
 - [x] Daycare removed from contact form
+
+## Latest Completed (June 10, 2026)
+
+- [x] PR outreach emails (7 ready-to-send: BlogTO, Daily Hive, Toronto Star, podcast, vet, groomer, rescue)
+- [x] Month 2 campaign emails (16 emails in email-campaigns/month-2/)
+- [x] 10 new blog posts (55 total): best trainer Toronto, puppy socialization, training cost, e-collar guide, aggression guide, off-leash Toronto, Vaughan, Richmond Hill, Brampton, B&T timeline
+- [x] Puppy Start Right conversion rework (3 pain points, single B&T vs 3 stays comparison, social proof, testimonial video, removed filler)
+- [x] Group classes hero video added (rxf3wxky8qg)
+- [x] Group classes hero badge: "#1 Rated Group Program in Toronto"
+- [x] Level 2: off-leash guarantee, client quote (Katryna R.), removed bad indoor photo
+- [x] Chatbot updated: no longer recommends specific programs, pushes for callback/lead capture
+- [x] Events page: 5 event types with photos and bullets (impulse, social, puppy, hike, pack walk)
+- [x] Affirm text updated on PSR page
