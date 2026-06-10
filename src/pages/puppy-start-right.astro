@@ -149,10 +149,55 @@ import '../styles/global.css';
         ))}
       </div>
 
-      <!-- Solution -->
-      <div class="rounded-2xl bg-neutral-900 p-6 sm:p-8 text-center mb-10">
-        <p class="text-white font-bold text-lg mb-2">That's why Puppy Start Right is 3 stays, not 1.</p>
-        <p class="text-neutral-400 text-sm max-w-lg mx-auto">Three 2-week stays timed to your puppy's critical development stages. Socialization first, then obedience, then off-leash reliability. Each stay builds on the last as your puppy matures.</p>
+      <!-- Why 3 stays beats a single B&T -->
+      <div class="rounded-2xl bg-neutral-900 p-6 sm:p-8 mb-10">
+        <h3 class="text-xl font-extrabold text-white text-center mb-6">Why 3 stays beats a single 4-week board and train</h3>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Single B&T problem -->
+          <div class="rounded-xl bg-white/5 border border-white/10 p-5">
+            <p class="text-red-400 text-xs font-bold uppercase tracking-widest mb-3">Single 4-week B&T at 12 weeks</p>
+            <ul class="space-y-2">
+              {[
+                'Puppy is too young for advanced obedience',
+                'Training happens before their brain is ready for it',
+                'Teenage regression at 6-8 months erases everything',
+                'No reinforcement during critical development stages',
+                'You end up paying for another program at 8 months anyway',
+              ].map((item) => (
+                <li class="flex items-start gap-2 text-neutral-400 text-sm">
+                  <svg class="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- PSR advantage -->
+          <div class="rounded-xl bg-emerald-950/50 border border-emerald-900/30 p-5">
+            <p class="text-emerald-400 text-xs font-bold uppercase tracking-widest mb-3">Puppy Start Right: 3 stays across year 1</p>
+            <ul class="space-y-2">
+              {[
+                'Stay 1 (8-14 wks): socialization when the window is open',
+                'Stay 2 (4-6 mo): obedience as their brain matures',
+                'Stay 3 (7-10 mo): off-leash before teenage regression',
+                'Each stay reinforces the last at the exact right time',
+                'One price ($3,995) covers the entire first year',
+              ].map((item) => (
+                <li class="flex items-start gap-2 text-emerald-100 text-sm">
+                  <svg class="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <p class="text-neutral-500 text-xs text-center mt-5">Most clients who do a single B&T too young end up paying $3,995+ again to fix the regression. Puppy Start Right prevents that entirely.</p>
       </div>
 
       <!-- CTA -->
