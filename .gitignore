@@ -7,4 +7,4 @@ dist/
 tailwind.config.mjs
 .vercel
 .env.local
-.env
+.env*.local
