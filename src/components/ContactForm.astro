@@ -155,8 +155,8 @@
 
       // 2. Push to Klaviyo
       try {
-        const _learnq = (window as any)._learnq || [];
-        _learnq.push(['identify', {
+        (window as any)._learnq = (window as any)._learnq || [];
+        (window as any)._learnq.push(['identify', {
           '$email': data.email,
           '$first_name': (data.name as string)?.split(' ')[0] || '',
           '$last_name': (data.name as string)?.split(' ').slice(1).join(' ') || '',
@@ -166,7 +166,7 @@
           'Message': data.message || '',
           'Source': 'Landing Page',
         }]);
-        _learnq.push(['track', 'Landing Page Inquiry', {
+        (window as any)._learnq.push(['track', 'Landing Page Inquiry', {
           'Name': data.name,
           'Email': data.email,
           'Phone': data.phone,

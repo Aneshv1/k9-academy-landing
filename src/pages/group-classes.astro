@@ -546,14 +546,14 @@ import '../styles/global.css';
           }),
         }).catch(() => {});
 
-        const _learnq = (window as any)._learnq || [];
-        _learnq.push(['identify', {
+        (window as any)._learnq = (window as any)._learnq || [];
+        (window as any)._learnq.push(['identify', {
           '$email': email,
           '$first_name': name.split(' ')[0] || '',
           '$last_name': name.split(' ').slice(1).join(' ') || '',
           'Source': 'Curriculum Download',
         }]);
-        _learnq.push(['track', 'Curriculum Download', {
+        (window as any)._learnq.push(['track', 'Curriculum Download', {
           'Name': name,
           'Email': email,
           'Curriculum': 'Group Classes',

@@ -382,14 +382,14 @@ import '../styles/global.css';
         }).catch(() => {});
 
         // Push to Klaviyo (client-side backup)
-        const _learnq = (window as any)._learnq || [];
-        _learnq.push(['identify', {
+        (window as any)._learnq = (window as any)._learnq || [];
+        (window as any)._learnq.push(['identify', {
           '$email': email,
           '$first_name': name.split(' ')[0] || '',
           '$last_name': name.split(' ').slice(1).join(' ') || '',
           'Source': 'Puppy Curriculum Download',
         }]);
-        _learnq.push(['track', 'Puppy Curriculum Download', {
+        (window as any)._learnq.push(['track', 'Puppy Curriculum Download', {
           'Name': name,
           'Email': email,
           'Curriculum': 'Puppy Classes',

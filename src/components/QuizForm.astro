@@ -501,7 +501,7 @@ const { puppy = false } = Astro.props;
     } catch {}
 
     try {
-      const _learnq = (window as any)._learnq || [];
+      (window as any)._learnq = (window as any)._learnq || [];
       const identifyData: Record<string, any> = {
         '$email': email,
         '$first_name': name.split(' ')[0] || '',
@@ -548,8 +548,8 @@ const { puppy = false } = Astro.props;
         trackData['Aggression'] = scores.aggression;
       }
 
-      _learnq.push(['identify', identifyData]);
-      _learnq.push(['track', 'Behaviour Quiz Completed', trackData]);
+      (window as any)._learnq.push(['identify', identifyData]);
+      (window as any)._learnq.push(['track', 'Behaviour Quiz Completed', trackData]);
     } catch {}
   });
 </script>
