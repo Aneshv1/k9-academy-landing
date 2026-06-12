@@ -216,15 +216,36 @@
 
   // Extract lead info from conversation
   function extractLeadInfo(allMessages: typeof messages) {
-    const fullText = allMessages.map(m => m.content).join(' ');
+    const userText = allMessages.filter(m => m.role === 'user').map(m => m.content).join(' ');
 
     // Try to extract email
-    const emailMatch = fullText.match(/[\w.-]+@[\w.-]+\.\w+/);
+    const emailMatch = userText.match(/[\w.-]+@[\w.-]+\.\w+/);
     if (emailMatch) leadInfo.email = emailMatch[0];
 
-    // Try to extract phone
-    const phoneMatch = fullText.match(/(\+?1?\s*[-.]?\s*\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})/);
+    // Try to extract phone (various formats)
+    const phoneMatch = userText.match(/(\+?1?\s*[-.]?\s*\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})/);
     if (phoneMatch) leadInfo.phone = phoneMatch[1];
+
+    // Try to extract name — first user message that looks like a name (no digits, short)
+    if (!leadInfo.name) {
+      for (const m of allMessages) {
+        if (m.role === 'user') {
+          const clean = m.content.trim();
+          // If it looks like "name + phone" e.g. "Anesh 6473767016"
+          const namePhoneMatch = clean.match(/^([a-zA-Z]+(?:\s+[a-zA-Z]+)?)\s+(\+?1?\s*[-.]?\s*\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})$/);
+          if (namePhoneMatch) {
+            leadInfo.name = namePhoneMatch[1];
+            leadInfo.phone = namePhoneMatch[2];
+            break;
+          }
+          // Just a name (2-30 chars, letters and spaces only)
+          if (/^[a-zA-Z\s]{2,30}$/.test(clean) && clean.split(' ').length <= 3) {
+            leadInfo.name = clean;
+            break;
+          }
+        }
+      }
+    }
   }
 
   async function sendMessage(userMessage: string) {
@@ -254,7 +275,7 @@
 
         // Check if AI collected enough info to send lead
         extractLeadInfo(messages);
-        if (leadInfo.email && !leadSent) {
+        if ((leadInfo.email || leadInfo.phone) && !leadSent) {
           leadSent = true;
           // Send lead in background
           fetch('/api/chat', {

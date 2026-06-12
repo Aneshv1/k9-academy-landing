@@ -111,7 +111,7 @@ export const POST: APIRoute = async ({ request }) => {
     const { messages, leadInfo } = body as { messages: ChatMessage[]; leadInfo?: Record<string, string> };
 
     // If lead info is provided, send email via Resend
-    if (leadInfo && leadInfo.email) {
+    if (leadInfo && (leadInfo.email || leadInfo.phone)) {
       if (resendApiKey) {
         try {
           const resend = new Resend(resendApiKey);
@@ -136,8 +136,8 @@ export const POST: APIRoute = async ({ request }) => {
           await resend.emails.send({
             from: notifyFrom,
             to: notifyTo,
-            replyTo: leadInfo.email,
-            subject: `Chatbot lead: ${leadInfo.name || 'Unknown'}. ${leadInfo.issue || 'inquiry'}`,
+            ...(leadInfo.email ? { replyTo: leadInfo.email } : {}),
+            subject: `Chatbot lead: ${leadInfo.name || 'Unknown'} — ${leadInfo.phone || leadInfo.email || 'no contact'}`,
             html,
             text: rows.map(([k, v]) => `${k}: ${v}`).join('\n'),
           });
