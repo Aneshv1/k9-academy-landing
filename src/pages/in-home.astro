@@ -208,9 +208,31 @@ import '../styles/global.css';
     </div>
   </section>
 
-  <!-- PRICING. Single card -->
+  <!-- WHY THE INVESTMENT -->
   <section class="py-16 sm:py-20 bg-neutral-900">
-    <div class="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Why In-Home</p>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">You're not paying for a session. You're paying for who shows up.</h2>
+        <p class="text-neutral-400 leading-relaxed max-w-2xl mx-auto">
+          K9 Academy is trusted by celebrities, professional athletes, executives, and public figures across the GTA. Our in-home program exists for clients who need the best trainers in the industry to come to them. We only take a handful of in-home clients at a time because our senior trainers' schedules are limited. When we come to your home, you're getting the same people who built one of Canada's top training programs, working one-on-one with your dog in the environment that matters most.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-4 mb-12">
+        {[
+          { stat: '15+', label: 'Years of experience' },
+          { stat: '10,000+', label: 'Dogs trained' },
+          { stat: 'Limited', label: 'In-home spots per month' },
+        ].map((item) => (
+          <div class="text-center p-5 bg-white/5 border border-white/10 rounded-xl">
+            <p class="text-2xl font-extrabold text-k9-orange">{item.stat}</p>
+            <p class="text-neutral-400 text-xs mt-1">{item.label}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="max-w-md mx-auto">
       <div class="rounded-2xl p-8 bg-white text-center shadow-2xl">
         <p class="text-k9-orange font-semibold text-xs uppercase tracking-widest mb-4">Investment</p>
         <p class="text-5xl font-extrabold text-neutral-900 mb-1">$525+</p>
@@ -236,6 +258,7 @@ import '../styles/global.css';
           Apply Now
         </a>
         <p class="text-neutral-400 text-xs mt-3">A travel fee may apply for locations outside the Toronto core.</p>
+      </div>
       </div>
     </div>
   </section>
