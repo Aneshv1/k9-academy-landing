@@ -280,19 +280,84 @@ No dropdown menus on desktop. Direct links feel bigger and more established than
 Push `identify` + `track` events from form submit handlers and quiz.
 
 ### Events to fire
-- `Landing Page Inquiry` — main contact form
+- `Group Classes Inquiry` — contact form on /group-classes
+- `Private Lessons Inquiry` — contact form on /private-lessons
+- `Board & Train Inquiry` — contact form on /board-and-train
+- `Puppy Classes Inquiry` — contact form on /puppy-classes
+- `In-Home Inquiry` — application form on /in-home (includes neighbourhood)
+- `Landing Page Inquiry` — catch-all, fired on every contact form submission
 - `Behaviour Quiz Completed` — quiz (with all scores as properties)
 - `Guide Requested` — quiz email capture
-- `Curriculum Download` — any curriculum/guide download form
+- `Curriculum Download` — group/puppy curriculum download forms
+- `Puppy Curriculum Download` — puppy curriculum form specifically
+
+### ContactForm service auto-select
+The ContactForm component accepts a `defaultService` prop. Each page passes its service key:
+- `/group-classes` → `defaultService="group_classes"`
+- `/private-lessons` → `defaultService="private_lessons"`
+- `/board-and-train` → `defaultService="board_and_train"`
+- `/puppy-classes` → `defaultService="puppy_classes"`
+- `/` and `/faq` → no default (user picks)
+
+The dropdown values map to Klaviyo event names via EVENT_NAMES and SERVICE_LABELS objects in the form script.
+
+### CRITICAL: Klaviyo _learnq pattern
+Always assign to window._learnq, never create a local variable:
+```javascript
+// CORRECT:
+(window as any)._learnq = (window as any)._learnq || [];
+(window as any)._learnq.push(['track', 'Event Name', { ... }]);
+
+// WRONG (events silently lost):
+const _learnq = (window as any)._learnq || [];
+```
 
 ### Profile properties for segmentation
-- Source, Quiz Challenge, Quiz Score, Quiz Dog Age
+- Source, Service Interest, Quiz Challenge, Quiz Score, Quiz Dog Age
 - Individual area scores (Reactivity: 1, Recall: 3, etc.)
 - Recommended Program
-- Phone
+- Phone, Neighbourhood (in-home)
+
+### Segments
+- **All Inquiries** — anyone who triggered ANY inquiry event (OR conditions)
+- **Group Inquiries** — triggered Group Classes Inquiry
+- **Private Inquiries** — triggered Private Lessons Inquiry
+- **Board & Train Inquiries** — triggered Board & Train Inquiry
+- **Puppy Inquiries** — triggered Puppy Classes Inquiry
+- **In-Home Inquiries** — triggered In-Home Inquiry
+- **Curriculum Downloads** — triggered Curriculum Download or Puppy Curriculum Download
+- **Quiz Completions** — triggered Behaviour Quiz Completed
 
 ### Flows to build
 See `klaviyo-flows.md` for full playbook with email copy, subject lines, and conditional logic.
+
+---
+
+## CHATBOT (AI-Powered)
+
+### Stack
+- Claude API (Sonnet) via `/api/chat.ts`
+- Resend for lead notification emails
+- Client-side chat UI in `ChatBot.astro`
+
+### Lead capture strategy
+1. Chatbot asks about their dog first (build rapport)
+2. Pushes free phone assessment: "Can I grab your name, number, and email?"
+3. Collects both phone AND email ("so we can reach you however works best")
+4. Lead email sent the MOMENT phone or email is detected (not just email)
+5. Includes full chat transcript in notification email
+
+### Lead extraction (client-side)
+- Email: regex match from user messages
+- Phone: regex for all formats (+1, (416), 416-, etc.)
+- Name: pattern match for "name + phone" or short alphabetic messages
+- Trigger: `(leadInfo.email || leadInfo.phone) && !leadSent`
+
+### System prompt key rules
+- Do NOT recommend specific programs. Collect info and let trainers close on the phone.
+- If they ask about pricing, give ranges but always follow up with "a quick call will give you a clear answer."
+- Never diagnose behaviour. Recommend assessment/callback.
+- No em-dashes. Canadian English spelling.
 
 ---
 
@@ -308,14 +373,45 @@ See `klaviyo-flows.md` for full playbook with email copy, subject lines, and con
 
 ## CONVERSION OPTIMIZATION NOTES
 
-- Every page ends with a contact form — no dead ends
-- Phone number visible in navbar on every page (one-tap on mobile)
-- "Get Started" CTA is orange and appears in navbar, hero, and end of every section
-- Social proof sections end with a CTA button
-- Quiz is on the homepage only — service pages have direct contact forms (visitor already knows what they want)
+### Page structure (the conversion stack)
+Every service page follows this order:
+1. Hero (hook in 3 seconds)
+2. Awards/trust bar
+3. Pain → Agitate → Solve
+4. Mid-page CTA + phone number
+5. Value props (4 cards)
+6. How It Works (3-4 steps)
+7. Social proof (3-9 reviews + DMs + emails)
+8. Results videos (2x2 grid)
+9. Mid-page CTA + phone number
+10. Pricing (transparent, value stack)
+11. Qualification (for you / not for you)
+12. FAQ (5-7 objection handlers)
+13. Contact form
+14. Sticky mobile CTA
+
+### CTA strategy
+- Every page has at least 3 CTAs before the form (hero, after PAS, after videos)
+- Every CTA includes phone number as a secondary option
+- Phone number uses founder's first name: "Or call 437-778-5273 to speak with Anesh"
+- Sticky mobile CTA appears when hero CTA scrolls out of view (IntersectionObserver)
+- CTA copy is specific, not generic: "Join Level 1 — $595" not "Get Started"
+
+### Social proof strategy
+- Three tiers: Google reviews, DM screenshots, client emails
+- Issue tags on every review (Reactivity, Separation Anxiety, etc.)
+- Breed tags on every review
+- Spread issues across all categories, don't cluster
+- Reference specific programs and trainer names
+- Not every review is dramatic — some are just "thanks, it worked"
+
+### Other conversion rules
+- Quiz is on the homepage only — service pages have direct contact forms
 - Guide banner on service pages is subtle — doesn't compete with the main form
 - Urgency: cohort dates with status badges (Almost full / Filling fast / Open / Waitlist)
-- Trust: Google review count, star rating, and "10,000+ dogs trained" appear on every hero
+- Trust: Google review count, star rating, and "10,000+ dogs trained" on every hero
+- FAQ always addresses price objection first
+- Qualification section ("This isn't for everyone") filters bad leads before the form
 
 ---
 
