@@ -5,5 +5,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://training.k9academy.ca',
   adapter: vercel(),
-  integrations: [sitemap()],
+  integrations: [sitemap({
+    filter: (page) => !page.includes('/thank-you'),
+  })],
 });
