@@ -171,7 +171,7 @@ export const POST: APIRoute = async ({ request }) => {
         const quizHtml = `
           <div style="font-family:system-ui,-apple-system,sans-serif;max-width:560px;margin:0 auto">
             <div style="text-align:center;padding:32px 0 24px">
-              <img src="https://k9-academy-landing.vercel.app/logo.png" alt="K9 Academy" style="height:40px;margin:0 auto 16px" />
+              <img src="https://training.k9academy.ca/logo.png" alt="K9 Academy" style="height:40px;margin:0 auto 16px" />
               <h1 style="margin:0;font-size:24px;color:#111">${emailHeading}</h1>
             </div>
 
@@ -191,7 +191,7 @@ export const POST: APIRoute = async ({ request }) => {
 
             <div style="text-align:center;padding:24px;background:#1a1a1a;border-radius:12px">
               <p style="margin:0 0 8px;font-size:14px;color:#999">Ready for real results?</p>
-              <a href="https://k9-academy-landing.vercel.app/#contact" style="display:inline-block;padding:12px 28px;background:#e8782a;color:#fff;font-weight:700;font-size:14px;text-decoration:none;border-radius:8px">${ctaText}</a>
+              <a href="https://training.k9academy.ca/#contact" style="display:inline-block;padding:12px 28px;background:#e8782a;color:#fff;font-weight:700;font-size:14px;text-decoration:none;border-radius:8px">${ctaText}</a>
               <p style="margin:12px 0 0;font-size:12px;color:#666">437-778-5273 · contact@k9academy.ca</p>
             </div>
 
