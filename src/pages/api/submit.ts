@@ -13,10 +13,17 @@ const notifyTo = import.meta.env.NOTIFY_TO || 'contact@k9academy.ca';
 const escapeHtml = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
+const SERVICE_LABELS: Record<string, string> = {
+  board_and_train: 'Board & Train',
+  private_lessons: 'Private Lessons',
+  group_classes: 'Group Classes',
+  puppy_classes: 'Puppy Classes',
+};
+
 export const POST: APIRoute = async ({ request }) => {
   try {
     const body = await request.json();
-    const { name, email, phone, dog_info, service, message } = body;
+    const { name, email, phone, dog_info, service, message, source_page } = body;
 
     if (!name || !email) {
       return new Response(JSON.stringify({ error: 'Missing required fields' }), {
@@ -54,15 +61,16 @@ export const POST: APIRoute = async ({ request }) => {
       try {
         const resend = new Resend(resendApiKey);
         const rows: Array<[string, string]> = [
+          ['Source', source_page || 'Main Landing Page'],
           ['Name', name],
           ['Email', email],
           ['Phone', phone],
-          ['Service', service || '—'],
+          ['Service', SERVICE_LABELS[service] || service || '—'],
           ['Dog', dog_info || '—'],
           ['Message', message || '—'],
         ];
         const html = `
-          <h2 style="margin:0 0 16px;font-family:system-ui,sans-serif">New lead from landing page</h2>
+          <h2 style="margin:0 0 16px;font-family:system-ui,sans-serif">New lead from ${escapeHtml(source_page || 'Main Landing Page')}</h2>
           <table style="border-collapse:collapse;font-family:system-ui,sans-serif;font-size:14px">
             ${rows
               .map(
@@ -79,7 +87,7 @@ export const POST: APIRoute = async ({ request }) => {
           from: notifyFrom,
           to: notifyTo,
           replyTo: email,
-          subject: `New lead: ${name}. ${service || 'inquiry'}`,
+          subject: `New lead: ${name} — ${source_page || 'Landing Page'}`,
           html,
           text,
         });
