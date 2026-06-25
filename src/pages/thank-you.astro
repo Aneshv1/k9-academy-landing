@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+
+<Layout title="Thank You | K9 Academy" description="Thank you for your inquiry. We'll be in touch shortly.">
+  <Navbar />
+
+  <section class="relative pt-32 sm:pt-40 pb-20 sm:pb-28 bg-neutral-950 min-h-[70vh] flex items-center">
+    <div class="relative max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+      <div class="w-20 h-20 mx-auto mb-8 rounded-full bg-k9-green/10 flex items-center justify-center">
+        <svg class="w-10 h-10 text-k9-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+        </svg>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+        You're in. We'll be in touch shortly.
+      </h1>
+
+      <p class="mt-4 text-lg text-neutral-400 leading-relaxed">
+        A head trainer will reach out within 24 hours. Keep an eye on your phone.
+      </p>
+
+      <div class="mt-10 bg-white/5 rounded-2xl p-6 sm:p-8 border border-white/10 text-left">
+        <h2 class="text-lg font-bold text-white mb-4">What happens next</h2>
+        <ol class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="flex-shrink-0 w-7 h-7 rounded-full bg-k9-orange flex items-center justify-center text-white text-sm font-bold">1</span>
+            <div>
+              <p class="text-white font-semibold">We review your inquiry</p>
+              <p class="text-neutral-400 text-sm">A head trainer looks at your dog's situation and prepares recommendations.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="flex-shrink-0 w-7 h-7 rounded-full bg-k9-orange flex items-center justify-center text-white text-sm font-bold">2</span>
+            <div>
+              <p class="text-white font-semibold">We call you</p>
+              <p class="text-neutral-400 text-sm">We'll discuss your goals, answer questions, and recommend the right program.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="flex-shrink-0 w-7 h-7 rounded-full bg-k9-orange flex items-center justify-center text-white text-sm font-bold">3</span>
+            <div>
+              <p class="text-white font-semibold">Your dog's transformation begins</p>
+              <p class="text-neutral-400 text-sm">We get to work. Most owners see noticeable change within the first week.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/" class="px-6 py-3 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/15 transition text-sm">
+          Back to Homepage
+        </a>
+        <a href="tel:4377785273" class="px-6 py-3 bg-k9-orange text-white font-bold rounded-xl hover:bg-k9-orange-dark transition text-sm">
+          Call Us Now: 437-778-5273
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  // Fire conversion events on page load — only people who submitted the form land here
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'Lead');
+  }
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'generate_lead', { event_category: 'form', event_label: 'thank_you_page' });
+  }
+</script>
