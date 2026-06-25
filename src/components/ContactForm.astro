@@ -222,7 +222,8 @@ const { defaultService = '', sourcePage = 'Main Landing Page' } = Astro.props;
       }
 
       if (res.ok) {
-        window.location.href = '/thank-you';
+        // Short delay to let Klaviyo flush queued events before redirect
+        setTimeout(() => { window.location.href = '/thank-you'; }, 500);
       } else {
         throw new Error('Submission failed');
       }
