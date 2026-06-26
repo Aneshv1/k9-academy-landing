@@ -283,6 +283,28 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ messages, leadInfo }),
           }).catch(() => {});
+
+          // Push to Klaviyo
+          if (leadInfo.email) {
+            try {
+              (window as any)._learnq = (window as any)._learnq || [];
+              const nameParts = (leadInfo.name || '').split(' ');
+              (window as any)._learnq.push(['identify', {
+                '$email': leadInfo.email,
+                '$first_name': nameParts[0] || '',
+                '$last_name': nameParts.slice(1).join(' ') || '',
+                ...(leadInfo.phone ? { '$phone_number': leadInfo.phone } : {}),
+                'Source': 'Chatbot',
+              }]);
+              (window as any)._learnq.push(['track', 'Chatbot Lead', {
+                'Name': leadInfo.name || '',
+                'Email': leadInfo.email,
+                'Phone': leadInfo.phone || '',
+              }]);
+            } catch (e) {
+              console.error('Klaviyo chatbot push failed:', e);
+            }
+          }
         }
       }
     } catch {
