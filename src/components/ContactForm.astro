@@ -2,8 +2,17 @@
 interface Props {
   defaultService?: string;
   sourcePage?: string;
+  formHeading?: string;
+  formSubheading?: string;
+  submitText?: string;
 }
-const { defaultService = '', sourcePage = 'Main Landing Page' } = Astro.props;
+const {
+  defaultService = '',
+  sourcePage = 'Main Landing Page',
+  formHeading = 'Get your free consultation',
+  formSubheading = "Fill this out and we'll be in touch shortly.",
+  submitText = "Start My Dog's Transformation",
+} = Astro.props;
 ---
 
 <section id="contact" class="py-16 sm:py-24 bg-neutral-900">
@@ -53,8 +62,8 @@ const { defaultService = '', sourcePage = 'Main Landing Page' } = Astro.props;
       <!-- Right: form -->
       <div>
         <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-2xl">
-          <h3 class="text-xl font-bold text-neutral-900 mb-1">Get your free consultation</h3>
-          <p class="text-sm text-neutral-400 mb-6">Fill this out and we'll be in touch shortly.</p>
+          <h3 class="text-xl font-bold text-neutral-900 mb-1">{formHeading}</h3>
+          <p class="text-sm text-neutral-400 mb-6">{formSubheading}</p>
 
           <form id="inquiry-form" class="space-y-4">
             <input type="hidden" name="source_page" value={sourcePage} />
@@ -118,7 +127,7 @@ const { defaultService = '', sourcePage = 'Main Landing Page' } = Astro.props;
 
             <button type="submit" id="submit-btn"
               class="w-full py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/20 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed">
-              Start My Dog's Transformation
+              {submitText}
             </button>
 
           </form>
@@ -132,6 +141,7 @@ const { defaultService = '', sourcePage = 'Main Landing Page' } = Astro.props;
   const form = document.getElementById('inquiry-form') as HTMLFormElement;
   const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
   const serviceSelect = document.getElementById('service') as HTMLSelectElement;
+  const originalBtnText = submitBtn?.textContent || 'Submit';
 
   // Auto-select the service based on the page
   if (serviceSelect?.dataset.default) {
@@ -217,7 +227,7 @@ const { defaultService = '', sourcePage = 'Main Landing Page' } = Astro.props;
       }
     } catch {
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Start My Dog\'s Transformation';
+      submitBtn.textContent = originalBtnText;
       alert('Something went wrong. Please call us at 437-778-5273 instead.');
     }
   });
