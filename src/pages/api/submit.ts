@@ -1,11 +1,8 @@
 import type { APIRoute } from 'astro';
-import { createClient } from '@supabase/supabase-js';
 import { Resend } from 'resend';
 
 export const prerender = false;
 
-const supabaseUrl = import.meta.env.SUPABASE_URL || 'https://gpcsjdvpdyvkfkwpynhf.supabase.co';
-const supabaseServiceKey = import.meta.env.SUPABASE_SERVICE_ROLE_KEY || '';
 const resendApiKey = import.meta.env.RESEND_API_KEY || '';
 const notifyFrom = import.meta.env.NOTIFY_FROM || 'K9 Academy Leads <leads@k9academy.ca>';
 const notifyTo = import.meta.env.NOTIFY_TO || 'contact@k9academy.ca';
@@ -32,35 +29,8 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    const results = { supabase: false, email: false };
-
-    if (supabaseServiceKey) {
-      try {
-        const supabase = createClient(supabaseUrl, supabaseServiceKey);
-
-        // Cap the insert at 5s so a slow/unresponsive database never blocks the form response
-        const insert = supabase.from('leads').insert({
-          owner_name: name,
-          email,
-          phone,
-          dog_name: dog_info || null,
-          service: service || 'private_6',
-          challenge: message || null,
-          stage: 'new',
-          priority: 'normal',
-          source: 'landing_page',
-        });
-        const timeout = new Promise<{ error: { message: string } }>((resolve) =>
-          setTimeout(() => resolve({ error: { message: 'Supabase insert timed out after 5s' } }), 5000)
-        );
-        const { error } = await Promise.race([insert, timeout]);
-
-        if (!error) results.supabase = true;
-        else console.error('Supabase error:', error.message);
-      } catch (e) {
-        console.error('Supabase insert failed:', e);
-      }
-    }
+    // Supabase/Scooter CRM lead insert removed for now — re-enable once Scooter is production-ready
+    const results = { email: false };
 
     if (resendApiKey) {
       try {
