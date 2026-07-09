@@ -38,7 +38,8 @@ export const POST: APIRoute = async ({ request }) => {
       try {
         const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-        const { error } = await supabase.from('leads').insert({
+        // Cap the insert at 5s so a slow/unresponsive database never blocks the form response
+        const insert = supabase.from('leads').insert({
           owner_name: name,
           email,
           phone,
@@ -49,6 +50,10 @@ export const POST: APIRoute = async ({ request }) => {
           priority: 'normal',
           source: 'landing_page',
         });
+        const timeout = new Promise<{ error: { message: string } }>((resolve) =>
+          setTimeout(() => resolve({ error: { message: 'Supabase insert timed out after 5s' } }), 5000)
+        );
+        const { error } = await Promise.race([insert, timeout]);
 
         if (!error) results.supabase = true;
         else console.error('Supabase error:', error.message);
