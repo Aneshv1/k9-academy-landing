@@ -49,7 +49,7 @@ import '../styles/global.css';
         </div>
 
         <p class="mt-5 text-lg sm:text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-          Most puppy classes are glorified playtime. Ours teaches real skills. commands, socialization, no-bite training, and house manners. that stick for life. Four sessions, recommended under 5.5 months.
+          Most puppy classes are glorified playtime. Ours is focused on raising a properly behaved adult dog. Real commands, controlled socialization, bite inhibition that actually works, and house manners. that stick for life. Four sessions, under 5.5 months.
         </p>
 
         <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -68,7 +68,7 @@ import '../styles/global.css';
         </div>
 
         <div class="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2">
-          {['For puppies under 5.5 months', '4 one-hour sessions', 'Handbook + clicker included', 'Spots are limited'].map((item) => (
+          {['For puppies under 5.5 months', '4 one-hour sessions', 'Handbook + materials included', 'Spots are limited'].map((item) => (
             <div class="flex items-center gap-1.5 text-sm text-neutral-500">
               <svg class="w-4 h-4 text-k9-orange flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
@@ -177,6 +177,118 @@ import '../styles/global.css';
     </div>
   </section>
 
+  <!-- WHAT YOUR PUPPY WILL LEARN -->
+  <section class="py-16 sm:py-24 bg-neutral-50 border-y border-neutral-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 sm:mb-16">
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-k9-orange/10 rounded-full mb-4">
+          <span class="w-2.5 h-2.5 rounded-full bg-k9-orange animate-pulse"></span>
+          <span class="text-k9-orange font-bold text-sm uppercase tracking-wide">Real Curriculum, Real Results</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-neutral-900 leading-tight">
+          What your puppy will actually learn
+        </h2>
+        <p class="mt-4 text-lg text-neutral-500 max-w-2xl mx-auto">
+          This isn't a puppy playgroup with treats. Every session follows a structured curriculum designed to build real skills during your puppy's most critical development window.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4 mb-12">
+        {[
+          { skill: 'Controlled socialization', note: 'Your puppy plays with dogs of all types. It\'s controlled — if there are issues, we fix them on the spot. Not a free-for-all.' },
+          { skill: 'Biting and nipping — actually fixed', note: 'We show you how to stop it for real. Not the reinforcement-based methods other places teach that usually make it worse.' },
+          { skill: 'Sit, down, place, and come commands', note: 'Commands that work outside, not just indoors with a treat in your hand. Real obedience from session one.' },
+          { skill: 'Leash walking fundamentals', note: 'Loose-leash habits built from day one. No pulling, no lunging, no dragging you down the street.' },
+          { skill: 'Crate + potty training protocol', note: 'A clear system that actually works. No more guessing or cleaning up accidents at 2 AM.' },
+          { skill: 'Recall foundation', note: 'Your puppy comes when called. The skill that keeps them safe for life starts here.' },
+          { skill: 'Impulse control + focus', note: 'Your puppy learns to think before reacting. Sit before eating, wait at doors, settle on command.' },
+          { skill: 'Confidence building', note: 'Novel surfaces, obstacles, and agility intro. A confident puppy is a well-behaved puppy.' },
+        ].map((item) => (
+          <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-neutral-100">
+            <div class="w-6 h-6 rounded-full bg-k9-orange/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3.5 h-3.5 text-k9-orange" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold text-neutral-900 text-sm">{item.skill}</p>
+              <p class="text-neutral-500 text-sm mt-0.5">{item.note}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center">
+        <a href="#contact" class="inline-flex items-center px-7 py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30 hover:shadow-xl hover:-translate-y-0.5">
+          Get on the Puppy Waitlist
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+        <p class="mt-3 text-sm text-neutral-400">All of this in just 4 sessions. Under 5.5 months only.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON CHART -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8">
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-neutral-900">Not all puppy classes are created equal</h3>
+        <p class="mt-2 text-neutral-500 max-w-xl mx-auto text-sm">Most puppy classes are glorified playtime. We're building properly behaved adult dogs.</p>
+      </div>
+
+      <div class="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+        <table class="w-full border-collapse text-sm">
+          <thead>
+            <tr>
+              <th class="text-left p-3 sm:p-4 text-neutral-500 font-medium text-xs uppercase tracking-wide"></th>
+              <th class="p-3 sm:p-4 text-center rounded-t-xl bg-k9-orange text-white font-bold text-xs uppercase tracking-wide">K9 Academy</th>
+              <th class="p-3 sm:p-4 text-center text-neutral-500 font-medium text-xs uppercase tracking-wide bg-neutral-50">Other Puppy Classes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { feature: 'Structured curriculum', k9: true, other: false, highlight: false },
+              { feature: 'Commands that work outside', k9: 'Every session', other: 'Only with treats indoors', highlight: false },
+              { feature: 'Controlled socialization', k9: 'With any dog, issues fixed live', other: 'Unstructured free play', highlight: false },
+              { feature: 'Biting + nipping fixed', k9: 'Actual fix, not management', other: 'Methods that make it worse', highlight: true },
+              { feature: 'Leash walking fundamentals', k9: true, other: false, highlight: false },
+              { feature: 'Extensive take-home handbook', k9: true, other: false, highlight: false },
+              { feature: 'Trainer experience', k9: 'Most experienced in Ontario', other: 'Varies widely', highlight: false },
+              { feature: 'Certificate of completion', k9: true, other: false, highlight: false },
+              { feature: 'Bridge to full obedience', k9: 'Beginner Program', other: false, highlight: false },
+              { feature: 'Focus on raising adult dogs', k9: 'Yes, that\'s the whole point', other: 'Puppy playtime', highlight: true },
+              { feature: 'Results from session 1', k9: 'Yes, every time', other: 'Rarely', highlight: true },
+            ].map((row, i) => (
+              <tr class={row.highlight ? 'bg-k9-orange/10 border-t-2 border-k9-orange/30' : i % 2 === 0 ? 'bg-white' : 'bg-neutral-50/50'}>
+                <td class={`p-3 sm:p-4 text-sm whitespace-nowrap ${row.highlight ? 'font-extrabold text-neutral-900' : 'font-medium text-neutral-900'}`}>{row.feature}</td>
+                <td class={`p-3 sm:p-4 text-center font-semibold ${row.highlight ? 'bg-k9-orange/15' : 'bg-k9-orange/5'} text-neutral-900`}>
+                  {row.k9 === true ? (
+                    <svg class="w-5 h-5 text-k9-orange mx-auto" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                  ) : typeof row.k9 === 'string' ? (
+                    <span class={`font-bold ${row.highlight ? 'text-k9-orange text-base' : 'text-k9-orange'}`}>{row.k9}</span>
+                  ) : (
+                    <svg class="w-5 h-5 text-neutral-300 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                  )}
+                </td>
+                <td class={`p-3 sm:p-4 text-center ${row.highlight ? 'text-red-400 font-semibold' : 'text-neutral-500'}`}>
+                  {row.other === true ? (
+                    <svg class="w-5 h-5 text-emerald-500 mx-auto" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                  ) : row.other === false ? (
+                    <svg class="w-5 h-5 text-neutral-300 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                  ) : (
+                    <span>{row.other}</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
   <!-- TESTIMONIALS -->
   <section class="py-16 sm:py-24 bg-neutral-50 border-y border-neutral-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -236,7 +348,7 @@ import '../styles/global.css';
         <div class="rounded-2xl p-6 sm:p-8 border border-neutral-200/60 bg-white hover:border-neutral-300 hover:shadow-md transition-all">
           <h3 class="text-2xl font-bold text-neutral-900 mb-1">Puppy Program</h3>
           <p class="text-k9-orange font-medium text-sm mb-3">4 one-hour sessions · Under 5.5 months</p>
-          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">Build a strong foundation with socialization, basic commands, and house manners. before problems have a chance to develop. Includes the K9 Academy Puppy Handbook, clicker, and certificate of completion.</p>
+          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">Build a strong foundation with socialization, basic commands, and house manners. before problems have a chance to develop. Includes the K9 Academy Puppy Handbook, training materials, and certificate of completion.</p>
           <ul class="space-y-2 mb-6">
             {['Sit, down, place, come commands', 'Puppy biting + destructive behaviour', 'Leash walking fundamentals', 'Potty + crate training', 'Recall training + agility intro', 'Proper socialization techniques'].map((d) => (
               <li class="flex items-start gap-2 text-sm text-neutral-600">
@@ -260,7 +372,7 @@ import '../styles/global.css';
           </div>
           <h3 class="text-2xl font-bold text-neutral-900 mb-1 mt-2">Foundation Program</h3>
           <p class="text-k9-orange font-medium text-sm mb-3">Puppy + Level One combined. 10 classes total</p>
-          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">The complete package. Start with puppy fundamentals, then graduate seamlessly into Level One obedience. Your puppy gets the strongest possible start. and you save $260. Includes handbook, clicker, and certificate.</p>
+          <p class="text-neutral-500 text-sm mb-5 leading-relaxed">The complete package. Start with puppy fundamentals, then graduate seamlessly into our Beginner obedience program. Your puppy gets the strongest possible start. and you save $260. Includes handbook, training materials, and certificate.</p>
           <ul class="space-y-2 mb-6">
             {['Everything in the Puppy Program', 'Plus full Level One obedience curriculum', 'Loose leash walking (heel position)', 'Reliable sit, down, stay', 'Recall fundamentals', '10 classes total. one seamless program'].map((d) => (
               <li class="flex items-start gap-2 text-sm text-neutral-600">
@@ -299,6 +411,157 @@ import '../styles/global.css';
             <a href="/puppy-start-right" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-neutral-100 text-neutral-700 hover:bg-k9-orange hover:text-white transition-all">Learn More</a>
           </div>
         </div>
+      </div>
+
+      <!-- VALUE STACK -->
+      <div class="mt-10 rounded-2xl bg-neutral-900 p-6 sm:p-8">
+        <div class="text-center mb-6">
+          <h3 class="text-xl sm:text-2xl font-extrabold text-white">Everything included in the Puppy Program</h3>
+          <p class="text-neutral-400 text-sm mt-2">No hidden fees. No upsells. Just everything your puppy needs to start right.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {[
+            { item: '4 expert-led sessions', note: 'Not group playtime — structured, curriculum-driven training' },
+            { item: 'Extensive K9 Academy Puppy Handbook', note: 'Take-home guide with exercises, schedules, and training protocols' },
+            { item: 'Socialization protocol sheet', note: 'Week-by-week exposure checklist for at-home practice' },
+            { item: 'Training materials included', note: 'Everything you need to continue the work at home between sessions' },
+            { item: 'Certificate of completion', note: 'Proof your puppy graduated from the best program in Ontario' },
+            { item: 'Lifetime alumni support', note: 'Questions after the program? We are always here' },
+          ].map((v) => (
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-white/5">
+              <svg class="w-5 h-5 text-k9-orange flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+              <div>
+                <p class="text-white font-semibold text-sm">{v.item}</p>
+                <p class="text-neutral-500 text-xs mt-0.5">{v.note}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="mt-6 text-center">
+          <p class="text-neutral-400 text-sm">All of this for <span class="text-white font-bold text-lg">$450</span> <span class="text-neutral-500">— that's $112.50 per session for expert puppy training</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPCOMING CLASS -->
+  <section class="py-16 sm:py-24 bg-white border-b border-neutral-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Upcoming Class</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
+          Next puppy class starting soon
+        </h2>
+        <p class="mt-4 text-neutral-500 max-w-2xl mx-auto">
+          Classes are small and fill quickly. Get on the list early to secure your puppy's spot.
+        </p>
+      </div>
+
+      <div class="max-w-2xl mx-auto space-y-3">
+        <div class="bg-white rounded-2xl border border-neutral-200/60 p-5 sm:p-6 opacity-60">
+          <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+            <div class="flex items-center gap-4 flex-1 min-w-0">
+              <div class="w-14 h-14 rounded-xl bg-neutral-100 flex flex-col items-center justify-center flex-shrink-0">
+                <svg class="w-7 h-7 text-neutral-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-base sm:text-lg font-bold text-neutral-900 leading-tight">Puppy Program</h3>
+                <p class="text-xs text-neutral-500 mb-1">4 one-hour sessions · Under 5.5 months</p>
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-0.5 text-xs text-neutral-600">
+                  <span class="font-semibold text-neutral-900">Started Sat, Jul 12</span>
+                  <span class="text-neutral-300">·</span>
+                  <span>Saturdays · 11:00 AM</span>
+                  <span class="text-neutral-300">·</span>
+                  <span>Leaside</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 sm:gap-4 justify-between sm:justify-end">
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-xs font-bold bg-neutral-100 text-neutral-600 border-neutral-200">
+                <span class="w-1.5 h-1.5 rounded-full bg-neutral-400"></span>
+                Full
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-neutral-200/60 hover:border-neutral-300 hover:shadow-md transition-all p-5 sm:p-6">
+          <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+            <div class="flex items-center gap-4 flex-1 min-w-0">
+              <div class="w-14 h-14 rounded-xl bg-k9-orange/10 flex flex-col items-center justify-center flex-shrink-0">
+                <svg class="w-7 h-7 text-k9-orange" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-base sm:text-lg font-bold text-neutral-900 leading-tight">Puppy Program</h3>
+                <p class="text-xs text-neutral-500 mb-1">4 one-hour sessions · Under 5.5 months</p>
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-0.5 text-xs text-neutral-600">
+                  <span class="font-semibold text-neutral-900">Starts Sat, Aug 8</span>
+                  <span class="text-neutral-300">·</span>
+                  <span>Saturdays · 11:00 AM</span>
+                  <span class="text-neutral-300">·</span>
+                  <span>Leaside</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 sm:gap-4 justify-between sm:justify-end">
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-xs font-bold bg-red-50 text-red-700 border-red-200">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                2 spots left
+              </div>
+              <a href="#contact" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-lg bg-k9-orange text-white hover:bg-k9-orange-dark shadow-sm transition-all whitespace-nowrap">
+                Get on the List
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 rounded-2xl bg-k9-orange/5 border border-k9-orange/20 p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4 max-w-2xl mx-auto">
+        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-k9-orange/15 flex items-center justify-center">
+          <svg class="w-5 h-5 text-k9-orange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+        </div>
+        <p class="text-sm text-neutral-700"><strong>Don't see a time that works?</strong> Get on the list anyway. we open new sessions based on demand and notify the waitlist first.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY K9 FOR YOUR PUPPY -->
+  <section class="py-16 sm:py-24 bg-neutral-50 border-y border-neutral-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Why K9 Academy</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
+          Why the best puppy owners choose K9
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        {[
+          { title: 'Real skills, not playtime', desc: 'Commands, leash work, and controlled socialization from session one. Your puppy leaves every class better than they arrived — not just tired from running around.', iconPath: 'M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.62 48.62 0 0112 20.904a48.62 48.62 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5' },
+          { title: 'We raise adult dogs, not puppies', desc: 'Every session is designed to build the behaviours your dog needs for life. We\'re not here to entertain your puppy for an hour — we\'re building the foundation for a properly behaved adult dog.', iconPath: 'M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z' },
+          { title: 'Most experienced team in Ontario', desc: '15+ years and 10,000+ dogs trained. No other puppy class in Ontario has this level of experience behind it. Not a weekend-certified trainer reading from a binder.', iconPath: 'M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.562.562 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.562.562 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z' },
+          { title: 'Clear path to off-leash', desc: 'Graduates bridge into our Beginner Program for razor-sharp obedience, then Level 2 for full off-leash reliability. This isn\'t a one-off class — it\'s the start of a trained dog for life.', iconPath: 'M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z' },
+        ].map((prop) => (
+          <div class="flex gap-4 p-5 rounded-2xl bg-white border border-neutral-200/60 hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 rounded-xl bg-k9-orange/10 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-k9-orange" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d={prop.iconPath} />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-neutral-900 mb-1">{prop.title}</h3>
+              <p class="text-neutral-500 text-sm leading-relaxed">{prop.desc}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -410,6 +673,100 @@ import '../styles/global.css';
       }
     });
   </script>
+
+  <!-- GETTING STARTED -->
+  <section class="py-16 sm:py-24 bg-brand-dark">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Getting Started</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+          Getting started takes 30 seconds
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-6">
+        {[
+          { num: '01', title: 'Check the age', desc: 'Under 5.5 months? You\'re in. Older? Our Level 1 group class is a better fit.' },
+          { num: '02', title: 'Get on the list', desc: 'Fill out the form or call us. We\'ll confirm your puppy\'s spot and send you everything you need.' },
+          { num: '03', title: 'Show up with your puppy', desc: 'Come to our Leaside location. Your handbook and clicker are waiting for you.' },
+        ].map((step) => (
+          <div class="text-center">
+            <div class="w-12 h-12 rounded-full bg-k9-orange/15 flex items-center justify-center mx-auto mb-4">
+              <span class="text-k9-orange font-extrabold text-lg">{step.num}</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">{step.title}</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 text-center">
+        <a href="#contact" class="inline-flex items-center px-7 py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30 hover:shadow-xl hover:-translate-y-0.5">
+          Get on the Puppy Waitlist
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 sm:py-24 bg-white border-b border-neutral-100">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Common Questions</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
+          Puppy class FAQ
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {[
+          {
+            q: 'When should I start training my puppy?',
+            a: 'As early as possible. We accept puppies from 8 weeks old. The first 16 weeks are the most critical window for socialization and habit formation. Every week you wait, the window gets smaller.',
+          },
+          {
+            q: 'What vaccinations does my puppy need?',
+            a: 'Your puppy needs 3 core vaccinations: distemper, parvovirus, and bordetella. We require proof of vaccination before your puppy\'s first session to keep all dogs safe.',
+          },
+          {
+            q: 'My puppy is older than 5.5 months — can they still join?',
+            a: 'If your puppy is over 5.5 months, our Level 1 group class is a better fit. It covers everything in the puppy program plus advanced obedience. You won\'t miss anything — you\'ll actually get more.',
+          },
+          {
+            q: 'What if my puppy is shy or fearful?',
+            a: 'The controlled group setting is actually ideal for shy puppies. Our trainers manage spacing and exposure carefully. Most fearful puppies show dramatic improvement by session 2.',
+          },
+          {
+            q: 'What\'s the difference between Puppy Program and Foundation Program?',
+            a: 'The Puppy Program is 4 sessions focused on puppy-specific skills. The Foundation Program combines the Puppy Program with our Beginner obedience program — 10 classes total, and you save $260. It\'s the complete package if you want your puppy trained through to razor-sharp obedience.',
+          },
+          {
+            q: 'How is this different from other puppy classes?',
+            a: 'Most puppy classes are glorified playtime. We teach real commands that work outside — not just indoors with a treat. Our socialization is controlled, so if issues come up, we fix them on the spot. Biting and nipping? We actually fix it, instead of teaching reinforcement methods that make things worse. Every session is designed to raise a properly behaved adult dog.',
+          },
+          {
+            q: 'What if I miss a session?',
+            a: 'We\'ll reschedule you into another class that week so you don\'t fall behind. Life happens — we make it work.',
+          },
+        ].map((faq) => (
+          <details class="group rounded-2xl border border-neutral-200 bg-neutral-50 overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer hover:bg-neutral-100 transition-colors">
+              <span class="font-bold text-neutral-900 text-sm sm:text-base">{faq.q}</span>
+              <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </summary>
+            <div class="px-5 pb-5 text-neutral-600 text-sm leading-relaxed">
+              {faq.a}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <QuizForm puppy />
   <ContactForm defaultService="puppy_classes" sourcePage="Puppy Classes Page" />
