@@ -1,0 +1,636 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+
+<Layout title="Apprenticeship Program | Become a Professional Dog Trainer | K9 Academy" description="7-day, 70-hour apprenticeship at K9 Academy Toronto. Hands-on training, business building, and mentorship from trainers with 15+ years and 10,000+ dogs. Limited spots. Apply now.">
+  <Navbar />
+
+  <!-- HERO -->
+  <section class="relative pt-24 sm:pt-32 pb-14 sm:pb-20 overflow-hidden bg-neutral-950">
+    <div class="absolute inset-0 bg-gradient-to-br from-k9-orange/5 via-transparent to-transparent pointer-events-none"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+
+        <!-- LEFT: Copy -->
+        <div>
+          <div class="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10 mb-6">
+            <svg class="w-4 h-4 text-k9-orange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.62 48.62 0 0112 20.904a48.62 48.62 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+            </svg>
+            <span class="text-sm font-medium text-neutral-300">Learn the job on real dogs, in a working facility.</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[3.4rem] font-extrabold tracking-tight text-white leading-[1.05]">
+            Become a professional<br/>
+            <span class="bg-gradient-to-r from-k9-orange to-amber-400 bg-clip-text text-transparent">dog trainer.</span>
+          </h1>
+
+          <!-- Intake Badge -->
+          <div class="mt-7 inline-flex items-center rounded-xl border border-white/15 overflow-hidden">
+            <div class="px-5 py-3 border-r border-white/15">
+              <p class="text-xl sm:text-2xl font-extrabold text-white leading-tight">Mar 15–21</p>
+              <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest">2027 Intake</p>
+            </div>
+            <div class="px-5 py-3">
+              <p class="text-xl sm:text-2xl font-extrabold text-white leading-tight">Toronto</p>
+              <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest">K9 Academy Facility</p>
+            </div>
+          </div>
+
+          <p class="mt-5 text-base text-neutral-400">
+            Applications are open for the March intake. 7 days. 10 hours a day. 70 hours that change everything.
+          </p>
+
+          <!-- CTAs -->
+          <div class="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <a href="#contact" class="inline-flex items-center px-7 py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30 hover:shadow-xl hover:-translate-y-0.5">
+              Apply Now
+              <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+            <a href="tel:4377785273" class="inline-flex items-center gap-2 text-neutral-400 font-medium hover:text-white transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+              </svg>
+              437-778-5273
+            </a>
+          </div>
+        </div>
+
+        <!-- RIGHT: Key details card -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8 sm:p-10">
+          <div class="space-y-6">
+            <div>
+              <p class="text-xs font-bold text-k9-orange uppercase tracking-widest mb-1">Duration</p>
+              <p class="text-2xl font-extrabold text-white">7 Days · 70 Hours</p>
+              <p class="text-sm text-neutral-400 mt-1">10 hours per day · Mar 15–21, 2027</p>
+            </div>
+            <div class="w-full h-px bg-white/10"></div>
+            <div>
+              <p class="text-xs font-bold text-k9-orange uppercase tracking-widest mb-1">Location</p>
+              <p class="text-xl font-extrabold text-white">K9 Academy · Toronto</p>
+              <p class="text-sm text-neutral-400 mt-1">Hands-on in our working facility</p>
+            </div>
+            <div class="w-full h-px bg-white/10"></div>
+            <div>
+              <p class="text-xs font-bold text-k9-orange uppercase tracking-widest mb-1">Availability</p>
+              <p class="text-neutral-300 text-sm">Limited spots per intake. Applications reviewed individually.</p>
+            </div>
+            <a href="#contact" class="block w-full text-center py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30">
+              Apply Now
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM: The Reality Check -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <p class="text-red-500 font-semibold text-sm tracking-wide uppercase mb-3">The Hard Truth</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 leading-tight">
+          Most people who want to work with dogs<br/>never actually make it.
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 mb-12">
+        {[
+          {
+            pain: 'You watch from the sidelines',
+            detail: 'You love dogs. You know you\'d be great at this. But you have no credentials, no mentor, and no clear path in. So another year goes by and nothing changes.',
+            iconPath: 'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z',
+          },
+          {
+            pain: 'Online courses teach you nothing',
+            detail: 'You bought the courses, watched the videos, maybe even got a certificate. But you still don\'t feel confident handling a reactive dog or running your own sessions.',
+            iconPath: 'M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25',
+          },
+          {
+            pain: 'You can\'t charge what you\'re worth',
+            detail: 'Maybe you\'re already walking dogs or doing daycare. But without real training expertise, you\'re stuck competing on price instead of skill. Your income has a ceiling.',
+            iconPath: 'M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z',
+          },
+        ].map((item) => (
+          <div class="rounded-2xl bg-neutral-50 border border-neutral-200 p-6 text-center hover:border-red-200 hover:bg-red-50/30 transition-all group">
+            <div class="w-12 h-12 rounded-full bg-red-50 border border-red-100 flex items-center justify-center mx-auto mb-4 group-hover:bg-red-100 transition-colors">
+              <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d={item.iconPath} />
+              </svg>
+            </div>
+            <h3 class="text-lg font-extrabold text-neutral-900 mb-2">{item.pain}</h3>
+            <p class="text-neutral-500 text-sm leading-relaxed">{item.detail}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center">
+        <p class="text-lg text-neutral-600 font-medium max-w-2xl mx-auto">
+          The gap between <span class="text-neutral-900 font-bold">"I love dogs"</span> and <span class="text-neutral-900 font-bold">"I get paid well to work with dogs"</span> is real experience under real pressure with real mentorship. That's exactly what this program gives you.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION: Turn Your Passion Into A Career -->
+  <section class="py-16 sm:py-24 bg-neutral-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">The Opportunity</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-6">
+        Turn your passion for dogs into a rewarding career
+      </h2>
+      <p class="text-neutral-400 max-w-3xl mx-auto leading-relaxed mb-4">
+        Our step-by-step curriculum provides the knowledge and practical skills to confidently work with every type of dog — from raising stable puppies to rehabilitating dogs struggling with fear, reactivity, and aggression.
+      </p>
+      <p class="text-neutral-400 max-w-3xl mx-auto leading-relaxed">
+        Learn directly from world-renowned behavioral dog trainers through live monthly coaching calls, where you can ask questions, receive personalized guidance, and continue building your confidence long after you graduate.
+      </p>
+    </div>
+  </section>
+
+  <!-- CAREER PATHS -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">One Certification, Many Career Options</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
+          Where this takes you
+        </h2>
+        <p class="mt-4 text-neutral-500 max-w-2xl mx-auto">
+          Whether you want to work hands-on with dogs, build your own business, or create a career around your passion — your K9 Academy certification opens the door.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {[
+          {
+            title: 'Dog Training Business Owner',
+            desc: 'Combine training, boarding, daycare, and other canine services to create multiple revenue streams.',
+            iconPath: 'M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z',
+          },
+          {
+            title: 'Professional Dog Trainer',
+            desc: 'Build a career helping dog owners create better-behaved, more balanced dogs.',
+            iconPath: 'M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.62 48.62 0 0112 20.904a48.62 48.62 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5',
+          },
+          {
+            title: 'Daycare + Boarding Specialist',
+            desc: 'Build expertise in safely managing, caring for, and structuring groups of dogs in a professional facility.',
+            iconPath: 'M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1m1.5.5l-1.5-.5M6.75 7.364V3h-3v18m3-13.636l10.5-3.819',
+          },
+          {
+            title: 'Private Dog Walking or Sitting',
+            desc: 'Provide personalized care, structure, and exercise for dogs while their owners are away.',
+            iconPath: 'M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z',
+          },
+        ].map((item) => (
+          <div class="rounded-2xl bg-white border border-neutral-200 p-6 text-center hover:border-k9-orange/30 hover:shadow-md transition-all group">
+            <div class="w-12 h-12 rounded-full bg-k9-orange/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-k9-orange/20 transition-colors">
+              <svg class="w-6 h-6 text-k9-orange" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d={item.iconPath} />
+              </svg>
+            </div>
+            <h3 class="text-base font-extrabold text-neutral-900 mb-2">{item.title}</h3>
+            <p class="text-neutral-500 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU WILL LEARN -->
+  <section class="py-16 sm:py-24 bg-neutral-50 border-y border-neutral-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Curriculum</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
+          What you will learn in 70 hours
+        </h2>
+        <p class="mt-4 text-neutral-500 max-w-2xl mx-auto">
+          Not theory. Not videos. Hands-on reps with real dogs, real clients, and real pressure — alongside trainers who've done this 10,000+ times.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        {[
+          'Handling techniques',
+          'Evaluating behaviours and motivations',
+          'Walking etiquette',
+          'Off-leash training',
+          'Training tools — when, how and why they\'re used',
+          'Emergency troubleshooting',
+          'Business building',
+          'Muzzle training',
+          'Puppy fundamentals',
+          'Safe socialization',
+          'Rehabilitation practices — handling your very own Board & Train',
+          'Marketing skills',
+          'Hands on with clients',
+        ].map((item) => (
+          <div class="flex items-start gap-3 p-4 rounded-xl border border-neutral-200 bg-white hover:border-k9-orange/20 transition-colors">
+            <div class="w-6 h-6 rounded-full bg-k9-orange/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3.5 h-3.5 text-k9-orange" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+            </div>
+            <span class="text-neutral-800 font-medium text-sm">{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY K9 ACADEMY — CREDIBILITY -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Why K9 Academy</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
+          You're not learning from a course creator.<br/>You're learning from operators.
+        </h2>
+        <p class="mt-4 text-neutral-500 max-w-2xl mx-auto">
+          K9 Academy has been training dogs full-time since 2011. 10,000+ dogs. Award-winning. Featured in 100+ press outlets. This isn't theory — it's a working, thriving business, and you get to train inside it.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        {[
+          {
+            title: 'Work with real dogs, daily',
+            desc: 'You\'ll handle our kennel dogs every single day — different breeds, temperaments, and difficulty levels. Puppies to severe aggression cases. No textbook theory.',
+            iconPath: 'M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z',
+          },
+          {
+            title: '15+ years, 10,000+ dogs',
+            desc: 'Our trainers aren\'t influencers who did a weekend certification. They\'ve built a multi-location business from the ground up over 15 years. You get that knowledge transferred directly.',
+            iconPath: 'M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z',
+          },
+          {
+            title: 'We teach you to build a business',
+            desc: 'Most programs teach you how to sit a dog. We teach you how to price your services, market yourself, get clients, and actually make a living doing this.',
+            iconPath: 'M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z',
+          },
+          {
+            title: 'Ongoing coaching after you graduate',
+            desc: 'You don\'t graduate and disappear. Live monthly coaching calls let you keep asking questions, getting guidance, and building confidence as you launch your career.',
+            iconPath: 'M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155',
+          },
+        ].map((prop) => (
+          <div class="flex gap-4 p-5 rounded-2xl border border-neutral-100 hover:border-k9-orange/20 hover:bg-k9-orange-light/20 transition-all group">
+            <div class="w-11 h-11 rounded-xl bg-k9-orange/10 flex items-center justify-center flex-shrink-0 group-hover:bg-k9-orange/20 transition-colors">
+              <svg class="w-5 h-5 text-k9-orange" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d={prop.iconPath} />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-neutral-900 mb-1">{prop.title}</h3>
+              <p class="text-neutral-500 text-sm leading-relaxed">{prop.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET WITH EXPERT COACHING -->
+  <section class="py-16 sm:py-24 bg-neutral-950">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <p class="text-k9-orange font-semibold text-sm tracking-widest uppercase mb-4">What You'll Get With Our Expert Coaching</p>
+        <div class="w-full h-px bg-white/10"></div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+        {[
+          {
+            num: '01',
+            desc: 'Direct access to industry-leading dog training expertise and professional mentorship, giving you the opportunity to learn proven methods, advanced techniques, and real-world strategies.',
+          },
+          {
+            num: '02',
+            desc: 'Personalized coaching and customized business growth strategies tailored to dog trainers, helping you confidently scale your dog training business, attract ideal clients, and create a sustainable, profitable career in the canine industry.',
+          },
+          {
+            num: '03',
+            desc: 'In-depth insights into dog training marketing, client acquisition, retention strategies, and service expansion, so you can consistently generate leads, build long-term client relationships, and increase your revenue through diversified training programs and offerings.',
+          },
+          {
+            num: '04',
+            desc: 'Proven strategies for building a powerful dog training brand and establishing a strong online presence, including social media growth, content marketing, and positioning yourself as a trusted authority in the competitive dog training market.',
+          },
+          {
+            num: '05',
+            desc: 'Actionable tips for improving time management, productivity, and day-to-day business operations, allowing you to streamline your workflow, reduce burnout, and focus on high-impact activities that grow your training business.',
+          },
+          {
+            num: '06',
+            desc: 'Expert guidance on pricing your dog training services, packaging your programs, and maximizing profitability, so you can confidently charge what you\'re worth while delivering exceptional value to your clients and their dogs.',
+          },
+        ].map((item) => (
+          <div>
+            <p class="text-4xl font-extrabold text-k9-orange mb-4">{item.num}</p>
+            <p class="text-neutral-300 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BEFORE / AFTER — The Transformation -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">The Transformation</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
+          7 days that change your trajectory
+        </h2>
+      </div>
+
+      <div class="rounded-2xl overflow-hidden border border-neutral-200">
+        <div class="grid md:grid-cols-2">
+          <div class="bg-neutral-900 p-8 sm:p-10">
+            <p class="text-red-400 text-xs font-bold uppercase tracking-widest mb-5">Before the Apprenticeship</p>
+            <ul class="space-y-3">
+              {[
+                'Watching YouTube videos hoping something clicks',
+                'No real hands-on experience with difficult dogs',
+                'No idea how to price, market, or get clients',
+                'Stuck in a job that doesn\'t excite you',
+                'No mentor, no network, no path forward',
+              ].map((item) => (
+                <li class="flex items-start gap-2.5 text-neutral-300 text-sm">
+                  <svg class="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="bg-emerald-950 p-8 sm:p-10">
+            <p class="text-emerald-400 text-xs font-bold uppercase tracking-widest mb-5">After the Apprenticeship</p>
+            <ul class="space-y-3">
+              {[
+                'Confident handling any dog — reactive, aggressive, anxious',
+                '70 hours of real reps with real dogs under your belt',
+                'A business plan, pricing strategy, and marketing playbook',
+                'A career you\'re excited to wake up for every day',
+                'Direct line to mentors with 15+ years of experience',
+              ].map((item) => (
+                <li class="flex items-start gap-2.5 text-emerald-100 text-sm">
+                  <svg class="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVESTMENT + VALUE STACK -->
+  <section class="py-16 sm:py-24 bg-neutral-50 border-y border-neutral-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">Your Investment</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">
+          Everything you need to launch — in one week
+        </h2>
+      </div>
+
+      <!-- Value Stack -->
+      <div class="max-w-2xl mx-auto mb-10">
+        <div class="space-y-0">
+          {[
+            '70 hours of hands-on training in a working facility',
+            'Work with real kennel dogs daily — every breed, every temperament',
+            'Handle your very own Board & Train dog start to finish',
+            'Direct mentorship from trainers with 15+ years and 10,000+ dogs',
+            'Business building, marketing, and pricing strategies',
+            'Live monthly coaching calls after you graduate',
+            'Hands-on client sessions — real dogs, real owners',
+            'Self-paced online Levels 1–3 curriculum access',
+          ].map((v) => (
+            <div class="flex items-start gap-3 py-3.5 border-b border-neutral-200 last:border-0">
+              <svg class="w-5 h-5 text-k9-orange flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+              <span class="text-neutral-800 font-medium text-sm">{v}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Price Reveal -->
+      <div class="max-w-2xl mx-auto rounded-2xl border-2 border-k9-orange/30 bg-white p-8 sm:p-10 text-center shadow-lg">
+        <p class="text-neutral-500 text-sm mb-2">Total investment for the entire 70-hour program</p>
+        <p class="text-5xl sm:text-6xl font-extrabold text-neutral-900">$3,495 <span class="text-xl font-medium text-neutral-400">CAD</span></p>
+        <p class="mt-3 text-neutral-500 text-sm">That's less than $50/hour for world-class, hands-on mentorship.</p>
+        <p class="mt-1 text-neutral-400 text-xs">Most trainers charge $150+/hour for private mentorship. You're getting 70 hours for the price of 23.</p>
+
+        <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div class="inline-flex items-center gap-2 bg-neutral-50 rounded-full px-4 py-2 border border-neutral-200 text-xs font-bold text-neutral-700">
+            <svg class="w-4 h-4 text-k9-orange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+            </svg>
+            Mar 15–21, 2027
+          </div>
+          <div class="inline-flex items-center gap-2 bg-neutral-50 rounded-full px-4 py-2 border border-neutral-200 text-xs font-bold text-neutral-700">
+            <svg class="w-4 h-4 text-k9-orange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+            </svg>
+            Toronto · K9 Academy Facility
+          </div>
+        </div>
+
+        <a href="#contact" class="mt-8 inline-flex items-center px-10 py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/30 hover:shadow-xl hover:-translate-y-0.5">
+          Apply for the March Intake
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPRENTICESHIP APPLICATION FORM -->
+  <section id="contact" class="py-16 sm:py-24 bg-neutral-900 scroll-mt-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Apply for the March Intake</h2>
+        <p class="mt-3 text-neutral-400">Limited spots. Applications are reviewed individually — apply now to secure yours.</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-2xl">
+        <form id="apprenticeship-form" class="space-y-5">
+          <input type="hidden" name="source_page" value="Apprenticeship Program" />
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label for="name" class="block text-sm font-medium text-neutral-700 mb-1">Your Name <span class="text-red-500">*</span></label>
+              <input type="text" id="name" name="name" required
+                class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm"
+                placeholder="First & last name" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-neutral-700 mb-1">Email <span class="text-red-500">*</span></label>
+              <input type="email" id="email" name="email" required
+                class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm"
+                placeholder="you@email.com" />
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label for="phone" class="block text-sm font-medium text-neutral-700 mb-1">Phone <span class="text-red-500">*</span></label>
+              <input type="tel" id="phone" name="phone" required
+                class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm"
+                placeholder="(416) 555-1234" />
+            </div>
+            <div>
+              <label for="location" class="block text-sm font-medium text-neutral-700 mb-1">Location (City, Country) <span class="text-red-500">*</span></label>
+              <input type="text" id="location" name="location" required
+                class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm"
+                placeholder="Toronto, Canada" />
+            </div>
+          </div>
+
+          <div>
+            <label for="experience" class="block text-sm font-medium text-neutral-700 mb-1">Years of Experience in the Dog Industry <span class="text-red-500">*</span></label>
+            <p class="text-xs text-neutral-400 mb-1.5">Walking, Training, Daycare</p>
+            <input type="text" id="experience" name="experience" required
+              class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm"
+              placeholder="e.g. 2 years dog walking, 1 year daycare" />
+          </div>
+
+          <div>
+            <label for="why_select" class="block text-sm font-medium text-neutral-700 mb-1">Why should we select you for this program? <span class="text-red-500">*</span></label>
+            <textarea id="why_select" name="why_select" rows="3" required
+              class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition resize-none text-sm"
+              placeholder="Tell us what makes you a great candidate..."></textarea>
+          </div>
+
+          <div>
+            <label for="current_company" class="block text-sm font-medium text-neutral-700 mb-1">Do you currently work for or own a company in this industry? <span class="text-red-500">*</span></label>
+            <p class="text-xs text-neutral-400 mb-1.5">If yes, which company?</p>
+            <input type="text" id="current_company" name="current_company" required
+              class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm"
+              placeholder="e.g. Yes — my own dog walking business" />
+          </div>
+
+          <div>
+            <label for="why_apprenticeship" class="block text-sm font-medium text-neutral-700 mb-1">Why do you want to do this apprenticeship program? <span class="text-red-500">*</span></label>
+            <input type="text" id="why_apprenticeship" name="why_apprenticeship" required
+              class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm"
+              placeholder="What are you hoping to gain?" />
+          </div>
+
+          <div>
+            <label for="career_aspirations" class="block text-sm font-medium text-neutral-700 mb-1">What are your career aspirations in this industry? <span class="text-red-500">*</span></label>
+            <input type="text" id="career_aspirations" name="career_aspirations" required
+              class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm"
+              placeholder="e.g. Open my own training facility" />
+          </div>
+
+          <div>
+            <label for="dog_personality" class="block text-sm font-medium text-neutral-700 mb-1">Do you have a dog? Please describe your dog's personality <span class="text-red-500">*</span></label>
+            <input type="text" id="dog_personality" name="dog_personality" required
+              class="w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm"
+              placeholder="e.g. Yes — 3 year old GSD, high energy, reactive on leash" />
+          </div>
+
+          <button type="submit" id="submit-btn"
+            class="w-full py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/20 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed">
+            Submit Application
+          </button>
+
+          <p class="text-center text-xs text-neutral-400">Applications are reviewed within 48 hours. Limited spots for the March 2027 intake.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('apprenticeship-form') as HTMLFormElement;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const res = await fetch('/api/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            source_page: 'Apprenticeship Program',
+            service: 'apprenticeship',
+            dog_info: data.dog_personality || '',
+            message: [
+              `Location: ${data.location}`,
+              `Experience: ${data.experience}`,
+              `Why select: ${data.why_select}`,
+              `Current company: ${data.current_company}`,
+              `Why apprenticeship: ${data.why_apprenticeship}`,
+              `Career aspirations: ${data.career_aspirations}`,
+              `Dog personality: ${data.dog_personality}`,
+            ].join('\n'),
+          }),
+        });
+
+        // Push to Klaviyo
+        try {
+          (window as any)._learnq = (window as any)._learnq || [];
+          (window as any)._learnq.push(['identify', {
+            '$email': data.email,
+            '$first_name': (data.name as string)?.split(' ')[0] || '',
+            '$last_name': (data.name as string)?.split(' ').slice(1).join(' ') || '',
+            '$phone_number': data.phone,
+            'Source': 'Apprenticeship Program',
+          }]);
+          (window as any)._learnq.push(['track', 'Apprenticeship Application', {
+            'Name': data.name,
+            'Email': data.email,
+            'Phone': data.phone,
+            'Location': data.location,
+            'Experience': data.experience,
+            'Why Select': data.why_select,
+            'Current Company': data.current_company,
+            'Why Apprenticeship': data.why_apprenticeship,
+            'Career Aspirations': data.career_aspirations,
+            'Dog Personality': data.dog_personality,
+          }]);
+        } catch (err) {
+          console.error('Klaviyo push failed:', err);
+        }
+
+        if (res.ok) {
+          setTimeout(() => { window.location.href = '/thank-you'; }, 500);
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Application';
+        alert('Something went wrong. Please call us at 437-778-5273 instead.');
+      }
+    });
+  </script>
+  <Footer />
+</Layout>

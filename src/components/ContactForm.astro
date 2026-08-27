@@ -15,11 +15,11 @@ const {
 } = Astro.props;
 ---
 
-<section id="contact" class="py-16 sm:py-24 bg-neutral-900">
+<section id="contact" class="py-16 sm:py-24 bg-neutral-900 scroll-mt-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
-      <!-- Left -->
-      <div class="text-white">
+      <!-- Left (info — pushed below form on mobile) -->
+      <div class="text-white order-2 lg:order-1">
         <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight">
           Start your dog's<br />transformation today
         </h2>
@@ -59,8 +59,8 @@ const {
         </div>
       </div>
 
-      <!-- Right: form -->
-      <div>
+      <!-- Right: form (shown first on mobile) -->
+      <div class="order-1 lg:order-2">
         <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-2xl">
           <h3 class="text-xl font-bold text-neutral-900 mb-1">{formHeading}</h3>
           <p class="text-sm text-neutral-400 mb-6">{formSubheading}</p>
