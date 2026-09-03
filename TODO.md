@@ -1,5 +1,45 @@
 # K9 Academy — To Do List
 
+## Apprenticeship Marketing (May 2027 Intake)
+
+- [ ] **Meta ad creatives** - Design image/video ads for the apprenticeship. Use hooks from `k9-apprenticeship-knowledge.md`
+- [ ] **Meta campaign setup** - Create campaign targeting career changers, dog walkers, aspiring trainers. Set up audiences, budget, and ad sets
+- [ ] **Klaviyo flow for applicants** - Triggered by "Apprenticeship Application" event. Confirmation email, follow-up sequence, interview scheduling
+- [ ] **Retargeting ads** - Retarget people who hit /apprenticeship but didn't apply
+- [ ] **Email nurture sequence** - For applicants after submission: what to expect, program prep, travel info for out-of-town applicants
+- [ ] **Testimonials from past apprentices** - Get video/written testimonials for the page and ads
+- [ ] **Application review process** - Set up internal workflow for reviewing and responding to applications within 48 hours
+
+## Website Plan
+
+### Audits
+- [ ] **Page speed audit** - Run Lighthouse on all service pages, fix any scores below 90
+- [ ] **Mobile UX audit** - Test all pages on iPhone/Android, fix any layout breaks or tap target issues
+- [ ] **Form audit** - Test every form submission (contact, quiz, apprenticeship, chatbot lead capture) end to end
+- [ ] **Broken link audit** - Scan all internal and external links sitewide
+- [ ] **Image optimization** - Check all images are properly sized, compressed, and using modern formats (WebP/AVIF)
+- [ ] **Accessibility audit** - Check contrast ratios, alt text, keyboard navigation, screen reader compatibility
+- [ ] **Analytics audit** - Verify GA4, Meta Pixel, and Klaviyo events are all firing correctly on every page
+- [ ] **Chatbot audit** - Test chatbot with 20+ questions, verify pricing accuracy, lead capture, and callback flow
+
+### SEO
+- [ ] **Fix sitemap** - 37 blog posts showing instead of 45, check for draft:true or date issues
+- [ ] **Internal linking audit** - Make sure blog posts link to relevant service pages and vice versa
+- [ ] **Meta descriptions** - Review and update meta descriptions on all service pages for click-through rate
+- [ ] **Schema markup review** - Verify JSON-LD schemas are valid on all pages (LocalBusiness, Service, FAQ, Article)
+- [ ] **Core Web Vitals** - Check LCP, FID, CLS in Search Console and fix any flagged pages
+- [ ] **New blog content** - Publish 4 posts/month targeting long-tail keywords from Search Console data
+- [ ] **Area page updates** - Add unique content to underperforming area pages (check Search Console for impressions vs clicks)
+- [ ] **Competitor keyword gap** - Identify keywords competitors rank for that we don't, write content to fill gaps
+- [ ] **Google Business Profile** - Weekly posts, respond to all reviews within 24 hours, add 20+ photos
+
+### Progression Plan
+- [ ] **Phase 1 (Now):** Clean up existing pages, fix all audits, ensure every form and tracking pixel works perfectly
+- [ ] **Phase 2 (This Month):** Launch apprenticeship Meta ads, set up Klaviyo flows, start retargeting
+- [ ] **Phase 3 (Next Month):** Add video testimonials to B&T, private lessons, and apprenticeship pages. Film hero video for homepage
+- [ ] **Phase 4 (Ongoing):** 4 blog posts/month, monthly email campaigns, weekly Google Business posts, refresh top-performing content quarterly
+- [ ] **Phase 5 (Q1 2027):** Ramp up apprenticeship ads 8 weeks before May intake, launch countdown email sequence, fill all spots
+
 ## Urgent (Do Now)
 
 - [ ] **Build Klaviyo email flows** — 10 flows with 28 emails. Follow `KLAVIYO-SETUP-GUIDE.md` step by step. Templates in `email-templates/flows/`.
@@ -135,6 +175,19 @@ Full plan with phases, ad budgets, and strategy in `MARKETING-PLAN-2.5M.md`.
 - [x] Klaviyo guide updated with events reference, campaign instructions, review automation, staff checklist
 - [x] $2.5M marketing plan written
 - [x] Daycare removed from contact form
+
+## Latest Completed (September 2-3, 2026)
+
+- [x] Apprenticeship page built and deployed (/apprenticeship, silent ad page)
+- [x] Program updated: May 17-24, 8 days, 80 hours, $3,495 CAD
+- [x] Canine first aid certification added to curriculum and value stack
+- [x] All AI copy removed sitewide on apprenticeship page (no choppy fragments, no em dashes, natural sentences)
+- [x] "Exclusive" changed to "Prestigious"
+- [x] Misleading "paid professional in 8 days" headline replaced
+- [x] 6 Meta ad copy variations written (career changer, passion angle, problem aware, short/punchy, hire hook, basic)
+- [x] Apprenticeship knowledge file created for Leah (k9-apprenticeship-knowledge.md)
+- [x] README updated with apprenticeship page, pricing, hidden pages
+- [x] TODO updated with apprenticeship marketing tasks, website plan, audits, SEO, progression plan
 
 ## Latest Completed (June 10, 2026)
 

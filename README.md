@@ -59,6 +59,7 @@ src/
     puppy-classes.astro      — puppy program ($450)
     puppy-start-right.astro  — puppy start right B&T ($3,995)
     in-home.astro            — premium in-home training ($625/session) [HIDDEN]
+    apprenticeship.astro     — 8-day apprenticeship program ($3,495) [HIDDEN, ad traffic only]
     events.astro             — drop-in classes + socials with Stripe [HIDDEN]
     faq.astro                — 24 FAQs across 5 categories
     blog/                    — blog index + individual posts
@@ -119,6 +120,7 @@ email-campaigns/             — monthly campaign emails (16/month)
 | Board & Train 6-week | $4,995 |
 | Board & Train 8-week | $7,995 (severe cases only) |
 | Puppy Start Right | $3,995 |
+| Apprenticeship (8-day) | $3,495 |
 | Drop-In Impulse Control | $45 |
 | Adult Dog Social | $55 |
 | Puppy Social | $35 |
@@ -132,6 +134,7 @@ If you change pricing, update it in:
 
 These pages are NOT linked in the nav or sitemap. Only accessible via direct link:
 
+- `/apprenticeship` — 8-day train-the-trainer program, May 17-24 2027, $3,495 CAD, custom application form, ad traffic only
 - `/in-home` — premium in-home training ($625/session, by application)
 - `/events` — drop-in classes and socials with Stripe payment
 
