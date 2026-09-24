@@ -1,0 +1,81 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+import '../../styles/global.css';
+---
+
+<Layout title="You're Registered | Forrest Micke Seminar | K9 Academy" description="Your spot at the Forrest Micke seminar is confirmed." noindex>
+  <header class="fixed top-0 inset-x-0 z-50 bg-neutral-950/95 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center">
+      <a href="/"><img src="/logo.png" alt="K9 Academy" class="h-8 sm:h-9 w-auto" /></a>
+    </div>
+  </header>
+
+  <section class="relative pt-32 sm:pt-40 pb-20 sm:pb-28 bg-neutral-950 min-h-[70vh] flex items-center">
+    <div class="relative max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="w-20 h-20 mx-auto mb-8 rounded-full bg-k9-green/10 flex items-center justify-center">
+        <svg class="w-10 h-10 text-k9-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+        </svg>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+        You're in. See you on May 15.
+      </h1>
+      <p class="mt-4 text-lg text-neutral-400 leading-relaxed">
+        Your <span id="ticket-label">spot</span> for the Forrest Micke seminar is confirmed. Your Stripe receipt is on its way to your inbox.
+      </p>
+
+      <div class="mt-10 bg-white/5 rounded-2xl p-6 sm:p-8 border border-white/10 text-left">
+        <h2 class="text-lg font-bold text-white mb-4">The details</h2>
+        <dl class="space-y-3 text-sm">
+          <div class="flex gap-4"><dt class="w-20 flex-shrink-0 text-neutral-500">When</dt><dd class="text-white">Saturday May 15 and Sunday May 16, 2027, 9am to 5pm</dd></div>
+          <div class="flex gap-4"><dt class="w-20 flex-shrink-0 text-neutral-500">Where</dt><dd class="text-white">K9 Academy Leaside, 16-30 Canvarco Rd, Toronto, ON</dd></div>
+          <div class="flex gap-4"><dt class="w-20 flex-shrink-0 text-neutral-500">Next</dt><dd class="text-white">We'll email arrival details and what to bring before the event.</dd></div>
+        </dl>
+      </div>
+
+      <p class="mt-8 text-sm text-neutral-500">
+        Questions? Call <a href="tel:4377785273" class="text-white hover:underline">437-778-5273</a> or email <a href="mailto:info@k9academy.ca" class="text-white hover:underline">info@k9academy.ca</a>.
+      </p>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  // Stripe Payment Links redirect here after a successful payment.
+  // Set each link's "After payment" URL to /forrest-micke/confirmed?ticket=working or ?ticket=audit
+  const PRICES: Record<string, number> = { working: 500, audit: 300 };
+  const LABELS: Record<string, string> = { working: 'Working Spot', audit: 'Audit Spot' };
+
+  const params = new URLSearchParams(window.location.search);
+  const ticket = params.get('ticket') || '';
+  const value = PRICES[ticket];
+  const label = LABELS[ticket];
+
+  if (label) {
+    const el = document.getElementById('ticket-label');
+    if (el) el.textContent = label;
+  }
+
+  // Only fire once per browser so a refresh doesn't double-count the sale
+  let alreadyFired = false;
+  try { alreadyFired = localStorage.getItem('forrest_purchase_fired') === ticket; } catch {}
+
+  if (value && !alreadyFired) {
+    const w = window as any;
+    if (typeof w.fbq !== 'undefined') {
+      w.fbq('track', 'Purchase', { value, currency: 'USD', content_name: `Forrest Micke Seminar - ${label}` });
+    }
+    if (typeof w.gtag !== 'undefined') {
+      w.gtag('event', 'purchase', { value, currency: 'USD', items: [{ item_name: `Forrest Micke Seminar - ${label}` }] });
+    }
+    try {
+      w._learnq = w._learnq || [];
+      w._learnq.push(['track', 'Forrest Seminar Registered', { ticket_type: label, value, currency: 'USD' }]);
+    } catch {}
+    try { localStorage.setItem('forrest_purchase_fired', ticket); } catch {}
+  }
+</script>

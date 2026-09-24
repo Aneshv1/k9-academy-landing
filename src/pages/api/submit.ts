@@ -15,6 +15,7 @@ const SERVICE_LABELS: Record<string, string> = {
   private_lessons: 'Private Lessons',
   group_classes: 'Group Classes',
   puppy_classes: 'Puppy Classes',
+  forrest_seminar: 'Forrest Micke Seminar',
 };
 
 export const POST: APIRoute = async ({ request }) => {

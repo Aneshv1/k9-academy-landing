@@ -1,0 +1,530 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+import '../../styles/global.css';
+
+// ============================================================
+// EDIT BEFORE LAUNCH
+// ============================================================
+// Stripe Payment Links, one per ticket. In Stripe, set each link's
+// "After payment" redirect to:
+//   https://training.k9academy.ca/forrest-micke/confirmed?ticket=working
+//   https://training.k9academy.ca/forrest-micke/confirmed?ticket=audit
+const STRIPE_LINKS = {
+  working: 'https://buy.stripe.com/REPLACE_WORKING_SPOT_LINK',
+  audit: 'https://buy.stripe.com/REPLACE_AUDIT_SPOT_LINK',
+};
+
+const PRICES = { working: 500, audit: 300 }; // USD
+
+// Lower this as working spots sell. Shown in the top bar, hero and ticket card.
+const WORKING_SPOTS_LEFT = 8;
+
+// Flip to true only once Forrest's team approves use of his reviews.
+const SHOW_FORREST_REVIEWS = false;
+
+// Path to a real photo of Forrest once his team supplies one, e.g. '/images/forrest-micke.jpg'.
+// No AI-generated images of Forrest.
+const FORREST_PHOTO = '';
+// ============================================================
+
+
+const topics = [
+  "'Reinforcement as a Process'",
+  'Behaviour Economics',
+  'Developing Play & Food Dynamics',
+  'Harnessing Arousal & Anticipation',
+  'Managing Criteria, Sessions & Expectations',
+  'Negative Reinforcement Prep & Principles',
+  'Basic to Advanced Obedience',
+  'Modern Marker Concepts',
+  'Generalizing Behaviour',
+  'Individual Troubleshooting',
+];
+
+const forrestReviews = [
+  { quote: "He's just such a well-rounded dog guy. An incredible eye for detail in training.", name: 'James W.' },
+  { quote: 'Forrest is superb. He takes the time to understand you, your dog and what you want from your relationship.', name: 'A.A.' },
+  { quote: 'I had the opportunity to work with Forrest for an extended period of time and admire his ability to adjust to each dog and handler.', name: 'Etienne S.' },
+  { quote: 'Forrest Micke is one of those rare individuals whose genuine interest in people equals his ability to effectively communicate his understanding of dog behavior.', name: 'Jaquie D.' },
+];
+
+const faqs = [
+  { q: 'Do I need to bring a dog?', a: 'Only with a Working Spot. Auditors attend both days without a dog.' },
+  { q: 'Where does my dog stay between turns?', a: 'Most handlers keep their dog in a crate in their car with the doors open. You can also bring your dog inside to rest in a kennel.' },
+  { q: 'Is my dog a good fit for a Working Spot?', a: 'If your dog is seriously reactive to other dogs, we suggest auditing. Call us if you are unsure.' },
+  { q: 'What currency are prices in?', a: 'US dollars.' },
+  { q: 'What is the refund policy?', a: 'Tickets are non-refundable but can be transferred to another person. Email us their name and we will update the registration.' },
+  { q: 'Other questions?', a: 'Call 437-778-5273 or email info@k9academy.ca.' },
+];
+---
+
+<Layout
+  title="Forrest Micke Seminar in Toronto | May 15 & 16, 2027 | K9 Academy"
+  description="A two-day hands-on seminar with Forrest Micke at K9 Academy Leaside, Toronto. May 15 and 16, 2027. Working Spots limited to 8 teams. Register now."
+>
+  <!-- TOP BAR -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-neutral-950/95 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <img src="/logo.png" alt="K9 Academy" class="h-8 sm:h-9 w-auto flex-shrink-0" />
+      <p class="hidden md:block text-xs font-semibold tracking-widest uppercase text-neutral-400">May 15 &amp; 16, 2027 <span class="text-neutral-600 mx-2">·</span> K9 Academy Leaside</p>
+      <a href="#register" class="flex-shrink-0 inline-flex items-center px-5 py-2.5 bg-k9-orange text-white text-sm font-bold rounded-lg hover:bg-k9-orange-dark transition-colors">Register</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative pt-32 sm:pt-40 pb-20 sm:pb-24 overflow-hidden bg-neutral-950">
+    <div class="absolute inset-0">
+      <img src="/images/hero-training.jpg" alt="" class="w-full h-full object-cover opacity-30" />
+      <div class="absolute inset-0 bg-gradient-to-b from-neutral-950/60 via-neutral-950/80 to-neutral-950"></div>
+    </div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-k9-orange text-xs sm:text-sm font-bold uppercase tracking-[0.2em] mb-6">K9 Academy presents</p>
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.02]">Forrest Micke</h1>
+      <p class="mt-5 text-xl sm:text-2xl text-neutral-300">A two-day seminar in Toronto</p>
+      <p class="mt-8 text-neutral-400">Saturday May 15 and Sunday May 16, 2027 · 9am to 5pm<br class="hidden sm:block" /> K9 Academy Leaside, 16-30 Canvarco Rd</p>
+      <a href="#register" class="mt-10 inline-flex items-center px-9 py-4 bg-k9-orange text-white text-lg font-bold rounded-xl hover:bg-k9-orange-dark transition-colors">Register</a>
+    </div>
+  </section>
+
+  <!-- ABOUT FORREST -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class={`max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 ${FORREST_PHOTO ? 'grid md:grid-cols-5 gap-12 items-start' : ''}`}>
+      {FORREST_PHOTO && (
+        <div class="md:col-span-2">
+          <img src={FORREST_PHOTO} alt="Forrest Micke" class="w-full aspect-[4/5] object-cover rounded-2xl" />
+        </div>
+      )}
+      <div class={FORREST_PHOTO ? 'md:col-span-3' : 'max-w-3xl mx-auto'}>
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">About Forrest</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">Forrest Micke</h2>
+        <div class="mt-6 space-y-4 text-neutral-600 leading-relaxed">
+          <p>Forrest is a professional dog trainer based in the San Francisco Bay Area with over 20 years in the field. He began in shelter and rescue behaviour modification, running shelter dog rehabilitation programs from 2007 to 2010, and went on to specialize in obedience and protection sports, from foundations through advanced performance work.</p>
+          <p>He has taught more than 150 seminars and workshops around the world for sport clubs, rescue organizations, search and rescue teams, law enforcement K9 units and private owners. His Everyday Working Dog seminar series has been presented over 60 times in five countries.</p>
+          <p>Forrest collaborates with Michael Ellis and Dr. Stewart Hilliard on the Kynology project, played a central role in developing CPP, China's first protection suit sport, and teaches Teaching Engagement Skills and The Heeler's Toolbox through Leerburg University.</p>
+        </div>
+        <dl class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-neutral-200 pt-8">
+          {[
+            ['20+', 'years training'],
+            ['150+', 'seminars taught'],
+            ['60+', 'Everyday Working Dog seminars'],
+            ['5', 'countries'],
+          ].map(([n, l]) => (
+            <div>
+              <dt class="text-3xl font-extrabold text-neutral-900">{n}</dt>
+              <dd class="mt-1 text-sm text-neutral-500">{l}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+
+    {SHOW_FORREST_REVIEWS && (
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 grid sm:grid-cols-2 gap-5">
+        {forrestReviews.map((r) => (
+          <figure class="p-6 rounded-2xl bg-neutral-50 border border-neutral-200">
+            <blockquote class="text-neutral-700 leading-relaxed">"{r.quote}"</blockquote>
+            <figcaption class="mt-4 text-sm font-bold text-neutral-900">{r.name}</figcaption>
+          </figure>
+        ))}
+      </div>
+    )}
+  </section>
+
+  <!-- THE SEMINAR -->
+  <section class="py-16 sm:py-24 bg-neutral-50 border-y border-neutral-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12">
+      <div>
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">The seminar</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">How the two days run</h2>
+        <div class="mt-6 space-y-4 text-neutral-600 leading-relaxed">
+          <p>Each day mixes lecture with working sessions on our indoor training floor.</p>
+          <p>Working teams train their own dogs with Forrest coaching them one at a time. Auditors watch every session and take part in the lectures and Q&amp;A.</p>
+          <p>Both days run 9am to 5pm.</p>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-sm font-bold uppercase tracking-widest text-neutral-500 mb-4">Topics</h3>
+        <ul class="divide-y divide-neutral-200 border-y border-neutral-200">
+          {topics.map((t) => (
+            <li class="py-3 text-neutral-900 font-medium">{t}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKETS -->
+  <section id="tickets" class="py-16 sm:py-24 bg-neutral-950 scroll-mt-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Tickets</h2>
+        <p class="mt-3 text-neutral-400">Both tickets include both days. Prices in USD.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <!-- Working Spot -->
+        <div class="relative rounded-2xl bg-white p-7 sm:p-9 ring-2 ring-k9-orange shadow-2xl shadow-k9-orange/10 flex flex-col">
+          <span class="absolute -top-3 left-7 inline-flex items-center px-3 py-1 rounded-full bg-k9-orange text-white text-xs font-bold uppercase tracking-wider">{WORKING_SPOTS_LEFT} spots</span>
+          <h3 class="text-xl font-extrabold text-neutral-900">Working Spot</h3>
+          <p class="text-sm text-neutral-500">Bring your dog</p>
+          <p class="mt-5 text-5xl font-extrabold text-neutral-900">${PRICES.working}<span class="text-base font-semibold text-neutral-400 ml-1">USD</span></p>
+          <ul class="mt-6 space-y-3 flex-1">
+            {[
+              'Coaching from Forrest with your dog',
+              'Lectures and Q&A',
+              'Watch all working sessions',
+            ].map((f) => (
+              <li class="flex items-start gap-2.5 text-sm text-neutral-700">
+                <svg class="w-5 h-5 text-k9-green flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <a href="#register" data-pick-ticket="working" class="mt-8 block text-center py-4 bg-k9-orange text-white font-bold rounded-xl hover:bg-k9-orange-dark transition-colors">
+            Register: Working Spot
+          </a>
+        </div>
+
+        <!-- Audit Spot -->
+        <div class="rounded-2xl bg-white/[0.04] border border-white/15 p-7 sm:p-9 flex flex-col">
+          <h3 class="text-xl font-extrabold text-white">Audit Spot</h3>
+          <p class="text-sm text-neutral-400">No dog</p>
+          <p class="mt-5 text-5xl font-extrabold text-white">${PRICES.audit}<span class="text-base font-semibold text-neutral-500 ml-1">USD</span></p>
+          <ul class="mt-6 space-y-3 flex-1">
+            {[
+              'Lectures and Q&A',
+              'Watch all working sessions',
+            ].map((f) => (
+              <li class="flex items-start gap-2.5 text-sm text-neutral-300">
+                <svg class="w-5 h-5 text-k9-green flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <a href="#register" data-pick-ticket="audit" class="mt-8 block text-center py-4 bg-white text-neutral-900 font-bold rounded-xl hover:bg-neutral-200 transition-colors">
+            Register: Audit Spot
+          </a>
+        </div>
+      </div>
+      <p class="mt-8 text-center text-xs text-neutral-500">Tickets are non-refundable but transferable to another person.</p>
+    </div>
+  </section>
+
+  <!-- REGISTRATION FORM -->
+  <section id="register" class="py-16 sm:py-24 bg-neutral-900 scroll-mt-16">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Register</h2>
+        <p class="mt-3 text-neutral-400">After this form you'll go to checkout.</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-2xl">
+        <form id="seminar-form" class="space-y-5" novalidate>
+          <!-- Ticket selector -->
+          <fieldset>
+            <legend class="block text-sm font-medium text-neutral-700 mb-2">Ticket <span class="text-red-500">*</span></legend>
+            <div class="grid grid-cols-2 gap-3">
+              <label class="ticket-option cursor-pointer rounded-xl border-2 border-neutral-200 p-4 has-[:checked]:border-k9-orange has-[:checked]:bg-k9-orange/5 transition">
+                <input type="radio" name="ticket_type" value="working" class="sr-only" required />
+                <span class="block font-bold text-neutral-900">Working Spot</span>
+                <span class="block text-sm text-neutral-500">${PRICES.working} USD · with your dog</span>
+              </label>
+              <label class="ticket-option cursor-pointer rounded-xl border-2 border-neutral-200 p-4 has-[:checked]:border-k9-orange has-[:checked]:bg-k9-orange/5 transition">
+                <input type="radio" name="ticket_type" value="audit" class="sr-only" />
+                <span class="block font-bold text-neutral-900">Audit Spot</span>
+                <span class="block text-sm text-neutral-500">${PRICES.audit} USD · no dog</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label for="first_name" class="field-label">First name <span class="text-red-500">*</span></label>
+              <input type="text" id="first_name" name="first_name" required autocomplete="given-name" class="field" />
+            </div>
+            <div>
+              <label for="last_name" class="field-label">Last name <span class="text-red-500">*</span></label>
+              <input type="text" id="last_name" name="last_name" required autocomplete="family-name" class="field" />
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label for="email" class="field-label">Email <span class="text-red-500">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email" class="field" placeholder="you@email.com" />
+            </div>
+            <div>
+              <label for="phone" class="field-label">Phone <span class="text-red-500">*</span></label>
+              <input type="tel" id="phone" name="phone" required autocomplete="tel" class="field" placeholder="(416) 555-1234" />
+            </div>
+          </div>
+
+          <!-- Working Spot only -->
+          <div id="dog-fields" class="hidden space-y-4 rounded-xl bg-neutral-50 border border-neutral-200 p-4 sm:p-5">
+            <p class="text-sm font-bold text-neutral-900">About your dog</p>
+            <div class="grid sm:grid-cols-3 gap-4">
+              <div>
+                <label for="dog_name" class="field-label">Dog's name <span class="text-red-500">*</span></label>
+                <input type="text" id="dog_name" name="dog_name" class="field" data-dog-required />
+              </div>
+              <div>
+                <label for="dog_breed" class="field-label">Breed <span class="text-red-500">*</span></label>
+                <input type="text" id="dog_breed" name="dog_breed" class="field" data-dog-required />
+              </div>
+              <div>
+                <label for="dog_age" class="field-label">Age <span class="text-red-500">*</span></label>
+                <input type="text" id="dog_age" name="dog_age" class="field" placeholder="e.g. 3 years" data-dog-required />
+              </div>
+            </div>
+            <div>
+              <label for="dog_goal" class="field-label">What do you most want Forrest's help with?</label>
+              <textarea id="dog_goal" name="dog_goal" rows="2" class="field resize-none" placeholder="e.g. Engagement falls apart around distractions"></textarea>
+            </div>
+            <div>
+              <label for="dog_reactivity" class="field-label">Any reactivity or aggression history? <span class="text-red-500">*</span></label>
+              <select id="dog_reactivity" name="dog_reactivity" class="field" data-dog-required>
+                <option value="">Select one</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </div>
+            <div id="reactivity-details-wrap" class="hidden">
+              <label for="dog_reactivity_details" class="field-label">Tell us a little more</label>
+              <textarea id="dog_reactivity_details" name="dog_reactivity_details" rows="2" class="field resize-none"></textarea>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label for="is_k9_client" class="field-label">Are you a K9 Academy client?</label>
+              <select id="is_k9_client" name="is_k9_client" class="field">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </div>
+            <div>
+              <label for="is_trainer" class="field-label">Are you a professional trainer?</label>
+              <select id="is_trainer" name="is_trainer" class="field">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="heard_from" class="field-label">How did you hear about this event?</label>
+            <select id="heard_from" name="heard_from" class="field">
+              <option value="">Select one</option>
+              <option>Instagram</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>Friend</option>
+              <option>Forrest's channels</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="space-y-3 pt-1">
+            <label class="flex items-start gap-3 text-sm text-neutral-600 cursor-pointer">
+              <input type="checkbox" name="agree_policy" required class="mt-0.5 w-4 h-4 rounded border-neutral-300 text-k9-orange focus:ring-k9-orange" />
+              <span>I understand tickets are non-refundable but can be transferred to another person. <span class="text-red-500">*</span></span>
+            </label>
+            <label class="flex items-start gap-3 text-sm text-neutral-600 cursor-pointer">
+              <input type="checkbox" name="marketing_consent" class="mt-0.5 w-4 h-4 rounded border-neutral-300 text-k9-orange focus:ring-k9-orange" />
+              <span>Send me emails about future K9 Academy seminars and events. You can unsubscribe any time.</span>
+            </label>
+          </div>
+
+          <p id="form-error" class="hidden text-sm font-medium text-red-600" role="alert"></p>
+
+          <button type="submit" id="submit-btn" class="w-full py-4 bg-k9-orange text-white text-base font-bold rounded-xl hover:bg-k9-orange-dark transition-all shadow-lg shadow-k9-orange/20 disabled:opacity-50 disabled:cursor-not-allowed">
+            Continue to checkout
+          </button>
+          <p class="text-center text-xs text-neutral-400 flex items-center justify-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
+            Secure payment by Stripe
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENUE -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <p class="text-k9-orange font-semibold text-sm tracking-wide uppercase mb-3">The venue</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">K9 Academy Leaside</h2>
+        <p class="mt-4 text-neutral-600 leading-relaxed">The seminar runs at our indoor training facility in Leaside.</p>
+        <p class="mt-4 font-semibold text-neutral-900">16-30 Canvarco Rd, Toronto, ON</p>
+        <a href="https://maps.google.com/?q=16-30+Canvarco+Rd,+Toronto,+ON" target="_blank" rel="noopener" class="mt-2 inline-block text-sm font-semibold text-k9-orange hover:text-k9-orange-dark">Get directions →</a>
+      </div>
+      <div class="rounded-2xl overflow-hidden border border-neutral-200 aspect-[4/3]">
+        <iframe
+          title="Map to K9 Academy Leaside"
+          src="https://www.google.com/maps?q=16-30+Canvarco+Rd,+Toronto,+ON&output=embed"
+          class="w-full h-full"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 sm:py-24 bg-neutral-50 border-t border-neutral-100">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 text-center mb-10">Questions</h2>
+      <div class="space-y-3">
+        {faqs.map((f) => (
+          <details class="group rounded-xl bg-white border border-neutral-200 open:shadow-sm">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none p-5 font-semibold text-neutral-900">
+              {f.q}
+              <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+            </summary>
+            <p class="px-5 pb-5 -mt-1 text-neutral-600 leading-relaxed">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <p class="py-6 bg-white text-center text-xs text-neutral-400">Forrest Micke appears as a guest instructor.</p>
+  <Footer />
+</Layout>
+
+<style>
+  .field-label { @apply block text-sm font-medium text-neutral-700 mb-1; }
+  .field { @apply w-full px-4 py-3 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-300 bg-white focus:outline-none focus:ring-2 focus:ring-k9-orange/30 focus:border-k9-orange transition text-sm; }
+</style>
+
+<script define:vars={{ STRIPE_LINKS, PRICES }}>
+  const form = document.getElementById('seminar-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const errorEl = document.getElementById('form-error');
+  const dogFields = document.getElementById('dog-fields');
+  const reactivitySelect = document.getElementById('dog_reactivity');
+  const reactivityWrap = document.getElementById('reactivity-details-wrap');
+  const dogRequired = dogFields.querySelectorAll('[data-dog-required]');
+
+  function setTicket(value) {
+    const radio = form.querySelector(`input[name="ticket_type"][value="${value}"]`);
+    if (radio) radio.checked = true;
+    syncDogFields();
+  }
+
+  function syncDogFields() {
+    const isWorking = form.querySelector('input[name="ticket_type"]:checked')?.value === 'working';
+    dogFields.classList.toggle('hidden', !isWorking);
+    dogRequired.forEach((el) => { el.required = isWorking; });
+  }
+
+  form.querySelectorAll('input[name="ticket_type"]').forEach((r) => r.addEventListener('change', syncDogFields));
+  document.querySelectorAll('[data-pick-ticket]').forEach((a) =>
+    a.addEventListener('click', () => setTicket(a.dataset.pickTicket))
+  );
+  reactivitySelect.addEventListener('change', () => {
+    reactivityWrap.classList.toggle('hidden', reactivitySelect.value !== 'Yes');
+  });
+
+  function showError(msg) {
+    errorEl.textContent = msg;
+    errorEl.classList.remove('hidden');
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorEl.classList.add('hidden');
+
+    if (!form.checkValidity()) {
+      const firstInvalid = form.querySelector(':invalid');
+      if (firstInvalid?.name === 'ticket_type') showError('Please choose a ticket.');
+      else if (firstInvalid?.name === 'agree_policy') showError('Please confirm the refund and transfer policy.');
+      else showError('Please fill in the required fields.');
+      firstInvalid?.focus();
+      return;
+    }
+
+    const data = Object.fromEntries(new FormData(form).entries());
+    const ticket = data.ticket_type;
+    const ticketLabel = ticket === 'working' ? 'Working Spot' : 'Audit Spot';
+    const name = `${data.first_name} ${data.last_name}`.trim();
+    const checkoutUrl = STRIPE_LINKS[ticket];
+
+    if (!checkoutUrl || checkoutUrl.includes('REPLACE_')) {
+      showError('Checkout is not connected yet. Please call us at 437-778-5273 to register.');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Taking you to checkout...';
+
+    const dogInfo = ticket === 'working'
+      ? `${data.dog_name}, ${data.dog_breed}, ${data.dog_age}`
+      : 'No dog (auditor)';
+
+    // Notify the team. Don't block checkout if this fails.
+    try {
+      await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email: data.email,
+          phone: data.phone,
+          service: 'forrest_seminar',
+          source_page: `Forrest Micke Seminar (${ticketLabel})`,
+          dog_info: dogInfo,
+          message: [
+            `Ticket: ${ticketLabel} ($${PRICES[ticket]} USD), sent to checkout, not yet confirmed paid`,
+            ticket === 'working' ? `Wants help with: ${data.dog_goal || '-'}` : '',
+            ticket === 'working' ? `Reactivity/aggression history: ${data.dog_reactivity}${data.dog_reactivity_details ? `. ${data.dog_reactivity_details}` : ''}` : '',
+            `K9 client: ${data.is_k9_client}`,
+            `Professional trainer: ${data.is_trainer}`,
+            `Heard from: ${data.heard_from || '-'}`,
+            `Marketing consent: ${data.marketing_consent ? 'Yes' : 'No'}`,
+          ].filter(Boolean).join('\n'),
+        }),
+      });
+    } catch (err) {
+      console.error('Lead notify failed:', err);
+    }
+
+    // Klaviyo: dog name gets its own property, never a combined "dog info" field
+    try {
+      window._learnq = window._learnq || [];
+      window._learnq.push(['identify', {
+        $email: data.email,
+        $first_name: data.first_name,
+        $last_name: data.last_name,
+        $phone_number: data.phone,
+        ticket_type: ticketLabel,
+        is_k9_client: data.is_k9_client,
+        is_trainer: data.is_trainer,
+        dog_name: data.dog_name || '',
+        dog_breed: data.dog_breed || '',
+        Source: 'Forrest Micke Seminar',
+      }]);
+      window._learnq.push(['track', 'Forrest Seminar Checkout Started', {
+        ticket_type: ticketLabel,
+        value: PRICES[ticket],
+        currency: 'USD',
+        heard_from: data.heard_from || '',
+        marketing_consent: !!data.marketing_consent,
+      }]);
+    } catch (err) {
+      console.error('Klaviyo push failed:', err);
+    }
+
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'InitiateCheckout', { value: PRICES[ticket], currency: 'USD', content_name: `Forrest Micke Seminar - ${ticketLabel}` });
+    }
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'begin_checkout', { value: PRICES[ticket], currency: 'USD', items: [{ item_name: `Forrest Micke Seminar - ${ticketLabel}` }] });
+    }
+
+    const url = new URL(checkoutUrl);
+    url.searchParams.set('prefilled_email', data.email);
+    setTimeout(() => { window.location.href = url.toString(); }, 500);
+  });
+</script>
