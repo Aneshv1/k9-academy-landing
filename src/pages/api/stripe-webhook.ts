@@ -12,7 +12,7 @@ export const prerender = false;
 const stripeKey = import.meta.env.STRIPE_SECRET_KEY || '';
 const webhookSecret = import.meta.env.STRIPE_WEBHOOK_SECRET || '';
 const resendApiKey = import.meta.env.RESEND_API_KEY || '';
-const eventsFrom = import.meta.env.EVENTS_FROM || 'K9 Academy <events@k9academy.ca>';
+const eventsFrom = import.meta.env.EVENTS_FROM || 'K9 Academy <info@k9academy.ca>';
 const notifyTo = import.meta.env.NOTIFY_TO || 'contact@k9academy.ca';
 
 export const POST: APIRoute = async ({ request }) => {
@@ -51,7 +51,7 @@ export const POST: APIRoute = async ({ request }) => {
   const [buyer, staff] = await Promise.all([
     resend.emails.send(
       {
-        from: eventsFrom,
+        from: mail.from,
         to: email,
         replyTo: mail.replyTo,
         subject: mail.subject,
