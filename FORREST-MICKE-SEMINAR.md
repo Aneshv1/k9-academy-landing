@@ -5,7 +5,7 @@ This is a separate event, unrelated to the apprenticeship page.
 
 - **URL (once deployed):** training.k9academy.ca/forrest-micke
 - **Event:** Sat May 15 + Sun May 16, 2027, 9am to 5pm, 16-30 Canvarco Rd, Toronto
-- **Branch:** `forrest-micke-seminar` (not merged to main, so not live yet)
+- **Status:** LIVE on main since 2026-09-25 at training.k9academy.ca/forrest-micke
 - **Source brief:** `FORREST-MICKE-BRIEF.md` (research + verified bio facts)
 
 ## Continue on another machine
@@ -63,15 +63,24 @@ On form submit:
 - No AI-sounding sales copy, no em dashes, Canadian spelling.
 - Topic list is Forrest's own "Learn About" list, used word for word (Canadian spelling only).
 
+## Payments and confirmation email (done 2026-09-25)
+
+- Stripe Payment Links are live in `STRIPE_LINKS` (Working Spot $500 USD capped at 8 sales in Stripe, Audit Spot $300 USD). Both carry metadata `event=forrest_micke`, `ticket=working|audit`.
+- `src/pages/api/stripe-webhook.ts` listens for `checkout.session.completed`, sends the buyer a confirmation (template in `src/lib/forrest-email.ts`, from info@k9academy.ca) and a "PAID:" notice to contact@k9academy.ca. If the buyer email fails, staff get an "ACTION NEEDED" email.
+- `src/pages/api/seminar-email-test.ts?key=<STRIPE_WEBHOOK_SECRET>&to=<email>&ticket=working|audit` sends a sample confirmation and returns Resend's response.
+- Env: `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET` in Vercel (production + preview). Never commit them.
+- Tested end to end with a $1 link on 2026-09-25 (refunded, link deactivated). First email landed in junk; fixed by sending from info@ with a light layout.
+- Stripe checkout shows the business name "K9 Expeditions" (Stripe account setting).
+
 ## Launch checklist
 
-- [ ] **Stripe:** create 2 Payment Links ($500 USD Working Spot, $300 USD Audit Spot). Set "After payment" redirect to
+- [x] **Stripe:** create 2 Payment Links ($500 USD Working Spot, $300 USD Audit Spot). Set "After payment" redirect to
   `https://training.k9academy.ca/forrest-micke/confirmed?ticket=working` and `...?ticket=audit`. Paste into `STRIPE_LINKS`.
   Optionally cap the Working Spot link at 8 sales in Stripe (Payment Link → limit number of payments).
 - [ ] **Forrest's written approval** for his name, bio, photos and reviews in ads + the page.
 - [ ] **Photos:** 3 or 4 real photos from Forrest's team (no AI images of Forrest, no photos lifted from his site). Real Leaside floor photos to replace the hero background if wanted.
 - [ ] Confirm the "How the two days run" description with Forrest (lecture + working sessions format).
-- [ ] FAQ gaps not yet on the page: lunch, parking, what to bring, doors-open time, filming rules. (Dog waiting between turns is answered: crate in car with doors open, or a kennel inside.)
+- [ ] FAQ gaps not yet on the page: parking, filming rules. (Lunch, what to bring, doors open 8:30 are in the confirmation email; add to page FAQ too.) (Dog waiting between turns is answered: crate in car with doors open, or a kennel inside.)
 - [ ] Klaviyo: list `Forrest Micke Seminar 2027: Registered`, flow triggered by `Forrest Seminar Registered` (confirmation, 30/7/1-day reminders, post-event survey). Abandoned flow off `Forrest Seminar Checkout Started` without a `Registered` event.
-- [ ] Test a real purchase end to end, check the Meta Purchase event in Events Manager.
-- [ ] Merge `forrest-micke-seminar` into `main` to go live.
+- [x] Test a real purchase end to end, check the Meta Purchase event in Events Manager.
+- [x] Merge `forrest-micke-seminar` into `main` to go live.

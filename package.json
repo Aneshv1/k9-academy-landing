@@ -8,7 +8,7 @@
     "preview": "astro preview"
   },
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.100.0",
