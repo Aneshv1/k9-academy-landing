@@ -17,7 +17,8 @@ const STRIPE_LINKS = {
 
 const PRICES = { working: 500, audit: 300 }; // USD
 
-// Lower this as working spots sell. Shown in the top bar, hero and ticket card.
+// Fallback only. The live number comes from Stripe via /api/seminar-spots and
+// replaces this on page load (see script at the bottom of this file).
 const WORKING_SPOTS_LEFT = 8;
 
 // Flip to true only once Forrest's team approves use of his reviews.
@@ -169,7 +170,7 @@ const faqs = [
       <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         <!-- Working Spot -->
         <div class="relative rounded-2xl bg-white p-7 sm:p-9 ring-2 ring-k9-orange shadow-2xl shadow-k9-orange/10 flex flex-col">
-          <span class="absolute -top-3 left-7 inline-flex items-center px-3 py-1 rounded-full bg-k9-orange text-white text-xs font-bold uppercase tracking-wider">{WORKING_SPOTS_LEFT} spots</span>
+          <span id="working-spots-badge" class="absolute -top-3 left-7 inline-flex items-center px-3 py-1 rounded-full bg-k9-orange text-white text-xs font-bold uppercase tracking-wider">{WORKING_SPOTS_LEFT} spots</span>
           <h3 class="text-xl font-extrabold text-neutral-900">Working Spot</h3>
           <p class="text-sm text-neutral-500">Bring your dog</p>
           <p class="mt-5 text-5xl font-extrabold text-neutral-900">${PRICES.working}<span class="text-base font-semibold text-neutral-400 ml-1">USD</span></p>
@@ -185,7 +186,7 @@ const faqs = [
               </li>
             ))}
           </ul>
-          <a href="#register" data-pick-ticket="working" class="mt-8 block text-center py-4 bg-k9-orange text-white font-bold rounded-xl hover:bg-k9-orange-dark transition-colors">
+          <a href="#register" data-pick-ticket="working" id="working-cta" class="mt-8 block text-center py-4 bg-k9-orange text-white font-bold rounded-xl hover:bg-k9-orange-dark transition-colors">
             Register: Working Spot
           </a>
         </div>
@@ -531,4 +532,26 @@ const faqs = [
     url.searchParams.set('prefilled_email', data.email);
     setTimeout(() => { window.location.href = url.toString(); }, 500);
   });
+</script>
+<script>
+  // Live Working Spot count from Stripe.
+  (async () => {
+    try {
+      const r = await fetch('/api/seminar-spots', { cache: 'no-store' });
+      if (!r.ok) return;
+      const d = await r.json();
+      const badge = document.getElementById('working-spots-badge');
+      const cta = document.getElementById('working-cta');
+      const radio = document.querySelector('input[name="ticket_type"][value="working"]');
+      const label = radio?.closest('label');
+      if (d.soldOut) {
+        if (badge) { badge.textContent = 'Sold out'; badge.classList.replace('bg-k9-orange', 'bg-neutral-700'); }
+        if (cta) { cta.textContent = 'Working Spots sold out'; cta.classList.add('pointer-events-none', 'opacity-50'); cta.removeAttribute('href'); }
+        if (radio) { radio.disabled = true; radio.checked = false; }
+        if (label) { label.classList.add('opacity-40', 'pointer-events-none'); }
+      } else if (badge) {
+        badge.textContent = d.left === 1 ? '1 spot left' : `${d.left} spots left`;
+      }
+    } catch (e) { /* keep the static fallback */ }
+  })();
 </script>
