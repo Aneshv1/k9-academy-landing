@@ -25,7 +25,8 @@ const SHOW_FORREST_REVIEWS = false;
 
 // Path to a real photo of Forrest once his team supplies one, e.g. '/images/forrest-micke.jpg'.
 // No AI-generated images of Forrest.
-const FORREST_PHOTO = '/images/forrest-micke.jpg';
+const FORREST_PHOTO = '/images/forrest-micke.jpg';      // hero
+const FORREST_PHOTO_2 = '/images/forrest-micke-2.jpg';  // bio section
 // ============================================================
 
 
@@ -95,7 +96,7 @@ const faqs = [
     <div class={`max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 ${FORREST_PHOTO ? 'grid md:grid-cols-5 gap-12 items-start' : ''}`}>
       {FORREST_PHOTO && (
         <div class="md:col-span-2">
-          <img src={FORREST_PHOTO} alt="Forrest Micke" class="w-full aspect-[4/5] object-cover rounded-2xl" />
+          <img src={FORREST_PHOTO_2 || FORREST_PHOTO} alt="Forrest Micke working with a dog at a seminar" class="w-full aspect-[4/5] object-cover rounded-2xl" />
         </div>
       )}
       <div class={FORREST_PHOTO ? 'md:col-span-3' : 'max-w-3xl mx-auto'}>
