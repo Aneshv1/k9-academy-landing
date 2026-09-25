@@ -71,7 +71,10 @@ export const POST: APIRoute = async ({ request }) => {
       { idempotencyKey: `fm-staff-${ref}` },
     ),
   ]);
-  if (buyer.error) console.error('Buyer email error', buyer.error);
+  if (buyer.error) {
+    console.error('Buyer email error', buyer.error);
+    await resend.emails.send({ from: eventsFrom, to: notifyTo, subject: `ACTION NEEDED: confirmation email to ${email} failed (Forrest seminar)`, text: `Resend error: ${JSON.stringify(buyer.error)}\n\nSend them the confirmation manually. Name: ${name}, ticket: ${ticketName}, Stripe: ${ref}` });
+  }
   if (staff.error) console.error('Staff email error', staff.error);
 
   return new Response('ok', { status: 200 });
